@@ -96,12 +96,13 @@ describe("ingestors", () => {
     expect(await code.ingest(tsFile, { rootDir: "/x", knownFiles: new Set<string>() })).toEqual(
       code.ingestSync!(tsFile, { rootDir: "/x", knownFiles: new Set<string>() }),
     );
-    expect(
-      code.ingestSync!(src("a.unknown", "?"), { rootDir: "/x", knownFiles: new Set<string>() }),
-    ).toEqual({
-      nodes: [],
-      links: [],
+    // Unmatched files still yield their file node (universal coverage, never EMPTY).
+    const unknown = code.ingestSync!(src("a.unknown", "?"), {
+      rootDir: "/x",
+      knownFiles: new Set<string>(),
     });
+    expect(unknown.nodes.map((n) => n.id)).toEqual(["file:a.unknown"]);
+    expect(unknown.links).toEqual([]);
   });
 });
 
@@ -143,5 +144,30 @@ describe("assertGraphContract branches", () => {
 
   it("rejects non-objects", () => {
     expect(() => assertGraphContract(null)).toThrowError(/graph is not an object/);
+  });
+});
+
+describe("grammar load failure resilience", () => {
+  it("a throwing load() falls through to the next registration (async chain)", async () => {
+    const { createCodeIngestor } = await import("../src/ingest/code.js");
+    const registry = new Registry<typeof typescriptExtractor>([
+      {
+        id: "broken-grammar",
+        extensions: [".ts"],
+        load: () => Promise.reject(new Error("wasm missing")),
+      },
+      {
+        id: "working",
+        extensions: [".ts"],
+        load: () => Promise.resolve(typescriptExtractor),
+        loadSync: () => typescriptExtractor,
+      },
+    ]);
+    const ingestor = createCodeIngestor(registry);
+    const out = await ingestor.ingest(src("a.ts", "export function ok(): void {}"), {
+      rootDir: "/x",
+      knownFiles: new Set<string>(),
+    });
+    expect(out.nodes.some((n) => n.label === "ok")).toBe(true); // fell through, extracted
   });
 });

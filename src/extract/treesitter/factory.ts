@@ -28,6 +28,8 @@ export interface DefinitionRule {
   readonly nameField?: string;
   /** When the name hides in a child (e.g. java field_declaration → variable_declarator). */
   readonly nameChildType?: string;
+  /** C-family: the name lives inside a declarator ("int main(void)" → "main"). */
+  readonly nameStrategy?: "declarator";
   /** Definitions found inside become `Container.member` symbols. */
   readonly container?: boolean;
 }
@@ -155,10 +157,12 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
           }
           // Recurse into every definition: nested defs (container rules qualify them) and
           // call sites inside the body, attributed to this symbol.
+          // Containers pass their QUALIFIED name down — deep nesting keeps the full path
+          // (Billing.Invoice.audit, not Invoice.audit).
           visit(
             child,
             rule.container ? id : containerId,
-            rule.container ? name : containerName,
+            rule.container ? symbolName : containerName,
             id,
           );
         }
@@ -192,12 +196,26 @@ function pythonDocstring(def: Node): string | undefined {
 
 function definitionName(node: Node, rule: DefinitionRule): string | undefined {
   const direct = node.childForFieldName(rule.nameField ?? "name");
-  if (direct) return direct.text;
+  if (direct) {
+    if (rule.nameStrategy !== "declarator") return direct.text;
+    // "int main(void)" / "*Engine::start(...)" → the identifier before the parameter list.
+    const head = direct.text.split("(")[0] ?? "";
+    const name = head
+      .trim()
+      .split(/[\s*&:]+/)
+      .filter(Boolean)
+      .pop();
+    return name && /^[A-Za-z_]\w*$/.test(name) ? name : undefined;
+  }
   if (rule.nameChildType) {
-    for (const child of node.namedChildren) {
-      if (child?.type === rule.nameChildType) {
+    // BFS — the carrier may nest (c# field_declaration → variable_declaration → declarator).
+    const queue: Node[] = [...node.namedChildren].filter((c): c is Node => c !== null);
+    while (queue.length) {
+      const child = queue.shift() as Node;
+      if (child.type === rule.nameChildType) {
         return child.childForFieldName("name")?.text ?? child.text;
       }
+      for (const next of child.namedChildren) if (next) queue.push(next);
     }
   }
   return undefined;

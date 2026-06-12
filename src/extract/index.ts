@@ -44,6 +44,12 @@ export const defaultExtractors = new Registry<Extractor>([
     extensions: extensionsFor("rust"),
     load: () => import("./treesitter/rust.js").then((m) => m.create()),
   },
+  // The widened wave — one shared module, per-language configs (Swift: blocked on upstream wasm).
+  ...["ruby", "c", "cpp", "csharp", "bash", "php", "scala", "kotlin"].map((language) => ({
+    id: `treesitter-${language}`,
+    extensions: extensionsFor(language),
+    load: () => import("./treesitter/widened.js").then((m) => m.create(language)),
+  })),
   {
     id: pythonExtractor.id,
     extensions: [".py"],

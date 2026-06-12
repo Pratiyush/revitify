@@ -1,9 +1,16 @@
 import type { Extractor } from "../extract/extractor.js";
+import { createBuilder, fileNode } from "../extract/fragment-builder.js";
 import type { Registry } from "../extract/registry.js";
 import type { GraphFragment, SourceFile } from "../model/fragment.js";
 import type { IngestContext, Ingestor } from "./ingestor.js";
 
-const EMPTY: GraphFragment = { nodes: [], links: [] };
+/** No usable extractor (sync path on a lazy-only grammar, or every load failed): the file still
+ *  exists — a bare file node keeps universal coverage intact. */
+const fileOnly = (file: SourceFile): GraphFragment => {
+  const b = createBuilder();
+  fileNode(b, file.relPath);
+  return { nodes: b.nodes, links: b.links };
+};
 
 /**
  * Code ingestion = whatever language the extractor registry recognizes. Always offline.
@@ -18,7 +25,7 @@ export function createCodeIngestor(extractors: Registry<Extractor>): Ingestor {
         return extractor.extract(file, { rootDir: ctx.rootDir, knownFiles: ctx.knownFiles });
       }
     }
-    return EMPTY;
+    return fileOnly(file);
   };
   const ingest = async (file: SourceFile, ctx: IngestContext): Promise<GraphFragment> => {
     for (const reg of extractors.matchAll(file)) {
@@ -30,7 +37,7 @@ export function createCodeIngestor(extractors: Registry<Extractor>): Ingestor {
       }
       return extractor.extract(file, { rootDir: ctx.rootDir, knownFiles: ctx.knownFiles });
     }
-    return EMPTY;
+    return fileOnly(file);
   };
   return {
     id: "code",

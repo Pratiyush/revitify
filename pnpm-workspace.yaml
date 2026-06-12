@@ -1,9 +1,19 @@
 # esbuild postinstall fetches its platform binary — approved (same policy as llm-dev-kit).
-# The tree-sitter-<lang> grammars ship prebuilt .wasm: their node-gyp builds must NEVER run —
+# Every tree-sitter grammar ships prebuilt .wasm: their node-gyp builds must NEVER run —
 # explicitly false so pnpm v11 installs exit 0 instead of erroring on undecided builds.
 allowBuilds:
   esbuild: true
+  '@tree-sitter-grammars/tree-sitter-kotlin': false
+  tree-sitter-bash: false
+  tree-sitter-c: false
+  tree-sitter-c-sharp: false
+  tree-sitter-cli: false
+  tree-sitter-cpp: false
   tree-sitter-go: false
   tree-sitter-java: false
+  tree-sitter-php: false
   tree-sitter-python: false
+  tree-sitter-ruby: false
   tree-sitter-rust: false
+  tree-sitter-scala: false
+  tree-sitter-swift: false

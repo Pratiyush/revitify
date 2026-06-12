@@ -119,8 +119,14 @@ describe("sync facade on the same tree", () => {
     expect(labels.has("Post")).toBe(true); // regex python: top-level class
     expect(labels.has("Account")).toBe(true); // regex java: type declarations
     expect(labels.has("getBalance")).toBe(false); // no member depth without tree-sitter
-    expect(graph.nodes.some((n) => n.source_file.endsWith(".go"))).toBe(false);
-    expect(graph.nodes.some((n) => n.source_file.endsWith(".rs"))).toBe(false);
+    // Universal coverage: go/rust files still get FILE nodes in sync — just no symbols.
+    expect(graph.nodes.some((n) => n.id === "file:gosrc/main.go")).toBe(true);
+    expect(graph.nodes.some((n) => n.id.startsWith("sym:") && n.source_file.endsWith(".go"))).toBe(
+      false,
+    );
+    expect(graph.nodes.some((n) => n.id.startsWith("sym:") && n.source_file.endsWith(".rs"))).toBe(
+      false,
+    );
   });
 });
 

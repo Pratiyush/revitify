@@ -1,7 +1,7 @@
 {
   "name": "revitify",
   "version": "0.1.0",
-  "description": "Revitify — Rivet's native TypeScript code-knowledge-graph engine. Same output contract as graphify (graph.json · graph.html · GRAPH_REPORT.md), zero Python required. Concepts adapted from graphify (MIT, github.com/safishamsi/graphify); original implementation.",
+  "description": "Revitify \u2014 Rivet's native TypeScript code-knowledge-graph engine. Same output contract as graphify (graph.json \u00b7 graph.html \u00b7 GRAPH_REPORT.md), zero Python required. Concepts adapted from graphify (MIT, github.com/safishamsi/graphify); original implementation.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./src/index.ts",
@@ -34,10 +34,18 @@
     "zod": "^4.4.3"
   },
   "optionalDependencies": {
+    "@tree-sitter-grammars/tree-sitter-kotlin": "^1.1.0",
+    "tree-sitter-bash": "^0.25.1",
+    "tree-sitter-c": "^0.24.1",
+    "tree-sitter-c-sharp": "^0.23.5",
+    "tree-sitter-cpp": "^0.23.4",
     "tree-sitter-go": "^0.25.0",
     "tree-sitter-java": "^0.23.5",
+    "tree-sitter-php": "^0.24.2",
     "tree-sitter-python": "^0.25.0",
+    "tree-sitter-ruby": "^0.23.1",
     "tree-sitter-rust": "^0.24.0",
+    "tree-sitter-scala": "^0.24.0",
     "web-tree-sitter": "^0.26.9"
   },
   "devDependencies": {
