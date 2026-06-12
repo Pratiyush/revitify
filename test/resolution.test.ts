@@ -101,3 +101,18 @@ describe("self-output exclusion", () => {
     expect(labels.some((l) => l.includes("Node kinds"))).toBe(false);
   });
 });
+
+describe("ambiguity without a same-dir candidate", () => {
+  it("falls back to lexicographic id order, still AMBIGUOUS", () => {
+    const graph = buildGraph(
+      project({
+        "zeta/util.ts": "export function helper(): void {}",
+        "alpha/util.ts": "export function helper(): void {}",
+        "mid/caller.ts": `import { helper } from "../alpha/util.js";\nexport function run(): void {}`,
+      }),
+    );
+    const ref = graph.links.find((l) => l.relation === "references");
+    expect(ref?.confidence).toBe(Confidence.AMBIGUOUS);
+    expect(ref?.target).toBe("sym:alpha/util.ts#helper"); // lexicographically first
+  });
+});

@@ -19,6 +19,13 @@
   "dependencies": {
     "typescript": "^5.5.4"
   },
+  "optionalDependencies": {
+    "tree-sitter-go": "^0.25.0",
+    "tree-sitter-java": "^0.23.5",
+    "tree-sitter-python": "^0.25.0",
+    "tree-sitter-rust": "^0.24.0",
+    "web-tree-sitter": "^0.26.9"
+  },
   "devDependencies": {
     "@biomejs/biome": "^2.4.16",
     "@types/node": "^22.5.0",

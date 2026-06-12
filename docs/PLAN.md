@@ -18,8 +18,12 @@
       EXTRACTED), dangling-import resolution against the walked-file set — gate passed 2026-06-12
       (every link tagged: corpus EXTRACTED 671 / INFERRED 428 / AMBIGUOUS 2; danglers dropped;
       revitify-out self-ingestion excluded; expectation re-baselined, 33 tests)
-- [ ] **Phase 2** — Multi-language: web-tree-sitter + tree-sitter-wasms (optional, lazy),
+- [x] **Phase 2** — Multi-language: web-tree-sitter + official tree-sitter-<lang> npm grammars
+      (optional, lazy; tree-sitter-wasms rejected — its 2024 builds are ABI-incompatible),
       detect.ts, sha256+stat cache, worker-pool parallel, `buildGraphAsync`/`revitifyAsync`
+      — gate passed 2026-06-12 (Java in first wave WITH constructors/methods/fields per user
+      requirement; lazy boundary proven with positive control; corpus 202ms cold / 15ms warm;
+      46 tests)
 - [ ] **Phase 3** — Three-pass intelligence: symbol resolution, minhash dedup, Louvain+Leiden-
       refinement clustering with re-splits (zero new deps)
 - [ ] **Phase 4** — Report parity: god-nodes, surprise scoring, suggested questions (betweenness),

@@ -32,7 +32,12 @@ export function walkFileRefs(rootDir: string): FileRef[] {
       const st = statSync(path);
       if (st.isDirectory()) walk(path);
       else if (st.isFile() && st.size < 2_000_000) {
-        out.push({ path, relPath: relative(rootDir, path).split("\\").join("/"), size: st.size });
+        out.push({
+          path,
+          relPath: relative(rootDir, path).split("\\").join("/"),
+          size: st.size,
+          mtimeMs: st.mtimeMs,
+        });
       }
     }
   };

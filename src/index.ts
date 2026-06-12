@@ -4,12 +4,14 @@ import type { ExportContext } from "./export/exporter.js";
 import { defaultExporters } from "./export/index.js";
 import type { RevitifyGraph } from "./model/graph.js";
 import { buildGraphFromRoot } from "./passes/pipeline.js";
+import { type BuildOptions, buildGraphFromRootAsync } from "./passes/pipeline-async.js";
 
 export { renderReport } from "./export/report.js";
 export { walkFiles } from "./ingest/walk.js";
 export { Confidence } from "./model/confidence.js";
 export { assertGraphContract, CONTRACT } from "./model/contract.js";
 export type { RevitifyGraph, RevitifyLink, RevitifyNode } from "./model/graph.js";
+export type { BuildOptions } from "./passes/pipeline-async.js";
 
 /**
  * Revitify — Rivet's native TypeScript counterpart to graphify (concepts adapted from
@@ -29,6 +31,24 @@ export function buildGraph(rootDir: string): RevitifyGraph {
   return buildGraphFromRoot(rootDir);
 }
 
+/**
+ * The full-power additive API (Phase 2): lazy tree-sitter multi-language extraction
+ * (TS/JS + Python/Java/Go/Rust), per-file cache with stat fastpath, worker-pool parallelism.
+ * The sync buildGraph/revitify stay frozen on the zero-heavy-dep path.
+ */
+export function buildGraphAsync(rootDir: string, options?: BuildOptions): Promise<RevitifyGraph> {
+  return buildGraphFromRootAsync(rootDir, options);
+}
+
+export async function revitifyAsync(
+  rootDir: string,
+  outDir = "revitify-out",
+  options?: BuildOptions,
+): Promise<RevitifyResult> {
+  const graph = await buildGraphAsync(rootDir, options);
+  return writeArtifacts(rootDir, outDir, graph);
+}
+
 export interface RevitifyResult {
   graphJsonPath: string;
   counts: { nodes: number; links: number };
@@ -36,7 +56,10 @@ export interface RevitifyResult {
 
 /** The one-call entrypoint: ingest → emit the full output contract into outDir. */
 export function revitify(rootDir: string, outDir = "revitify-out"): RevitifyResult {
-  const graph = buildGraph(rootDir);
+  return writeArtifacts(rootDir, outDir, buildGraph(rootDir));
+}
+
+function writeArtifacts(rootDir: string, outDir: string, graph: RevitifyGraph): RevitifyResult {
   const out = join(rootDir, outDir);
   mkdirSync(out, { recursive: true });
   const ctx: ExportContext = { rootDir, outDir: out };

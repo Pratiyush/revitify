@@ -5,6 +5,8 @@ export interface FileRef {
   path: string;
   relPath: string;
   size: number;
+  /** Populated by the walker; powers the cache's stat fastpath. */
+  mtimeMs?: number;
 }
 
 /** A file with its content loaded, ready for extraction/ingestion. */

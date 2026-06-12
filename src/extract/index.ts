@@ -1,14 +1,21 @@
+import { EXTENSION_LANGUAGES } from "./detect.js";
 import type { Extractor } from "./extractor.js";
 import { javaExtractor } from "./java.js";
 import { pythonExtractor } from "./python.js";
 import { Registry } from "./registry.js";
 import { typescriptExtractor } from "./typescript.js";
 
+/** detect.ts is the single source of truth for extension → language. */
+const extensionsFor = (language: string): string[] =>
+  Object.entries(EXTENSION_LANGUAGES)
+    .filter(([, lang]) => lang === language)
+    .map(([ext]) => ext);
+
 /**
- * Ordered extractor registrations — first match wins; dispatch order is part of the contract
- * (TS before the line grammars, mirroring the original switch). Adding a language = one entry
- * here. Phase 2 tree-sitter entries get `load()`-only thunks (no loadSync) so grammars stay
- * out of the sync path and out of `import { revitify }`.
+ * Ordered extractor registrations — first match wins per path; matchAll() yields the fallback
+ * chain. Tree-sitter entries are load()-only (no loadSync): the synchronous facade skips them
+ * and falls back to the regex extractors, while buildGraphAsync gets the full grammars. A
+ * failed wasm load also falls back — degraded, never fatal, offline invariant intact.
  */
 export const defaultExtractors = new Registry<Extractor>([
   {
@@ -16,6 +23,26 @@ export const defaultExtractors = new Registry<Extractor>([
     detect: (f) => typescriptExtractor.detect(f),
     load: () => Promise.resolve(typescriptExtractor),
     loadSync: () => typescriptExtractor,
+  },
+  {
+    id: "treesitter-python",
+    extensions: extensionsFor("python"),
+    load: () => import("./treesitter/python.js").then((m) => m.create()),
+  },
+  {
+    id: "treesitter-java",
+    extensions: extensionsFor("java"),
+    load: () => import("./treesitter/java.js").then((m) => m.create()),
+  },
+  {
+    id: "treesitter-go",
+    extensions: extensionsFor("go"),
+    load: () => import("./treesitter/go.js").then((m) => m.create()),
+  },
+  {
+    id: "treesitter-rust",
+    extensions: extensionsFor("rust"),
+    load: () => import("./treesitter/rust.js").then((m) => m.create()),
   },
   {
     id: pythonExtractor.id,

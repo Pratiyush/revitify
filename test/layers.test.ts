@@ -21,8 +21,16 @@ const src = (relPath: string, content: string): SourceFile => ({ ...ref(relPath)
 describe("extractor registry", () => {
   it("dispatches by detect/extensions and rejects .d.ts and unknown files", () => {
     expect(defaultExtractors.match(ref("a.ts"))?.id).toBe("typescript");
-    expect(defaultExtractors.match(ref("a.py"))?.id).toBe("ts-python");
-    expect(defaultExtractors.match(ref("A.java"))?.id).toBe("ts-java");
+    // Fallback chains: tree-sitter first (async path), regex behind it (sync path).
+    expect(defaultExtractors.matchAll(ref("a.py")).map((r) => r.id)).toEqual([
+      "treesitter-python",
+      "ts-python",
+    ]);
+    expect(defaultExtractors.matchAll(ref("A.java")).map((r) => r.id)).toEqual([
+      "treesitter-java",
+      "ts-java",
+    ]);
+    expect(defaultExtractors.match(ref("main.go"))?.id).toBe("treesitter-go");
     expect(defaultExtractors.match(ref("a.d.ts"))).toBeUndefined();
     expect(defaultExtractors.match(ref("a.json"))).toBeUndefined();
   });
@@ -42,7 +50,8 @@ describe("extractor registry", () => {
     expect(reg).toBeDefined();
     expect(lazyOnly.resolveSync(reg!)).toBeUndefined(); // no loadSync — async-only module
     expect((await lazyOnly.resolve(reg!)).id).toBe("lazy");
-    expect(lazyOnly.resolveSync(reg!)).toEqual({ id: "lazy" }); // cached after async load
+    // Still undefined after the async load: sync output must not depend on process history.
+    expect(lazyOnly.resolveSync(reg!)).toBeUndefined();
   });
 });
 

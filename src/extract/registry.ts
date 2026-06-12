@@ -26,12 +26,22 @@ export class Registry<T> {
 
   /** First registration whose extension pre-filter AND detect() accept the file. */
   match(file: FileRef): Registration<T> | undefined {
+    return this.matchAll(file)[0];
+  }
+
+  /**
+   * Every matching registration, in order — the fallback chain. The sync path naturally skips
+   * load()-only entries (resolveSync → undefined) and lands on the next match (e.g. tree-sitter
+   * python → regex python); the async path tries resolve() and falls through on load failure.
+   */
+  matchAll(file: FileRef): Registration<T>[] {
+    const out: Registration<T>[] = [];
     for (const reg of this.registrations) {
       if (reg.extensions && !reg.extensions.some((ext) => file.relPath.endsWith(ext))) continue;
       if (reg.detect && !reg.detect(file)) continue;
-      return reg;
+      out.push(reg);
     }
-    return undefined;
+    return out;
   }
 
   async resolve(reg: Registration<T>): Promise<T> {
@@ -42,12 +52,17 @@ export class Registry<T> {
     return loaded;
   }
 
-  /** Undefined when the registration has no sync loader (heavy/lazy modules). */
+  /**
+   * Undefined when the registration has no sync loader (heavy/lazy modules) — even if the
+   * async path already loaded it. The sync facade's output must be deterministic regardless
+   * of process history; an earlier buildGraphAsync must never upgrade a later buildGraph.
+   */
   resolveSync(reg: Registration<T>): T | undefined {
+    if (!reg.loadSync) return undefined;
     const hit = this.cache.get(reg.id);
     if (hit !== undefined) return hit;
-    const loaded = reg.loadSync?.();
-    if (loaded !== undefined) this.cache.set(reg.id, loaded);
+    const loaded = reg.loadSync();
+    this.cache.set(reg.id, loaded);
     return loaded;
   }
 }
