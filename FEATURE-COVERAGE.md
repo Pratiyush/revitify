@@ -13,7 +13,7 @@
 | extract.py (Python/Java/Go/Rust) | ✅ | extract/treesitter/* | official grammar wasm, lazy; **Java deeper than upstream: constructors, fields, enum constants, records, nested types** |
 | extract.py (Ruby/C/C++/C#/Kotlin/Swift/PHP/Scala/Bash…) | ⏳ | — | LanguageConfig pattern makes each ≈30 lines + grammar dep; add on demand |
 | detect.py | 🟡 | model/languages.ts | extension map; shebang sniffing not yet |
-| "why" nodes (NOTE/WHY/HACK + docstrings) | ✅ | extract/fragment-builder.ts | relation `explains` (upstream: `rationale_for`); python docstrings → `documents` |
+| "why" nodes (NOTE/WHY/HACK + docstrings) | ✅ | extract/fragment-builder.ts | relation `rationale_for` (upstream's name, adopted); python docstrings → `documents` |
 | ingest.py (markdown) | ✅ | ingest/markdown.ts | h1/h2 headings, fence-aware |
 | cache.py | ✅ | cache/ast.ts | sha256 content keys + stat-index fastpath; honest whole-set invalidation |
 | parallel extraction | ✅ | passes/worker-pool.ts | worker_threads ≥50 files; byte-identical to sequential |
