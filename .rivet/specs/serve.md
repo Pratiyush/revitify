@@ -29,3 +29,17 @@ WHEN `revitify install` runs THEN the /revitify skill SHALL land in .claude/skil
 `revitify diagnose` runs THEN grammar loadability, cache, and graph presence SHALL report.
 
 @check kind=unit ref=test/serve.test.ts::install drops the skill; diagnose reports grammars
+
+## Requirement REQUIREMENT_VIEWER-01 — the redesigned graph.html stays offline
+
+WHEN graph.html renders THEN the design-handoff template SHALL carry all four libraries
+(cytoscape, layout-base, cose-base, fcose) INLINED with zero external sources, the graph
+injected at the DATA INJECTION POINT (function-form replacement — minified libs contain $'
+substitution hazards), and `</script>` escaped in data; the original canvas viewer SHALL stay
+available as graph-lite.html; docstrings SHALL surface as the additive `summary` node field.
+
+@check kind=unit ref=test/viewer.test.ts::is fully offline: four libraries inlined, zero external sources
+@check kind=unit ref=test/viewer.test.ts::injects the graph at the DATA INJECTION POINT and keeps contract probes
+@check kind=unit ref=test/viewer.test.ts::escapes </script> sequences in data
+@check kind=unit ref=test/viewer.test.ts::still renders the zero-dependency canvas viewer via extraExporters
+@check kind=unit ref=test/viewer.test.ts::docstrings surface as summary on their symbol (and stay as nodes)

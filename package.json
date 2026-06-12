@@ -18,7 +18,7 @@
     ]
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && mkdir -p dist/export && cp -R src/export/assets dist/export/",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "lint": "biome check .",
@@ -30,6 +30,8 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
     "chokidar": "^5.0.0",
+    "cytoscape": "^3.34.0",
+    "cytoscape-fcose": "^2.2.0",
     "typescript": "^5.5.4",
     "zod": "^4.4.3"
   },

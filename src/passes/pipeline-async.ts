@@ -8,6 +8,7 @@ import { assignCommunities } from "./cluster.js";
 import { dedupNodes } from "./dedup/index.js";
 import { gitHead } from "./git.js";
 import { resolveReferences } from "./resolve.js";
+import { attachSummaries } from "./summarize.js";
 import { extractInWorkers } from "./worker-pool.js";
 
 /**
@@ -82,6 +83,7 @@ export async function buildGraphFromRootAsync(
   }
   const resolved = resolveReferences(nodes, links);
   const deduped = dedupNodes([...nodes.values()], resolved);
+  attachSummaries(deduped.nodes, deduped.links);
   assignCommunities(deduped.nodes, deduped.links);
   const head = gitHead(rootDir);
   return {

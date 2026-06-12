@@ -10,7 +10,7 @@ import type { RevitifyGraph } from "./graph.js";
 export const CONTRACT = {
   artifacts: ["graph.json", "graph.html", "GRAPH_REPORT.md"],
   nodeRequired: ["id", "label", "source_file"],
-  nodeOptional: ["name", "kind", "source_location", "community"],
+  nodeOptional: ["name", "kind", "source_location", "community", "summary"],
   linkRequired: ["source", "target"],
   linkOptional: ["relation", "confidence"],
 } as const;

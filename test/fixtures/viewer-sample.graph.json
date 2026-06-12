@@ -1,0 +1,424 @@
+{
+  "nodes": [
+    {
+      "id": "file:README.md",
+      "label": "README.md",
+      "name": "README.md",
+      "kind": "file",
+      "source_file": "README.md",
+      "community": 0
+    },
+    {
+      "id": "doc:README.md#Revitify",
+      "label": "Revitify",
+      "name": "Revitify",
+      "kind": "doc",
+      "source_file": "README.md",
+      "source_location": "README.md:1",
+      "community": 0
+    },
+    {
+      "id": "file:src/html.ts",
+      "label": "src/html.ts",
+      "name": "src/html.ts",
+      "kind": "file",
+      "source_file": "src/html.ts",
+      "community": 1
+    },
+    {
+      "id": "sym:src/html.ts#renderHtml",
+      "label": "renderHtml",
+      "name": "renderHtml",
+      "kind": "function",
+      "source_file": "src/html.ts",
+      "source_location": "src/html.ts:8",
+      "community": 1
+    },
+    {
+      "id": "file:src/index.ts",
+      "label": "src/index.ts",
+      "name": "src/index.ts",
+      "kind": "file",
+      "source_file": "src/index.ts",
+      "community": 1
+    },
+    {
+      "id": "sym:src/index.ts#buildGraph",
+      "label": "buildGraph",
+      "name": "buildGraph",
+      "kind": "function",
+      "source_file": "src/index.ts",
+      "source_location": "src/index.ts:20",
+      "community": 1
+    },
+    {
+      "id": "sym:src/index.ts#renderReport",
+      "label": "renderReport",
+      "name": "renderReport",
+      "kind": "function",
+      "source_file": "src/index.ts",
+      "source_location": "src/index.ts:26",
+      "community": 1
+    },
+    {
+      "id": "sym:src/index.ts#RevitifyResult",
+      "label": "RevitifyResult",
+      "name": "RevitifyResult",
+      "kind": "interface",
+      "source_file": "src/index.ts",
+      "source_location": "src/index.ts:66",
+      "community": 1
+    },
+    {
+      "id": "sym:src/index.ts#revitify",
+      "label": "revitify",
+      "name": "revitify",
+      "kind": "function",
+      "source_file": "src/index.ts",
+      "source_location": "src/index.ts:72",
+      "community": 1
+    },
+    {
+      "id": "sym:src/index.ts#gitHead",
+      "label": "gitHead",
+      "name": "gitHead",
+      "kind": "function",
+      "source_file": "src/index.ts",
+      "source_location": "src/index.ts:83",
+      "community": 1
+    },
+    {
+      "id": "file:src/ingest.ts",
+      "label": "src/ingest.ts",
+      "name": "src/ingest.ts",
+      "kind": "file",
+      "source_file": "src/ingest.ts",
+      "community": 1
+    },
+    {
+      "id": "sym:src/ingest.ts#walkFiles",
+      "label": "walkFiles",
+      "name": "walkFiles",
+      "kind": "function",
+      "source_file": "src/ingest.ts",
+      "source_location": "src/ingest.ts:37",
+      "community": 1
+    },
+    {
+      "id": "sym:src/ingest.ts#Builder",
+      "label": "Builder",
+      "name": "Builder",
+      "kind": "interface",
+      "source_file": "src/ingest.ts",
+      "source_location": "src/ingest.ts:52",
+      "community": 1
+    },
+    {
+      "id": "sym:src/ingest.ts#communityOf",
+      "label": "communityOf",
+      "name": "communityOf",
+      "kind": "function",
+      "source_file": "src/ingest.ts",
+      "source_location": "src/ingest.ts:58",
+      "community": 1
+    },
+    {
+      "id": "sym:src/ingest.ts#addNode",
+      "label": "addNode",
+      "name": "addNode",
+      "kind": "function",
+      "source_file": "src/ingest.ts",
+      "source_location": "src/ingest.ts:64",
+      "community": 1
+    },
+    {
+      "id": "sym:src/ingest.ts#fileNode",
+      "label": "fileNode",
+      "name": "fileNode",
+      "kind": "function",
+      "source_file": "src/ingest.ts",
+      "source_location": "src/ingest.ts:84",
+      "community": 1
+    },
+    {
+      "id": "sym:src/ingest.ts#ingestTs",
+      "label": "ingestTs",
+      "name": "ingestTs",
+      "kind": "function",
+      "source_file": "src/ingest.ts",
+      "source_location": "src/ingest.ts:90",
+      "community": 1
+    },
+    {
+      "id": "sym:src/ingest.ts#normalizeImport",
+      "label": "normalizeImport",
+      "name": "normalizeImport",
+      "kind": "function",
+      "source_file": "src/ingest.ts",
+      "source_location": "src/ingest.ts:150",
+      "community": 1
+    },
+    {
+      "id": "sym:src/ingest.ts#ingestLines",
+      "label": "ingestLines",
+      "name": "ingestLines",
+      "kind": "function",
+      "source_file": "src/ingest.ts",
+      "source_location": "src/ingest.ts:171",
+      "community": 1
+    },
+    {
+      "id": "sym:src/ingest.ts#ingestMarkdown",
+      "label": "ingestMarkdown",
+      "name": "ingestMarkdown",
+      "kind": "function",
+      "source_file": "src/ingest.ts",
+      "source_location": "src/ingest.ts:182",
+      "community": 1
+    },
+    {
+      "id": "sym:src/ingest.ts#ingest",
+      "label": "ingest",
+      "name": "ingest",
+      "kind": "function",
+      "source_file": "src/ingest.ts",
+      "source_location": "src/ingest.ts:196",
+      "community": 1
+    },
+    {
+      "id": "file:src/types.ts",
+      "label": "src/types.ts",
+      "name": "src/types.ts",
+      "kind": "file",
+      "source_file": "src/types.ts",
+      "community": 1
+    },
+    {
+      "id": "sym:src/types.ts#RevitifyNode",
+      "label": "RevitifyNode",
+      "name": "RevitifyNode",
+      "kind": "interface",
+      "source_file": "src/types.ts",
+      "source_location": "src/types.ts:8",
+      "community": 1
+    },
+    {
+      "id": "sym:src/types.ts#RevitifyLink",
+      "label": "RevitifyLink",
+      "name": "RevitifyLink",
+      "kind": "interface",
+      "source_file": "src/types.ts",
+      "source_location": "src/types.ts:18",
+      "community": 1
+    },
+    {
+      "id": "sym:src/types.ts#RevitifyGraph",
+      "label": "RevitifyGraph",
+      "name": "RevitifyGraph",
+      "kind": "interface",
+      "source_file": "src/types.ts",
+      "source_location": "src/types.ts:24",
+      "community": 1
+    },
+    {
+      "id": "file:test/revitify.test.ts",
+      "label": "test/revitify.test.ts",
+      "name": "test/revitify.test.ts",
+      "kind": "file",
+      "source_file": "test/revitify.test.ts",
+      "community": 2
+    },
+    {
+      "id": "sym:test/revitify.test.ts#fixture",
+      "label": "fixture",
+      "name": "fixture",
+      "kind": "function",
+      "source_file": "test/revitify.test.ts",
+      "source_location": "test/revitify.test.ts:10",
+      "community": 2
+    }
+  ],
+  "links": [
+    {
+      "source": "file:README.md",
+      "target": "doc:README.md#Revitify",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/html.ts",
+      "target": "file:src/types.ts",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/html.ts",
+      "target": "sym:src/html.ts#renderHtml",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/html.ts",
+      "target": "sym:src/types.ts#RevitifyGraph",
+      "relation": "references"
+    },
+    {
+      "source": "file:src/index.ts",
+      "target": "file:src/ingest.ts",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/index.ts",
+      "target": "file:src/html.ts",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/index.ts",
+      "target": "file:src/types.ts",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/index.ts",
+      "target": "sym:src/index.ts#buildGraph",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/index.ts",
+      "target": "sym:src/index.ts#renderReport",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/index.ts",
+      "target": "sym:src/index.ts#RevitifyResult",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/index.ts",
+      "target": "sym:src/index.ts#revitify",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/index.ts",
+      "target": "sym:src/index.ts#gitHead",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/index.ts",
+      "target": "sym:src/ingest.ts#ingest",
+      "relation": "references"
+    },
+    {
+      "source": "file:src/index.ts",
+      "target": "sym:src/html.ts#renderHtml",
+      "relation": "references"
+    },
+    {
+      "source": "file:src/index.ts",
+      "target": "sym:src/types.ts#RevitifyGraph",
+      "relation": "references"
+    },
+    {
+      "source": "file:src/ingest.ts",
+      "target": "file:src/types.ts",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/ingest.ts",
+      "target": "sym:src/ingest.ts#walkFiles",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/ingest.ts",
+      "target": "sym:src/ingest.ts#Builder",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/ingest.ts",
+      "target": "sym:src/ingest.ts#communityOf",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/ingest.ts",
+      "target": "sym:src/ingest.ts#addNode",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/ingest.ts",
+      "target": "sym:src/ingest.ts#fileNode",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/ingest.ts",
+      "target": "sym:src/ingest.ts#ingestTs",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/ingest.ts",
+      "target": "sym:src/ingest.ts#normalizeImport",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/ingest.ts",
+      "target": "sym:src/ingest.ts#ingestLines",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/ingest.ts",
+      "target": "sym:src/ingest.ts#ingestMarkdown",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/ingest.ts",
+      "target": "sym:src/ingest.ts#ingest",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/ingest.ts",
+      "target": "sym:src/types.ts#RevitifyGraph",
+      "relation": "references"
+    },
+    {
+      "source": "file:src/ingest.ts",
+      "target": "sym:src/types.ts#RevitifyNode",
+      "relation": "references"
+    },
+    {
+      "source": "file:src/ingest.ts",
+      "target": "sym:src/types.ts#RevitifyLink",
+      "relation": "references"
+    },
+    {
+      "source": "file:src/types.ts",
+      "target": "sym:src/types.ts#RevitifyNode",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/types.ts",
+      "target": "sym:src/types.ts#RevitifyLink",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/types.ts",
+      "target": "sym:src/types.ts#RevitifyGraph",
+      "relation": "contains"
+    },
+    {
+      "source": "file:test/revitify.test.ts",
+      "target": "file:src/index.ts",
+      "relation": "imports"
+    },
+    {
+      "source": "file:test/revitify.test.ts",
+      "target": "sym:test/revitify.test.ts#fixture",
+      "relation": "contains"
+    },
+    {
+      "source": "file:test/revitify.test.ts",
+      "target": "sym:src/index.ts#buildGraph",
+      "relation": "references"
+    },
+    {
+      "source": "file:test/revitify.test.ts",
+      "target": "sym:src/index.ts#revitify",
+      "relation": "references"
+    }
+  ],
+  "built_at_commit": "654cdbd4d57fd977e16287486f6003343d7dc343"
+}

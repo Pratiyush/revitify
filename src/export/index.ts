@@ -1,5 +1,6 @@
 import { callflowExporter } from "./callflow-html.js";
 import type { Exporter } from "./exporter.js";
+import { graphLiteExporter } from "./graph-lite.js";
 import { htmlExporter } from "./html.js";
 import { jsonExporter } from "./json.js";
 import { mermaidExporter } from "./mermaid.js";
@@ -13,6 +14,7 @@ export const defaultExporters: readonly Exporter[] = [jsonExporter, htmlExporter
 /** Opt-in exporters (graphify's callflow-html / tree-html / wiki / mermaid verbs). */
 export const extraExporters: readonly Exporter[] = [
   callflowExporter,
+  graphLiteExporter,
   treeExporter,
   wikiExporter,
   mermaidExporter,

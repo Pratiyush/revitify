@@ -15,6 +15,8 @@ export interface RevitifyNode {
   source_file: string;
   source_location?: string;
   community?: number;
+  /** Additive: first line of the symbol's docstring (viewer detail panel). */
+  summary?: string;
 }
 
 export interface RevitifyLink {
