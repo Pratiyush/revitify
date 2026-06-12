@@ -136,6 +136,12 @@ const relTable = (s) =>
     .sort((a, b) => b[1] - a[1])
     .map(([k, v]) => `${k} ${v}`)
     .join(", ");
+const confidenceSummary = (g) => {
+  const counts = {};
+  for (const l of g.links) if (l.confidence) counts[l.confidence] = (counts[l.confidence] ?? 0) + 1;
+  const parts = Object.entries(counts).map(([k, v]) => `${k} ${v}`);
+  return parts.length ? parts.join(", ") : "none";
+};
 const godList = (s) => s.god.map((x) => `\`${x.node.label}\` (${x.d})`).join(", ");
 
 const md = `# PARITY — revitify vs graphify (reference)
@@ -170,6 +176,8 @@ ${bands.map((b) => `| ${b.name} | ${b.pass ? "✅ pass" : "❌ gap"} | ${b.detai
   source_location, weight, source, target, confidence_score\`.
 - revitify nodes additionally carry \`name\` and \`kind\`, and \`source_location\` is \`file:line\` —
   additive differences Rivet's tolerant reader accepts; keep them.
+- revitify links carry \`confidence\` (same EXTRACTED/INFERRED/AMBIGUOUS vocabulary) since
+  Phase 1b: ${confidenceSummary(rv)} — graphify also scores \`confidence_score\`/\`weight\` (Phase 3).
 
 Gaps are the roadmap, not failures: each ❌ names the phase that closes it.
 `;

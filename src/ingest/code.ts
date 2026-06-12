@@ -10,7 +10,9 @@ export function createCodeIngestor(extractors: Registry<Extractor>): Ingestor {
   const ingestSync = (file: SourceFile, ctx: IngestContext): GraphFragment => {
     const reg = extractors.match(file);
     const extractor = reg ? extractors.resolveSync(reg) : undefined;
-    return extractor ? extractor.extract(file, { rootDir: ctx.rootDir }) : EMPTY;
+    return extractor
+      ? extractor.extract(file, { rootDir: ctx.rootDir, knownFiles: ctx.knownFiles })
+      : EMPTY;
   };
   return {
     id: "code",

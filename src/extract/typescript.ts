@@ -1,6 +1,7 @@
 import ts from "typescript";
+import { Confidence } from "../model/confidence.js";
 import type { SourceFile } from "../model/fragment.js";
-import type { Extractor } from "./extractor.js";
+import type { ExtractContext, Extractor } from "./extractor.js";
 import { addNode, createBuilder, fileNode } from "./fragment-builder.js";
 
 const TS_EXT = /\.(ts|tsx|mts|cts|js|mjs|cjs|jsx)$/;
@@ -11,7 +12,7 @@ export const typescriptExtractor: Extractor = {
   id: "typescript",
   languages: ["typescript", "javascript"],
   detect: (file) => TS_EXT.test(file.relPath) && !SKIP_TS.test(file.relPath),
-  extract(file: SourceFile) {
+  extract(file: SourceFile, ctx: ExtractContext) {
     const b = createBuilder();
     const rel = file.relPath;
     const fileId = fileNode(b, rel);
@@ -21,7 +22,12 @@ export const typescriptExtractor: Extractor = {
     const symbol = (name: string, node: ts.Node, kind: string) => {
       const id = `sym:${rel}#${name}`;
       addNode(b, id, name, kind, rel, line(node));
-      b.links.push({ source: fileId, target: id, relation: "contains" });
+      b.links.push({
+        source: fileId,
+        target: id,
+        relation: "contains",
+        confidence: Confidence.EXTRACTED,
+      });
       return id;
     };
 
@@ -30,8 +36,17 @@ export const typescriptExtractor: Extractor = {
       if (ts.isImportDeclaration(stmt) && ts.isStringLiteral(stmt.moduleSpecifier)) {
         const spec = stmt.moduleSpecifier.text;
         if (spec.startsWith(".")) {
-          const targetRel = normalizeImport(rel, spec);
-          b.links.push({ source: fileId, target: `file:${targetRel}`, relation: "imports" });
+          // Resolve against the walked-file set — a dangling spec produces NO edge (1b fix;
+          // the old code emitted guessed `file:` targets unchecked).
+          const targetRel = resolveImport(rel, spec, ctx.knownFiles);
+          if (targetRel !== undefined) {
+            b.links.push({
+              source: fileId,
+              target: `file:${targetRel}`,
+              relation: "imports",
+              confidence: Confidence.EXTRACTED,
+            });
+          }
         }
         const clause = stmt.importClause;
         if (clause?.namedBindings && ts.isNamedImports(clause.namedBindings)) {
@@ -51,7 +66,12 @@ export const typescriptExtractor: Extractor = {
           ) {
             const mId = `sym:${rel}#${stmt.name.text}.${member.name.text}`;
             addNode(b, mId, member.name.text, "method", rel, line(member));
-            b.links.push({ source: classId, target: mId, relation: "contains" });
+            b.links.push({
+              source: classId,
+              target: mId,
+              relation: "contains",
+              confidence: Confidence.EXTRACTED,
+            });
           }
         }
       } else if (ts.isInterfaceDeclaration(stmt)) symbol(stmt.name.text, stmt, "interface");
@@ -67,6 +87,7 @@ export const typescriptExtractor: Extractor = {
       }
     }
     // Reference edges: this file uses the names it imported (target symbol may live anywhere).
+    // Untagged here — passes/resolve assigns INFERRED or AMBIGUOUS when it resolves `name:`.
     for (const name of importedNames) {
       b.links.push({ source: fileId, target: `name:${name}`, relation: "references" });
     }
@@ -74,8 +95,15 @@ export const typescriptExtractor: Extractor = {
   },
 };
 
-/** "./crypto.js" from "src/auth.ts" → "src/crypto.ts" (strip runtime .js, best-effort). */
-function normalizeImport(fromRel: string, spec: string): string {
+/**
+ * "./crypto.js" from "src/auth.ts" → "src/crypto.ts" — but only if it exists in the walked set.
+ * Order (docs/PLAN.md): as-written, runtime-extension swaps, extensionless completion, /index.*.
+ */
+function resolveImport(
+  fromRel: string,
+  spec: string,
+  knownFiles: ReadonlySet<string>,
+): string | undefined {
   const dir = fromRel.includes("/") ? fromRel.slice(0, fromRel.lastIndexOf("/")) : "";
   const parts = (dir ? dir.split("/") : []).concat(spec.split("/"));
   const stack: string[] = [];
@@ -84,9 +112,23 @@ function normalizeImport(fromRel: string, spec: string): string {
     if (p === "..") stack.pop();
     else stack.push(p);
   }
-  return stack
-    .join("/")
-    .replace(/\.js$/, ".ts")
-    .replace(/\.mjs$/, ".mts")
-    .replace(/\.jsx$/, ".tsx");
+  const joined = stack.join("/");
+  const candidates = [
+    joined,
+    joined.replace(/\.js$/, ".ts"),
+    joined.replace(/\.js$/, ".tsx"),
+    joined.replace(/\.mjs$/, ".mts"),
+    joined.replace(/\.cjs$/, ".cts"),
+    joined.replace(/\.jsx$/, ".tsx"),
+    `${joined}.ts`,
+    `${joined}.tsx`,
+    `${joined}.js`,
+    `${joined}.jsx`,
+    `${joined}.mts`,
+    `${joined}.mjs`,
+    `${joined}/index.ts`,
+    `${joined}/index.tsx`,
+    `${joined}/index.js`,
+  ];
+  return candidates.find((c) => knownFiles.has(c));
 }

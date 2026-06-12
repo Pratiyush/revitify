@@ -2,6 +2,8 @@ import type { FileRef, GraphFragment, SourceFile } from "../model/fragment.js";
 
 export interface IngestContext {
   rootDir: string;
+  /** Relative paths of every walked file — shared so extractors can verify import targets. */
+  knownFiles: ReadonlySet<string>;
 }
 
 /**

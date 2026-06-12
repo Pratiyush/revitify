@@ -1,3 +1,4 @@
+import { Confidence } from "../model/confidence.js";
 import type { GraphFragment, SourceFile } from "../model/fragment.js";
 import { addNode, createBuilder, fileNode } from "./fragment-builder.js";
 
@@ -11,7 +12,12 @@ export function extractByLine(file: SourceFile, re: RegExp, kind: string): Graph
     if (!m) return;
     const id = `sym:${rel}#${m[1]}`;
     addNode(b, id, m[1]!, kind, rel, i + 1);
-    b.links.push({ source: fileId, target: id, relation: "contains" });
+    b.links.push({
+      source: fileId,
+      target: id,
+      relation: "contains",
+      confidence: Confidence.EXTRACTED,
+    });
   });
   return { nodes: b.nodes, links: b.links };
 }

@@ -59,7 +59,7 @@ describe("typescript extractor edges", () => {
           "export enum Mode { C }", // duplicate id — addNode keeps the first
         ].join("\n"),
       ),
-      { rootDir: "/x" },
+      { rootDir: "/x", knownFiles: new Set<string>() },
     );
     const kinds = new Map(out.nodes.map((n) => [n.label, n.kind]));
     expect(kinds.get("Mode")).toBe("enum");
@@ -74,17 +74,22 @@ describe("typescript extractor edges", () => {
 describe("ingestors", () => {
   it("async ingest() wrappers return the same fragment as ingestSync()", async () => {
     const md = src("doc.md", "# Title\n```\n# fenced — not a heading\n```\n## Sub\n");
-    const sync = markdownIngestor.ingestSync!(md, { rootDir: "/x" });
-    const isAsync = await markdownIngestor.ingest(md, { rootDir: "/x" });
+    const sync = markdownIngestor.ingestSync!(md, { rootDir: "/x", knownFiles: new Set<string>() });
+    const isAsync = await markdownIngestor.ingest(md, {
+      rootDir: "/x",
+      knownFiles: new Set<string>(),
+    });
     expect(isAsync).toEqual(sync);
     expect(sync.nodes.map((n) => n.label)).toEqual(["doc.md", "Title", "Sub"]); // fence skipped
 
     const code = defaultIngestors[0]!;
     const tsFile = src("a.ts", "export function f(): void {}");
-    expect(await code.ingest(tsFile, { rootDir: "/x" })).toEqual(
-      code.ingestSync!(tsFile, { rootDir: "/x" }),
+    expect(await code.ingest(tsFile, { rootDir: "/x", knownFiles: new Set<string>() })).toEqual(
+      code.ingestSync!(tsFile, { rootDir: "/x", knownFiles: new Set<string>() }),
     );
-    expect(code.ingestSync!(src("a.unknown", "?"), { rootDir: "/x" })).toEqual({
+    expect(
+      code.ingestSync!(src("a.unknown", "?"), { rootDir: "/x", knownFiles: new Set<string>() }),
+    ).toEqual({
       nodes: [],
       links: [],
     });

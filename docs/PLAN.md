@@ -14,8 +14,10 @@
       graph.json byte-identical on the committed fixture; contract tests (runtime + type-level)
       — gate passed 2026-06-12 (byte-identical on fixture AND the 492-node corpus; 27 tests;
       layer matrix live with 0 violations)
-- [ ] **Phase 1b** — Behavior fixes: confidence-tagged reference resolution (AMBIGUOUS/INFERRED/
-      EXTRACTED), dangling-import resolution against the walked-file set
+- [x] **Phase 1b** — Behavior fixes: confidence-tagged reference resolution (AMBIGUOUS/INFERRED/
+      EXTRACTED), dangling-import resolution against the walked-file set — gate passed 2026-06-12
+      (every link tagged: corpus EXTRACTED 671 / INFERRED 428 / AMBIGUOUS 2; danglers dropped;
+      revitify-out self-ingestion excluded; expectation re-baselined, 33 tests)
 - [ ] **Phase 2** — Multi-language: web-tree-sitter + tree-sitter-wasms (optional, lazy),
       detect.ts, sha256+stat cache, worker-pool parallel, `buildGraphAsync`/`revitifyAsync`
 - [ ] **Phase 3** — Three-pass intelligence: symbol resolution, minhash dedup, Louvain+Leiden-

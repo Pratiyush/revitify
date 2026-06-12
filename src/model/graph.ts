@@ -1,3 +1,5 @@
+import type { Confidence } from "./confidence.js";
+
 /**
  * Revitify's graph shape IS graphify's output contract (the shape Rivet's loadCodeGraph was
  * verified against): nodes carry id/name/label/source_file/source_location/community; links carry
@@ -19,6 +21,8 @@ export interface RevitifyLink {
   source: string;
   target: string;
   relation?: string;
+  /** Additive (Phase 1b): EXTRACTED structural · INFERRED unique resolution · AMBIGUOUS multi. */
+  confidence?: Confidence;
 }
 
 export interface RevitifyGraph {

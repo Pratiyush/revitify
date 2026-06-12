@@ -1,3 +1,4 @@
+import { Confidence } from "./confidence.js";
 import type { RevitifyGraph } from "./graph.js";
 
 /**
@@ -11,7 +12,7 @@ export const CONTRACT = {
   nodeRequired: ["id", "label", "source_file"],
   nodeOptional: ["name", "kind", "source_location", "community"],
   linkRequired: ["source", "target"],
-  linkOptional: ["relation"],
+  linkOptional: ["relation", "confidence"],
 } as const;
 
 /** Throws naming the first offending index + field — contract drift fails loudly, never silently. */
@@ -42,5 +43,10 @@ export function assertGraphContract(value: unknown): asserts value is RevitifyGr
     if (typeof l.target !== "string") fail(`links[${i}].target is missing or not a string`);
     if (l.relation !== undefined && typeof l.relation !== "string")
       fail(`links[${i}].relation is not a string`);
+    if (
+      l.confidence !== undefined &&
+      !Object.values(Confidence).includes(l.confidence as Confidence)
+    )
+      fail(`links[${i}].confidence is not one of ${Object.values(Confidence).join("/")}`);
   });
 }

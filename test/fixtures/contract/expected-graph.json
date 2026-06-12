@@ -118,57 +118,68 @@
     {
       "source": "file:README.md",
       "target": "doc:README.md#Fixture App",
-      "relation": "contains"
+      "relation": "contains",
+      "confidence": "EXTRACTED"
     },
     {
       "source": "file:README.md",
       "target": "doc:README.md#Architecture",
-      "relation": "contains"
+      "relation": "contains",
+      "confidence": "EXTRACTED"
     },
     {
       "source": "file:py/indicators.py",
       "target": "sym:py/indicators.py#Sma",
-      "relation": "contains"
+      "relation": "contains",
+      "confidence": "EXTRACTED"
     },
     {
       "source": "file:py/indicators.py",
       "target": "sym:py/indicators.py#compute",
-      "relation": "contains"
+      "relation": "contains",
+      "confidence": "EXTRACTED"
     },
     {
       "source": "file:src/auth.ts",
       "target": "file:src/crypto.ts",
-      "relation": "imports"
+      "relation": "imports",
+      "confidence": "EXTRACTED"
     },
     {
       "source": "file:src/auth.ts",
       "target": "sym:src/auth.ts#Session",
-      "relation": "contains"
+      "relation": "contains",
+      "confidence": "EXTRACTED"
     },
     {
       "source": "file:src/auth.ts",
       "target": "sym:src/auth.ts#AuthService",
-      "relation": "contains"
+      "relation": "contains",
+      "confidence": "EXTRACTED"
     },
     {
       "source": "sym:src/auth.ts#AuthService",
       "target": "sym:src/auth.ts#AuthService.login",
-      "relation": "contains"
+      "relation": "contains",
+      "confidence": "EXTRACTED"
     },
     {
       "source": "file:src/auth.ts",
       "target": "sym:src/auth.ts#logout",
-      "relation": "contains"
+      "relation": "contains",
+      "confidence": "EXTRACTED"
     },
     {
       "source": "file:src/auth.ts",
       "target": "sym:src/crypto.ts#hash",
-      "relation": "references"
+      "relation": "references",
+      "confidence": "INFERRED"
     },
     {
       "source": "file:src/crypto.ts",
       "target": "sym:src/crypto.ts#hash",
-      "relation": "contains"
+      "relation": "contains",
+      "confidence": "EXTRACTED"
     }
   ]
 }

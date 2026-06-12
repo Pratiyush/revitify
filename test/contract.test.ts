@@ -62,7 +62,15 @@ describe("output contract", () => {
   it("a canonical link carries exactly the contract fields", () => {
     const imports = graph.links.find((l) => l.relation === "imports");
     expect(imports, "no imports link found").toBeDefined();
-    expect(Object.keys(imports as object).sort()).toEqual(["relation", "source", "target"]);
+    expect(Object.keys(imports as object).sort()).toEqual([
+      "confidence",
+      "relation",
+      "source",
+      "target",
+    ]);
+    expect(imports?.confidence).toBe("EXTRACTED");
+    const references = graph.links.find((l) => l.relation === "references");
+    expect(references?.confidence).toBe("INFERRED");
   });
 
   it("the whole graph passes the runtime contract validator", () => {

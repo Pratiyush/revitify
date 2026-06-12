@@ -35,5 +35,7 @@
   source_location, weight, source, target, confidence_score`.
 - revitify nodes additionally carry `name` and `kind`, and `source_location` is `file:line` —
   additive differences Rivet's tolerant reader accepts; keep them.
+- revitify links carry `confidence` (same EXTRACTED/INFERRED/AMBIGUOUS vocabulary) since
+  Phase 1b: EXTRACTED 671, INFERRED 428, AMBIGUOUS 2 — graphify also scores `confidence_score`/`weight` (Phase 3).
 
 Gaps are the roadmap, not failures: each ❌ names the phase that closes it.

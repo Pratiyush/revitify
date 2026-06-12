@@ -2,6 +2,8 @@ import type { FileRef, GraphFragment, SourceFile } from "../model/fragment.js";
 
 export interface ExtractContext {
   rootDir: string;
+  /** Relative paths of every walked file — import specs resolve against this, never guessed. */
+  knownFiles: ReadonlySet<string>;
 }
 
 /**

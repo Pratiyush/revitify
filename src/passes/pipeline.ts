@@ -15,9 +15,11 @@ import { resolveReferences } from "./resolve.js";
  * contract test pins. buildGraphAsync (Phase 2) adds lazy/parallel extraction on the same shape.
  */
 export function buildGraphFromRoot(rootDir: string): RevitifyGraph {
+  const refs = walkFileRefs(rootDir);
+  const knownFiles: ReadonlySet<string> = new Set(refs.map((r) => r.relPath));
   const nodes = new Map<string, RevitifyNode>();
   const links: RevitifyLink[] = [];
-  for (const ref of walkFileRefs(rootDir)) {
+  for (const ref of refs) {
     const ingestor = defaultIngestors.find((i) => i.ingestSync && i.detect(ref));
     if (!ingestor?.available(process.env)) continue;
     let content: string;
@@ -26,7 +28,7 @@ export function buildGraphFromRoot(rootDir: string): RevitifyGraph {
     } catch {
       continue; // unreadable/binary — never fatal
     }
-    const fragment = ingestor.ingestSync!({ ...ref, content }, { rootDir });
+    const fragment = ingestor.ingestSync!({ ...ref, content }, { rootDir, knownFiles });
     for (const node of fragment.nodes) {
       if (!nodes.has(node.id)) nodes.set(node.id, node);
     }

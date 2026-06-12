@@ -10,6 +10,7 @@ const DEFAULT_EXCLUDES = new Set([
   "out",
   "coverage",
   "graphify-out",
+  "revitify-out",
   ".rivet",
   "_ref",
   ".claude",
