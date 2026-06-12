@@ -1,7 +1,7 @@
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 import ts from "typescript";
-import type { RevitifyGraph, RevitifyNode, RevitifyLink } from "./types.js";
+import type { RevitifyGraph, RevitifyLink, RevitifyNode } from "./types.js";
 
 /**
  * Ingestion — code + markdown into nodes/links.

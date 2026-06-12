@@ -6,9 +6,10 @@
 
 ## Phase checklist
 
-- [ ] **Phase 0** — Parity baseline (graphify in isolated venv, run on a copy of llm-dev-kit) +
+- [x] **Phase 0** — Parity baseline (graphify in isolated venv, run on a copy of llm-dev-kit) +
       `scripts/compare-parity.mjs` + `PARITY.md` + QA scaffold (Biome, knip, dependency-cruiser,
-      strict tsc, coverage, CI) + `rivet init` and first spec
+      strict tsc, coverage, CI) + `rivet init` and first spec — gate passed 2026-06-12
+      (PARITY: 2/6 bands at baseline, gaps mapped to phases; check chain green)
 - [ ] **Phase 1a** — Modularize: pure move into `src/{model,extract,ingest,passes,enrich,export}/`,
       graph.json byte-identical on the committed fixture; contract tests (runtime + type-level)
 - [ ] **Phase 1b** — Behavior fixes: confidence-tagged reference resolution (AMBIGUOUS/INFERRED/

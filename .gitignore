@@ -1,3 +1,10 @@
 node_modules/
 dist/
 graphify-out/
+revitify-out/
+coverage/
+
+# Rivet / graphify (derived, regenerated)
+.graphify/
+.rivet/cache/
+.rivet/tmp/
