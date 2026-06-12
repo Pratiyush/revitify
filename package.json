@@ -20,8 +20,10 @@
     "check": "pnpm run build && pnpm run lint && pnpm run knip && pnpm run depcruise && pnpm run test:coverage"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "chokidar": "^5.0.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "zod": "^4.4.3"
   },
   "optionalDependencies": {
     "tree-sitter-go": "^0.25.0",

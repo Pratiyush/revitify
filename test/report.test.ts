@@ -120,3 +120,19 @@ describe("GRAPH_REPORT.md", () => {
     expect(questions.some((q) => q.includes("AMBIGUOUS"))).toBe(true);
   });
 });
+
+describe("cross-language surprise", () => {
+  it("a TS→python reference earns the cross-language bonus", async () => {
+    // crunch is defined ONLY in python — the TS call resolves cross-language in the global tier.
+    const graph = await buildGraphAsync(
+      project({
+        "py/algo.py": "def crunch():\n    pass\n",
+        "ts/main.ts": "export function go(): void { crunch(); }",
+      }),
+      { cache: false },
+    );
+    const { surprisingConnections } = await import("../src/enrich/surprise.js");
+    const all = surprisingConnections(graph, 10);
+    expect(all.some((s) => s.reasons.includes("cross-language"))).toBe(true);
+  });
+});

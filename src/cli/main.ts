@@ -27,6 +27,22 @@ const VERBS: Record<string, { load: () => Promise<Verb>; help: string }> = {
     load: () => import("./verbs/validate.js"),
     help: "validate [graph.json] — contract check",
   },
+  serve: {
+    load: () => import("./verbs/serve.js"),
+    help: "serve [path] [--port N] — HTTP viewer + API",
+  },
+  mcp: {
+    load: () => import("./verbs/serve.js"),
+    help: "mcp [path] — stdio MCP server (query_graph …)",
+  },
+  diagnose: {
+    load: () => import("./verbs/diagnose.js"),
+    help: "diagnose [path] — grammars/cache self-check",
+  },
+  install: {
+    load: () => import("./verbs/install.js"),
+    help: "install [path] — add the /revitify skill",
+  },
 };
 
 async function main(): Promise<number> {
