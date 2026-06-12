@@ -11,6 +11,7 @@ const PYTHON: LanguageConfig = {
     { type: "class_definition", kind: "class", container: true },
     { type: "function_definition", kind: "function" },
   ],
+  calls: [{ type: "call" }],
   imports: [
     {
       type: "import_statement",

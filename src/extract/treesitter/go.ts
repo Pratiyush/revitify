@@ -12,6 +12,7 @@ const GO: LanguageConfig = {
     { type: "method_declaration", kind: "method" },
     { type: "type_spec", kind: "type" },
   ],
+  calls: [{ type: "call_expression" }],
 };
 
 export const create = (): Promise<Extractor> => createTreeSitterExtractor(GO);

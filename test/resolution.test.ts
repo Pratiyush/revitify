@@ -52,11 +52,12 @@ describe("ambiguous references", () => {
     "b/caller.ts": `import { helper } from "../a/util.js";\nexport function run(): void {}`,
   };
 
-  it("multiple candidates → AMBIGUOUS, picked deterministically with same-dir preference", () => {
+  it("same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)", () => {
     const graph = buildGraph(project(files));
     const ref = graph.links.find((l) => l.relation === "references");
-    expect(ref?.confidence).toBe(Confidence.AMBIGUOUS);
-    // caller.ts lives in b/ — the same-dir candidate wins over the lexicographically-first a/.
+    // caller.ts lives in b/ — the same-dir candidate wins its tier alone, so the pick is
+    // proximity-certain: INFERRED, not AMBIGUOUS (which now means ties WITHIN a tier).
+    expect(ref?.confidence).toBe(Confidence.INFERRED);
     expect(ref?.target).toBe("sym:b/util.ts#helper");
   });
 

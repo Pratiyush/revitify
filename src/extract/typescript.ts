@@ -31,6 +31,24 @@ export const typescriptExtractor: Extractor = {
       return id;
     };
 
+    // Call references from inside a symbol's body — resolved (and confidence-tagged) by
+    // passes/resolve; unresolvable callees (built-ins, externals) drop out there.
+    const collectCalls = (root: ts.Node, fromId: string) => {
+      const callees = new Set<string>();
+      const walk = (node: ts.Node): void => {
+        if (ts.isCallExpression(node) || ts.isNewExpression(node)) {
+          const expr = node.expression;
+          if (ts.isIdentifier(expr)) callees.add(expr.text);
+          else if (ts.isPropertyAccessExpression(expr)) callees.add(expr.name.text);
+        }
+        ts.forEachChild(node, walk);
+      };
+      ts.forEachChild(root, walk);
+      for (const callee of callees) {
+        b.links.push({ source: fromId, target: `name:${callee}`, relation: "calls" });
+      }
+    };
+
     const importedNames: string[] = [];
     for (const stmt of sf.statements) {
       if (ts.isImportDeclaration(stmt) && ts.isStringLiteral(stmt.moduleSpecifier)) {
@@ -55,8 +73,10 @@ export const typescriptExtractor: Extractor = {
         if (clause?.name) importedNames.push(clause.name.text);
         continue;
       }
-      if (ts.isFunctionDeclaration(stmt) && stmt.name) symbol(stmt.name.text, stmt, "function");
-      else if (ts.isClassDeclaration(stmt) && stmt.name) {
+      if (ts.isFunctionDeclaration(stmt) && stmt.name) {
+        const id = symbol(stmt.name.text, stmt, "function");
+        if (stmt.body) collectCalls(stmt.body, id);
+      } else if (ts.isClassDeclaration(stmt) && stmt.name) {
         const classId = symbol(stmt.name.text, stmt, "class");
         for (const member of stmt.members) {
           if (
@@ -72,6 +92,7 @@ export const typescriptExtractor: Extractor = {
               relation: "contains",
               confidence: Confidence.EXTRACTED,
             });
+            if (member.body) collectCalls(member.body, mId);
           }
         }
       } else if (ts.isInterfaceDeclaration(stmt)) symbol(stmt.name.text, stmt, "interface");
@@ -81,7 +102,15 @@ export const typescriptExtractor: Extractor = {
         const exported = stmt.modifiers?.some((m) => m.kind === ts.SyntaxKind.ExportKeyword);
         if (exported) {
           for (const decl of stmt.declarationList.declarations) {
-            if (ts.isIdentifier(decl.name)) symbol(decl.name.text, decl, "const");
+            if (ts.isIdentifier(decl.name)) {
+              const id = symbol(decl.name.text, decl, "const");
+              if (
+                decl.initializer &&
+                (ts.isArrowFunction(decl.initializer) || ts.isFunctionExpression(decl.initializer))
+              ) {
+                collectCalls(decl.initializer, id);
+              }
+            }
           }
         }
       }

@@ -2,13 +2,13 @@ import { Confidence } from "../model/confidence.js";
 import type { RevitifyLink, RevitifyNode } from "../model/graph.js";
 
 /**
- * Pass 2 — reference resolution, ported in spirit from graphify's symbol_resolution.py at
- * revitify's current granularity (file → symbol; symbol → symbol lands in Phase 3).
- * `name:X` targets resolve to a symbol node: exactly one candidate ⇒ INFERRED; several ⇒ a
- * deterministic pick (same-directory candidates first, then lexicographic id) tagged AMBIGUOUS;
- * none ⇒ the link is dropped. Dangling endpoints are filtered; `file:` ids pass because the
- * extractor verified them against the walked-file set (Phase 1b) — they exist on disk even when
- * no node was produced for them (e.g. an imported .json).
+ * Pass 2 — reference & call resolution (port of graphify symbol_resolution.py).
+ * `name:X` targets resolve through precedence tiers: same FILE as the referencing symbol,
+ * then same DIRECTORY, then global. One candidate in the winning tier ⇒ INFERRED; several ⇒
+ * deterministic lexicographic pick tagged AMBIGUOUS; none anywhere ⇒ the link is dropped.
+ * A symbol never resolves to itself (self-reference loops are noise, not calls).
+ * Dangling endpoints are filtered; `file:` ids pass because extractors verified them against
+ * the walked set.
  */
 export function resolveReferences(
   nodes: ReadonlyMap<string, RevitifyNode>,
@@ -22,28 +22,47 @@ export function resolveReferences(
   return links
     .map((l) => {
       if (!String(l.target).startsWith("name:")) return l;
-      const candidates = byName.get(String(l.target).slice(5));
-      if (!candidates?.length) return null;
-      const target = pick(candidates, String(l.source));
-      const confidence = candidates.length > 1 ? Confidence.AMBIGUOUS : Confidence.INFERRED;
-      return { ...l, target, confidence };
+      const source = String(l.source);
+      const candidates = (byName.get(String(l.target).slice(5)) ?? []).filter(
+        (id) => id !== source,
+      );
+      if (!candidates.length) return null;
+      const picked = pick(candidates, source);
+      return { ...l, target: picked.target, confidence: picked.confidence };
     })
     .filter((l): l is RevitifyLink => l !== null)
     .filter((l) => nodes.has(String(l.source)) || String(l.source).startsWith("file:"))
     .filter((l) => nodes.has(String(l.target)) || String(l.target).startsWith("file:"));
 }
 
-/** Same directory as the referencing file wins; ties break on lexicographic id — never on
- *  insertion order, so the pick is stable under any walk/merge reshuffle. */
-function pick(candidates: readonly string[], sourceId: string): string {
-  const fromDir = dirOf(sourceId.startsWith("file:") ? sourceId.slice(5) : "");
-  return [...candidates].sort((a, b) => {
-    const aSame = dirOf(symRel(a)) === fromDir ? 0 : 1;
-    const bSame = dirOf(symRel(b)) === fromDir ? 0 : 1;
-    return aSame - bSame || (a < b ? -1 : a > b ? 1 : 0);
-  })[0]!;
+function pick(
+  candidates: readonly string[],
+  sourceId: string,
+): { target: string; confidence: Confidence } {
+  const fromRel = relOf(sourceId);
+  const fromDir = dirOf(fromRel);
+  const tiers: Array<(id: string) => boolean> = [
+    (id) => relOf(id) === fromRel, // same file
+    (id) => dirOf(relOf(id)) === fromDir, // same directory
+    () => true, // global
+  ];
+  for (const inTier of tiers) {
+    const tier = candidates.filter(inTier);
+    if (tier.length === 1) return { target: tier[0] as string, confidence: Confidence.INFERRED };
+    if (tier.length > 1) {
+      const sorted = [...tier].sort();
+      return { target: sorted[0] as string, confidence: Confidence.AMBIGUOUS };
+    }
+  }
+  // Unreachable (global tier matches everything), kept for type narrowing.
+  return { target: candidates[0] as string, confidence: Confidence.AMBIGUOUS };
 }
 
-const symRel = (id: string): string => id.slice(4, id.indexOf("#"));
+/** "sym:a/b.ts#X" → "a/b.ts" · "file:a/b.ts" → "a/b.ts". */
+const relOf = (id: string): string => {
+  if (id.startsWith("sym:")) return id.slice(4, id.indexOf("#"));
+  if (id.startsWith("file:")) return id.slice(5);
+  return id;
+};
 const dirOf = (rel: string): string =>
   rel.includes("/") ? rel.slice(0, rel.lastIndexOf("/")) : "";

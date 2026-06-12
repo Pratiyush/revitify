@@ -24,8 +24,10 @@
       — gate passed 2026-06-12 (Java in first wave WITH constructors/methods/fields per user
       requirement; lazy boundary proven with positive control; corpus 202ms cold / 15ms warm;
       46 tests)
-- [ ] **Phase 3** — Three-pass intelligence: symbol resolution, minhash dedup, Louvain+Leiden-
-      refinement clustering with re-splits (zero new deps)
+- [x] **Phase 3** — Three-pass intelligence: symbol resolution, minhash dedup, Louvain+Leiden-
+      refinement clustering with re-splits (zero new deps) — gate passed 2026-06-12 (calls
+      edges land symbol→symbol: link band PASSES at 81%; communities 6 → 34 vs baseline 65;
+      tiered precedence; corpus doc dedup merged 2 real near-dups; 60 tests)
 - [ ] **Phase 4** — Report parity: god-nodes, surprise scoring, suggested questions (betweenness),
       confidence summary, why-nodes (NOTE/WHY/HACK + docstrings)
 - [ ] **Phase 5** — Queries + exports: query/path/explain/communities/cohesion/affected, JSONL

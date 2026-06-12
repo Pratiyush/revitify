@@ -48,7 +48,7 @@ describe("output contract", () => {
     ]);
     expect(auth).toMatchInlineSnapshot(`
       {
-        "community": 2,
+        "community": 3,
         "id": "sym:src/auth.ts#AuthService",
         "kind": "class",
         "label": "AuthService",

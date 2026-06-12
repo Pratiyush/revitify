@@ -18,6 +18,7 @@ const RUST: LanguageConfig = {
     { type: "static_item", kind: "const" },
     { type: "type_item", kind: "type" },
   ],
+  calls: [{ type: "call_expression" }],
   imports: [{ type: "use_declaration", nameTypes: ["identifier"] }],
 };
 

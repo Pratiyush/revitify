@@ -76,7 +76,7 @@
       "kind": "class",
       "source_file": "src/auth.ts",
       "source_location": "src/auth.ts:5",
-      "community": 2
+      "community": 3
     },
     {
       "id": "sym:src/auth.ts#AuthService.login",
@@ -85,7 +85,7 @@
       "kind": "method",
       "source_file": "src/auth.ts",
       "source_location": "src/auth.ts:6",
-      "community": 2
+      "community": 3
     },
     {
       "id": "sym:src/auth.ts#logout",
@@ -162,6 +162,12 @@
       "target": "sym:src/auth.ts#AuthService.login",
       "relation": "contains",
       "confidence": "EXTRACTED"
+    },
+    {
+      "source": "sym:src/auth.ts#AuthService.login",
+      "target": "sym:src/crypto.ts#hash",
+      "relation": "calls",
+      "confidence": "INFERRED"
     },
     {
       "source": "file:src/auth.ts",

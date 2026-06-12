@@ -5,6 +5,7 @@ import { walkFileRefs } from "../ingest/walk.js";
 import type { FileRef, GraphFragment } from "../model/fragment.js";
 import type { RevitifyGraph, RevitifyLink, RevitifyNode } from "../model/graph.js";
 import { assignCommunities } from "./cluster.js";
+import { dedupNodes } from "./dedup/index.js";
 import { gitHead } from "./git.js";
 import { resolveReferences } from "./resolve.js";
 import { extractInWorkers } from "./worker-pool.js";
@@ -69,12 +70,13 @@ export async function buildGraphFromRootAsync(
     }
     links.push(...fragment.links);
   }
-  assignCommunities(nodes.values());
   const resolved = resolveReferences(nodes, links);
+  const deduped = dedupNodes([...nodes.values()], resolved);
+  assignCommunities(deduped.nodes, deduped.links);
   const head = gitHead(rootDir);
   return {
-    nodes: [...nodes.values()],
-    links: resolved,
+    nodes: deduped.nodes,
+    links: deduped.links,
     ...(head ? { built_at_commit: head } : {}),
   };
 }

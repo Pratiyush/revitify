@@ -37,6 +37,13 @@ export interface ImportRule {
   readonly nameTypes?: readonly string[];
 }
 
+export interface CallRule {
+  /** AST node type of a call site, e.g. "call_expression" | "method_invocation". */
+  readonly type: string;
+  /** Field holding the callee (default "function"); rightmost path segment is the name. */
+  readonly calleeField?: string;
+}
+
 export interface LanguageConfig {
   readonly id: string;
   readonly language: string;
@@ -44,12 +51,14 @@ export interface LanguageConfig {
   readonly extensions: readonly string[];
   readonly definitions: readonly DefinitionRule[];
   readonly imports?: readonly ImportRule[];
+  readonly calls?: readonly CallRule[];
 }
 
 export async function createTreeSitterExtractor(config: LanguageConfig): Promise<Extractor> {
   const parser: Parser = await createParser(config.wasm);
   const rules = new Map(config.definitions.map((d) => [d.type, d]));
   const importRules = new Map((config.imports ?? []).map((r) => [r.type, r]));
+  const callRules = new Map((config.calls ?? []).map((r) => [r.type, r]));
 
   return {
     id: config.id,
@@ -63,7 +72,15 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
       if (!tree) return { nodes: b.nodes, links: b.links };
       const referenced: string[] = [];
 
-      const visit = (node: Node, containerId: string, containerName: string | undefined): void => {
+      // containerId/Name: parent for contains edges + member qualification (container rules).
+      // enclosingId: nearest definition symbol — the source of call edges found in its body.
+      const calls = new Map<string, Set<string>>();
+      const visit = (
+        node: Node,
+        containerId: string,
+        containerName: string | undefined,
+        enclosingId: string,
+      ): void => {
         for (const child of node.namedChildren) {
           if (child === null) continue;
           const importRule = importRules.get(child.type);
@@ -71,14 +88,25 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
             collectImport(b, child, importRule, fileId, rel, ctx, referenced);
             continue;
           }
-          const rule = rules.get(child.type);
-          if (!rule) {
-            visit(child, containerId, containerName);
+          const callRule = callRules.get(child.type);
+          if (callRule) {
+            const callee = child.childForFieldName(callRule.calleeField ?? "function");
+            const name = callee?.text.split(".").pop()?.split("::").pop();
+            if (name && /^[A-Za-z_]\w*$/.test(name)) {
+              let set = calls.get(enclosingId);
+              if (!set) {
+                set = new Set();
+                calls.set(enclosingId, set);
+              }
+              set.add(name);
+            }
+            visit(child, containerId, containerName, enclosingId); // nested calls in args
             continue;
           }
-          const name = definitionName(child, rule);
-          if (!name) {
-            visit(child, containerId, containerName);
+          const rule = rules.get(child.type);
+          const name = rule ? definitionName(child, rule) : undefined;
+          if (!rule || !name) {
+            visit(child, containerId, containerName, enclosingId);
             continue;
           }
           const symbolName = containerName ? `${containerName}.${name}` : name;
@@ -90,10 +118,22 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
             relation: "contains",
             confidence: Confidence.EXTRACTED,
           });
-          if (rule.container) visit(child, id, name);
+          // Recurse into every definition: nested defs (container rules qualify them) and
+          // call sites inside the body, attributed to this symbol.
+          visit(
+            child,
+            rule.container ? id : containerId,
+            rule.container ? name : containerName,
+            id,
+          );
         }
       };
-      visit(tree.rootNode, fileId, undefined);
+      visit(tree.rootNode, fileId, undefined, fileId);
+      for (const [from, callees] of calls) {
+        for (const callee of callees) {
+          b.links.push({ source: from, target: `name:${callee}`, relation: "calls" });
+        }
+      }
 
       for (const name of referenced) {
         b.links.push({ source: fileId, target: `name:${name}`, relation: "references" });

@@ -21,6 +21,10 @@ const JAVA: LanguageConfig = {
     { type: "field_declaration", kind: "field", nameChildType: "variable_declarator" },
     { type: "enum_constant", kind: "const" },
   ],
+  calls: [
+    { type: "method_invocation", calleeField: "name" },
+    { type: "object_creation_expression", calleeField: "type" },
+  ],
   imports: [
     // import a.b.C; → reference to C (resolved by passes/resolve when C is in the graph).
     { type: "import_declaration", nameTypes: ["scoped_identifier", "identifier"] },
