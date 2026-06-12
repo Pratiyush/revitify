@@ -294,6 +294,29 @@ td .b{width:9px;height:9px;border-radius:3px;display:inline-block;margin-right:7
 svg{display:block}
 .ic{width:16px;height:16px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .ic.sm{width:14px;height:14px}
+
+/* ============ MOBILE ADAPTATION (revitify v1.1 — diverges from the original handoff) ============ */
+.sbtoggle{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid var(--border);background:var(--panel-2);border-radius:9px;color:var(--text-2);flex:0 0 auto}
+.sbtoggle:hover{color:var(--text)}
+.sb-backdrop{display:none;position:fixed;inset:52px 0 0 0;background:rgba(8,10,16,.45);z-index:19;opacity:0;transition:opacity .25s}
+@media (max-width:760px){
+  .topbar{gap:8px;padding:0 10px;overflow-x:auto;scrollbar-width:none}
+  .topbar::-webkit-scrollbar{display:none}
+  .brand{flex:0 0 auto}
+  .brand small{display:none}
+  .tbtn,.sbtoggle,.viewswitch button{min-height:38px}
+  .sidebar{position:fixed;left:0;top:52px;bottom:0;width:min(320px,86vw);margin-left:0 !important;
+    transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);box-shadow:var(--shadow-lg);z-index:21}
+  .app:not(.nosb) .sidebar{transform:none}
+  .app:not(.nosb) .sb-backdrop{display:block;opacity:1}
+  .detail{width:100vw;max-width:100vw;border-left:none}
+  .minimap{display:none}
+  .search input,.field input[type=text],.lvsearch{font-size:16px} /* iOS: no zoom-on-focus */
+  .focusbar{flex-wrap:wrap;max-width:92vw}
+}
+@media (pointer:coarse){
+  .tip{display:none !important} /* hover tooltips have no honest touch trigger */
+}
 </style>
 </head>
 <body>
@@ -314,6 +337,7 @@ svg{display:block}
 <div class="app" id="app">
   <!-- Top bar -->
   <div class="topbar">
+    <button class="sbtoggle" id="sbToggle" data-tip="Toggle sidebar (L)" aria-label="Toggle sidebar"><svg class="ic" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <div class="brand"><span class="logo"></span>Revitify <small id="repoName">code graph</small></div>
     <div class="viewswitch" id="viewSwitch">
       <button data-view="graph" aria-pressed="true" data-tip="Force-directed overview of the whole graph">Graph</button>
@@ -338,6 +362,7 @@ svg{display:block}
   </div>
 
   <div class="body">
+    <div class="sb-backdrop" id="sbBackdrop"></div>
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
       <div class="search">
@@ -1481,6 +1506,15 @@ function boot(){
     const mv=new URLSearchParams(location.hash.slice(1)).get("move");
     setMovement(mv!=null?mv==="1":MOVE_DEFAULT,true);},250);});
 }
+/* ============ MOBILE ADAPTATION (revitify v1.1) ============ */
+const MOBILE_MQ = matchMedia("(max-width:760px)");
+document.getElementById("sbToggle").addEventListener("click", toggleSidebar);
+document.getElementById("sbBackdrop").addEventListener("click", () => { if (state.sidebar) toggleSidebar(); });
+if (MOBILE_MQ.matches && state.sidebar) toggleSidebar(); // phones start on the canvas
+document.getElementById("viewSwitch").addEventListener("click", () => {
+  if (MOBILE_MQ.matches && state.sidebar) toggleSidebar(); // picking a view closes the drawer
+});
+
 boot();
 window.REVITIFY=window.GRAPHIFY={cy,state,RAW,sim,setMovement};
 </script>

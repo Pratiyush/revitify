@@ -119,3 +119,16 @@ Dark theme is default. All chrome colors are CSS custom properties on `:root[dat
 - [ ] URL hash round-trips (reload restores view/selection/filters)
 - [ ] PNG and filtered-JSON export download
 - [ ] Largest real graph stays interactive (target: 2k nodes)
+
+---
+
+## Revitify divergence log (template is no longer byte-identical to the handoff)
+
+**v1.1 — mobile adaptation (2026-06-12).** The handoff shipped desktop-only (no media
+queries; the sidebar's only toggle was the `L` key). Marked `MOBILE ADAPTATION` blocks add:
+a topbar hamburger (`#sbToggle`) + tap-to-close backdrop; the sidebar becomes an off-canvas
+drawer under 760px (closed by default on phones, reusing the existing `nosb` mechanic);
+the detail panel goes full-width; the minimap hides; the topbar scrolls horizontally;
+inputs pin to 16px (iOS zoom-on-focus); hover tooltips are suppressed on coarse pointers;
+picking a view on a phone closes the drawer. Everything else — and all four CDN tags the
+generator replaces — is untouched.

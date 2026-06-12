@@ -99,3 +99,16 @@ describe("viewer edge branches", () => {
     expect(nodes[0]?.summary).toBe("kept");
   });
 });
+
+describe("mobile adaptation (v1.1 divergence from the handoff)", () => {
+  const html = renderHtml({ nodes: [{ id: "m", label: "m", source_file: "m.ts" }], links: [] });
+
+  it("ships the responsive layer: media queries, drawer toggle, backdrop", () => {
+    expect(html).toContain("@media (max-width:760px)");
+    expect(html).toContain('id="sbToggle"'); // touch-reachable sidebar toggle
+    expect(html).toContain('id="sbBackdrop"'); // tap-to-close scrim
+    expect(html).toContain("@media (pointer:coarse)"); // hover tooltips suppressed on touch
+    expect(html).toContain("font-size:16px"); // iOS zoom-on-focus guard
+    expect(html).toContain("MOBILE_MQ"); // drawer starts closed on phones
+  });
+});
