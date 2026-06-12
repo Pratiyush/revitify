@@ -2,7 +2,7 @@
 
 > The closing audit FEATURE-PARITY-PROMPT.md asked for: every graphify module vs where (and how
 > deeply) revitify covers it, plus dry-run differences on real corpora. Verified 2026-06-12
-> against graphify 0.8.37 (PyPI; `.track` pins 0.8.38) running side by side on two corpora.
+> against graphify 0.8.38 (PyPI == `.track` pin) running side by side on two corpora.
 > Statuses: ✅ ported · 🟡 partial (honest gaps listed) · ⏳ not ported (and why).
 
 ## Pass 1 — extraction
@@ -11,8 +11,8 @@
 |---|---|---|---|
 | extract.py (TS/JS) | ✅ | extract/typescript.ts | compiler API: symbols, members, imports, calls, why-comments |
 | extract.py (Python/Java/Go/Rust) | ✅ | extract/treesitter/* | official grammar wasm, lazy; **Java deeper than upstream: constructors, fields, enum constants, records, nested types** |
-| extract.py (Ruby/C/C++/C#/Kotlin/Swift/PHP/Scala/Bash…) | ⏳ | — | LanguageConfig pattern makes each ≈30 lines + grammar dep; add on demand |
-| detect.py | 🟡 | model/languages.ts | extension map; shebang sniffing not yet |
+| extract.py (Ruby/C/C++/C#/Kotlin/PHP/Scala/Bash) | ✅ | extract/treesitter/widened.ts | full wave shipped: members, constructors, declarator-trimmed C-family names; Swift ⏳ (its npm package ships no wasm) |
+| detect.py | ✅ | model/languages.ts + ingest/fallback.ts | extension map + shebang routing for extensionless scripts |
 | "why" nodes (NOTE/WHY/HACK + docstrings) | ✅ | extract/fragment-builder.ts | relation `rationale_for` (upstream's name, adopted); python docstrings → `documents` |
 | ingest.py (markdown) | ✅ | ingest/markdown.ts | h1/h2 headings, fence-aware |
 | cache.py | ✅ | cache/ast.ts | sha256 content keys + stat-index fastpath; honest whole-set invalidation |
@@ -61,34 +61,33 @@
 | serve.py MCP | ✅ | serve/mcp.ts | the 7 tools incl. query_graph; stdio; InMemoryTransport-tested |
 | validate.py / diagnostics.py | ✅ | cli/verbs/{validate,diagnose}.ts | contract validator; grammar/cache self-check |
 | install.py + skill | ✅ | cli/verbs/install.ts + skills/revitify | Claude Code target; other assistants later |
-| hooks.py / manifest.py | ⏳ | — | git-hook automation + manifest bookkeeping; cache/stat-index covers the freshness need |
+| hooks.py / manifest.py | 🟡 | cli/verbs/install.ts (--git-hook) | post-commit graph refresh shipped, overwrite-shy; manifest bookkeeping intentionally covered by cache/stat-index |
 
 ## Multimodal (opt-in, key-gated)
 
 | graphify | status | revitify | notes |
 |---|---|---|---|
 | llm.py backends | ✅ | ingest/llm/backends.ts | fetch-only (no SDKs); Anthropic→Gemini→OpenAI→Ollama |
-| docs/PDF/image semantic extraction | 🟡 | ingest/llm/docs.ts | concept nodes via backend; no local PDF text extraction (upstream sends content; we send the path context) |
+| docs/PDF/image semantic extraction | 🟡 | ingest/llm/docs.ts | concept nodes via backend; printable doc content rides along (first 4k); binary PDFs stay path-context |
 | transcribe.py | 🟡 | ingest/tools/local.ts | whisper.cpp CLI detection + transcript nodes; no python-whisper |
 | scip_ingest.py | 🟡 | ingest/tools/local.ts | via `scip print --json` CLI |
-| SQL/Postgres | 🟡 | ingest/tools/sql.ts | offline DDL parsing (tables/columns/REFERENCES); no live psql introspection |
-| cargo | 🟡 | ingest/tools/cargo.ts | Cargo.toml parse; no `cargo metadata` enrichment |
+| SQL/Postgres | 🟡 | ingest/tools/sql.ts | offline DDL parsing (tables/columns/REFERENCES); live psql introspection deliberately out — a DB connection is not a file walk |
+| cargo | 🟡 | ingest/tools/cargo.ts | Cargo.toml parse gives the full edge set; `cargo metadata` would only add version strings — punted with rationale |
 | mcp_ingest.py / Google Workspace | ⏳ | — | niche upstream surface; revisit on demand |
 
 ## Dry-run differences (both tools, same corpora, offline)
 
-**Corpus A — llm-dev-kit copy** (TS-heavy, 157 files): revitify 506 nodes/1480 links/49
-communities vs graphify 893/1788/65. **Bands: 5/6** — links 83% ✅, relation types 6v7 ✅,
-communities ✅, god-node top-5 overlap 4/5 ✅, contract ✅. Only node count remains (57%):
-graphify additionally nodes referenced types (`String`) and json-key entries — granularity we
-deliberately link instead of node.
+**Corpus A — llm-dev-kit copy** (TS-heavy): revitify 528 nodes/1502 links vs graphify 0.8.38's
+900/1794/66. **Bands: 5/6** — links 84% ✅, relation types ✅, communities ✅, god-node overlap ✅,
+contract ✅. The node-count band (59%) is a documented design divergence, not missing work:
+graphify additionally nodes referenced TYPES (`String` and friends) — revitify deliberately
+links references instead of fabricating nodes for out-of-project symbols.
 
 **Corpus B — multi-language shop sample** (Java/Python/Go/Rust/TS/SQL/Cargo): **bands 6/6** —
-revitify 67 nodes vs graphify 45 (exceeds reference; the floor semantics in
-scripts/compare-parity.mjs treat out-extraction as a pass, never a failure). Java head-to-head:
-both find classes/constructors/methods; **only revitify finds fields (stock/capacity/inventory),
-enum constants, the record, and all NOTE/WHY/HACK comments**; only graphify emits
-referenced-type nodes.
+revitify 67 nodes vs graphify 0.8.38's 49 (exceeds reference; floor semantics treat
+out-extraction as a pass). Java head-to-head: both find classes/constructors/methods; **only
+revitify finds fields (stock/capacity/inventory), enum constants, the record, and all
+NOTE/WHY/HACK comments**; only graphify emits referenced-type nodes.
 
 **Vocabulary: ALIGNED with upstream** — revitify now emits `rationale_for` (why-nodes), `method`
 (container→callable), `imports_from` (named-import → definition), and `re_exports` (barrel

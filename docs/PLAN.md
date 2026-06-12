@@ -45,6 +45,24 @@
       SCIP, SQL, cargo — gate passed 2026-06-12 (no-keys run byte-equal to code-only with zero
       network; backends fetch-only; sql+cargo fully offline; 96 tests)
 
+## Post-roadmap completion (2026-06-12, "complete all")
+
+- [x] Language widening: ruby/c/c++/c#/bash/php/scala/kotlin via official grammar wasm (Swift
+      blocked upstream — no wasm in its npm package)
+- [x] JSON top-level keys as nodes; shebang routing for extensionless scripts; doc-content
+      snippets to LLM backends; `install --git-hook` (hooks.py)
+- [x] Rivet migration: refreshCodeGraphVia runs the FULL engine via revitify's CLI in a sync
+      subprocess (llm-dev-kit f29586f) — 529 code nodes with the complete relation vocabulary
+- [x] npm publish PREP: LICENSE, files allowlist, exports map, pack dry-run green (publishing
+      itself = account action, user's call)
+- [x] .track re-baseline: PyPI graphifyy reached 0.8.38 == pin; fixture regenerated (900 nodes)
+- [x] rivet verify GREEN (both repos); shop sample 6/6 bands at 0.8.38
+- [ ] GitHub push: BLOCKED by permission policy (agent-created remote = needs explicit user
+      authorization) — one command: `gh repo create revitify --private --source . --push`
+- Documented decisions (not gaps): referenced-type nodes (we link, never fabricate
+  out-of-project symbol nodes); live psql introspection (a DB is not a file walk);
+  cargo metadata (Cargo.toml already yields the full edge set)
+
 ## Context
 
 Revitify (`~/Github/revitify`, 4 files, ~440 lines, dep: `typescript` only) is a native TS

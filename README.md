@@ -16,7 +16,7 @@ explicitly — both call shapes are contract-tested.
 
 ## What ships (verified, per-feature tests; honesty map in FEATURE-COVERAGE.md)
 
-- **Extraction** — TS/JS via the compiler API; Python/Java/Go/Rust via lazy tree-sitter WASM
+- **Extraction** — TS/JS via the compiler API; Python/Java/Go/Rust/Ruby/C/C++/C#/Bash/PHP/Scala/Kotlin via lazy tree-sitter WASM
   (official grammar packages, `optionalDependencies`; regex fallback if absent). Java goes deep:
   classes, interfaces, enums + constants, records, **constructors, methods, fields**, nested
   types. NOTE:/WHY:/HACK: comments and Python docstrings become linked why-nodes. Offline SQL DDL
@@ -51,6 +51,6 @@ revitify query auth    # then: explain · path · affected · communities · exp
 - Zero Python; core runtime dep is `typescript` only — heavy pieces load lazily and
   `import { revitify }` provably never touches them (child-process hook test).
 - Quality gates: Biome, knip, dependency-cruiser **enforced layer matrix**, strict tsc, coverage
-  ratchet, 96 tests incl. byte-stability and contract pins. Consumed by Rivet as the default
+  ratchet, 105 tests incl. byte-stability and contract pins. Consumed by Rivet as the default
   `graphify.provider`.
 - Concepts adapted from graphify (MIT, YC S26); original implementation. Upstream pin: `.track`.
