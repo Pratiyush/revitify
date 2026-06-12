@@ -35,7 +35,9 @@
 - [x] **Phase 5** — Queries + exports: query/path/explain/communities/cohesion/affected, JSONL
       query log; callflow-html, tree-html, wiki, mermaid exporters — gate passed 2026-06-12
       (74 tests; idf explain ported from serve.py for P7 reuse)
-- [ ] **Phase 6** — CLI (`bin`), watch (chokidar, lazy), global multi-repo graph, PR impact
+- [x] **Phase 6** — CLI (`bin`), watch (chokidar, lazy), global multi-repo graph, PR impact
+      — gate passed 2026-06-12 (11 verbs, all spawn-tested end to end incl. live watch rebuild;
+      79 tests)
 - [ ] **Phase 7** — HTTP serve + MCP server (query_graph et al.), validate/diagnose, /revitify
       skill + install
 - [ ] **Phase 8** — Multimodal (opt-in, key-gated): fetch-based LLM backends, whisper.cpp CLI,

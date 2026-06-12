@@ -5,6 +5,9 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./src/index.ts",
+  "bin": {
+    "revitify": "./dist/cli/main.js"
+  },
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -17,6 +20,7 @@
     "check": "pnpm run build && pnpm run lint && pnpm run knip && pnpm run depcruise && pnpm run test:coverage"
   },
   "dependencies": {
+    "chokidar": "^5.0.0",
     "typescript": "^5.5.4"
   },
   "optionalDependencies": {
