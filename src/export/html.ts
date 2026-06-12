@@ -1,4 +1,5 @@
-import type { RevitifyGraph } from "./types.js";
+import type { RevitifyGraph } from "../model/graph.js";
+import type { Exporter } from "./exporter.js";
 
 /**
  * graph.html — self-contained interactive viewer: embedded data, vanilla canvas force layout,
@@ -99,3 +100,9 @@ function draw() {
 </html>
 `;
 }
+
+export const htmlExporter: Exporter = {
+  id: "html",
+  filename: "graph.html",
+  render: (graph) => renderHtml(graph),
+};

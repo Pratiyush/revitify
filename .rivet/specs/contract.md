@@ -27,11 +27,20 @@ project is a git checkout; new fields MAY be added but these SHALL never be rena
 
 @check kind=unit ref=test/revitify.test.ts::builds containment, import, and reference edges with source_file + community on nodes
 
+@check kind=unit ref=test/contract.test.ts::a canonical symbol node carries exactly the contract fields
+
 Scenario: a contract-breaking shape fails loudly, not silently (negative floor)
   Given a graph.json whose nodes lost the `source_file` field
-  When the Phase 1 `assertGraphContract` validator (src/model/contract.ts) checks it
+  When the `assertGraphContract` validator (src/model/contract.ts) checks it
   Then validation throws naming the offending node index and field
-  And the contract test suite goes red before any consumer sees the drift
 
-> Phase 1 lands `test/contract.test.ts` (exact key-set + inline snapshot + runtime validator +
-> type-level pin against Rivet's reader) — the @check refs migrate there when it exists.
+@check kind=unit ref=test/contract.test.ts::contract drift fails loudly, naming index and field (negative floor)
+
+## Requirement REQUIREMENT_CONTRACT-04 — refactors never change output bytes
+
+WHEN the engine is restructured without intended behavior change (Phase 1a modularization)
+THEN graph.json on the committed fixture SHALL be byte-identical to the committed expectation,
+and the type-level pin against Rivet's reader SHALL keep compiling.
+
+@check kind=unit ref=test/contract.test.ts::graph.json is byte-identical to the committed expectation (refactor pin)
+@check kind=unit ref=test/contract.test-d.ts::RevitifyGraph stays assignable to the shape Rivet's loadCodeGraph reads

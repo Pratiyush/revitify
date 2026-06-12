@@ -1,0 +1,174 @@
+{
+  "nodes": [
+    {
+      "id": "file:README.md",
+      "label": "README.md",
+      "name": "README.md",
+      "kind": "file",
+      "source_file": "README.md",
+      "community": 0
+    },
+    {
+      "id": "doc:README.md#Fixture App",
+      "label": "Fixture App",
+      "name": "Fixture App",
+      "kind": "doc",
+      "source_file": "README.md",
+      "source_location": "README.md:1",
+      "community": 0
+    },
+    {
+      "id": "doc:README.md#Architecture",
+      "label": "Architecture",
+      "name": "Architecture",
+      "kind": "doc",
+      "source_file": "README.md",
+      "source_location": "README.md:3",
+      "community": 0
+    },
+    {
+      "id": "file:py/indicators.py",
+      "label": "py/indicators.py",
+      "name": "py/indicators.py",
+      "kind": "file",
+      "source_file": "py/indicators.py",
+      "community": 1
+    },
+    {
+      "id": "sym:py/indicators.py#Sma",
+      "label": "Sma",
+      "name": "Sma",
+      "kind": "function",
+      "source_file": "py/indicators.py",
+      "source_location": "py/indicators.py:1",
+      "community": 1
+    },
+    {
+      "id": "sym:py/indicators.py#compute",
+      "label": "compute",
+      "name": "compute",
+      "kind": "function",
+      "source_file": "py/indicators.py",
+      "source_location": "py/indicators.py:4",
+      "community": 1
+    },
+    {
+      "id": "file:src/auth.ts",
+      "label": "src/auth.ts",
+      "name": "src/auth.ts",
+      "kind": "file",
+      "source_file": "src/auth.ts",
+      "community": 2
+    },
+    {
+      "id": "sym:src/auth.ts#Session",
+      "label": "Session",
+      "name": "Session",
+      "kind": "interface",
+      "source_file": "src/auth.ts",
+      "source_location": "src/auth.ts:2",
+      "community": 2
+    },
+    {
+      "id": "sym:src/auth.ts#AuthService",
+      "label": "AuthService",
+      "name": "AuthService",
+      "kind": "class",
+      "source_file": "src/auth.ts",
+      "source_location": "src/auth.ts:5",
+      "community": 2
+    },
+    {
+      "id": "sym:src/auth.ts#AuthService.login",
+      "label": "login",
+      "name": "login",
+      "kind": "method",
+      "source_file": "src/auth.ts",
+      "source_location": "src/auth.ts:6",
+      "community": 2
+    },
+    {
+      "id": "sym:src/auth.ts#logout",
+      "label": "logout",
+      "name": "logout",
+      "kind": "function",
+      "source_file": "src/auth.ts",
+      "source_location": "src/auth.ts:10",
+      "community": 2
+    },
+    {
+      "id": "file:src/crypto.ts",
+      "label": "src/crypto.ts",
+      "name": "src/crypto.ts",
+      "kind": "file",
+      "source_file": "src/crypto.ts",
+      "community": 2
+    },
+    {
+      "id": "sym:src/crypto.ts#hash",
+      "label": "hash",
+      "name": "hash",
+      "kind": "function",
+      "source_file": "src/crypto.ts",
+      "source_location": "src/crypto.ts:1",
+      "community": 2
+    }
+  ],
+  "links": [
+    {
+      "source": "file:README.md",
+      "target": "doc:README.md#Fixture App",
+      "relation": "contains"
+    },
+    {
+      "source": "file:README.md",
+      "target": "doc:README.md#Architecture",
+      "relation": "contains"
+    },
+    {
+      "source": "file:py/indicators.py",
+      "target": "sym:py/indicators.py#Sma",
+      "relation": "contains"
+    },
+    {
+      "source": "file:py/indicators.py",
+      "target": "sym:py/indicators.py#compute",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/auth.ts",
+      "target": "file:src/crypto.ts",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/auth.ts",
+      "target": "sym:src/auth.ts#Session",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/auth.ts",
+      "target": "sym:src/auth.ts#AuthService",
+      "relation": "contains"
+    },
+    {
+      "source": "sym:src/auth.ts#AuthService",
+      "target": "sym:src/auth.ts#AuthService.login",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/auth.ts",
+      "target": "sym:src/auth.ts#logout",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/auth.ts",
+      "target": "sym:src/crypto.ts#hash",
+      "relation": "references"
+    },
+    {
+      "source": "file:src/crypto.ts",
+      "target": "sym:src/crypto.ts#hash",
+      "relation": "contains"
+    }
+  ]
+}

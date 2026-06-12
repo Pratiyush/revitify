@@ -10,8 +10,10 @@
       `scripts/compare-parity.mjs` + `PARITY.md` + QA scaffold (Biome, knip, dependency-cruiser,
       strict tsc, coverage, CI) + `rivet init` and first spec — gate passed 2026-06-12
       (PARITY: 2/6 bands at baseline, gaps mapped to phases; check chain green)
-- [ ] **Phase 1a** — Modularize: pure move into `src/{model,extract,ingest,passes,enrich,export}/`,
+- [x] **Phase 1a** — Modularize: pure move into `src/{model,extract,ingest,passes,enrich,export}/`,
       graph.json byte-identical on the committed fixture; contract tests (runtime + type-level)
+      — gate passed 2026-06-12 (byte-identical on fixture AND the 492-node corpus; 27 tests;
+      layer matrix live with 0 violations)
 - [ ] **Phase 1b** — Behavior fixes: confidence-tagged reference resolution (AMBIGUOUS/INFERRED/
       EXTRACTED), dangling-import resolution against the walked-file set
 - [ ] **Phase 2** — Multi-language: web-tree-sitter + tree-sitter-wasms (optional, lazy),

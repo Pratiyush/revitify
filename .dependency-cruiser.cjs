@@ -48,16 +48,7 @@ module.exports = {
       from: { path: "^src/index\\.ts$" },
       to: {
         path: "^src/",
-        pathNot: [
-          "^src/model/",
-          "^src/ingest/",
-          "^src/passes/",
-          "^src/enrich/",
-          "^src/export/",
-          // Pre-Phase-1 flat modules; remove with the modularization move.
-          "^src/(ingest|html|types)\\.js$",
-          "^src/(ingest|html|types)\\.ts$",
-        ],
+        pathNot: ["^src/model/", "^src/ingest/", "^src/passes/", "^src/enrich/", "^src/export/"],
       },
     },
     {
