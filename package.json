@@ -9,6 +9,14 @@
     "revitify": "./dist/cli/main.js"
   },
   "license": "MIT",
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "tree-sitter-go",
+      "tree-sitter-java",
+      "tree-sitter-python",
+      "tree-sitter-rust"
+    ]
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "vitest run",
