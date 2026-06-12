@@ -22,8 +22,14 @@ export const llmDocsIngestor: Ingestor = {
     const b = createBuilder();
     const rel = file.relPath;
     const fileId = fileNode(b, rel);
+    // Mostly-printable content (plain-text docs) rides along; binary (PDF/image bytes read as
+    // utf8 garbage) stays path-context-only until real binary extraction lands.
+    const sample = file.content.slice(0, 4000);
+    const printable = sample.length > 0 && /^[\x09\x0a\x0d\x20-\x7e\u00a0-\uffff]*$/.test(sample);
     const raw = await backend.complete(
-      `List up to 8 key concepts in the document at path "${rel}" as a JSON array of short strings. Answer with JSON only.`,
+      printable && sample.trim().length > 40
+        ? `List up to 8 key concepts in this document ("${rel}") as a JSON array of short strings. Answer with JSON only.\n\n${sample}`
+        : `List up to 8 key concepts in the document at path "${rel}" as a JSON array of short strings. Answer with JSON only.`,
     );
     for (const concept of parseConcepts(raw)) {
       const id = `concept:${rel}#${concept}`;

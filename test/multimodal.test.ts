@@ -278,3 +278,27 @@ describe("local tools end to end (fake binaries on PATH)", () => {
     expect(llmDocsIngestor.detect({ path: "/x/a.ts", relPath: "a.ts", size: 1 })).toBe(false);
   });
 });
+
+describe("json + shebang ingestion (batch B)", () => {
+  it("top-level json keys become nodes; invalid json degrades to a file node", async () => {
+    const dir = project({
+      "package.json": '{"name":"x","scripts":{"build":"tsc"},"dependencies":{}}',
+      "broken.json": "{nope",
+    });
+    const graph = await buildGraphAsync(dir, { cache: false });
+    const keys = graph.nodes.filter((n) => n.kind === "json-key").map((n) => n.label);
+    expect(keys.sort()).toEqual(["dependencies", "name", "scripts"]);
+    expect(graph.nodes.some((n) => n.id === "file:broken.json")).toBe(true);
+  });
+
+  it("extensionless shebang scripts route through the matching extractor", async () => {
+    const dir = project({
+      deploy: "#!/usr/bin/env bash\nrelease() {\n  true\n}\n",
+      tool: "#!/usr/bin/env python3\ndef main():\n    pass\n",
+    });
+    const graph = await buildGraphAsync(dir, { cache: false });
+    expect(graph.nodes.find((n) => n.id === "sym:deploy#release")?.kind).toBe("function");
+    expect(graph.nodes.find((n) => n.id === "sym:tool#main")?.kind).toBe("function");
+    expect(graph.nodes.some((n) => n.id === "file:deploy")).toBe(true); // real path, not alias
+  });
+});

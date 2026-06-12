@@ -10,7 +10,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_cockpit_rivet_app",
-      "community": 47,
+      "community": 48,
       "norm_label": "rivet.app.js"
     },
     {
@@ -20,7 +20,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "rivet_cockpit_rivet_app_initialroute",
-      "community": 47,
+      "community": 48,
       "norm_label": "initialroute()"
     },
     {
@@ -30,7 +30,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "rivet_cockpit_rivet_app_cycledashboard",
-      "community": 47,
+      "community": 48,
       "norm_label": "cycledashboard()"
     },
     {
@@ -40,7 +40,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_cockpit_rivet_config",
-      "community": 54,
+      "community": 55,
       "norm_label": "rivet.config.js"
     },
     {
@@ -50,7 +50,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "rivet_cockpit_rivet_config_config",
-      "community": 54,
+      "community": 55,
       "norm_label": "config"
     },
     {
@@ -330,7 +330,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_cockpit_rivet_dashboard",
-      "community": 55,
+      "community": 56,
       "norm_label": "rivet.dashboard.js"
     },
     {
@@ -340,7 +340,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "rivet_cockpit_rivet_dashboard_dashboard",
-      "community": 55,
+      "community": 56,
       "norm_label": "dashboard"
     },
     {
@@ -350,7 +350,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_cockpit_rivet_data",
-      "community": 63,
+      "community": 64,
       "norm_label": "rivet.data.js"
     },
     {
@@ -364,7 +364,7 @@
       },
       "_origin": "ast",
       "id": "husky",
-      "community": 4,
+      "community": 6,
       "norm_label": "husky.sh"
     },
     {
@@ -378,7 +378,7 @@
       },
       "_origin": "ast",
       "id": "users_pratiyush_claude_jobs_0c6d029a_tmp_parity_corpus_husky_husky_sh__entry",
-      "community": 4,
+      "community": 6,
       "norm_label": "husky.sh script"
     },
     {
@@ -388,7 +388,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cockpit_rivet_app",
-      "community": 46,
+      "community": 47,
       "norm_label": "rivet.app.js"
     },
     {
@@ -398,7 +398,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "cockpit_rivet_app_initialroute",
-      "community": 46,
+      "community": 47,
       "norm_label": "initialroute()"
     },
     {
@@ -408,7 +408,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "cockpit_rivet_app_cycledashboard",
-      "community": 46,
+      "community": 47,
       "norm_label": "cycledashboard()"
     },
     {
@@ -418,7 +418,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cockpit_rivet_config",
-      "community": 52,
+      "community": 53,
       "norm_label": "rivet.config.js"
     },
     {
@@ -428,7 +428,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "cockpit_rivet_config_config",
-      "community": 52,
+      "community": 53,
       "norm_label": "config"
     },
     {
@@ -708,7 +708,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cockpit_rivet_dashboard",
-      "community": 53,
+      "community": 54,
       "norm_label": "rivet.dashboard.js"
     },
     {
@@ -718,7 +718,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "cockpit_rivet_dashboard_dashboard",
-      "community": 53,
+      "community": 54,
       "norm_label": "dashboard"
     },
     {
@@ -728,7 +728,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cockpit_rivet_data",
-      "community": 59,
+      "community": 60,
       "norm_label": "rivet.data.js"
     },
     {
@@ -738,7 +738,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "eslint_config",
-      "community": 61,
+      "community": 62,
       "norm_label": "eslint.config.js"
     },
     {
@@ -1008,7 +1008,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "hooks_resume_save",
-      "community": 29,
+      "community": 30,
       "norm_label": "resume-save.mjs"
     },
     {
@@ -1018,7 +1018,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "hooks_resume_save_readstdin",
-      "community": 29,
+      "community": 30,
       "norm_label": "readstdin()"
     },
     {
@@ -1028,7 +1028,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "hooks_resume_save_payload",
-      "community": 29,
+      "community": 30,
       "norm_label": "payload"
     },
     {
@@ -1038,7 +1038,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "hooks_resume_save_tasks",
-      "community": 29,
+      "community": 30,
       "norm_label": "tasks"
     },
     {
@@ -1048,7 +1048,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "hooks_resume_save_all",
-      "community": 29,
+      "community": 30,
       "norm_label": "all"
     },
     {
@@ -1058,7 +1058,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "hooks_resume_save_lines",
-      "community": 29,
+      "community": 30,
       "norm_label": "lines"
     },
     {
@@ -1068,7 +1068,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "package",
-      "community": 4,
+      "community": 6,
       "norm_label": "package.json"
     },
     {
@@ -1078,7 +1078,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "package_name",
-      "community": 4,
+      "community": 6,
       "norm_label": "name"
     },
     {
@@ -1088,7 +1088,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "package_version",
-      "community": 4,
+      "community": 6,
       "norm_label": "version"
     },
     {
@@ -1098,7 +1098,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "package_description",
-      "community": 4,
+      "community": 6,
       "norm_label": "description"
     },
     {
@@ -1108,7 +1108,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "package_type",
-      "community": 4,
+      "community": 6,
       "norm_label": "type"
     },
     {
@@ -1118,7 +1118,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "package_bin",
-      "community": 4,
+      "community": 6,
       "norm_label": "bin"
     },
     {
@@ -1128,7 +1128,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "package_bin_rivet",
-      "community": 4,
+      "community": 6,
       "norm_label": "rivet"
     },
     {
@@ -1138,7 +1138,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "package_main",
-      "community": 4,
+      "community": 6,
       "norm_label": "main"
     },
     {
@@ -1148,7 +1148,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "package_types",
-      "community": 4,
+      "community": 6,
       "norm_label": "types"
     },
     {
@@ -1158,7 +1158,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "package_files",
-      "community": 4,
+      "community": 6,
       "norm_label": "files"
     },
     {
@@ -1168,7 +1168,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "package_engines",
-      "community": 4,
+      "community": 6,
       "norm_label": "engines"
     },
     {
@@ -1178,7 +1178,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "package_engines_node",
-      "community": 4,
+      "community": 6,
       "norm_label": "node"
     },
     {
@@ -1188,7 +1188,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "package_scripts",
-      "community": 4,
+      "community": 6,
       "norm_label": "scripts"
     },
     {
@@ -1198,7 +1198,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "package_scripts_build",
-      "community": 4,
+      "community": 6,
       "norm_label": "build"
     },
     {
@@ -1208,7 +1208,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "package_scripts_dev",
-      "community": 4,
+      "community": 6,
       "norm_label": "dev"
     },
     {
@@ -1218,7 +1218,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "package_scripts_typecheck",
-      "community": 4,
+      "community": 6,
       "norm_label": "typecheck"
     },
     {
@@ -1228,7 +1228,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "package_scripts_test",
-      "community": 4,
+      "community": 6,
       "norm_label": "test"
     },
     {
@@ -1238,7 +1238,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "package_scripts_test_watch",
-      "community": 4,
+      "community": 6,
       "norm_label": "test:watch"
     },
     {
@@ -1248,7 +1248,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "package_scripts_start",
-      "community": 4,
+      "community": 6,
       "norm_label": "start"
     },
     {
@@ -1258,7 +1258,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "package_scripts_lint",
-      "community": 4,
+      "community": 6,
       "norm_label": "lint"
     },
     {
@@ -1268,7 +1268,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "package_scripts_prepare",
-      "community": 4,
+      "community": 6,
       "norm_label": "prepare"
     },
     {
@@ -1278,7 +1278,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "package_dependencies",
-      "community": 4,
+      "community": 6,
       "norm_label": "dependencies"
     },
     {
@@ -1288,7 +1288,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "package_dependencies_commander",
-      "community": 4,
+      "community": 6,
       "norm_label": "commander"
     },
     {
@@ -1298,7 +1298,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "package_dependencies_picocolors",
-      "community": 4,
+      "community": 6,
       "norm_label": "picocolors"
     },
     {
@@ -1308,7 +1308,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "package_dependencies_zod",
-      "community": 4,
+      "community": 6,
       "norm_label": "zod"
     },
     {
@@ -1318,7 +1318,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "package_dependencies_revitify",
-      "community": 4,
+      "community": 6,
       "norm_label": "revitify"
     },
     {
@@ -1328,7 +1328,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "package_devdependencies",
-      "community": 4,
+      "community": 6,
       "norm_label": "devdependencies"
     },
     {
@@ -1338,7 +1338,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "package_devdependencies_types_node",
-      "community": 4,
+      "community": 6,
       "norm_label": "@types/node"
     },
     {
@@ -1348,7 +1348,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "package_devdependencies_eslint",
-      "community": 4,
+      "community": 6,
       "norm_label": "eslint"
     },
     {
@@ -1358,7 +1358,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "package_devdependencies_husky",
-      "community": 4,
+      "community": 6,
       "norm_label": "husky"
     },
     {
@@ -1368,7 +1368,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "package_devdependencies_lint_staged",
-      "community": 4,
+      "community": 6,
       "norm_label": "lint-staged"
     },
     {
@@ -1378,7 +1378,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "package_devdependencies_prettier",
-      "community": 4,
+      "community": 6,
       "norm_label": "prettier"
     },
     {
@@ -1388,7 +1388,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "package_devdependencies_tsx",
-      "community": 4,
+      "community": 6,
       "norm_label": "tsx"
     },
     {
@@ -1398,7 +1398,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "package_devdependencies_typescript",
-      "community": 4,
+      "community": 6,
       "norm_label": "typescript"
     },
     {
@@ -1408,7 +1408,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "package_devdependencies_typescript_eslint",
-      "community": 4,
+      "community": 6,
       "norm_label": "typescript-eslint"
     },
     {
@@ -1418,7 +1418,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "package_devdependencies_vitest",
-      "community": 4,
+      "community": 6,
       "norm_label": "vitest"
     },
     {
@@ -1428,7 +1428,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "package_keywords",
-      "community": 4,
+      "community": 6,
       "norm_label": "keywords"
     },
     {
@@ -1438,7 +1438,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "package_author",
-      "community": 4,
+      "community": 6,
       "norm_label": "author"
     },
     {
@@ -1448,7 +1448,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "package_license",
-      "community": 4,
+      "community": 6,
       "norm_label": "license"
     },
     {
@@ -1458,7 +1458,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "package_repository",
-      "community": 4,
+      "community": 6,
       "norm_label": "repository"
     },
     {
@@ -1468,7 +1468,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "package_repository_type",
-      "community": 4,
+      "community": 6,
       "norm_label": "type"
     },
     {
@@ -1478,7 +1478,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "package_repository_url",
-      "community": 4,
+      "community": 6,
       "norm_label": "url"
     },
     {
@@ -1488,7 +1488,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "package_packagemanager",
-      "community": 4,
+      "community": 6,
       "norm_label": "packagemanager"
     },
     {
@@ -1498,7 +1498,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "package_lint_staged",
-      "community": 4,
+      "community": 6,
       "norm_label": "lint-staged"
     },
     {
@@ -1508,7 +1508,7 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "package_lint_staged_src_test_ts",
-      "community": 4,
+      "community": 6,
       "norm_label": "{src,test}/**/*.ts"
     },
     {
@@ -1538,7 +1538,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_boards",
-      "community": 8,
+      "community": 0,
       "norm_label": "boards.ts"
     },
     {
@@ -1548,7 +1548,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "cli_boards_status_emoji",
-      "community": 8,
+      "community": 0,
       "norm_label": "status_emoji"
     },
     {
@@ -1558,7 +1558,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "cli_boards_light",
-      "community": 8,
+      "community": 0,
       "norm_label": "light"
     },
     {
@@ -1568,7 +1568,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "cli_boards_renderledger",
-      "community": 8,
+      "community": 0,
       "norm_label": "renderledger()"
     },
     {
@@ -1598,7 +1598,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cockpit_assets_rivet_app",
-      "community": 45,
+      "community": 46,
       "norm_label": "rivet.app.js"
     },
     {
@@ -1608,7 +1608,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "cockpit_assets_rivet_app_initialroute",
-      "community": 45,
+      "community": 46,
       "norm_label": "initialroute()"
     },
     {
@@ -1618,7 +1618,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "cockpit_assets_rivet_app_cycledashboard",
-      "community": 45,
+      "community": 46,
       "norm_label": "cycledashboard()"
     },
     {
@@ -1628,7 +1628,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cockpit_assets_rivet_config",
-      "community": 50,
+      "community": 51,
       "norm_label": "rivet.config.js"
     },
     {
@@ -1638,7 +1638,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "cockpit_assets_rivet_config_config",
-      "community": 50,
+      "community": 51,
       "norm_label": "config"
     },
     {
@@ -1918,7 +1918,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cockpit_assets_rivet_dashboard",
-      "community": 51,
+      "community": 52,
       "norm_label": "rivet.dashboard.js"
     },
     {
@@ -1928,7 +1928,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "cockpit_assets_rivet_dashboard_dashboard",
-      "community": 51,
+      "community": 52,
       "norm_label": "dashboard"
     },
     {
@@ -1938,7 +1938,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_cockpit_data",
-      "community": 0,
+      "community": 1,
       "norm_label": "cockpit-data.ts"
     },
     {
@@ -1948,7 +1948,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "cli_cockpit_data_cockpitresult",
-      "community": 0,
+      "community": 1,
       "norm_label": "cockpitresult"
     },
     {
@@ -1958,7 +1958,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "cli_cockpit_data_cockpittask",
-      "community": 0,
+      "community": 1,
       "norm_label": "cockpittask"
     },
     {
@@ -1968,7 +1968,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "cli_cockpit_data_rivetcockpitdata",
-      "community": 6,
+      "community": 1,
       "norm_label": "rivetcockpitdata"
     },
     {
@@ -1978,7 +1978,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "cli_cockpit_data_event_icon",
-      "community": 0,
+      "community": 1,
       "norm_label": "event_icon"
     },
     {
@@ -1988,7 +1988,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "cli_cockpit_data_eventline",
-      "community": 0,
+      "community": 1,
       "norm_label": "eventline()"
     },
     {
@@ -1998,7 +1998,7 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "cli_cockpit_data_buildrivet",
-      "community": 0,
+      "community": 1,
       "norm_label": "buildrivet()"
     },
     {
@@ -2008,7 +2008,7 @@
       "source_location": "L238",
       "_origin": "ast",
       "id": "cli_cockpit_data_sidecarjs",
-      "community": 6,
+      "community": 1,
       "norm_label": "sidecarjs()"
     },
     {
@@ -2018,7 +2018,7 @@
       "source_location": "L246",
       "_origin": "ast",
       "id": "cli_cockpit_data_writesidecar",
-      "community": 0,
+      "community": 1,
       "norm_label": "writesidecar()"
     },
     {
@@ -2028,7 +2028,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_cockpit",
-      "community": 6,
+      "community": 1,
       "norm_label": "cockpit.ts"
     },
     {
@@ -2038,7 +2038,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "cli_cockpit_shell_files",
-      "community": 6,
+      "community": 1,
       "norm_label": "shell_files"
     },
     {
@@ -2048,7 +2048,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "cli_cockpit_assetsdir",
-      "community": 6,
+      "community": 1,
       "norm_label": "assetsdir()"
     },
     {
@@ -2058,7 +2058,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "cli_cockpit_emitresult",
-      "community": 6,
+      "community": 1,
       "norm_label": "emitresult"
     },
     {
@@ -2068,7 +2068,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "cli_cockpit_emitcockpit",
-      "community": 6,
+      "community": 1,
       "norm_label": "emitcockpit()"
     },
     {
@@ -2078,7 +2078,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_config_io",
-      "community": 5,
+      "community": 2,
       "norm_label": "config-io.ts"
     },
     {
@@ -2088,7 +2088,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "cli_config_io_inputerror",
-      "community": 5,
+      "community": 2,
       "norm_label": "inputerror"
     },
     {
@@ -2098,7 +2098,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "cli_config_io_inputerror_constructor",
-      "community": 5,
+      "community": 2,
       "norm_label": ".constructor()"
     },
     {
@@ -2108,7 +2108,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "cli_config_io_loadconfig",
-      "community": 1,
+      "community": 5,
       "norm_label": "loadconfig()"
     },
     {
@@ -2158,7 +2158,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_doctor",
-      "community": 13,
+      "community": 8,
       "norm_label": "doctor.ts"
     },
     {
@@ -2168,7 +2168,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "cli_doctor_check",
-      "community": 13,
+      "community": 8,
       "norm_label": "check"
     },
     {
@@ -2178,7 +2178,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "cli_doctor_probe",
-      "community": 13,
+      "community": 8,
       "norm_label": "probe"
     },
     {
@@ -2188,7 +2188,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "cli_doctor_realprobe",
-      "community": 13,
+      "community": 8,
       "norm_label": "realprobe()"
     },
     {
@@ -2198,7 +2198,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "cli_doctor_firstline",
-      "community": 13,
+      "community": 8,
       "norm_label": "firstline()"
     },
     {
@@ -2208,7 +2208,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "cli_doctor_doctorchecks",
-      "community": 13,
+      "community": 8,
       "norm_label": "doctorchecks()"
     },
     {
@@ -2218,7 +2218,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "cli_doctor_parsestaleworktrees",
-      "community": 13,
+      "community": 8,
       "norm_label": "parsestaleworktrees()"
     },
     {
@@ -2228,7 +2228,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "cli_doctor_rundoctor",
-      "community": 13,
+      "community": 8,
       "norm_label": "rundoctor()"
     },
     {
@@ -2238,7 +2238,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_emoji",
-      "community": 1,
+      "community": 8,
       "norm_label": "emoji.ts"
     },
     {
@@ -2248,7 +2248,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "cli_emoji_baseline_emoji",
-      "community": 1,
+      "community": 8,
       "norm_label": "baseline_emoji"
     },
     {
@@ -2258,7 +2258,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "cli_emoji_emoji",
-      "community": 1,
+      "community": 8,
       "norm_label": "emoji"
     },
     {
@@ -2268,7 +2268,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "cli_emoji_emojikey",
-      "community": 1,
+      "community": 8,
       "norm_label": "emojikey"
     },
     {
@@ -2278,7 +2278,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "cli_emoji_plain",
-      "community": 1,
+      "community": 8,
       "norm_label": "plain"
     },
     {
@@ -2288,7 +2288,7 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "cli_emoji_resolveplain",
-      "community": 1,
+      "community": 8,
       "norm_label": "resolveplain()"
     },
     {
@@ -2298,7 +2298,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "cli_emoji_plainmode",
-      "community": 1,
+      "community": 8,
       "norm_label": "plainmode()"
     },
     {
@@ -2308,7 +2308,7 @@
       "source_location": "L101",
       "_origin": "ast",
       "id": "cli_emoji_labelwith",
-      "community": 1,
+      "community": 8,
       "norm_label": "labelwith()"
     },
     {
@@ -2318,7 +2318,7 @@
       "source_location": "L106",
       "_origin": "ast",
       "id": "cli_emoji_label",
-      "community": 1,
+      "community": 8,
       "norm_label": "label()"
     },
     {
@@ -2328,7 +2328,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_graph",
-      "community": 0,
+      "community": 9,
       "norm_label": "graph.ts"
     },
     {
@@ -2338,7 +2338,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "cli_graph_graphbuild",
-      "community": 0,
+      "community": 9,
       "norm_label": "graphbuild()"
     },
     {
@@ -2348,7 +2348,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_index",
-      "community": 1,
+      "community": 5,
       "norm_label": "index.ts"
     },
     {
@@ -2358,7 +2358,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "cli_index_safe",
-      "community": 1,
+      "community": 5,
       "norm_label": "safe()"
     },
     {
@@ -2368,7 +2368,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "cli_index_program",
-      "community": 1,
+      "community": 5,
       "norm_label": "program"
     },
     {
@@ -2378,7 +2378,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "cli_index_task",
-      "community": 1,
+      "community": 5,
       "norm_label": "task"
     },
     {
@@ -2388,7 +2388,7 @@
       "source_location": "L106",
       "_origin": "ast",
       "id": "cli_index_check",
-      "community": 1,
+      "community": 5,
       "norm_label": "check"
     },
     {
@@ -2398,7 +2398,7 @@
       "source_location": "L143",
       "_origin": "ast",
       "id": "cli_index_graph",
-      "community": 1,
+      "community": 5,
       "norm_label": "graph"
     },
     {
@@ -2408,7 +2408,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "cli_index_spec",
-      "community": 1,
+      "community": 5,
       "norm_label": "spec"
     },
     {
@@ -2418,7 +2418,7 @@
       "source_location": "L178",
       "_origin": "ast",
       "id": "cli_index_guard",
-      "community": 1,
+      "community": 5,
       "norm_label": "guard"
     },
     {
@@ -2428,7 +2428,7 @@
       "source_location": "L209",
       "_origin": "ast",
       "id": "cli_index_wave",
-      "community": 1,
+      "community": 5,
       "norm_label": "wave"
     },
     {
@@ -2438,7 +2438,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_init",
-      "community": 9,
+      "community": 8,
       "norm_label": "init.ts"
     },
     {
@@ -2448,7 +2448,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "cli_init_initoptions",
-      "community": 9,
+      "community": 8,
       "norm_label": "initoptions"
     },
     {
@@ -2458,7 +2458,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "cli_init_parseplatforms",
-      "community": 9,
+      "community": 8,
       "norm_label": "parseplatforms()"
     },
     {
@@ -2468,7 +2468,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "cli_init_runinit",
-      "community": 9,
+      "community": 8,
       "norm_label": "runinit()"
     },
     {
@@ -2478,7 +2478,7 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "cli_init_printseeded",
-      "community": 9,
+      "community": 8,
       "norm_label": "printseeded()"
     },
     {
@@ -2488,7 +2488,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "cli_init_ensuregitignore",
-      "community": 9,
+      "community": 8,
       "norm_label": "ensuregitignore()"
     },
     {
@@ -2518,7 +2518,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_log",
-      "community": 2,
+      "community": 0,
       "norm_label": "log.ts"
     },
     {
@@ -2528,7 +2528,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "cli_log_renderlog",
-      "community": 2,
+      "community": 0,
       "norm_label": "renderlog()"
     },
     {
@@ -2538,7 +2538,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "cli_log_describeevent",
-      "community": 2,
+      "community": 0,
       "norm_label": "describeevent()"
     },
     {
@@ -2548,7 +2548,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "cli_log_parsecount",
-      "community": 2,
+      "community": 0,
       "norm_label": "parsecount()"
     },
     {
@@ -2558,7 +2558,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "cli_log_logcmd",
-      "community": 2,
+      "community": 0,
       "norm_label": "logcmd()"
     },
     {
@@ -2658,7 +2658,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_queries",
-      "community": 1,
+      "community": 5,
       "norm_label": "queries.ts"
     },
     {
@@ -2668,7 +2668,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "cli_queries_light",
-      "community": 1,
+      "community": 5,
       "norm_label": "light"
     },
     {
@@ -2678,7 +2678,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "cli_queries_trace",
-      "community": 1,
+      "community": 5,
       "norm_label": "trace()"
     },
     {
@@ -2688,7 +2688,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "cli_queries_drift",
-      "community": 1,
+      "community": 5,
       "norm_label": "drift()"
     },
     {
@@ -2698,7 +2698,7 @@
       "source_location": "L113",
       "_origin": "ast",
       "id": "cli_queries_affected",
-      "community": 1,
+      "community": 5,
       "norm_label": "affected()"
     },
     {
@@ -2718,7 +2718,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "cli_refresh_docs_refreshdocs",
-      "community": 0,
+      "community": 5,
       "norm_label": "refreshdocs()"
     },
     {
@@ -2748,7 +2748,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_task_report",
-      "community": 8,
+      "community": 0,
       "norm_label": "task-report.ts"
     },
     {
@@ -2758,7 +2758,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "cli_task_report_rendertaskreport",
-      "community": 8,
+      "community": 0,
       "norm_label": "rendertaskreport()"
     },
     {
@@ -2768,7 +2768,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_tasks",
-      "community": 1,
+      "community": 5,
       "norm_label": "tasks.ts"
     },
     {
@@ -2778,7 +2778,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "cli_tasks_store",
-      "community": 1,
+      "community": 5,
       "norm_label": "store()"
     },
     {
@@ -2788,7 +2788,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "cli_tasks_taskcreate",
-      "community": 1,
+      "community": 5,
       "norm_label": "taskcreate()"
     },
     {
@@ -2798,7 +2798,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "cli_tasks_taskstart",
-      "community": 1,
+      "community": 5,
       "norm_label": "taskstart()"
     },
     {
@@ -2808,7 +2808,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "cli_tasks_taskdone",
-      "community": 1,
+      "community": 5,
       "norm_label": "taskdone()"
     },
     {
@@ -2818,7 +2818,7 @@
       "source_location": "L116",
       "_origin": "ast",
       "id": "cli_tasks_checkrun",
-      "community": 1,
+      "community": 5,
       "norm_label": "checkrun()"
     },
     {
@@ -2828,7 +2828,7 @@
       "source_location": "L186",
       "_origin": "ast",
       "id": "cli_tasks_status",
-      "community": 1,
+      "community": 5,
       "norm_label": "status()"
     },
     {
@@ -2838,7 +2838,7 @@
       "source_location": "L213",
       "_origin": "ast",
       "id": "cli_tasks_tasktrail",
-      "community": 1,
+      "community": 3,
       "norm_label": "tasktrail()"
     },
     {
@@ -2848,7 +2848,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_verify_cmd",
-      "community": 5,
+      "community": 4,
       "norm_label": "verify-cmd.ts"
     },
     {
@@ -2858,7 +2858,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "cli_verify_cmd_verifycmd",
-      "community": 5,
+      "community": 4,
       "norm_label": "verifycmd()"
     },
     {
@@ -2868,7 +2868,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_wave",
-      "community": 16,
+      "community": 15,
       "norm_label": "wave.ts"
     },
     {
@@ -2878,7 +2878,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "cli_wave_git",
-      "community": 16,
+      "community": 15,
       "norm_label": "git()"
     },
     {
@@ -2888,7 +2888,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "cli_wave_defaultbranch",
-      "community": 16,
+      "community": 15,
       "norm_label": "defaultbranch()"
     },
     {
@@ -2898,7 +2898,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "cli_wave_ensureunionmerge",
-      "community": 16,
+      "community": 15,
       "norm_label": "ensureunionmerge()"
     },
     {
@@ -2908,7 +2908,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "cli_wave_worktreereport",
-      "community": 16,
+      "community": 15,
       "norm_label": "worktreereport"
     },
     {
@@ -2918,7 +2918,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "cli_wave_wavestartat",
-      "community": 16,
+      "community": 15,
       "norm_label": "wavestartat()"
     },
     {
@@ -2928,7 +2928,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "cli_wave_wavedonereport",
-      "community": 16,
+      "community": 15,
       "norm_label": "wavedonereport"
     },
     {
@@ -2938,7 +2938,7 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "cli_wave_wavedoneat",
-      "community": 16,
+      "community": 15,
       "norm_label": "wavedoneat()"
     },
     {
@@ -2948,7 +2948,7 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "cli_wave_wavedone",
-      "community": 16,
+      "community": 15,
       "norm_label": "wavedone()"
     },
     {
@@ -2968,7 +2968,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "cli_wave_wavestart",
-      "community": 16,
+      "community": 15,
       "norm_label": "wavestart()"
     },
     {
@@ -2978,7 +2978,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_web",
-      "community": 6,
+      "community": 1,
       "norm_label": "web.ts"
     },
     {
@@ -2988,7 +2988,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "cli_web_mime",
-      "community": 6,
+      "community": 1,
       "norm_label": "mime"
     },
     {
@@ -2998,7 +2998,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "cli_web_gaterefusal",
-      "community": 6,
+      "community": 1,
       "norm_label": "gaterefusal"
     },
     {
@@ -3008,7 +3008,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "cli_web_safereadconfig",
-      "community": 6,
+      "community": 1,
       "norm_label": "safereadconfig()"
     },
     {
@@ -3018,7 +3018,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "cli_web_deepmerge",
-      "community": 6,
+      "community": 1,
       "norm_label": "deepmerge()"
     },
     {
@@ -3028,7 +3028,7 @@
       "source_location": "L94",
       "_origin": "ast",
       "id": "cli_web_json",
-      "community": 6,
+      "community": 1,
       "norm_label": "json()"
     },
     {
@@ -3038,7 +3038,7 @@
       "source_location": "L101",
       "_origin": "ast",
       "id": "cli_web_bodytoolarge",
-      "community": 6,
+      "community": 1,
       "norm_label": "bodytoolarge"
     },
     {
@@ -3048,7 +3048,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "cli_web_readbody",
-      "community": 6,
+      "community": 1,
       "norm_label": "readbody()"
     },
     {
@@ -3058,7 +3058,7 @@
       "source_location": "L120",
       "_origin": "ast",
       "id": "cli_web_sameorigin",
-      "community": 6,
+      "community": 1,
       "norm_label": "sameorigin()"
     },
     {
@@ -3068,7 +3068,7 @@
       "source_location": "L130",
       "_origin": "ast",
       "id": "cli_web_createcockpitserver",
-      "community": 6,
+      "community": 1,
       "norm_label": "createcockpitserver()"
     },
     {
@@ -3078,7 +3078,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "cli_web_handle",
-      "community": 6,
+      "community": 1,
       "norm_label": "handle()"
     },
     {
@@ -3088,7 +3088,7 @@
       "source_location": "L235",
       "_origin": "ast",
       "id": "cli_web_webcmd",
-      "community": 6,
+      "community": 1,
       "norm_label": "webcmd()"
     },
     {
@@ -3098,7 +3098,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "cli_workflow",
-      "community": 2,
+      "community": 4,
       "norm_label": "workflow.ts"
     },
     {
@@ -3108,7 +3108,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "cli_workflow_journal",
-      "community": 2,
+      "community": 4,
       "norm_label": "journal()"
     },
     {
@@ -3118,7 +3118,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "cli_workflow_ledgerpath",
-      "community": 2,
+      "community": 4,
       "norm_label": "ledgerpath()"
     },
     {
@@ -3128,7 +3128,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "cli_workflow_lintids",
-      "community": 2,
+      "community": 4,
       "norm_label": "lintids()"
     },
     {
@@ -3138,7 +3138,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "cli_workflow_spectasks",
-      "community": 2,
+      "community": 4,
       "norm_label": "spectasks()"
     },
     {
@@ -3148,7 +3148,7 @@
       "source_location": "L117",
       "_origin": "ast",
       "id": "cli_workflow_approve",
-      "community": 2,
+      "community": 4,
       "norm_label": "approve()"
     },
     {
@@ -3158,7 +3158,7 @@
       "source_location": "L139",
       "_origin": "ast",
       "id": "cli_workflow_pr",
-      "community": 2,
+      "community": 4,
       "norm_label": "pr()"
     },
     {
@@ -3168,7 +3168,7 @@
       "source_location": "L216",
       "_origin": "ast",
       "id": "cli_workflow_route",
-      "community": 2,
+      "community": 4,
       "norm_label": "route()"
     },
     {
@@ -3178,7 +3178,7 @@
       "source_location": "L273",
       "_origin": "ast",
       "id": "cli_workflow_gategraph",
-      "community": 2,
+      "community": 4,
       "norm_label": "gategraph()"
     },
     {
@@ -3188,7 +3188,7 @@
       "source_location": "L285",
       "_origin": "ast",
       "id": "cli_workflow_guardpr",
-      "community": 2,
+      "community": 4,
       "norm_label": "guardpr()"
     },
     {
@@ -3198,7 +3198,7 @@
       "source_location": "L312",
       "_origin": "ast",
       "id": "cli_workflow_githead",
-      "community": 2,
+      "community": 4,
       "norm_label": "githead()"
     },
     {
@@ -3208,7 +3208,7 @@
       "source_location": "L322",
       "_origin": "ast",
       "id": "cli_workflow_unlock",
-      "community": 2,
+      "community": 4,
       "norm_label": "unlock()"
     },
     {
@@ -3218,7 +3218,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "config_schema",
-      "community": 5,
+      "community": 2,
       "norm_label": "schema.ts"
     },
     {
@@ -3228,7 +3228,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "config_schema_platform_values",
-      "community": 9,
+      "community": 8,
       "norm_label": "platform_values"
     },
     {
@@ -3238,7 +3238,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "config_schema_rivetconfigschema",
-      "community": 9,
+      "community": 2,
       "norm_label": "rivetconfigschema"
     },
     {
@@ -3248,7 +3248,7 @@
       "source_location": "L334",
       "_origin": "ast",
       "id": "config_schema_rivetconfig",
-      "community": 0,
+      "community": 2,
       "norm_label": "rivetconfig"
     },
     {
@@ -3258,7 +3258,7 @@
       "source_location": "L337",
       "_origin": "ast",
       "id": "config_schema_defaultconfig",
-      "community": 9,
+      "community": 8,
       "norm_label": "defaultconfig()"
     },
     {
@@ -3268,7 +3268,7 @@
       "source_location": "L342",
       "_origin": "ast",
       "id": "config_schema_parseconfig",
-      "community": 5,
+      "community": 2,
       "norm_label": "parseconfig()"
     },
     {
@@ -3278,7 +3278,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "engine_approvals",
-      "community": 2,
+      "community": 4,
       "norm_label": "approvals.ts"
     },
     {
@@ -3288,7 +3288,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "engine_approvals_approvalinput",
-      "community": 6,
+      "community": 1,
       "norm_label": "approvalinput"
     },
     {
@@ -3298,7 +3298,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "engine_approvals_approvalerror",
-      "community": 2,
+      "community": 4,
       "norm_label": "approvalerror"
     },
     {
@@ -3308,7 +3308,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "engine_approvals_createapproval",
-      "community": 2,
+      "community": 4,
       "norm_label": "createapproval()"
     },
     {
@@ -3318,7 +3318,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "engine_approvals_listapprovals",
-      "community": 2,
+      "community": 4,
       "norm_label": "listapprovals()"
     },
     {
@@ -3328,7 +3328,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "engine_approvals_githead",
-      "community": 2,
+      "community": 4,
       "norm_label": "githead()"
     },
     {
@@ -3338,7 +3338,7 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "engine_approvals_gitconfig",
-      "community": 2,
+      "community": 4,
       "norm_label": "gitconfig()"
     },
     {
@@ -3348,7 +3348,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "engine_config_manifest",
-      "community": 9,
+      "community": 2,
       "norm_label": "config-manifest.ts"
     },
     {
@@ -3358,7 +3358,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "engine_config_manifest_knobfield",
-      "community": 9,
+      "community": 2,
       "norm_label": "knobfield"
     },
     {
@@ -3368,7 +3368,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "engine_config_manifest_knob",
-      "community": 6,
+      "community": 1,
       "norm_label": "knob"
     },
     {
@@ -3378,7 +3378,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "engine_config_manifest_sectionmeta",
-      "community": 6,
+      "community": 1,
       "norm_label": "sectionmeta"
     },
     {
@@ -3388,7 +3388,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "engine_config_manifest_sections",
-      "community": 9,
+      "community": 2,
       "norm_label": "sections"
     },
     {
@@ -3398,7 +3398,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "engine_config_manifest_descriptions",
-      "community": 9,
+      "community": 2,
       "norm_label": "descriptions"
     },
     {
@@ -3408,7 +3408,7 @@
       "source_location": "L185",
       "_origin": "ast",
       "id": "engine_config_manifest_unwrapped",
-      "community": 9,
+      "community": 2,
       "norm_label": "unwrapped"
     },
     {
@@ -3418,7 +3418,7 @@
       "source_location": "L190",
       "_origin": "ast",
       "id": "engine_config_manifest_unwrap",
-      "community": 9,
+      "community": 2,
       "norm_label": "unwrap()"
     },
     {
@@ -3428,7 +3428,7 @@
       "source_location": "L214",
       "_origin": "ast",
       "id": "engine_config_manifest_numberbounds",
-      "community": 9,
+      "community": 2,
       "norm_label": "numberbounds()"
     },
     {
@@ -3438,7 +3438,7 @@
       "source_location": "L223",
       "_origin": "ast",
       "id": "engine_config_manifest_typename",
-      "community": 9,
+      "community": 2,
       "norm_label": "typename()"
     },
     {
@@ -3448,7 +3448,7 @@
       "source_location": "L225",
       "_origin": "ast",
       "id": "engine_config_manifest_classifyfield",
-      "community": 9,
+      "community": 2,
       "norm_label": "classifyfield()"
     },
     {
@@ -3458,7 +3458,7 @@
       "source_location": "L240",
       "_origin": "ast",
       "id": "engine_config_manifest_classify",
-      "community": 9,
+      "community": 2,
       "norm_label": "classify()"
     },
     {
@@ -3468,7 +3468,7 @@
       "source_location": "L284",
       "_origin": "ast",
       "id": "engine_config_manifest_get",
-      "community": 9,
+      "community": 2,
       "norm_label": "get()"
     },
     {
@@ -3478,7 +3478,7 @@
       "source_location": "L291",
       "_origin": "ast",
       "id": "engine_config_manifest_manifestfromschema",
-      "community": 9,
+      "community": 2,
       "norm_label": "manifestfromschema()"
     },
     {
@@ -3488,7 +3488,7 @@
       "source_location": "L327",
       "_origin": "ast",
       "id": "engine_config_manifest_generatemanifest",
-      "community": 9,
+      "community": 2,
       "norm_label": "generatemanifest()"
     },
     {
@@ -3548,7 +3548,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "engine_flushwarn",
-      "community": 2,
+      "community": 4,
       "norm_label": "flushwarn.ts"
     },
     {
@@ -3558,7 +3558,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "engine_flushwarn_sessionstart",
-      "community": 2,
+      "community": 4,
       "norm_label": "sessionstart()"
     },
     {
@@ -3568,7 +3568,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "engine_flushwarn_needsflush",
-      "community": 2,
+      "community": 4,
       "norm_label": "needsflush()"
     },
     {
@@ -3578,7 +3578,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "engine_gate",
-      "community": 2,
+      "community": 4,
       "norm_label": "gate.ts"
     },
     {
@@ -3588,7 +3588,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "engine_gate_gateverdict",
-      "community": 2,
+      "community": 4,
       "norm_label": "gateverdict"
     },
     {
@@ -3598,7 +3598,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "engine_gate_verifyverdict",
-      "community": 2,
+      "community": 4,
       "norm_label": "verifyverdict()"
     },
     {
@@ -3608,7 +3608,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "engine_gatepacks",
-      "community": 0,
+      "community": 9,
       "norm_label": "gatepacks.ts"
     },
     {
@@ -3618,7 +3618,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "engine_gatepacks_packdef",
-      "community": 0,
+      "community": 9,
       "norm_label": "packdef"
     },
     {
@@ -3628,7 +3628,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "engine_gatepacks_escapere",
-      "community": 0,
+      "community": 9,
       "norm_label": "escapere()"
     },
     {
@@ -3638,7 +3638,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "engine_gatepacks_triggered",
-      "community": 0,
+      "community": 9,
       "norm_label": "triggered()"
     },
     {
@@ -3648,7 +3648,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "engine_gatepacks_requiredpacks",
-      "community": 0,
+      "community": 9,
       "norm_label": "requiredpacks()"
     },
     {
@@ -3658,7 +3658,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "engine_gatepacks_evaluatepack",
-      "community": 0,
+      "community": 9,
       "norm_label": "evaluatepack()"
     },
     {
@@ -3668,7 +3668,7 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "engine_gatepacks_floorviolations",
-      "community": 0,
+      "community": 9,
       "norm_label": "floorviolations()"
     },
     {
@@ -3678,7 +3678,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "engine_gatepacks_applygatefloor",
-      "community": 0,
+      "community": 9,
       "norm_label": "applygatefloor()"
     },
     {
@@ -3688,7 +3688,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "engine_git",
-      "community": 5,
+      "community": 4,
       "norm_label": "git.ts"
     },
     {
@@ -3698,7 +3698,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "engine_git_git",
-      "community": 5,
+      "community": 4,
       "norm_label": "git()"
     },
     {
@@ -3708,7 +3708,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "engine_git_githead",
-      "community": 5,
+      "community": 4,
       "norm_label": "githead()"
     },
     {
@@ -3718,7 +3718,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "engine_git_isdirty",
-      "community": 2,
+      "community": 4,
       "norm_label": "isdirty()"
     },
     {
@@ -3728,7 +3728,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "engine_git_gittreehash",
-      "community": 0,
+      "community": 4,
       "norm_label": "gittreehash()"
     },
     {
@@ -3768,7 +3768,7 @@
       "source_location": "L119",
       "_origin": "ast",
       "id": "graph_build_vtgsummary",
-      "community": 8,
+      "community": 0,
       "norm_label": "vtgsummary"
     },
     {
@@ -3778,7 +3778,7 @@
       "source_location": "L132",
       "_origin": "ast",
       "id": "graph_build_requirementrollup",
-      "community": 8,
+      "community": 0,
       "norm_label": "requirementrollup"
     },
     {
@@ -3808,7 +3808,7 @@
       "source_location": "L169",
       "_origin": "ast",
       "id": "graph_build_drifttarget",
-      "community": 8,
+      "community": 0,
       "norm_label": "drifttarget"
     },
     {
@@ -3818,7 +3818,7 @@
       "source_location": "L176",
       "_origin": "ast",
       "id": "graph_build_drifttargets",
-      "community": 1,
+      "community": 5,
       "norm_label": "drifttargets()"
     },
     {
@@ -3828,7 +3828,7 @@
       "source_location": "L196",
       "_origin": "ast",
       "id": "graph_build_summarize",
-      "community": 0,
+      "community": 9,
       "norm_label": "summarize()"
     },
     {
@@ -3838,7 +3838,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "graph_types",
-      "community": 8,
+      "community": 0,
       "norm_label": "types.ts"
     },
     {
@@ -3848,7 +3848,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "graph_types_nodekind",
-      "community": 8,
+      "community": 0,
       "norm_label": "nodekind"
     },
     {
@@ -3858,7 +3858,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "graph_types_edgekind",
-      "community": 8,
+      "community": 0,
       "norm_label": "edgekind"
     },
     {
@@ -3868,7 +3868,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "graph_types_proofstate",
-      "community": 8,
+      "community": 0,
       "norm_label": "proofstate"
     },
     {
@@ -3888,7 +3888,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "graph_types_checkresult",
-      "community": 8,
+      "community": 0,
       "norm_label": "checkresult"
     },
     {
@@ -3898,7 +3898,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "graph_types_graphedge",
-      "community": 8,
+      "community": 0,
       "norm_label": "graphedge"
     },
     {
@@ -3918,7 +3918,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "graph_types_proven_edge_kinds",
-      "community": 8,
+      "community": 0,
       "norm_label": "proven_edge_kinds"
     },
     {
@@ -3928,7 +3928,7 @@
       "source_location": "L94",
       "_origin": "ast",
       "id": "graph_types_hasgreenedge",
-      "community": 8,
+      "community": 0,
       "norm_label": "hasgreenedge()"
     },
     {
@@ -3938,7 +3938,7 @@
       "source_location": "L106",
       "_origin": "ast",
       "id": "graph_types_unimplementedrequirements",
-      "community": 8,
+      "community": 0,
       "norm_label": "unimplementedrequirements()"
     },
     {
@@ -3948,7 +3948,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "graph_types_untestedcriteria",
-      "community": 8,
+      "community": 0,
       "norm_label": "untestedcriteria()"
     },
     {
@@ -3958,7 +3958,7 @@
       "source_location": "L119",
       "_origin": "ast",
       "id": "graph_types_blastradius",
-      "community": 8,
+      "community": 0,
       "norm_label": "blastradius()"
     },
     {
@@ -3968,7 +3968,7 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "graph_types_driftededges",
-      "community": 8,
+      "community": 0,
       "norm_label": "driftededges()"
     },
     {
@@ -3978,7 +3978,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "graphify_index",
-      "community": 13,
+      "community": 16,
       "norm_label": "index.ts"
     },
     {
@@ -3988,7 +3988,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "graphify_index_graphifybin",
-      "community": 1,
+      "community": 5,
       "norm_label": "graphifybin()"
     },
     {
@@ -3998,7 +3998,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "graphify_index_graphifyinstalled",
-      "community": 0,
+      "community": 9,
       "norm_label": "graphifyinstalled()"
     },
     {
@@ -4008,7 +4008,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "graphify_index_rawgraph",
-      "community": 13,
+      "community": 16,
       "norm_label": "rawgraph"
     },
     {
@@ -4018,7 +4018,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "graphify_index_codelink",
-      "community": 13,
+      "community": 16,
       "norm_label": "codelink"
     },
     {
@@ -4038,7 +4038,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "graphify_index_loadcodegraph",
-      "community": 13,
+      "community": 16,
       "norm_label": "loadcodegraph()"
     },
     {
@@ -4048,7 +4048,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "graphify_index_endpointid",
-      "community": 13,
+      "community": 16,
       "norm_label": "endpointid()"
     },
     {
@@ -4058,7 +4058,7 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "graphify_index_graphfreshness",
-      "community": 13,
+      "community": 16,
       "norm_label": "graphfreshness"
     },
     {
@@ -4068,7 +4068,7 @@
       "source_location": "L107",
       "_origin": "ast",
       "id": "graphify_index_freshness_file",
-      "community": 13,
+      "community": 16,
       "norm_label": "freshness_file"
     },
     {
@@ -4078,7 +4078,7 @@
       "source_location": "L109",
       "_origin": "ast",
       "id": "graphify_index_readfreshness",
-      "community": 13,
+      "community": 16,
       "norm_label": "readfreshness()"
     },
     {
@@ -4088,7 +4088,7 @@
       "source_location": "L119",
       "_origin": "ast",
       "id": "graphify_index_writefreshness",
-      "community": 13,
+      "community": 16,
       "norm_label": "writefreshness()"
     },
     {
@@ -4098,7 +4098,7 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "graphify_index_isstale",
-      "community": 13,
+      "community": 16,
       "norm_label": "isstale()"
     },
     {
@@ -4108,7 +4108,7 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "graphify_index_refreshcodegraph",
-      "community": 13,
+      "community": 16,
       "norm_label": "refreshcodegraph()"
     },
     {
@@ -4118,7 +4118,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "graphify_index_graphprovider",
-      "community": 13,
+      "community": 16,
       "norm_label": "graphprovider"
     },
     {
@@ -4138,7 +4138,7 @@
       "source_location": "L161",
       "_origin": "ast",
       "id": "graphify_index_refreshcodegraphvia",
-      "community": 13,
+      "community": 16,
       "norm_label": "refreshcodegraphvia()"
     },
     {
@@ -4148,7 +4148,7 @@
       "source_location": "L173",
       "_origin": "ast",
       "id": "graphify_index_githead",
-      "community": 13,
+      "community": 16,
       "norm_label": "githead()"
     },
     {
@@ -4158,7 +4158,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "engine_learnwarn",
-      "community": 1,
+      "community": 5,
       "norm_label": "learnwarn.ts"
     },
     {
@@ -4168,7 +4168,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "engine_learnwarn_lessonentry",
-      "community": 1,
+      "community": 5,
       "norm_label": "lessonentry"
     },
     {
@@ -4178,7 +4178,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "engine_learnwarn_parselearnings",
-      "community": 1,
+      "community": 5,
       "norm_label": "parselearnings()"
     },
     {
@@ -4188,7 +4188,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "engine_learnwarn_stop",
-      "community": 1,
+      "community": 5,
       "norm_label": "stop"
     },
     {
@@ -4198,7 +4198,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "engine_learnwarn_tokens",
-      "community": 1,
+      "community": 5,
       "norm_label": "tokens()"
     },
     {
@@ -4208,7 +4208,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "engine_learnwarn_matchopenlessons",
-      "community": 1,
+      "community": 5,
       "norm_label": "matchopenlessons()"
     },
     {
@@ -4298,7 +4298,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pr_body",
-      "community": 2,
+      "community": 0,
       "norm_label": "body.ts"
     },
     {
@@ -4318,7 +4318,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "pr_body_light",
-      "community": 2,
+      "community": 0,
       "norm_label": "light"
     },
     {
@@ -4328,7 +4328,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "pr_body_buildprbody",
-      "community": 2,
+      "community": 0,
       "norm_label": "buildprbody()"
     },
     {
@@ -4338,7 +4338,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "engine_practices",
-      "community": 9,
+      "community": 8,
       "norm_label": "practices.ts"
     },
     {
@@ -4348,7 +4348,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "engine_practices_practicepack",
-      "community": 9,
+      "community": 8,
       "norm_label": "practicepack"
     },
     {
@@ -4358,7 +4358,7 @@
       "source_location": "L189",
       "_origin": "ast",
       "id": "engine_practices_family",
-      "community": 9,
+      "community": 8,
       "norm_label": "family"
     },
     {
@@ -4368,7 +4368,7 @@
       "source_location": "L204",
       "_origin": "ast",
       "id": "engine_practices_practicesfor",
-      "community": 9,
+      "community": 8,
       "norm_label": "practicesfor()"
     },
     {
@@ -4378,7 +4378,7 @@
       "source_location": "L218",
       "_origin": "ast",
       "id": "engine_practices_seedpractices",
-      "community": 9,
+      "community": 8,
       "norm_label": "seedpractices()"
     },
     {
@@ -4448,7 +4448,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "route_classify",
-      "community": 2,
+      "community": 4,
       "norm_label": "classify.ts"
     },
     {
@@ -4458,7 +4458,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "route_classify_mode",
-      "community": 2,
+      "community": 4,
       "norm_label": "mode"
     },
     {
@@ -4468,7 +4468,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "route_classify_modes",
-      "community": 2,
+      "community": 4,
       "norm_label": "modes"
     },
     {
@@ -4478,7 +4478,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "route_classify_assertmode",
-      "community": 2,
+      "community": 4,
       "norm_label": "assertmode()"
     },
     {
@@ -4488,7 +4488,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "route_classify_routeresult",
-      "community": 2,
+      "community": 4,
       "norm_label": "routeresult"
     },
     {
@@ -4498,7 +4498,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "route_classify_routerequest",
-      "community": 2,
+      "community": 4,
       "norm_label": "routerequest()"
     },
     {
@@ -4508,7 +4508,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "spec_ears",
-      "community": 0,
+      "community": 9,
       "norm_label": "ears.ts"
     },
     {
@@ -4518,7 +4518,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "spec_ears_earspattern",
-      "community": 0,
+      "community": 9,
       "norm_label": "earspattern"
     },
     {
@@ -4528,7 +4528,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "spec_ears_checkkind",
-      "community": 0,
+      "community": 9,
       "norm_label": "checkkind"
     },
     {
@@ -4538,7 +4538,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "spec_ears_checkbinding",
-      "community": 0,
+      "community": 9,
       "norm_label": "checkbinding"
     },
     {
@@ -4548,7 +4548,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "spec_ears_acceptancecriterion",
-      "community": 0,
+      "community": 9,
       "norm_label": "acceptancecriterion"
     },
     {
@@ -4558,7 +4558,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "spec_ears_userstory",
-      "community": 0,
+      "community": 9,
       "norm_label": "userstory"
     },
     {
@@ -4588,7 +4588,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "spec_ears_qualified_prefixes",
-      "community": 0,
+      "community": 9,
       "norm_label": "qualified_prefixes"
     },
     {
@@ -4598,7 +4598,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "spec_ears_isqualifiedid",
-      "community": 0,
+      "community": 9,
       "norm_label": "isqualifiedid()"
     },
     {
@@ -4608,7 +4608,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "spec_ears_lintqualifiedids",
-      "community": 0,
+      "community": 9,
       "norm_label": "lintqualifiedids()"
     },
     {
@@ -4618,7 +4618,7 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "spec_ears_unboundobligations",
-      "community": 0,
+      "community": 9,
       "norm_label": "unboundobligations()"
     },
     {
@@ -4628,7 +4628,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "spec_ears_isverifiable",
-      "community": 0,
+      "community": 9,
       "norm_label": "isverifiable()"
     },
     {
@@ -4638,7 +4638,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "spec_ears_unverifiedcriteria",
-      "community": 0,
+      "community": 9,
       "norm_label": "unverifiedcriteria()"
     },
     {
@@ -4648,7 +4648,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "spec_ears_kindforref",
-      "community": 1,
+      "community": 5,
       "norm_label": "kindforref()"
     },
     {
@@ -4658,7 +4658,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "spec_ears_ears_patterns",
-      "community": 0,
+      "community": 9,
       "norm_label": "ears_patterns"
     },
     {
@@ -4668,7 +4668,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "spec_ears_classifyears",
-      "community": 0,
+      "community": 9,
       "norm_label": "classifyears()"
     },
     {
@@ -4678,7 +4678,7 @@
       "source_location": "L119",
       "_origin": "ast",
       "id": "spec_ears_lookslikeears",
-      "community": 0,
+      "community": 9,
       "norm_label": "lookslikeears()"
     },
     {
@@ -4688,7 +4688,7 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "spec_ears_isnegativecriterion",
-      "community": 0,
+      "community": 9,
       "norm_label": "isnegativecriterion()"
     },
     {
@@ -4698,7 +4698,7 @@
       "source_location": "L139",
       "_origin": "ast",
       "id": "spec_ears_lintcriteriaformat",
-      "community": 0,
+      "community": 9,
       "norm_label": "lintcriteriaformat()"
     },
     {
@@ -4748,7 +4748,7 @@
       "source_location": "L201",
       "_origin": "ast",
       "id": "spec_parse_parsespecsdir",
-      "community": 2,
+      "community": 4,
       "norm_label": "parsespecsdir()"
     },
     {
@@ -4868,7 +4868,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "state_journal_journal",
-      "community": 6,
+      "community": 1,
       "norm_label": "journal"
     },
     {
@@ -4878,7 +4878,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "state_journal_journal_constructor",
-      "community": 6,
+      "community": 1,
       "norm_label": ".constructor()"
     },
     {
@@ -4898,7 +4898,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "state_journal_journal_read",
-      "community": 6,
+      "community": 1,
       "norm_label": ".read()"
     },
     {
@@ -4908,7 +4908,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "state_journal_journal_fold",
-      "community": 6,
+      "community": 1,
       "norm_label": ".fold()"
     },
     {
@@ -4918,7 +4918,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "state_tasks",
-      "community": 8,
+      "community": 0,
       "norm_label": "tasks.ts"
     },
     {
@@ -4928,7 +4928,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "state_tasks_taskstatus",
-      "community": 8,
+      "community": 0,
       "norm_label": "taskstatus"
     },
     {
@@ -4948,7 +4948,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "state_tasks_evidenceerror",
-      "community": 8,
+      "community": 1,
       "norm_label": "evidenceerror"
     },
     {
@@ -4958,7 +4958,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "state_tasks_evidenceerror_constructor",
-      "community": 8,
+      "community": 1,
       "norm_label": ".constructor()"
     },
     {
@@ -4968,7 +4968,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "state_tasks_taskcreateddata",
-      "community": 8,
+      "community": 0,
       "norm_label": "taskcreateddata"
     },
     {
@@ -4978,7 +4978,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "state_tasks_taskbindingsdata",
-      "community": 8,
+      "community": 0,
       "norm_label": "taskbindingsdata"
     },
     {
@@ -4988,7 +4988,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "state_tasks_taskstatusdata",
-      "community": 8,
+      "community": 0,
       "norm_label": "taskstatusdata"
     },
     {
@@ -4998,7 +4998,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "state_tasks_checkrundata",
-      "community": 8,
+      "community": 0,
       "norm_label": "checkrundata"
     },
     {
@@ -5008,7 +5008,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "state_tasks_taskstore",
-      "community": 6,
+      "community": 1,
       "norm_label": "taskstore"
     },
     {
@@ -5018,7 +5018,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "state_tasks_taskstore_constructor",
-      "community": 6,
+      "community": 1,
       "norm_label": ".constructor()"
     },
     {
@@ -5028,7 +5028,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "state_tasks_taskstore_all",
-      "community": 6,
+      "community": 1,
       "norm_label": ".all()"
     },
     {
@@ -5038,7 +5038,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "state_tasks_taskstore_get",
-      "community": 6,
+      "community": 1,
       "norm_label": ".get()"
     },
     {
@@ -5048,7 +5048,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "state_tasks_taskstore_create",
-      "community": 6,
+      "community": 1,
       "norm_label": ".create()"
     },
     {
@@ -5058,7 +5058,7 @@
       "source_location": "L113",
       "_origin": "ast",
       "id": "state_tasks_taskstore_syncbindings",
-      "community": 6,
+      "community": 1,
       "norm_label": ".syncbindings()"
     },
     {
@@ -5068,7 +5068,7 @@
       "source_location": "L122",
       "_origin": "ast",
       "id": "state_tasks_taskstore_setstatus",
-      "community": 6,
+      "community": 1,
       "norm_label": ".setstatus()"
     },
     {
@@ -5078,7 +5078,7 @@
       "source_location": "L128",
       "_origin": "ast",
       "id": "state_tasks_taskstore_recordcheck",
-      "community": 6,
+      "community": 1,
       "norm_label": ".recordcheck()"
     },
     {
@@ -5088,7 +5088,7 @@
       "source_location": "L140",
       "_origin": "ast",
       "id": "state_tasks_taskstore_markdone",
-      "community": 6,
+      "community": 1,
       "norm_label": ".markdone()"
     },
     {
@@ -5098,7 +5098,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "state_tasks_taskstore_requiretask",
-      "community": 6,
+      "community": 1,
       "norm_label": ".requiretask()"
     },
     {
@@ -5108,7 +5108,7 @@
       "source_location": "L179",
       "_origin": "ast",
       "id": "state_tasks_staleproofrefs",
-      "community": 1,
+      "community": 5,
       "norm_label": "staleproofrefs()"
     },
     {
@@ -5248,7 +5248,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "verify_applife",
-      "community": 1,
+      "community": 5,
       "norm_label": "applife.ts"
     },
     {
@@ -5258,7 +5258,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "verify_applife_appconfig",
-      "community": 1,
+      "community": 5,
       "norm_label": "appconfig"
     },
     {
@@ -5268,7 +5268,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "verify_applife_sleep",
-      "community": 1,
+      "community": 5,
       "norm_label": "sleep()"
     },
     {
@@ -5278,7 +5278,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "verify_applife_waitready",
-      "community": 1,
+      "community": 5,
       "norm_label": "waitready()"
     },
     {
@@ -5288,7 +5288,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "verify_applife_withapp",
-      "community": 1,
+      "community": 5,
       "norm_label": "withapp()"
     },
     {
@@ -5298,7 +5298,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "verify_retry",
-      "community": 1,
+      "community": 5,
       "norm_label": "retry.ts"
     },
     {
@@ -5308,7 +5308,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "verify_retry_runwithretry",
-      "community": 1,
+      "community": 5,
       "norm_label": "runwithretry()"
     },
     {
@@ -5318,7 +5318,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "verify_runner",
-      "community": 5,
+      "community": 2,
       "norm_label": "runner.ts"
     },
     {
@@ -5328,7 +5328,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "verify_runner_stack",
-      "community": 5,
+      "community": 2,
       "norm_label": "stack"
     },
     {
@@ -5338,7 +5338,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "verify_runner_builtin_stacks",
-      "community": 5,
+      "community": 2,
       "norm_label": "builtin_stacks"
     },
     {
@@ -5348,7 +5348,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "verify_runner_resolvedcommand",
-      "community": 5,
+      "community": 2,
       "norm_label": "resolvedcommand"
     },
     {
@@ -5358,7 +5358,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "verify_runner_runneroverride",
-      "community": 5,
+      "community": 2,
       "norm_label": "runneroverride"
     },
     {
@@ -5368,7 +5368,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "verify_runner_stackresolution",
-      "community": 5,
+      "community": 2,
       "norm_label": "stackresolution"
     },
     {
@@ -5378,7 +5378,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "verify_runner_node_platforms",
-      "community": 5,
+      "community": 2,
       "norm_label": "node_platforms"
     },
     {
@@ -5388,7 +5388,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "verify_runner_maven_platforms",
-      "community": 5,
+      "community": 2,
       "norm_label": "maven_platforms"
     },
     {
@@ -5398,7 +5398,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "verify_runner_resolvestack",
-      "community": 5,
+      "community": 2,
       "norm_label": "resolvestack()"
     },
     {
@@ -5408,7 +5408,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "verify_runner_hasdep",
-      "community": 5,
+      "community": 2,
       "norm_label": "hasdep()"
     },
     {
@@ -5418,7 +5418,7 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "verify_runner_pickrunner",
-      "community": 1,
+      "community": 5,
       "norm_label": "pickrunner()"
     },
     {
@@ -5428,7 +5428,7 @@
       "source_location": "L106",
       "_origin": "ast",
       "id": "verify_runner_resolvecommand",
-      "community": 5,
+      "community": 2,
       "norm_label": "resolvecommand()"
     },
     {
@@ -5438,7 +5438,7 @@
       "source_location": "L148",
       "_origin": "ast",
       "id": "verify_runner_splitref",
-      "community": 5,
+      "community": 2,
       "norm_label": "splitref()"
     },
     {
@@ -5448,7 +5448,7 @@
       "source_location": "L154",
       "_origin": "ast",
       "id": "verify_runner_runoptions",
-      "community": 5,
+      "community": 2,
       "norm_label": "runoptions"
     },
     {
@@ -5458,7 +5458,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "verify_runner_runnerunavailableerror",
-      "community": 5,
+      "community": 2,
       "norm_label": "runnerunavailableerror"
     },
     {
@@ -5468,7 +5468,7 @@
       "source_location": "L164",
       "_origin": "ast",
       "id": "verify_runner_runnerunavailableerror_constructor",
-      "community": 5,
+      "community": 2,
       "norm_label": ".constructor()"
     },
     {
@@ -5478,7 +5478,7 @@
       "source_location": "L171",
       "_origin": "ast",
       "id": "verify_runner_execute",
-      "community": 5,
+      "community": 4,
       "norm_label": "execute()"
     },
     {
@@ -5498,7 +5498,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "verify_stamp",
-      "community": 2,
+      "community": 4,
       "norm_label": "stamp.ts"
     },
     {
@@ -5508,7 +5508,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "verify_stamp_proofidentity",
-      "community": 2,
+      "community": 4,
       "norm_label": "proofidentity"
     },
     {
@@ -5518,7 +5518,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "verify_stamp_identitylabel",
-      "community": 2,
+      "community": 4,
       "norm_label": "identitylabel()"
     },
     {
@@ -5528,7 +5528,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "verify_stamp_proofstamp",
-      "community": 2,
+      "community": 4,
       "norm_label": "proofstamp()"
     },
     {
@@ -5538,7 +5538,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "verify_verify_all",
-      "community": 5,
+      "community": 2,
       "norm_label": "verify-all.ts"
     },
     {
@@ -5548,7 +5548,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "verify_verify_all_verifystep",
-      "community": 5,
+      "community": 2,
       "norm_label": "verifystep"
     },
     {
@@ -5558,7 +5558,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "verify_verify_all_verifystepresult",
-      "community": 5,
+      "community": 2,
       "norm_label": "verifystepresult"
     },
     {
@@ -5568,7 +5568,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "verify_verify_all_verifyrun",
-      "community": 5,
+      "community": 2,
       "norm_label": "verifyrun"
     },
     {
@@ -5578,7 +5578,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "verify_verify_all_node_platforms",
-      "community": 5,
+      "community": 2,
       "norm_label": "node_platforms"
     },
     {
@@ -5588,7 +5588,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "verify_verify_all_builtin_full_suite",
-      "community": 5,
+      "community": 2,
       "norm_label": "builtin_full_suite"
     },
     {
@@ -5598,7 +5598,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "verify_verify_all_fullsuite",
-      "community": 5,
+      "community": 2,
       "norm_label": "fullsuite()"
     },
     {
@@ -5608,7 +5608,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "verify_verify_all_planverify",
-      "community": 5,
+      "community": 2,
       "norm_label": "planverify()"
     },
     {
@@ -5618,7 +5618,7 @@
       "source_location": "L118",
       "_origin": "ast",
       "id": "verify_verify_all_runverify",
-      "community": 5,
+      "community": 4,
       "norm_label": "runverify()"
     },
     {
@@ -5628,7 +5628,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "engine_wave",
-      "community": 16,
+      "community": 15,
       "norm_label": "wave.ts"
     },
     {
@@ -5638,7 +5638,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "engine_wave_wavetask",
-      "community": 16,
+      "community": 15,
       "norm_label": "wavetask"
     },
     {
@@ -5648,7 +5648,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "engine_wave_filesfortask",
-      "community": 16,
+      "community": 15,
       "norm_label": "filesfortask()"
     },
     {
@@ -5658,7 +5658,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "engine_wave_planwaves",
-      "community": 16,
+      "community": 15,
       "norm_label": "planwaves()"
     },
     {
@@ -5668,7 +5668,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_index",
-      "community": 3,
+      "community": 4,
       "norm_label": "index.ts"
     },
     {
@@ -5678,7 +5678,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_audit_meta_test",
-      "community": 2,
+      "community": 0,
       "norm_label": "audit-meta.test.ts"
     },
     {
@@ -5688,7 +5688,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "test_audit_meta_test_tempjournal",
-      "community": 2,
+      "community": 0,
       "norm_label": "tempjournal()"
     },
     {
@@ -5748,7 +5748,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_cockpit_assets_test",
-      "community": 9,
+      "community": 2,
       "norm_label": "cockpit-assets.test.ts"
     },
     {
@@ -5758,7 +5758,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "test_cockpit_assets_test_assetsdir",
-      "community": 9,
+      "community": 2,
       "norm_label": "assetsdir"
     },
     {
@@ -5768,7 +5768,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "test_cockpit_assets_test_read",
-      "community": 9,
+      "community": 2,
       "norm_label": "read()"
     },
     {
@@ -5778,7 +5778,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_cockpit_hardening_test",
-      "community": 6,
+      "community": 1,
       "norm_label": "cockpit-hardening.test.ts"
     },
     {
@@ -5788,7 +5788,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "test_cockpit_hardening_test_project",
-      "community": 6,
+      "community": 1,
       "norm_label": "project()"
     },
     {
@@ -5798,7 +5798,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "test_cockpit_hardening_test_serve",
-      "community": 6,
+      "community": 1,
       "norm_label": "serve()"
     },
     {
@@ -5808,7 +5808,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_cockpit_server_test",
-      "community": 6,
+      "community": 1,
       "norm_label": "cockpit-server.test.ts"
     },
     {
@@ -5818,7 +5818,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "test_cockpit_server_test_project",
-      "community": 6,
+      "community": 1,
       "norm_label": "project()"
     },
     {
@@ -5828,7 +5828,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "test_cockpit_server_test_serve",
-      "community": 6,
+      "community": 1,
       "norm_label": "serve()"
     },
     {
@@ -5888,7 +5888,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_config_manifest_test",
-      "community": 9,
+      "community": 2,
       "norm_label": "config-manifest.test.ts"
     },
     {
@@ -5908,7 +5908,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_default_stack_test",
-      "community": 5,
+      "community": 2,
       "norm_label": "default-stack.test.ts"
     },
     {
@@ -5918,7 +5918,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "test_default_stack_test_projectwith",
-      "community": 5,
+      "community": 2,
       "norm_label": "projectwith()"
     },
     {
@@ -5928,7 +5928,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_docs_refresh_test",
-      "community": 1,
+      "community": 5,
       "norm_label": "docs-refresh.test.ts"
     },
     {
@@ -5938,7 +5938,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "test_docs_refresh_test_project",
-      "community": 1,
+      "community": 5,
       "norm_label": "project()"
     },
     {
@@ -5948,7 +5948,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "test_docs_refresh_test_here",
-      "community": 1,
+      "community": 5,
       "norm_label": "here"
     },
     {
@@ -5958,7 +5958,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_doctor_fix_test",
-      "community": 13,
+      "community": 8,
       "norm_label": "doctor-fix.test.ts"
     },
     {
@@ -5968,7 +5968,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "test_doctor_fix_test_probemissinggraphify",
-      "community": 13,
+      "community": 8,
       "norm_label": "probemissinggraphify()"
     },
     {
@@ -5978,7 +5978,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_emoji_test",
-      "community": 1,
+      "community": 8,
       "norm_label": "emoji.test.ts"
     },
     {
@@ -5998,7 +5998,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_finish_skill_test",
-      "community": 57,
+      "community": 58,
       "norm_label": "finish-skill.test.ts"
     },
     {
@@ -6008,7 +6008,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "test_finish_skill_test_path",
-      "community": 57,
+      "community": 58,
       "norm_label": "path"
     },
     {
@@ -6038,7 +6038,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_gate_packs_test",
-      "community": 0,
+      "community": 9,
       "norm_label": "gate-packs.test.ts"
     },
     {
@@ -6048,7 +6048,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_gate_test",
-      "community": 2,
+      "community": 4,
       "norm_label": "gate.test.ts"
     },
     {
@@ -6058,7 +6058,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "test_gate_test_graphwith",
-      "community": 2,
+      "community": 4,
       "norm_label": "graphwith()"
     },
     {
@@ -6068,7 +6068,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "test_gate_test_rivetproject",
-      "community": 2,
+      "community": 4,
       "norm_label": "rivetproject()"
     },
     {
@@ -6078,7 +6078,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_gherkin_test",
-      "community": 0,
+      "community": 9,
       "norm_label": "gherkin.test.ts"
     },
     {
@@ -6088,7 +6088,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_graph_test",
-      "community": 8,
+      "community": 0,
       "norm_label": "graph.test.ts"
     },
     {
@@ -6098,7 +6098,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "test_graph_test_graph",
-      "community": 8,
+      "community": 0,
       "norm_label": "graph"
     },
     {
@@ -6108,7 +6108,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_graphify_test",
-      "community": 13,
+      "community": 16,
       "norm_label": "graphify.test.ts"
     },
     {
@@ -6118,7 +6118,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_init_practices_test",
-      "community": 9,
+      "community": 8,
       "norm_label": "init-practices.test.ts"
     },
     {
@@ -6128,7 +6128,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "test_init_practices_test_tmp",
-      "community": 9,
+      "community": 8,
       "norm_label": "tmp()"
     },
     {
@@ -6138,7 +6138,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_learnwarn_test",
-      "community": 1,
+      "community": 5,
       "norm_label": "learnwarn.test.ts"
     },
     {
@@ -6148,7 +6148,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_parse_fix_test",
-      "community": 2,
+      "community": 0,
       "norm_label": "parse-fix.test.ts"
     },
     {
@@ -6158,7 +6158,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_pr_flush_warn_test",
-      "community": 2,
+      "community": 4,
       "norm_label": "pr-flush-warn.test.ts"
     },
     {
@@ -6168,7 +6168,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "test_pr_flush_warn_test_ev",
-      "community": 2,
+      "community": 4,
       "norm_label": "ev()"
     },
     {
@@ -6178,7 +6178,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_proof_display_test",
-      "community": 2,
+      "community": 0,
       "norm_label": "proof-display.test.ts"
     },
     {
@@ -6278,7 +6278,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_readme_test",
-      "community": 58,
+      "community": 59,
       "norm_label": "readme.test.ts"
     },
     {
@@ -6288,7 +6288,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "test_readme_test_readme",
-      "community": 58,
+      "community": 59,
       "norm_label": "readme"
     },
     {
@@ -6298,7 +6298,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_revitify_contract_test",
-      "community": 13,
+      "community": 16,
       "norm_label": "revitify-contract.test.ts"
     },
     {
@@ -6308,7 +6308,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_robust_test",
-      "community": 5,
+      "community": 2,
       "norm_label": "robust.test.ts"
     },
     {
@@ -6318,7 +6318,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "test_robust_test_projectwithconfig",
-      "community": 5,
+      "community": 2,
       "norm_label": "projectwithconfig()"
     },
     {
@@ -6328,7 +6328,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_runner_test",
-      "community": 5,
+      "community": 2,
       "norm_label": "runner.test.ts"
     },
     {
@@ -6338,7 +6338,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_runners_kind_test",
-      "community": 1,
+      "community": 5,
       "norm_label": "runners-kind.test.ts"
     },
     {
@@ -6368,7 +6368,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_skill_qa_test",
-      "community": 36,
+      "community": 37,
       "norm_label": "skill-qa.test.ts"
     },
     {
@@ -6378,7 +6378,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "test_skill_qa_test_skills_dir",
-      "community": 36,
+      "community": 37,
       "norm_label": "skills_dir"
     },
     {
@@ -6388,7 +6388,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "test_skill_qa_test_skilldirs",
-      "community": 36,
+      "community": 37,
       "norm_label": "skilldirs"
     },
     {
@@ -6398,7 +6398,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "test_skill_qa_test_commands",
-      "community": 36,
+      "community": 37,
       "norm_label": "commands"
     },
     {
@@ -6408,7 +6408,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "test_skill_qa_test_subcommands",
-      "community": 36,
+      "community": 37,
       "norm_label": "subcommands"
     },
     {
@@ -6418,7 +6418,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "test_skill_qa_test_known_artifacts",
-      "community": 36,
+      "community": 37,
       "norm_label": "known_artifacts"
     },
     {
@@ -6438,7 +6438,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_spec_sync_test",
-      "community": 8,
+      "community": 1,
       "norm_label": "spec-sync.test.ts"
     },
     {
@@ -6448,7 +6448,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "test_spec_sync_test_fresh",
-      "community": 8,
+      "community": 1,
       "norm_label": "fresh()"
     },
     {
@@ -6458,7 +6458,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_stacknames_test",
-      "community": 5,
+      "community": 2,
       "norm_label": "stacknames.test.ts"
     },
     {
@@ -6468,7 +6468,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_stale_done_test",
-      "community": 8,
+      "community": 0,
       "norm_label": "stale-done.test.ts"
     },
     {
@@ -6478,7 +6478,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "test_stale_done_test_task",
-      "community": 8,
+      "community": 0,
       "norm_label": "task()"
     },
     {
@@ -6488,7 +6488,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_state_test",
-      "community": 8,
+      "community": 1,
       "norm_label": "state.test.ts"
     },
     {
@@ -6498,7 +6498,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "test_state_test_tempjournal",
-      "community": 8,
+      "community": 1,
       "norm_label": "tempjournal()"
     },
     {
@@ -6528,7 +6528,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_task_report_test",
-      "community": 8,
+      "community": 0,
       "norm_label": "task-report.test.ts"
     },
     {
@@ -6538,7 +6538,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "test_task_report_test_task",
-      "community": 8,
+      "community": 0,
       "norm_label": "task"
     },
     {
@@ -6578,7 +6578,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_verify_cmd_test",
-      "community": 5,
+      "community": 2,
       "norm_label": "verify-cmd.test.ts"
     },
     {
@@ -6588,7 +6588,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "test_verify_cmd_test_ok",
-      "community": 5,
+      "community": 2,
       "norm_label": "ok"
     },
     {
@@ -6598,7 +6598,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "test_verify_cmd_test_fail",
-      "community": 5,
+      "community": 2,
       "norm_label": "fail"
     },
     {
@@ -6608,7 +6608,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "test_verify_cmd_test_tmp",
-      "community": 5,
+      "community": 2,
       "norm_label": "tmp()"
     },
     {
@@ -6618,7 +6618,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_wave_done_test",
-      "community": 16,
+      "community": 15,
       "norm_label": "wave-done.test.ts"
     },
     {
@@ -6628,7 +6628,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "test_wave_done_test_setup",
-      "community": 16,
+      "community": 15,
       "norm_label": "setup()"
     },
     {
@@ -6638,7 +6638,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_wave_test",
-      "community": 16,
+      "community": 15,
       "norm_label": "wave.test.ts"
     },
     {
@@ -6648,7 +6648,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "test_workflow_test",
-      "community": 2,
+      "community": 0,
       "norm_label": "workflow.test.ts"
     },
     {
@@ -6658,7 +6658,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "test_workflow_test_tempproject",
-      "community": 2,
+      "community": 0,
       "norm_label": "tempproject()"
     },
     {
@@ -6668,7 +6668,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tsconfig",
-      "community": 15,
+      "community": 14,
       "norm_label": "tsconfig.json"
     },
     {
@@ -6678,7 +6678,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "tsconfig_compileroptions",
-      "community": 15,
+      "community": 14,
       "norm_label": "compileroptions"
     },
     {
@@ -6688,7 +6688,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "tsconfig_compileroptions_target",
-      "community": 15,
+      "community": 14,
       "norm_label": "target"
     },
     {
@@ -6698,7 +6698,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "tsconfig_compileroptions_module",
-      "community": 15,
+      "community": 14,
       "norm_label": "module"
     },
     {
@@ -6708,7 +6708,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "tsconfig_compileroptions_moduleresolution",
-      "community": 15,
+      "community": 14,
       "norm_label": "moduleresolution"
     },
     {
@@ -6718,7 +6718,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "tsconfig_compileroptions_lib",
-      "community": 15,
+      "community": 14,
       "norm_label": "lib"
     },
     {
@@ -6728,7 +6728,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "tsconfig_compileroptions_outdir",
-      "community": 15,
+      "community": 14,
       "norm_label": "outdir"
     },
     {
@@ -6738,7 +6738,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tsconfig_compileroptions_rootdir",
-      "community": 15,
+      "community": 14,
       "norm_label": "rootdir"
     },
     {
@@ -6748,7 +6748,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "tsconfig_compileroptions_declaration",
-      "community": 15,
+      "community": 14,
       "norm_label": "declaration"
     },
     {
@@ -6758,7 +6758,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "tsconfig_compileroptions_sourcemap",
-      "community": 15,
+      "community": 14,
       "norm_label": "sourcemap"
     },
     {
@@ -6768,7 +6768,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "tsconfig_compileroptions_strict",
-      "community": 15,
+      "community": 14,
       "norm_label": "strict"
     },
     {
@@ -6778,7 +6778,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "tsconfig_compileroptions_esmoduleinterop",
-      "community": 15,
+      "community": 14,
       "norm_label": "esmoduleinterop"
     },
     {
@@ -6788,7 +6788,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "tsconfig_compileroptions_skiplibcheck",
-      "community": 15,
+      "community": 14,
       "norm_label": "skiplibcheck"
     },
     {
@@ -6798,7 +6798,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "tsconfig_compileroptions_resolvejsonmodule",
-      "community": 15,
+      "community": 14,
       "norm_label": "resolvejsonmodule"
     },
     {
@@ -6808,7 +6808,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "tsconfig_compileroptions_forceconsistentcasinginfilenames",
-      "community": 15,
+      "community": 14,
       "norm_label": "forceconsistentcasinginfilenames"
     },
     {
@@ -6818,7 +6818,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "tsconfig_compileroptions_nouncheckedindexedaccess",
-      "community": 15,
+      "community": 14,
       "norm_label": "nouncheckedindexedaccess"
     },
     {
@@ -6828,7 +6828,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "tsconfig_include",
-      "community": 15,
+      "community": 14,
       "norm_label": "include"
     },
     {
@@ -6838,7 +6838,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "tsconfig_exclude",
-      "community": 15,
+      "community": 14,
       "norm_label": "exclude"
     },
     {
@@ -6848,7 +6848,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "vitest_config",
-      "community": 64,
+      "community": 65,
       "norm_label": "vitest.config.ts"
     },
     {
@@ -6858,7 +6858,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_cockpit_readme",
-      "community": 14,
+      "community": 13,
       "norm_label": "readme.md"
     },
     {
@@ -6868,7 +6868,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_handoff_rivet_cockpit_dashboard_config",
-      "community": 14,
+      "community": 13,
       "norm_label": "handoff: rivet cockpit (dashboard + config)"
     },
     {
@@ -6878,7 +6878,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_overview",
-      "community": 14,
+      "community": 13,
       "norm_label": "overview"
     },
     {
@@ -6888,7 +6888,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_about_the_design_files",
-      "community": 14,
+      "community": 13,
       "norm_label": "about the design files"
     },
     {
@@ -6898,7 +6898,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_fidelity",
-      "community": 14,
+      "community": 13,
       "norm_label": "fidelity"
     },
     {
@@ -6908,7 +6908,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_screens_views",
-      "community": 14,
+      "community": 13,
       "norm_label": "screens / views"
     },
     {
@@ -6918,7 +6918,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_shell_left_rail",
-      "community": 14,
+      "community": 13,
       "norm_label": "shell \u2014 left rail"
     },
     {
@@ -6928,7 +6928,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_shell_topbar",
-      "community": 14,
+      "community": 13,
       "norm_label": "shell \u2014 topbar"
     },
     {
@@ -6938,7 +6938,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_dashboard_overview",
-      "community": 14,
+      "community": 13,
       "norm_label": "dashboard / overview"
     },
     {
@@ -6948,7 +6948,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_dashboard_tasks",
-      "community": 14,
+      "community": 13,
       "norm_label": "dashboard / tasks"
     },
     {
@@ -6958,7 +6958,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_dashboard_requirements",
-      "community": 14,
+      "community": 13,
       "norm_label": "dashboard / requirements"
     },
     {
@@ -6968,7 +6968,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_dashboard_graph",
-      "community": 14,
+      "community": 13,
       "norm_label": "dashboard / graph"
     },
     {
@@ -6978,7 +6978,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_dashboard_activity",
-      "community": 14,
+      "community": 13,
       "norm_label": "dashboard / activity"
     },
     {
@@ -6988,7 +6988,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_dashboard_artifacts",
-      "community": 14,
+      "community": 13,
       "norm_label": "dashboard / artifacts"
     },
     {
@@ -6998,7 +6998,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_config_section_pages_15",
-      "community": 14,
+      "community": 13,
       "norm_label": "config / section pages (\u00d715)"
     },
     {
@@ -7008,7 +7008,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_config_global_elements",
-      "community": 14,
+      "community": 13,
       "norm_label": "config \u2014 global elements"
     },
     {
@@ -7018,7 +7018,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_interactions_behavior",
-      "community": 14,
+      "community": 13,
       "norm_label": "interactions & behavior"
     },
     {
@@ -7028,7 +7028,7 @@
       "source_location": "L94",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_state_management",
-      "community": 14,
+      "community": 13,
       "norm_label": "state management"
     },
     {
@@ -7038,7 +7038,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_design_tokens",
-      "community": 14,
+      "community": 13,
       "norm_label": "design tokens"
     },
     {
@@ -7048,7 +7048,7 @@
       "source_location": "L109",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_assets",
-      "community": 14,
+      "community": 13,
       "norm_label": "assets"
     },
     {
@@ -7058,7 +7058,7 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "rivet_cockpit_readme_files",
-      "community": 14,
+      "community": 13,
       "norm_label": "files"
     },
     {
@@ -7148,7 +7148,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_dashboard_design_prompt",
-      "community": 31,
+      "community": 32,
       "norm_label": "dashboard-design-prompt.md"
     },
     {
@@ -7158,7 +7158,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_dashboard_design_prompt_rivet_dashboard_design_prompt",
-      "community": 31,
+      "community": 32,
       "norm_label": "rivet dashboard \u2014 design prompt"
     },
     {
@@ -7168,7 +7168,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "rivet_dashboard_design_prompt_deliverables_in_this_folder_do_not_touch_anything_else",
-      "community": 31,
+      "community": 32,
       "norm_label": "deliverables (in this folder \u2014 do not touch anything else)"
     },
     {
@@ -7178,7 +7178,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "rivet_dashboard_design_prompt_the_data_contract_render_from_exactly_this_sample_values_included",
-      "community": 31,
+      "community": 32,
       "norm_label": "the data contract (render from exactly this; sample values included)"
     },
     {
@@ -7188,7 +7188,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "rivet_dashboard_design_prompt_design_requirements",
-      "community": 31,
+      "community": 32,
       "norm_label": "design requirements"
     },
     {
@@ -7198,7 +7198,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "rivet_dashboard_design_prompt_iterate_with_me",
-      "community": 31,
+      "community": 32,
       "norm_label": "iterate with me"
     },
     {
@@ -7298,7 +7298,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_ledger",
-      "community": 39,
+      "community": 40,
       "norm_label": "ledger.md"
     },
     {
@@ -7308,7 +7308,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_ledger_ledger_generated_from_the_journal_do_not_edit",
-      "community": 39,
+      "community": 40,
       "norm_label": "ledger \u2014 generated from the journal; do not edit"
     },
     {
@@ -7318,7 +7318,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "rivet_ledger_progress_board",
-      "community": 39,
+      "community": 40,
       "norm_label": "progress board"
     },
     {
@@ -7328,7 +7328,7 @@
       "source_location": "L398",
       "_origin": "ast",
       "id": "rivet_ledger_approvals_governance",
-      "community": 39,
+      "community": 40,
       "norm_label": "approvals & governance"
     },
     {
@@ -7338,7 +7338,7 @@
       "source_location": "L415",
       "_origin": "ast",
       "id": "rivet_ledger_recent_activity",
-      "community": 39,
+      "community": 40,
       "norm_label": "recent activity"
     },
     {
@@ -7348,7 +7348,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_notepad_app_prompt",
-      "community": 33,
+      "community": 34,
       "norm_label": "notepad-app-prompt.md"
     },
     {
@@ -7358,7 +7358,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_notepad_app_prompt_notepad_app_rivet_dogfood_master_prompt",
-      "community": 33,
+      "community": 34,
       "norm_label": "notepad app \u2014 rivet dogfood master prompt"
     },
     {
@@ -7368,7 +7368,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "rivet_notepad_app_prompt_locations_exact",
-      "community": 33,
+      "community": 34,
       "norm_label": "locations (exact)"
     },
     {
@@ -7378,7 +7378,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "rivet_notepad_app_prompt_setup_first_5_minutes",
-      "community": 33,
+      "community": 34,
       "norm_label": "setup (first 5 minutes)"
     },
     {
@@ -7388,7 +7388,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "rivet_notepad_app_prompt_the_app_design_think_first_then_spec",
-      "community": 33,
+      "community": 34,
       "norm_label": "the app (design-think first, then spec)"
     },
     {
@@ -7398,7 +7398,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "rivet_notepad_app_prompt_operating_rules_hard",
-      "community": 33,
+      "community": 34,
       "norm_label": "operating rules (hard)"
     },
     {
@@ -7408,7 +7408,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_resume",
-      "community": 48,
+      "community": 49,
       "norm_label": "resume.md"
     },
     {
@@ -7418,7 +7418,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_resume_resume_state_only_handoff_generated_from_the_journal_do_not_edit",
-      "community": 48,
+      "community": 49,
       "norm_label": "resume \u2014 state-only handoff (generated from the journal; do not edit)"
     },
     {
@@ -7428,7 +7428,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "rivet_resume_rebuild_truth",
-      "community": 48,
+      "community": 49,
       "norm_label": "rebuild truth"
     },
     {
@@ -7438,7 +7438,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_tracking",
-      "community": 56,
+      "community": 57,
       "norm_label": "tracking.md"
     },
     {
@@ -7448,7 +7448,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_tracking_tracking_per_requirement_definition_of_done_generated_do_not_edit",
-      "community": 56,
+      "community": 57,
       "norm_label": "tracking \u2014 per-requirement definition of done (generated; do not edit)"
     },
     {
@@ -7698,7 +7698,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "intake_config_studio_and_live_dashboard",
-      "community": 62,
+      "community": 63,
       "norm_label": "config-studio-and-live-dashboard.md"
     },
     {
@@ -7708,7 +7708,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_laws",
-      "community": 38,
+      "community": 39,
       "norm_label": "laws.md"
     },
     {
@@ -7718,7 +7718,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_laws_project_constitution",
-      "community": 38,
+      "community": 39,
       "norm_label": "project constitution"
     },
     {
@@ -7728,7 +7728,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "rivet_laws_standards",
-      "community": 38,
+      "community": 39,
       "norm_label": "standards"
     },
     {
@@ -7738,7 +7738,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "rivet_laws_tech_conventions",
-      "community": 38,
+      "community": 39,
       "norm_label": "tech & conventions"
     },
     {
@@ -7748,7 +7748,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "rivet_laws_hard_rules_never_violate",
-      "community": 38,
+      "community": 39,
       "norm_label": "hard rules (never violate)"
     },
     {
@@ -7758,7 +7758,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "laws_best_practices_quality_gates",
-      "community": 37,
+      "community": 38,
       "norm_label": "best-practices-quality-gates.md"
     },
     {
@@ -7768,7 +7768,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "laws_best_practices_quality_gates_best_practices_quality_gates_any_platform",
-      "community": 37,
+      "community": 38,
       "norm_label": "best practices \u2014 quality gates (any platform)"
     },
     {
@@ -7778,7 +7778,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "laws_best_practices_quality_gates_pre_commit_the_cheapest_gate",
-      "community": 37,
+      "community": 38,
       "norm_label": "pre-commit (the cheapest gate)"
     },
     {
@@ -7788,7 +7788,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "laws_best_practices_quality_gates_central_dashboards_optional_never_required",
-      "community": 37,
+      "community": 38,
       "norm_label": "central dashboards \u2014 optional, never required"
     },
     {
@@ -7798,7 +7798,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "laws_best_practices_quality_gates_bind_these_as_rivet_checks",
-      "community": 37,
+      "community": 38,
       "norm_label": "bind these as rivet checks"
     },
     {
@@ -7808,7 +7808,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "laws_best_practices_typescript",
-      "community": 30,
+      "community": 31,
       "norm_label": "best-practices-typescript.md"
     },
     {
@@ -7818,7 +7818,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "laws_best_practices_typescript_best_practices_typescript",
-      "community": 30,
+      "community": 31,
       "norm_label": "best practices \u2014 typescript"
     },
     {
@@ -7828,7 +7828,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "laws_best_practices_typescript_compiler_is_the_first_linter",
-      "community": 30,
+      "community": 31,
       "norm_label": "compiler is the first linter"
     },
     {
@@ -7838,7 +7838,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "laws_best_practices_typescript_lint_format_free_standard",
-      "community": 30,
+      "community": 31,
       "norm_label": "lint + format (free, standard)"
     },
     {
@@ -7848,7 +7848,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "laws_best_practices_typescript_tests_dependencies",
-      "community": 30,
+      "community": 31,
       "norm_label": "tests & dependencies"
     },
     {
@@ -7858,7 +7858,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "laws_best_practices_typescript_bind_these_as_rivet_checks",
-      "community": 30,
+      "community": 31,
       "norm_label": "bind these as rivet checks"
     },
     {
@@ -8288,7 +8288,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_pr_body",
-      "community": 40,
+      "community": 41,
       "norm_label": "pr-body.md"
     },
     {
@@ -8298,7 +8298,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_pr_body_feedback_batch_2026_06_12_verify_gherkin_qualified_ids_revitify_0_1_0",
-      "community": 40,
+      "community": 41,
       "norm_label": "feedback batch 2026-06-12 \u2014 verify, gherkin, qualified ids, revitify, 0.1.0"
     },
     {
@@ -8308,7 +8308,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "rivet_pr_body_traceability_generated_from_the_verified_traceability_graph",
-      "community": 40,
+      "community": 41,
       "norm_label": "traceability (generated from the verified traceability graph)"
     },
     {
@@ -8318,7 +8318,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "rivet_pr_body_tasks",
-      "community": 40,
+      "community": 41,
       "norm_label": "tasks"
     },
     {
@@ -8328,7 +8328,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "rivet_pr_body_recorded_approvals",
-      "community": 40,
+      "community": 41,
       "norm_label": "recorded approvals"
     },
     {
@@ -8338,7 +8338,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "specs_cli_ux",
-      "community": 35,
+      "community": 36,
       "norm_label": "cli-ux.md"
     },
     {
@@ -8348,7 +8348,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "specs_cli_ux_feature_cli_audit_trail_progress_visibility",
-      "community": 35,
+      "community": 36,
       "norm_label": "feature: cli audit trail & progress visibility"
     },
     {
@@ -8358,7 +8358,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "specs_cli_ux_requirement_requirement_audit_01_every_cli_invocation_is_audit_logged",
-      "community": 35,
+      "community": 36,
       "norm_label": "requirement requirement_audit-01 \u2014 every cli invocation is audit-logged"
     },
     {
@@ -8368,7 +8368,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "specs_cli_ux_requirement_requirement_audit_02_the_audit_trail_is_readable",
-      "community": 35,
+      "community": 36,
       "norm_label": "requirement requirement_audit-02 \u2014 the audit trail is readable"
     },
     {
@@ -8378,7 +8378,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "specs_cli_ux_requirement_requirement_prog_01_progress_with_emoji_after_completing_a_task",
-      "community": 35,
+      "community": 36,
       "norm_label": "requirement requirement_prog-01 \u2014 progress with emoji after completing a task"
     },
     {
@@ -8388,7 +8388,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "specs_cli_ux_requirement_nfr_audit_03_auditing_never_breaks_the_cli",
-      "community": 35,
+      "community": 36,
       "norm_label": "requirement nfr_audit-03 \u2014 auditing never breaks the cli"
     },
     {
@@ -8398,7 +8398,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "specs_cockpit",
-      "community": 27,
+      "community": 28,
       "norm_label": "cockpit.md"
     },
     {
@@ -8408,7 +8408,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "specs_cockpit_feature_rivet_cockpit_the_web_ui_dashboard_config_studio",
-      "community": 27,
+      "community": 28,
       "norm_label": "feature: rivet cockpit \u2014 the web ui (dashboard + config studio)"
     },
     {
@@ -8418,7 +8418,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "specs_cockpit_requirement_requirement_cockpit_01_config_manifest_generated_from_the_schema",
-      "community": 27,
+      "community": 28,
       "norm_label": "requirement requirement_cockpit-01 \u2014 config manifest generated from the schema"
     },
     {
@@ -8428,7 +8428,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "specs_cockpit_requirement_requirement_cockpit_02_the_rivet_data_sidecar_is_the_project_s_truth",
-      "community": 27,
+      "community": 28,
       "norm_label": "requirement requirement_cockpit-02 \u2014 the rivet data sidecar is the project's truth"
     },
     {
@@ -8438,7 +8438,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "specs_cockpit_requirement_requirement_cockpit_03_static_shell_emission_written_once",
-      "community": 27,
+      "community": 28,
       "norm_label": "requirement requirement_cockpit-03 \u2014 static shell emission, written once"
     },
     {
@@ -8448,7 +8448,7 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "specs_cockpit_requirement_requirement_cockpit_04_live_updates_after_every_proof_event",
-      "community": 27,
+      "community": 28,
       "norm_label": "requirement requirement_cockpit-04 \u2014 live updates after every proof event"
     },
     {
@@ -8458,7 +8458,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "specs_cockpit_requirement_requirement_cockpit_05_the_config_save_server",
-      "community": 27,
+      "community": 28,
       "norm_label": "requirement requirement_cockpit-05 \u2014 the config save server"
     },
     {
@@ -8468,7 +8468,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "specs_docs_refresh",
-      "community": 49,
+      "community": 50,
       "norm_label": "docs-refresh.md"
     },
     {
@@ -8478,7 +8478,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "specs_docs_refresh_feature_documents_that_cannot_go_stale",
-      "community": 49,
+      "community": 50,
       "norm_label": "feature: documents that cannot go stale"
     },
     {
@@ -8488,7 +8488,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "specs_docs_refresh_requirement_requirement_docs_01_every_mutation_refreshes_every_generated_document",
-      "community": 49,
+      "community": 50,
       "norm_label": "requirement requirement_docs-01 \u2014 every mutation refreshes every generated document"
     },
     {
@@ -8498,7 +8498,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "changelog",
-      "community": 28,
+      "community": 29,
       "norm_label": "changelog.md"
     },
     {
@@ -8508,7 +8508,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "changelog_changelog",
-      "community": 28,
+      "community": 29,
       "norm_label": "changelog"
     },
     {
@@ -8518,7 +8518,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "changelog_0_1_0_2026_06_12_the_feedback_batch",
-      "community": 28,
+      "community": 29,
       "norm_label": "0.1.0 \u2014 2026-06-12 (the feedback batch)"
     },
     {
@@ -8528,7 +8528,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "changelog_added",
-      "community": 28,
+      "community": 29,
       "norm_label": "added"
     },
     {
@@ -8538,7 +8538,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "changelog_fixed",
-      "community": 28,
+      "community": 29,
       "norm_label": "fixed"
     },
     {
@@ -8548,7 +8548,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "changelog_docs",
-      "community": 28,
+      "community": 29,
       "norm_label": "docs"
     },
     {
@@ -8648,8 +8648,78 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "commands_rivet",
-      "community": 60,
+      "community": 61,
       "norm_label": "rivet.md"
+    },
+    {
+      "label": "GRAPH_REPORT.md",
+      "file_type": "document",
+      "source_file": "revitify-out/GRAPH_REPORT.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "revitify_out_graph_report",
+      "community": 27,
+      "norm_label": "graph_report.md"
+    },
+    {
+      "label": "Graph report \u2014 generated by revitify",
+      "file_type": "document",
+      "source_file": "revitify-out/GRAPH_REPORT.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "revitify_out_graph_report_graph_report_generated_by_revitify",
+      "community": 27,
+      "norm_label": "graph report \u2014 generated by revitify"
+    },
+    {
+      "label": "Node kinds",
+      "file_type": "document",
+      "source_file": "revitify-out/GRAPH_REPORT.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "revitify_out_graph_report_node_kinds",
+      "community": 27,
+      "norm_label": "node kinds"
+    },
+    {
+      "label": "God nodes (most connected symbols)",
+      "file_type": "document",
+      "source_file": "revitify-out/GRAPH_REPORT.md",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "revitify_out_graph_report_god_nodes_most_connected_symbols",
+      "community": 27,
+      "norm_label": "god nodes (most connected symbols)"
+    },
+    {
+      "label": "Surprising connections",
+      "file_type": "document",
+      "source_file": "revitify-out/GRAPH_REPORT.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "revitify_out_graph_report_surprising_connections",
+      "community": 27,
+      "norm_label": "surprising connections"
+    },
+    {
+      "label": "Confidence",
+      "file_type": "document",
+      "source_file": "revitify-out/GRAPH_REPORT.md",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "revitify_out_graph_report_confidence",
+      "community": 27,
+      "norm_label": "confidence"
+    },
+    {
+      "label": "Suggested questions",
+      "file_type": "document",
+      "source_file": "revitify-out/GRAPH_REPORT.md",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "revitify_out_graph_report_suggested_questions",
+      "community": 27,
+      "norm_label": "suggested questions"
     },
     {
       "label": "SKILL.md",
@@ -8658,7 +8728,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_finish_skill",
-      "community": 32,
+      "community": 33,
       "norm_label": "skill.md"
     },
     {
@@ -8668,7 +8738,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "rivet_finish_skill_rivet_finish_landing_a_branch_is_a_ritual_not_a_vibe",
-      "community": 32,
+      "community": 33,
       "norm_label": "rivet-finish \u2014 landing a branch is a ritual, not a vibe"
     },
     {
@@ -8678,7 +8748,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "rivet_finish_skill_1_entry_gate_fresh_evidence_only",
-      "community": 32,
+      "community": 33,
       "norm_label": "1. entry gate \u2014 fresh evidence only"
     },
     {
@@ -8688,7 +8758,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "rivet_finish_skill_2_the_menu_present_exactly_these_4_options_nothing_open_ended",
-      "community": 32,
+      "community": 33,
       "norm_label": "2. the menu \u2014 present exactly these 4 options, nothing open-ended"
     },
     {
@@ -8698,7 +8768,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "rivet_finish_skill_3_execute_cleanup_option_conditional",
-      "community": 32,
+      "community": 33,
       "norm_label": "3. execute + cleanup (option-conditional)"
     },
     {
@@ -8708,7 +8778,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "rivet_finish_skill_4_journal_the_landing",
-      "community": 32,
+      "community": 33,
       "norm_label": "4. journal the landing"
     },
     {
@@ -8718,7 +8788,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_intake_skill",
-      "community": 42,
+      "community": 43,
       "norm_label": "skill.md"
     },
     {
@@ -8728,7 +8798,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "rivet_intake_skill_intake_ideas_are_external_files_the_tool_only_consumes_input",
-      "community": 42,
+      "community": 43,
       "norm_label": "intake \u2014 ideas are external files, the tool only consumes input"
     },
     {
@@ -8738,7 +8808,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "rivet_intake_skill_file_shape_rivet_intake_slug_md",
-      "community": 42,
+      "community": 43,
       "norm_label": "file shape (`.rivet/intake/<slug>.md`)"
     },
     {
@@ -8748,7 +8818,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "rivet_intake_skill_process_rfc_2119",
-      "community": 42,
+      "community": 43,
       "norm_label": "process (rfc-2119)"
     },
     {
@@ -8758,7 +8828,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_retro_skill",
-      "community": 43,
+      "community": 44,
       "norm_label": "skill.md"
     },
     {
@@ -8768,7 +8838,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "rivet_retro_skill_rivet_retro_lessons_compound_or_they_repeat",
-      "community": 43,
+      "community": 44,
       "norm_label": "rivet retro \u2014 lessons compound or they repeat"
     },
     {
@@ -8778,7 +8848,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "rivet_retro_skill_the_ledger_rivet_learnings_md_append_only_data_not_code",
-      "community": 43,
+      "community": 44,
       "norm_label": "the ledger (`.rivet/learnings.md` \u2014 append-only, data not code)"
     },
     {
@@ -8788,7 +8858,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "rivet_retro_skill_process_rfc_2119",
-      "community": 43,
+      "community": 44,
       "norm_label": "process (rfc-2119)"
     },
     {
@@ -8798,7 +8868,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_review_skill",
-      "community": 34,
+      "community": 35,
       "norm_label": "skill.md"
     },
     {
@@ -8808,7 +8878,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "rivet_review_skill_rivet_review_two_passes_findings_listed_no_quotas",
-      "community": 34,
+      "community": 35,
       "norm_label": "rivet review \u2014 two passes, findings listed, no quotas"
     },
     {
@@ -8818,7 +8888,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "rivet_review_skill_pass_1_blind_diff_only",
-      "community": 34,
+      "community": 35,
       "norm_label": "pass 1 \u2014 blind (diff only)"
     },
     {
@@ -8828,7 +8898,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "rivet_review_skill_pass_2_full_context_diff_spec_graph",
-      "community": 34,
+      "community": 35,
       "norm_label": "pass 2 \u2014 full context (diff + spec + graph)"
     },
     {
@@ -8838,7 +8908,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "rivet_review_skill_receiving_review_feedback_when_rivet_s_work_is_reviewed",
-      "community": 34,
+      "community": 35,
       "norm_label": "receiving review feedback (when rivet's work is reviewed)"
     },
     {
@@ -8848,7 +8918,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "rivet_review_skill_output_rules_rfc_2119",
-      "community": 34,
+      "community": 35,
       "norm_label": "output rules (rfc-2119)"
     },
     {
@@ -8858,7 +8928,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_spec_author_skill",
-      "community": 41,
+      "community": 42,
       "norm_label": "skill.md"
     },
     {
@@ -8868,7 +8938,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "rivet_spec_author_skill_authoring_a_rivet_spec",
-      "community": 41,
+      "community": 42,
       "norm_label": "authoring a rivet spec"
     },
     {
@@ -8878,7 +8948,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "rivet_spec_author_skill_file_shape_rivet_specs_feature_md_gherkin_is_the_default_format",
-      "community": 41,
+      "community": 42,
       "norm_label": "file shape (`.rivet/specs/<feature>.md`) \u2014 gherkin is the default format"
     },
     {
@@ -8888,7 +8958,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "rivet_spec_author_skill_rules_rfc_2119",
-      "community": 41,
+      "community": 42,
       "norm_label": "rules (rfc-2119)"
     },
     {
@@ -8898,7 +8968,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "rivet_spec_author_skill_quality_check_before_handing_off",
-      "community": 41,
+      "community": 42,
       "norm_label": "quality check before handing off"
     },
     {
@@ -8908,7 +8978,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rivet_workflow_skill",
-      "community": 44,
+      "community": 45,
       "norm_label": "skill.md"
     },
     {
@@ -8918,7 +8988,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "rivet_workflow_skill_rivet_workflow_verification_by_construction",
-      "community": 44,
+      "community": 45,
       "norm_label": "rivet workflow \u2014 verification-by-construction"
     },
     {
@@ -8928,7 +8998,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "rivet_workflow_skill_the_loop",
-      "community": 44,
+      "community": 45,
       "norm_label": "the loop"
     },
     {
@@ -8938,7 +9008,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "rivet_workflow_skill_hard_rules_rfc_2119",
-      "community": 44,
+      "community": 45,
       "norm_label": "hard rules (rfc-2119)"
     }
   ],
@@ -27670,6 +27740,66 @@
       "weight": 1.0,
       "source": "readme_rivet",
       "target": "readme_what_s_inside",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "revitify-out/GRAPH_REPORT.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "revitify_out_graph_report",
+      "target": "revitify_out_graph_report_graph_report_generated_by_revitify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "revitify-out/GRAPH_REPORT.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "revitify_out_graph_report_graph_report_generated_by_revitify",
+      "target": "revitify_out_graph_report_confidence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "revitify-out/GRAPH_REPORT.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "revitify_out_graph_report_graph_report_generated_by_revitify",
+      "target": "revitify_out_graph_report_god_nodes_most_connected_symbols",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "revitify-out/GRAPH_REPORT.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "revitify_out_graph_report_graph_report_generated_by_revitify",
+      "target": "revitify_out_graph_report_node_kinds",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "revitify-out/GRAPH_REPORT.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "revitify_out_graph_report_graph_report_generated_by_revitify",
+      "target": "revitify_out_graph_report_suggested_questions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "revitify-out/GRAPH_REPORT.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "revitify_out_graph_report_graph_report_generated_by_revitify",
+      "target": "revitify_out_graph_report_surprising_connections",
       "confidence_score": 1.0
     },
     {

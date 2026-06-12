@@ -1,0 +1,2 @@
+{"at":"2026-06-12T15:50:06.422Z","type":"cli.run","data":{"command":"verify","args":[]},"meta":{"actor":"Pratiyush Kumar Singh"}}
+{"at":"2026-06-12T15:50:10.144Z","type":"verify.run","data":{"passed":true,"steps":[{"name":"build:build","cmd":"npm run -s build","ok":true,"ms":604},{"name":"tests:unit+integration+api+e2e","cmd":"npx vitest run","ok":true,"ms":3026}],"tree":"cdbd28e0e3689b97a186ecedbd622f9ce1a15b76","dirty":true,"sha":"5b493bfd3a9117fa742ded5252338e850f902170"}}

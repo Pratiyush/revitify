@@ -7,10 +7,9 @@ Provenance:
 
 - corpus: `~/Github/llm-dev-kit` @ commit `8ad54b18` (copied minus `node_modules`,
   `graphify-out`, `revitify-out`, `dist`, `_ref`, `.claude`)
-- generator: `graphify update .` — graphify **0.8.37** from PyPI (`uv tool install graphifyy`).
-  Note: `.track` pins upstream 0.8.38 (PR #1271); PyPI lagged at baseline time. Re-generate this
-  fixture when re-syncing `.track`.
-- result: 893 nodes, 1788 links, 65 communities, 178 files extracted
+- generator: `graphify update .` — graphify **0.8.38** from PyPI (`uv tool install graphifyy`),
+  matching the `.track` pin exactly (PyPI caught up; re-baselined 2026-06-12).
+- result: 900 nodes, 1794 links, 66 communities, 178 files extracted
 
 Regenerate:
 

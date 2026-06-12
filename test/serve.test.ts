@@ -165,3 +165,24 @@ describe("graph state freshness", () => {
     expect(second.byId.has("sym:src/extra.ts#extra")).toBe(true);
   });
 });
+
+describe.skipIf(!existsSync(CLI))("install --git-hook", () => {
+  it("writes an executable post-commit hook once, refuses overwrite, requires git", () => {
+    const dir = fixture();
+    spawnSync("git", ["init", "-q"], { cwd: dir });
+    const first = spawnSync(process.execPath, [CLI, "install", dir, "--git-hook"], {
+      encoding: "utf8",
+    });
+    expect(first.status, first.stderr).toBe(0);
+    const hook = join(dir, ".git", "hooks", "post-commit");
+    expect(existsSync(hook)).toBe(true);
+    const again = spawnSync(process.execPath, [CLI, "install", dir, "--git-hook"], {
+      encoding: "utf8",
+    });
+    expect(again.status).toBe(1); // overwrite-shy
+    const noGit = spawnSync(process.execPath, [CLI, "install", fixture(), "--git-hook"], {
+      encoding: "utf8",
+    });
+    expect(noGit.status).toBe(1);
+  });
+});

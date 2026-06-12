@@ -2,6 +2,7 @@ import { defaultExtractors } from "../extract/index.js";
 import { createCodeIngestor } from "./code.js";
 import { fallbackFileIngestor } from "./fallback.js";
 import type { Ingestor } from "./ingestor.js";
+import { jsonIngestor } from "./json-keys.js";
 import { markdownIngestor } from "./markdown.js";
 import { cargoIngestor } from "./tools/cargo.js";
 import { sqlIngestor } from "./tools/sql.js";
@@ -18,6 +19,7 @@ export const defaultIngestors: readonly Ingestor[] = [
   markdownIngestor,
   sqlIngestor,
   cargoIngestor,
+  jsonIngestor,
   fallbackFileIngestor,
 ];
 
