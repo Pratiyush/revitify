@@ -32,8 +32,9 @@
       confidence summary, why-nodes (NOTE/WHY/HACK + docstrings) — gate passed 2026-06-12
       (corpus report shows real god SYMBOLS + scored surprises; Brandes betweenness sampled;
       65 tests)
-- [ ] **Phase 5** — Queries + exports: query/path/explain/communities/cohesion/affected, JSONL
-      query log; callflow-html, tree-html, wiki, mermaid exporters
+- [x] **Phase 5** — Queries + exports: query/path/explain/communities/cohesion/affected, JSONL
+      query log; callflow-html, tree-html, wiki, mermaid exporters — gate passed 2026-06-12
+      (74 tests; idf explain ported from serve.py for P7 reuse)
 - [ ] **Phase 6** — CLI (`bin`), watch (chokidar, lazy), global multi-repo graph, PR impact
 - [ ] **Phase 7** — HTTP serve + MCP server (query_graph et al.), validate/diagnose, /revitify
       skill + install
