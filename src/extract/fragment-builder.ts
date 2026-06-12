@@ -1,3 +1,4 @@
+import { Confidence } from "../model/confidence.js";
 import type { GraphFragment } from "../model/fragment.js";
 import type { RevitifyNode } from "../model/graph.js";
 
@@ -38,4 +39,30 @@ export function addNode(
 export function fileNode(b: FragmentBuilder, rel: string): string {
   addNode(b, `file:${rel}`, rel, "file", rel);
   return `file:${rel}`;
+}
+
+/** Shared why-node emitter — also used by the TypeScript compiler extractor. */
+const WHY_MARKER = /(?:^|\W)(NOTE|WHY|HACK):\s*(.+)/;
+
+export function addWhyNode(
+  b: FragmentBuilder,
+  rel: string,
+  commentText: string,
+  line: number,
+  enclosingId: string,
+): void {
+  const match = commentText.match(WHY_MARKER);
+  if (!match) return;
+  const label = `${match[1]}: ${(match[2] as string).replace(/\s*\*\/\s*$/, "").trim()}`.slice(
+    0,
+    160,
+  );
+  const id = `why:${rel}#L${line}`;
+  addNode(b, id, label, "why", rel, line);
+  b.links.push({
+    source: enclosingId,
+    target: id,
+    relation: "explains",
+    confidence: Confidence.EXTRACTED,
+  });
 }

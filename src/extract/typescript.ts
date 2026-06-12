@@ -2,7 +2,7 @@ import ts from "typescript";
 import { Confidence } from "../model/confidence.js";
 import type { SourceFile } from "../model/fragment.js";
 import type { ExtractContext, Extractor } from "./extractor.js";
-import { addNode, createBuilder, fileNode } from "./fragment-builder.js";
+import { addNode, addWhyNode, createBuilder, fileNode } from "./fragment-builder.js";
 
 const TS_EXT = /\.(ts|tsx|mts|cts|js|mjs|cjs|jsx)$/;
 const SKIP_TS = /\.d\.ts$/;
@@ -119,6 +119,24 @@ export const typescriptExtractor: Extractor = {
     // Untagged here — passes/resolve assigns INFERRED or AMBIGUOUS when it resolves `name:`.
     for (const name of importedNames) {
       b.links.push({ source: fileId, target: `name:${name}`, relation: "references" });
+    }
+    // Why-nodes: NOTE:/WHY:/HACK: comments, attached to the symbol declared on the next line
+    // (falling back to the file). One scan over comment ranges via the scanner-less regex walk.
+    const lineStarts = sf.getLineStarts();
+    const commentRe = /\/\/[^\n]*|\/\*[\s\S]*?\*\//g;
+    const symbolByLine = new Map<number, string>();
+    for (const n of b.nodes) {
+      if (n.source_location) {
+        symbolByLine.set(Number(n.source_location.slice(rel.length + 1)), n.id);
+      }
+    }
+    for (const m of file.content.matchAll(commentRe)) {
+      const start = m.index ?? 0;
+      let line = lineStarts.findIndex((s) => s > start);
+      line = line === -1 ? lineStarts.length : line; // 1-based line of the comment start
+      const commentLines = (m[0].match(/\n/g)?.length ?? 0) + 1;
+      const anchor = symbolByLine.get(line + commentLines) ?? symbolByLine.get(line) ?? fileId;
+      addWhyNode(b, rel, m[0], line, anchor);
     }
     return { nodes: b.nodes, links: b.links };
   },

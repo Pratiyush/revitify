@@ -12,6 +12,8 @@ const PYTHON: LanguageConfig = {
     { type: "function_definition", kind: "function" },
   ],
   calls: [{ type: "call" }],
+  comments: { types: ["comment"] },
+  docstrings: true,
   imports: [
     {
       type: "import_statement",

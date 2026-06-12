@@ -25,6 +25,7 @@ const JAVA: LanguageConfig = {
     { type: "method_invocation", calleeField: "name" },
     { type: "object_creation_expression", calleeField: "type" },
   ],
+  comments: { types: ["line_comment", "block_comment"] },
   imports: [
     // import a.b.C; → reference to C (resolved by passes/resolve when C is in the graph).
     { type: "import_declaration", nameTypes: ["scoped_identifier", "identifier"] },

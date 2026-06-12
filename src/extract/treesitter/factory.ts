@@ -2,7 +2,13 @@ import type { Node, Parser } from "web-tree-sitter";
 import { Confidence } from "../../model/confidence.js";
 import type { SourceFile } from "../../model/fragment.js";
 import type { ExtractContext, Extractor } from "../extractor.js";
-import { addNode, createBuilder, type FragmentBuilder, fileNode } from "../fragment-builder.js";
+import {
+  addNode,
+  addWhyNode,
+  createBuilder,
+  type FragmentBuilder,
+  fileNode,
+} from "../fragment-builder.js";
 import { createParser } from "./loader.js";
 
 /**
@@ -44,6 +50,11 @@ export interface CallRule {
   readonly calleeField?: string;
 }
 
+export interface CommentConfig {
+  /** AST node types carrying comments, e.g. ["comment"] | ["line_comment", "block_comment"]. */
+  readonly types: readonly string[];
+}
+
 export interface LanguageConfig {
   readonly id: string;
   readonly language: string;
@@ -52,6 +63,9 @@ export interface LanguageConfig {
   readonly definitions: readonly DefinitionRule[];
   readonly imports?: readonly ImportRule[];
   readonly calls?: readonly CallRule[];
+  readonly comments?: CommentConfig;
+  /** Python-style: first string statement in a definition body becomes a docstring node. */
+  readonly docstrings?: boolean;
 }
 
 export async function createTreeSitterExtractor(config: LanguageConfig): Promise<Extractor> {
@@ -59,6 +73,7 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
   const rules = new Map(config.definitions.map((d) => [d.type, d]));
   const importRules = new Map((config.imports ?? []).map((r) => [r.type, r]));
   const callRules = new Map((config.calls ?? []).map((r) => [r.type, r]));
+  const commentTypes = new Set(config.comments?.types ?? []);
 
   return {
     id: config.id,
@@ -83,6 +98,10 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
       ): void => {
         for (const child of node.namedChildren) {
           if (child === null) continue;
+          if (commentTypes.has(child.type)) {
+            addWhyNode(b, rel, child.text, child.startPosition.row + 1, enclosingId);
+            continue;
+          }
           const importRule = importRules.get(child.type);
           if (importRule) {
             collectImport(b, child, importRule, fileId, rel, ctx, referenced);
@@ -118,6 +137,19 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
             relation: "contains",
             confidence: Confidence.EXTRACTED,
           });
+          if (config.docstrings) {
+            const doc = pythonDocstring(child);
+            if (doc) {
+              const docId = `docstring:${rel}#${symbolName}`;
+              addNode(b, docId, doc, "docstring", rel, child.startPosition.row + 1);
+              b.links.push({
+                source: id,
+                target: docId,
+                relation: "documents",
+                confidence: Confidence.EXTRACTED,
+              });
+            }
+          }
           // Recurse into every definition: nested defs (container rules qualify them) and
           // call sites inside the body, attributed to this symbol.
           visit(
@@ -141,6 +173,18 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
       return { nodes: b.nodes, links: b.links };
     },
   };
+}
+
+/** First string statement in a definition body — Python's docstring convention. */
+function pythonDocstring(def: Node): string | undefined {
+  const body = def.childForFieldName("body");
+  const first = body?.namedChildren[0];
+  if (first?.type !== "expression_statement") return undefined;
+  const str = first.namedChildren[0];
+  if (str?.type !== "string") return undefined;
+  const text = str.text.replace(/^[rbu]*['"]{1,3}/i, "").replace(/['"]{1,3}$/, "");
+  const firstLine = text.trim().split("\n")[0]?.trim();
+  return firstLine ? firstLine.slice(0, 160) : undefined;
 }
 
 function definitionName(node: Node, rule: DefinitionRule): string | undefined {

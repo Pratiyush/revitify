@@ -13,6 +13,7 @@ const GO: LanguageConfig = {
     { type: "type_spec", kind: "type" },
   ],
   calls: [{ type: "call_expression" }],
+  comments: { types: ["comment"] },
 };
 
 export const create = (): Promise<Extractor> => createTreeSitterExtractor(GO);

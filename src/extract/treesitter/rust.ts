@@ -19,6 +19,7 @@ const RUST: LanguageConfig = {
     { type: "type_item", kind: "type" },
   ],
   calls: [{ type: "call_expression" }],
+  comments: { types: ["line_comment", "block_comment"] },
   imports: [{ type: "use_declaration", nameTypes: ["identifier"] }],
 };
 
