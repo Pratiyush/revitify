@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { AstCache } from "../cache/ast.js";
-import { defaultIngestors } from "../ingest/index.js";
+import { defaultIngestors, gatedIngestorLoaders } from "../ingest/index.js";
 import { walkFileRefs } from "../ingest/walk.js";
 import type { FileRef, GraphFragment } from "../model/fragment.js";
 import type { RevitifyGraph, RevitifyLink, RevitifyNode } from "../model/graph.js";
@@ -81,13 +81,32 @@ export async function buildGraphFromRootAsync(
   };
 }
 
+const skipNotices = new Set<string>();
+
 async function extractOne(
   rootDir: string,
   ref: FileRef,
   knownFiles: ReadonlySet<string>,
   cache: AstCache | undefined,
 ): Promise<GraphFragment | undefined> {
-  const ingestor = defaultIngestors.find((i) => i.detect(ref));
+  let ingestor = defaultIngestors.find((i) => i.detect(ref));
+  if (!ingestor) {
+    // Gated content types (docs/AV/scip) load lazily and run only with their key/tool present.
+    const gated = gatedIngestorLoaders.find((g) => g.matches(ref.relPath));
+    if (gated) {
+      const candidate = await gated.load();
+      if (!candidate.available(process.env)) {
+        if (!skipNotices.has(gated.id)) {
+          skipNotices.add(gated.id);
+          console.error(
+            `revitify: skipping ${gated.id} ingestion (no key/tool) — code graph unaffected`,
+          );
+        }
+        return undefined;
+      }
+      ingestor = candidate;
+    }
+  }
   if (!ingestor?.available(process.env)) return undefined;
   let content: string;
   try {

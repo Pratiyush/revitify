@@ -41,8 +41,9 @@
 - [x] **Phase 7** — HTTP serve + MCP server (query_graph et al.), validate/diagnose, /revitify
       skill + install — gate passed 2026-06-12 (7 MCP tools via InMemoryTransport; HTTP API
       traversal-proof by allowlist; mtime reload; 85 tests)
-- [ ] **Phase 8** — Multimodal (opt-in, key-gated): fetch-based LLM backends, whisper.cpp CLI,
-      SCIP, SQL, cargo
+- [x] **Phase 8** — Multimodal (opt-in, key-gated): fetch-based LLM backends, whisper.cpp CLI,
+      SCIP, SQL, cargo — gate passed 2026-06-12 (no-keys run byte-equal to code-only with zero
+      network; backends fetch-only; sql+cargo fully offline; 96 tests)
 
 ## Context
 
