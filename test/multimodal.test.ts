@@ -93,9 +93,18 @@ describe("key-gated doc ingestion", () => {
     );
     const codeOnly = await buildGraphAsync(project(files), { cache: false });
     expect(fetchSpy).not.toHaveBeenCalled();
-    // Strip built_at_commit (tmpdirs differ) and compare the rest exactly.
-    expect({ nodes: withExtras.nodes, links: withExtras.links }).toEqual({
-      nodes: codeOnly.nodes,
+    // Gated media degrade to bare file nodes (structure only) — no concepts, no transcripts.
+    expect(withExtras.nodes.some((n) => n.kind === "concept" || n.kind === "transcript")).toBe(
+      false,
+    );
+    // Code-derived structure identical; community NUMBERS may shift (two extra singleton
+    // file nodes legitimately renumber the densified ids), so compare modulo community.
+    const strip = (nodes: typeof withExtras.nodes) =>
+      nodes
+        .filter((n) => n.id !== "file:docs/spec.pdf" && n.id !== "file:talk.mp3")
+        .map(({ community, ...rest }) => rest);
+    expect({ nodes: strip(withExtras.nodes), links: withExtras.links }).toEqual({
+      nodes: strip(codeOnly.nodes),
       links: codeOnly.links,
     });
   });

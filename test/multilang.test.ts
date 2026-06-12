@@ -95,7 +95,7 @@ describe("tree-sitter multi-language extraction (async)", async () => {
     );
     expect(imp?.target).toBe("file:py/helpers.py");
     const ref = graph.links.find(
-      (l) => l.relation === "references" && String(l.source) === "file:py/models.py",
+      (l) => l.relation === "imports_from" && String(l.source) === "file:py/models.py",
     );
     expect(ref?.target).toBe("sym:py/helpers.py#slugify");
   });

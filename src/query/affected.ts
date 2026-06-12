@@ -6,7 +6,13 @@ import type { GraphIndex } from "./graph.js";
  * Structural `contains` edges hop from a symbol to its file/container so file-level dependents
  * surface too.
  */
-const DEPENDENCY_RELATIONS = new Set(["imports", "calls", "references"]);
+const DEPENDENCY_RELATIONS = new Set([
+  "imports",
+  "imports_from",
+  "re_exports",
+  "calls",
+  "references",
+]);
 
 export function affected(index: GraphIndex, id: string, maxDepth = 10): string[] {
   const seen = new Set<string>([id]);
@@ -21,7 +27,7 @@ export function affected(index: GraphIndex, id: string, maxDepth = 10): string[]
       }
       // A change to a symbol is a change to its container (file/class) for dependents' purposes.
       for (const l of index.in.get(current) ?? []) {
-        if (l.relation === "contains") dependents.add(String(l.source));
+        if (l.relation === "contains" || l.relation === "method") dependents.add(String(l.source));
       }
       for (const dep of dependents) {
         if (seen.has(dep)) continue;

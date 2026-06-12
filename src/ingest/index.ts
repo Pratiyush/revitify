@@ -1,5 +1,6 @@
 import { defaultExtractors } from "../extract/index.js";
 import { createCodeIngestor } from "./code.js";
+import { fallbackFileIngestor } from "./fallback.js";
 import type { Ingestor } from "./ingestor.js";
 import { markdownIngestor } from "./markdown.js";
 import { cargoIngestor } from "./tools/cargo.js";
@@ -17,6 +18,7 @@ export const defaultIngestors: readonly Ingestor[] = [
   markdownIngestor,
   sqlIngestor,
   cargoIngestor,
+  fallbackFileIngestor,
 ];
 
 /** Lazy gated registrations: [extension test, loader]. Used only by the async pipeline. */

@@ -134,7 +134,10 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
           b.links.push({
             source: containerId,
             target: id,
-            relation: "contains",
+            relation:
+              containerId !== fileId && ["method", "constructor", "function"].includes(rule.kind)
+                ? "method"
+                : "contains",
             confidence: Confidence.EXTRACTED,
           });
           if (config.docstrings) {
@@ -168,7 +171,7 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
       }
 
       for (const name of referenced) {
-        b.links.push({ source: fileId, target: `name:${name}`, relation: "references" });
+        b.links.push({ source: fileId, target: `name:${name}`, relation: "imports_from" });
       }
       return { nodes: b.nodes, links: b.links };
     },

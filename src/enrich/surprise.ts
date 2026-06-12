@@ -10,7 +10,7 @@ import { GraphIndex } from "../query/graph.js";
  * the AST didn't hand us) — structural edges (contains/explains/documents) never surprise.
  */
 
-const STRUCTURAL = new Set(["contains", "explains", "documents"]);
+const STRUCTURAL = new Set(["contains", "method", "rationale_for", "documents"]);
 
 export interface SurprisingConnection {
   link: RevitifyLink;

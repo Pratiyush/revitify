@@ -62,7 +62,7 @@ export function addWhyNode(
   b.links.push({
     source: enclosingId,
     target: id,
-    relation: "explains",
+    relation: "rationale_for",
     confidence: Confidence.EXTRACTED,
   });
 }

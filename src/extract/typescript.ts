@@ -51,6 +51,25 @@ export const typescriptExtractor: Extractor = {
 
     const importedNames: string[] = [];
     for (const stmt of sf.statements) {
+      if (
+        ts.isExportDeclaration(stmt) &&
+        stmt.moduleSpecifier &&
+        ts.isStringLiteral(stmt.moduleSpecifier)
+      ) {
+        const spec = stmt.moduleSpecifier.text;
+        if (spec.startsWith(".")) {
+          const targetRel = resolveImport(rel, spec, ctx.knownFiles);
+          if (targetRel !== undefined) {
+            b.links.push({
+              source: fileId,
+              target: `file:${targetRel}`,
+              relation: "re_exports",
+              confidence: Confidence.EXTRACTED,
+            });
+          }
+        }
+        continue;
+      }
       if (ts.isImportDeclaration(stmt) && ts.isStringLiteral(stmt.moduleSpecifier)) {
         const spec = stmt.moduleSpecifier.text;
         if (spec.startsWith(".")) {
@@ -89,7 +108,7 @@ export const typescriptExtractor: Extractor = {
             b.links.push({
               source: classId,
               target: mId,
-              relation: "contains",
+              relation: "method",
               confidence: Confidence.EXTRACTED,
             });
             if (member.body) collectCalls(member.body, mId);
@@ -118,7 +137,7 @@ export const typescriptExtractor: Extractor = {
     // Reference edges: this file uses the names it imported (target symbol may live anywhere).
     // Untagged here — passes/resolve assigns INFERRED or AMBIGUOUS when it resolves `name:`.
     for (const name of importedNames) {
-      b.links.push({ source: fileId, target: `name:${name}`, relation: "references" });
+      b.links.push({ source: fileId, target: `name:${name}`, relation: "imports_from" });
     }
     // Why-nodes: NOTE:/WHY:/HACK: comments, attached to the symbol declared on the next line
     // (falling back to the file). One scan over comment ranges via the scanner-less regex walk.

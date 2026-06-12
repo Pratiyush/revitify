@@ -46,7 +46,17 @@ export async function buildGraphFromRootAsync(
     options.parallel !== false && pending.length >= threshold && import.meta.url.endsWith(".js");
 
   if (useWorkers) {
-    await extractInWorkers(rootDir, pending, knownFiles, fragments, cache);
+    const gatedPending = pending.filter((r) =>
+      gatedIngestorLoaders.some((g) => g.matches(r.relPath)),
+    );
+    const workerPending = pending.filter(
+      (r) => !gatedIngestorLoaders.some((g) => g.matches(r.relPath)),
+    );
+    await extractInWorkers(rootDir, workerPending, knownFiles, fragments, cache);
+    for (const ref of gatedPending) {
+      const fragment = await extractOne(rootDir, ref, knownFiles, cache);
+      if (fragment) fragments.set(ref.relPath, fragment);
+    }
   } else {
     for (const ref of pending) {
       const fragment = await extractOne(rootDir, ref, knownFiles, cache);
@@ -89,24 +99,22 @@ async function extractOne(
   knownFiles: ReadonlySet<string>,
   cache: AstCache | undefined,
 ): Promise<GraphFragment | undefined> {
-  let ingestor = defaultIngestors.find((i) => i.detect(ref));
-  if (!ingestor) {
-    // Gated content types (docs/AV/scip) load lazily and run only with their key/tool present.
-    const gated = gatedIngestorLoaders.find((g) => g.matches(ref.relPath));
-    if (gated) {
-      const candidate = await gated.load();
-      if (!candidate.available(process.env)) {
-        if (!skipNotices.has(gated.id)) {
-          skipNotices.add(gated.id);
-          console.error(
-            `revitify: skipping ${gated.id} ingestion (no key/tool) — code graph unaffected`,
-          );
-        }
-        return undefined;
-      }
-      ingestor = candidate;
+  // Gated content types (docs/AV/scip) outrank the catch-all file ingestor — but only when
+  // their key/tool is present; otherwise they degrade to a bare file node (structure, no
+  // content, no network) with one notice per kind.
+  let ingestor: (typeof defaultIngestors)[number] | undefined;
+  const gated = gatedIngestorLoaders.find((g) => g.matches(ref.relPath));
+  if (gated) {
+    const candidate = await gated.load();
+    if (candidate.available(process.env)) ingestor = candidate;
+    else if (!skipNotices.has(gated.id)) {
+      skipNotices.add(gated.id);
+      console.error(
+        `revitify: skipping ${gated.id} ingestion (no key/tool) — file node only, code graph unaffected`,
+      );
     }
   }
+  ingestor ??= defaultIngestors.find((i) => i.detect(ref));
   if (!ingestor?.available(process.env)) return undefined;
   let content: string;
   try {

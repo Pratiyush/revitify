@@ -39,7 +39,7 @@ describe("confidence tagging", () => {
   });
 
   it("a uniquely-resolved reference is INFERRED", () => {
-    const ref = graph.links.find((l) => l.relation === "references");
+    const ref = graph.links.find((l) => l.relation === "imports_from");
     expect(ref?.target).toBe("sym:src/crypto.ts#hash");
     expect(ref?.confidence).toBe(Confidence.INFERRED);
   });
@@ -54,7 +54,7 @@ describe("ambiguous references", () => {
 
   it("same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)", () => {
     const graph = buildGraph(project(files));
-    const ref = graph.links.find((l) => l.relation === "references");
+    const ref = graph.links.find((l) => l.relation === "imports_from");
     // caller.ts lives in b/ — the same-dir candidate wins its tier alone, so the pick is
     // proximity-certain: INFERRED, not AMBIGUOUS (which now means ties WITHIN a tier).
     expect(ref?.confidence).toBe(Confidence.INFERRED);
@@ -62,8 +62,8 @@ describe("ambiguous references", () => {
   });
 
   it("the pick is stable across runs", () => {
-    const one = buildGraph(project(files)).links.find((l) => l.relation === "references");
-    const two = buildGraph(project(files)).links.find((l) => l.relation === "references");
+    const one = buildGraph(project(files)).links.find((l) => l.relation === "imports_from");
+    const two = buildGraph(project(files)).links.find((l) => l.relation === "imports_from");
     expect(one?.target).toBe(two?.target);
   });
 });
@@ -112,8 +112,24 @@ describe("ambiguity without a same-dir candidate", () => {
         "mid/caller.ts": `import { helper } from "../alpha/util.js";\nexport function run(): void {}`,
       }),
     );
-    const ref = graph.links.find((l) => l.relation === "references");
+    const ref = graph.links.find((l) => l.relation === "imports_from");
     expect(ref?.confidence).toBe(Confidence.AMBIGUOUS);
     expect(ref?.target).toBe("sym:alpha/util.ts#helper"); // lexicographically first
+  });
+});
+
+describe("re-exports (barrel files)", () => {
+  it("export { x } from './y' becomes a re_exports edge to the resolved file", () => {
+    const graph = buildGraph(
+      project({
+        "src/util.ts": "export function helper(): void {}",
+        "src/index.ts": `export { helper } from "./util.js";\nexport * from "./missing.js";`,
+      }),
+    );
+    const re = graph.links.filter((l) => l.relation === "re_exports");
+    expect(re).toHaveLength(1); // the missing target is dropped, like imports
+    expect(re[0]?.source).toBe("file:src/index.ts");
+    expect(re[0]?.target).toBe("file:src/util.ts");
+    expect(re[0]?.confidence).toBe(Confidence.EXTRACTED);
   });
 });

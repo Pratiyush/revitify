@@ -160,7 +160,7 @@
     {
       "source": "sym:src/auth.ts#AuthService",
       "target": "sym:src/auth.ts#AuthService.login",
-      "relation": "contains",
+      "relation": "method",
       "confidence": "EXTRACTED"
     },
     {
@@ -178,7 +178,7 @@
     {
       "source": "file:src/auth.ts",
       "target": "sym:src/crypto.ts#hash",
-      "relation": "references",
+      "relation": "imports_from",
       "confidence": "INFERRED"
     },
     {

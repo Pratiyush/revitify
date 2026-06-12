@@ -77,22 +77,24 @@
 
 ## Dry-run differences (both tools, same corpora, offline)
 
-**Corpus A — llm-dev-kit copy** (TS-heavy, 157 files): revitify 490 nodes/1455 links/34
-communities vs graphify 893/1788/65. Bands: link count ✅ (81%), god-node top-5 overlap ✅ (4/5),
-contract ✅; node count ❌ (55% — graphify nodes more file types and referenced types),
-relation types ❌ (4 vs 7), communities ❌ (34 vs 65, tracks the node gap).
+**Corpus A — llm-dev-kit copy** (TS-heavy, 157 files): revitify 506 nodes/1480 links/49
+communities vs graphify 893/1788/65. **Bands: 5/6** — links 83% ✅, relation types 6v7 ✅,
+communities ✅, god-node top-5 overlap 4/5 ✅, contract ✅. Only node count remains (57%):
+graphify additionally nodes referenced types (`String`) and json-key entries — granularity we
+deliberately link instead of node.
 
-**Corpus B — multi-language shop sample** (Java/Python/Go/Rust/TS/SQL/Cargo, 11 files):
-**revitify 63 nodes vs graphify 45 — revitify extracts more**, 7 relation types each, 4/6 bands ✅.
-Java head-to-head: both find classes/constructors/methods; **only revitify finds fields
-(stock/capacity/inventory), enum constants, the record, and all 3 why-comments**; only graphify
-emits referenced-type nodes (`String`).
+**Corpus B — multi-language shop sample** (Java/Python/Go/Rust/TS/SQL/Cargo): **bands 6/6** —
+revitify 67 nodes vs graphify 45 (exceeds reference; the floor semantics in
+scripts/compare-parity.mjs treat out-extraction as a pass, never a failure). Java head-to-head:
+both find classes/constructors/methods; **only revitify finds fields (stock/capacity/inventory),
+enum constants, the record, and all NOTE/WHY/HACK comments**; only graphify emits
+referenced-type nodes.
 
-**Vocabulary differences (cosmetic, documented):** graphify labels callables `.name()` and files
-by basename; uses relations `method` (we fold into `contains`), `imports_from`, `re_exports`,
-`rationale_for` (ours: `explains`). Rivet's reader treats relations as opaque — both vocabularies
-flow through unchanged.
+**Vocabulary: ALIGNED with upstream** — revitify now emits `rationale_for` (why-nodes), `method`
+(container→callable), `imports_from` (named-import → definition), and `re_exports` (barrel
+files), matching graphify's relation names. Remaining cosmetic deltas: graphify labels callables
+`.name()` and files by basename; Rivet's reader treats both vocabularies as opaque.
 
 **Where revitify exceeds upstream:** enforced layer boundaries (dependency-cruiser, CI-fatal),
-confidence on every edge from day one, Java member depth, offline SQL/cargo ingestion in the
-core, lazy-boundary proofs, byte-stable deterministic builds (no RNG anywhere).
+confidence on every edge, Java member depth, offline SQL/cargo ingestion in the core,
+lazy-boundary proofs, byte-stable deterministic builds (no RNG anywhere).

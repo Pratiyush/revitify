@@ -60,7 +60,7 @@ describe("ingestion", () => {
     const rel = (r: string) => graph.links.filter((l) => l.relation === r);
     expect(rel("contains").length).toBeGreaterThan(4);
     expect(rel("imports").some((l) => String(l.target).includes("crypto.ts"))).toBe(true);
-    expect(rel("references").some((l) => String(l.target).includes("hash"))).toBe(true);
+    expect(rel("imports_from").some((l) => String(l.target).includes("hash"))).toBe(true);
     const auth = graph.nodes.find((n) => n.label === "AuthService")!;
     expect(auth.source_file).toBe("src/auth.ts");
     expect(typeof auth.community).toBe("number");

@@ -86,7 +86,10 @@ const G = stats(gf);
 const R = stats(rv);
 
 const ratio = (a, b) => (b === 0 ? 0 : a / b);
-const inBand = (a, b) => ratio(a, b) >= 0.7 && ratio(a, b) <= 1.3;
+// The band is a parity FLOOR: under 70% of the reference is a gap; exceeding it means
+// revitify extracts more than upstream (Java member depth, SQL/cargo) — never a failure.
+const inBand = (a, b) => ratio(a, b) >= 0.7;
+const exceeds = (a, b) => ratio(a, b) > 1.3;
 const pct = (a, b) => `${Math.round(ratio(a, b) * 100)}%`;
 
 const godFiles = (s) => new Set(s.god.map((x) => x.node.source_file));
@@ -94,26 +97,30 @@ const godOverlap = [...godFiles(R)].filter((f) => godFiles(G).has(f)).length;
 
 const bands = [
   {
-    name: "node count within ±30%",
+    name: "node count ≥70% of reference",
     pass: inBand(R.nodes, G.nodes),
+    exceeds: exceeds(R.nodes, G.nodes),
     detail: `${R.nodes} vs ${G.nodes} (${pct(R.nodes, G.nodes)})`,
     phase: "P2 multi-language + P4 why-nodes",
   },
   {
-    name: "link count within ±30%",
+    name: "link count ≥70% of reference",
     pass: inBand(R.links, G.links),
+    exceeds: exceeds(R.links, G.links),
     detail: `${R.links} vs ${G.links} (${pct(R.links, G.links)})`,
     phase: "P2-P3 (calls/imports_from/re_exports)",
   },
   {
-    name: "relation types within ±30%",
+    name: "relation types ≥70% of reference",
     pass: inBand(R.relations.size, G.relations.size),
+    exceeds: exceeds(R.relations.size, G.relations.size),
     detail: `${R.relations.size} vs ${G.relations.size}`,
     phase: "P2-P3",
   },
   {
-    name: "community count within ±30%",
+    name: "community count ≥70% of reference",
     pass: inBand(R.communities, G.communities),
+    exceeds: exceeds(R.communities, G.communities),
     detail: `${R.communities} vs ${G.communities}`,
     phase: "P3 Leiden",
   },
@@ -165,7 +172,7 @@ const md = `# PARITY — revitify vs graphify (reference)
 
 | Band | Status | Detail | Closed by |
 |---|---|---|---|
-${bands.map((b) => `| ${b.name} | ${b.pass ? "✅ pass" : "❌ gap"} | ${b.detail} | ${b.phase} |`).join("\n")}
+${bands.map((b) => `| ${b.name} | ${b.pass ? (b.exceeds ? "✅ exceeds reference" : "✅ pass") : "❌ gap"} | ${b.detail} | ${b.phase} |`).join("\n")}
 
 ## Shape notes (measured, for the port)
 

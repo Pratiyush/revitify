@@ -37,7 +37,7 @@ describe("why-nodes", () => {
     );
     const why = graph.nodes.find((n) => n.kind === "why");
     expect(why?.label).toMatch(/^WHY: the cache must survive/);
-    const edge = graph.links.find((l) => l.relation === "explains");
+    const edge = graph.links.find((l) => l.relation === "rationale_for");
     expect(edge?.source).toBe("sym:src/engine.ts#rebuild"); // anchored to the next-line symbol
     expect(edge?.target).toBe(why?.id);
     expect(graph.nodes.filter((n) => n.kind === "why")).toHaveLength(1); // plain comments skipped

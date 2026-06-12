@@ -20,7 +20,10 @@ const FIXTURE = fileURLToPath(new URL("./fixtures/contract/", import.meta.url));
 
 function run(): { raw: string; graph: RevitifyGraph } {
   const dir = mkdtempSync(join(tmpdir(), "revitify-contract-"));
-  cpSync(FIXTURE, dir, { recursive: true });
+  cpSync(FIXTURE, dir, {
+    recursive: true,
+    filter: (source) => !source.endsWith("expected-graph.json"),
+  });
   revitify(dir);
   const raw = readFileSync(join(dir, "revitify-out", "graph.json"), "utf8");
   return { raw, graph: JSON.parse(raw) as RevitifyGraph };
@@ -69,8 +72,8 @@ describe("output contract", () => {
       "target",
     ]);
     expect(imports?.confidence).toBe("EXTRACTED");
-    const references = graph.links.find((l) => l.relation === "references");
-    expect(references?.confidence).toBe("INFERRED");
+    const importsFrom = graph.links.find((l) => l.relation === "imports_from");
+    expect(importsFrom?.confidence).toBe("INFERRED");
   });
 
   it("the whole graph passes the runtime contract validator", () => {
