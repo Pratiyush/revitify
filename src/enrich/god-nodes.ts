@@ -13,8 +13,11 @@ export interface GodNode {
   degree: number;
 }
 
-export function godNodes(graph: RevitifyGraph, limit = 10): GodNode[] {
-  const index = new GraphIndex(graph);
+export function godNodes(
+  graph: RevitifyGraph,
+  limit = 10,
+  index = new GraphIndex(graph),
+): GodNode[] {
   return graph.nodes
     .filter((n) => !EXCLUDED_KINDS.has(n.kind ?? ""))
     .map((node) => ({ node, degree: index.degree(node.id) }))

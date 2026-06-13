@@ -12,6 +12,8 @@ export interface QueryLogEntry {
   results: number;
 }
 
+let warnedLogFailure = false;
+
 export function appendQueryLog(
   rootDir: string,
   kind: string,
@@ -23,7 +25,14 @@ export function appendQueryLog(
   try {
     mkdirSync(dirname(path), { recursive: true });
     appendFileSync(path, `${JSON.stringify(entry)}\n`);
-  } catch {
-    // logging must never break a query
+  } catch (err) {
+    // Logging must never break a query — but a permanently-broken log shouldn't be invisible.
+    // One breadcrumb, then silence, so it never spams.
+    if (!warnedLogFailure) {
+      warnedLogFailure = true;
+      console.error(
+        `revitify: query log unwritable (${path}) — queries still work: ${String(err)}`,
+      );
+    }
   }
 }

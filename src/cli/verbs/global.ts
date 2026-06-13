@@ -1,9 +1,9 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { basename, join, resolve } from "node:path";
 import { revitifyAsync } from "../../index.js";
-import { assertGraphContract } from "../../model/contract.js";
 import type { RevitifyGraph } from "../../model/graph.js";
+import { loadGraph } from "../load.js";
 
 /**
  * global <paths…> — multi-corpus graph (port of graphify global_graph.py): each repo's graph
@@ -23,8 +23,7 @@ export async function run(args: string[]): Promise<number> {
     const repo = basename(root);
     const graphJson = join(root, "revitify-out", "graph.json");
     if (!existsSync(graphJson)) await revitifyAsync(root);
-    const parsed: unknown = JSON.parse(readFileSync(graphJson, "utf8"));
-    assertGraphContract(parsed);
+    const parsed = loadGraph(graphJson);
     let maxCommunity = 0;
     for (const n of parsed.nodes) {
       merged.nodes.push({

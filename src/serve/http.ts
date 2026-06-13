@@ -24,6 +24,12 @@ export function createHttpServer(rootDir: string): Server {
         res.writeHead(status, { "content-type": `${type}; charset=utf-8` });
         res.end(body);
       };
+      // Read-only API: reject anything but GET/HEAD up front.
+      if (req.method && req.method !== "GET" && req.method !== "HEAD") {
+        return send(405, `{"error":"method not allowed"}`);
+      }
+      // Cap query params so a giant value can't turn a linear scan into a local CPU-spin.
+      const param = (name: string): string => (url.searchParams.get(name) ?? "").slice(0, 512);
       const index = state.get();
 
       if (url.pathname === "/" || url.pathname === "/graph.html") {
@@ -42,31 +48,27 @@ export function createHttpServer(rootDir: string): Server {
         );
       }
       if (url.pathname === "/api/query") {
-        const q = url.searchParams.get("q") ?? "";
+        const q = param("q");
         const hits = searchNodes(index, q).map((h) => ({ score: h.score, ...h.node }));
         appendQueryLog(rootDir, "http_query", q, hits.length);
         return send(200, JSON.stringify(hits));
       }
       if (url.pathname === "/api/explain") {
-        const q = url.searchParams.get("q") ?? "";
+        const q = param("q");
         appendQueryLog(rootDir, "http_explain", q, 1);
         return send(200, JSON.stringify({ text: explain(index, q) }));
       }
       if (url.pathname === "/api/node") {
-        const node = index.byId.get(url.searchParams.get("id") ?? "");
+        const node = index.byId.get(param("id"));
         return node ? send(200, JSON.stringify(node)) : send(404, `{"error":"not found"}`);
       }
       if (url.pathname === "/api/neighbors") {
-        const id = url.searchParams.get("id") ?? "";
+        const id = param("id");
         if (!index.byId.has(id)) return send(404, `{"error":"not found"}`);
         return send(200, JSON.stringify(index.neighbors(id).map((n) => index.byId.get(n))));
       }
       if (url.pathname === "/api/path") {
-        const path = shortestPath(
-          index,
-          url.searchParams.get("from") ?? "",
-          url.searchParams.get("to") ?? "",
-        );
+        const path = shortestPath(index, param("from"), param("to"));
         return send(200, JSON.stringify({ path: path ?? null }));
       }
       if (url.pathname === "/api/communities") {
@@ -92,8 +94,10 @@ export function createHttpServer(rootDir: string): Server {
       }
       send(404, `{"error":"unknown route"}`);
     } catch (err) {
+      // Log the detail server-side; never reflect it (can leak a filesystem path) to the client.
+      console.error(`revitify serve: ${String(err)}`);
       res.writeHead(500, { "content-type": "application/json" });
-      res.end(JSON.stringify({ error: String(err) }));
+      res.end(`{"error":"internal"}`);
     }
   });
 }

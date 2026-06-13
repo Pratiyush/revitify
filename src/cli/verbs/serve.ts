@@ -1,12 +1,13 @@
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { revitifyAsync } from "../../index.js";
+import { parseArgs } from "../args.js";
 
 /** serve [path] [--port N] — HTTP viewer + JSON API; mcp — stdio MCP server. */
 export async function run(args: string[]): Promise<number> {
   const [verb, ...rest] = args;
-  const positional = rest.filter((a) => !a.startsWith("-"));
-  const root = resolve(positional[0] ?? ".");
+  const parsed = parseArgs(rest);
+  const root = resolve(parsed.positional[0] ?? ".");
   if (!existsSync(resolve(root, "revitify-out", "graph.json"))) await revitifyAsync(root);
 
   if (verb === "mcp") {
@@ -18,8 +19,8 @@ export async function run(args: string[]): Promise<number> {
     return new Promise<number>(() => {});
   }
 
-  const portFlag = rest.indexOf("--port");
-  const port = portFlag !== -1 ? Number(rest[portFlag + 1]) : 7077;
+  const portValue = parsed.value("port");
+  const port = portValue ? Number(portValue) : 7077;
   const { createHttpServer } = await import("../../serve/http.js");
   const server = createHttpServer(root);
   await new Promise<void>((ready) => server.listen(port, "127.0.0.1", ready));

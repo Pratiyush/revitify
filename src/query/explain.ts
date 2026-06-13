@@ -57,13 +57,11 @@ export function explain(index: GraphIndex, query: string, seeds = 3): string {
       .filter((n): n is RevitifyNode => n !== undefined)
       .slice(0, 8);
     for (const r of related) {
+      // O(degree), not O(E): the connecting edge is in this node's own out/in adjacency.
       const edge =
-        index.graph.links.find(
-          (l) =>
-            (String(l.source) === node.id && String(l.target) === r.id) ||
-            (String(l.source) === r.id && String(l.target) === node.id),
-        )?.relation ?? "linked to";
-      lines.push(`- ${edge} **${r.label}** (\`${r.source_file}\`)`);
+        (index.out.get(node.id) ?? []).find((l) => String(l.target) === r.id) ??
+        (index.in.get(node.id) ?? []).find((l) => String(l.source) === r.id);
+      lines.push(`- ${edge?.relation ?? "linked to"} **${r.label}** (\`${r.source_file}\`)`);
     }
     lines.push("");
   }

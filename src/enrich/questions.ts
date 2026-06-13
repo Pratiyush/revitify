@@ -10,8 +10,11 @@ import { surprisingConnections } from "./surprise.js";
  * from betweenness brokers, god nodes, the top surprising connection, ambiguity hotspots, and
  * the largest community — the places a reader should interrogate first.
  */
-export function suggestedQuestions(graph: RevitifyGraph, limit = 5): string[] {
-  const index = new GraphIndex(graph);
+export function suggestedQuestions(
+  graph: RevitifyGraph,
+  limit = 5,
+  index = new GraphIndex(graph),
+): string[] {
   const questions: string[] = [];
 
   const central = [...betweenness(index).entries()]
@@ -24,14 +27,14 @@ export function suggestedQuestions(graph: RevitifyGraph, limit = 5): string[] {
     );
   }
 
-  const god = godNodes(graph, 1)[0];
+  const god = godNodes(graph, 1, index)[0];
   if (god && god.node.id !== central?.[0]) {
     questions.push(
       `Why does \`${god.node.label}\` touch ${god.degree} edges — load-bearing wall or god object?`,
     );
   }
 
-  const surprise = surprisingConnections(graph, 1)[0];
+  const surprise = surprisingConnections(graph, 1, index)[0];
   if (surprise) {
     const s = index.byId.get(String(surprise.link.source));
     const t = index.byId.get(String(surprise.link.target));

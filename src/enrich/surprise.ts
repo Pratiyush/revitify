@@ -18,8 +18,11 @@ export interface SurprisingConnection {
   reasons: string[];
 }
 
-export function surprisingConnections(graph: RevitifyGraph, limit = 5): SurprisingConnection[] {
-  const index = new GraphIndex(graph);
+export function surprisingConnections(
+  graph: RevitifyGraph,
+  limit = 5,
+  index = new GraphIndex(graph),
+): SurprisingConnection[] {
   const degrees = graph.nodes.map((n) => index.degree(n.id)).sort((a, b) => a - b);
   const hubThreshold = degrees[Math.floor(degrees.length * 0.9)] ?? 0;
 

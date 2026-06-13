@@ -46,7 +46,10 @@ export function normalizeLabel(label: string): string {
 
 export function signature(text: string): BigUint64Array {
   const sig = new BigUint64Array(NUM_PERM).fill(MERSENNE);
-  const padded = text.length < SHINGLE ? text.padEnd(SHINGLE, "_") : text;
+  // Cap input: 128 BigInt mul-mods per shingle, so a pathological label can't blow up. Real
+  // labels (headings, symbol names) are far under this — no behavior change in practice.
+  const capped = text.length > 512 ? text.slice(0, 512) : text;
+  const padded = capped.length < SHINGLE ? capped.padEnd(SHINGLE, "_") : capped;
   for (let i = 0; i + SHINGLE <= padded.length; i++) {
     const h = shingleHash(padded.slice(i, i + SHINGLE));
     for (let p = 0; p < NUM_PERM; p++) {

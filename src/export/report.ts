@@ -3,13 +3,16 @@ import { confidenceSummary, suggestedQuestions } from "../enrich/questions.js";
 import { kindCounts } from "../enrich/report-data.js";
 import { surprisingConnections } from "../enrich/surprise.js";
 import type { RevitifyGraph } from "../model/graph.js";
+import { GraphIndex } from "../query/graph.js";
 import type { Exporter } from "./exporter.js";
 
 /** GRAPH_REPORT.md — graphify report.py's sections at revitify's depth. */
 export function renderReport(graph: RevitifyGraph): string {
-  const gods = godNodes(graph);
+  // One adjacency index, shared across god-nodes / surprise / questions (each else rebuilds it).
+  const index = new GraphIndex(graph);
+  const gods = godNodes(graph, 10, index);
   const kinds = kindCounts(graph);
-  const surprises = surprisingConnections(graph);
+  const surprises = surprisingConnections(graph, 5, index);
   const confidence = confidenceSummary(graph);
   const why = graph.nodes.filter((n) => n.kind === "why" || n.kind === "docstring");
   const byId = new Map(graph.nodes.map((n) => [n.id, n]));
@@ -64,7 +67,7 @@ export function renderReport(graph: RevitifyGraph): string {
     "",
     "## Suggested questions",
     "",
-    ...suggestedQuestions(graph).map((q) => `- ${q}`),
+    ...suggestedQuestions(graph, 5, index).map((q) => `- ${q}`),
     "",
   );
   return lines.join("\n");

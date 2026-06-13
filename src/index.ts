@@ -1,6 +1,5 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import type { ExportContext } from "./export/exporter.js";
 import { defaultExporters } from "./export/index.js";
 import type { RevitifyGraph } from "./model/graph.js";
 import { buildGraphFromRoot } from "./passes/pipeline.js";
@@ -62,12 +61,11 @@ export function revitify(rootDir: string, outDir = "revitify-out"): RevitifyResu
 function writeArtifacts(rootDir: string, outDir: string, graph: RevitifyGraph): RevitifyResult {
   const out = join(rootDir, outDir);
   mkdirSync(out, { recursive: true });
-  const ctx: ExportContext = { rootDir, outDir: out };
   let graphJsonPath = join(out, "graph.json");
   for (const exporter of defaultExporters) {
     const path = join(out, exporter.filename);
     if (exporter.id === "json") graphJsonPath = path;
-    writeFileSync(path, exporter.render(graph, ctx));
+    writeFileSync(path, exporter.render(graph));
   }
   return { graphJsonPath, counts: { nodes: graph.nodes.length, links: graph.links.length } };
 }

@@ -44,6 +44,11 @@ describe("http server", async () => {
     expect((await get("/etc/passwd")).status).toBe(404);
   });
 
+  it("rejects non-GET methods with 405 (read-only API)", async () => {
+    const res = await fetch(`http://127.0.0.1:${port}/api/query?q=x`, { method: "POST" });
+    expect(res.status).toBe(405);
+  });
+
   it("answers the API routes", async () => {
     const query = await (await get("/api/query?q=engine")).json();
     expect(query[0].label).toBe("engine");

@@ -19,7 +19,7 @@ export async function run(args: string[]): Promise<number> {
   }
   for (const exporter of selected) {
     const path = join(out, exporter.filename);
-    writeFileSync(path, exporter.render(index.graph, { rootDir: root, outDir: out }));
+    writeFileSync(path, exporter.render(index.graph));
     console.log(`→ ${path}`);
   }
   return 0;
