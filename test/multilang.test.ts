@@ -139,3 +139,24 @@ describe("language detection", () => {
     expect(detectLanguage("Makefile")).toBeUndefined();
   });
 });
+
+describe("python from-import does not leak the module-path tail (C1 regression)", () => {
+  it("'from pkg.helpers import slugify' references slugify only — never a phantom 'helpers'", async () => {
+    const dir = mkdtempSync(join(tmpdir(), "revitify-c1-"));
+    mkdirSync(join(dir, "pkg"));
+    writeFileSync(join(dir, "pkg", "helpers.py"), "def slugify(s):\n    return s\n");
+    // A symbol literally named after the module-path tail ("helpers"). The bug bound name:helpers
+    // to this, fabricating an imports_from edge that the import statement never expressed.
+    writeFileSync(join(dir, "pkg", "widget.py"), "def helpers():\n    return 1\n");
+    writeFileSync(
+      join(dir, "pkg", "models.py"),
+      "from pkg.helpers import slugify\n\ndef render():\n    return slugify('x')\n",
+    );
+    const graph = await buildGraphAsync(dir, { cache: false });
+    const fromModels = graph.links.filter(
+      (l) => l.relation === "imports_from" && String(l.source) === "file:pkg/models.py",
+    );
+    expect(fromModels.some((l) => l.target === "sym:pkg/helpers.py#slugify")).toBe(true);
+    expect(fromModels.some((l) => l.target === "sym:pkg/widget.py#helpers")).toBe(false);
+  });
+});

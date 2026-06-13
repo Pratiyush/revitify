@@ -18,6 +18,12 @@ SHALL respectively become symbols.
 @check kind=unit ref=test/multilang.test.ts::python: classes, nested methods, functions, file-resolved imports
 @check kind=unit ref=test/multilang.test.ts::go and rust symbols, and the whole graph passes the contract
 
+IF a Python `from a.b import c` is extracted THEN the system SHALL reference only the imported
+names — never the module-path tail (the `current === moduleNode` wrapper-identity bug fabricated
+a `name:b` reference).
+
+@check kind=unit ref=test/multilang.test.ts::'from pkg.helpers import slugify' references slugify only — never a phantom 'helpers'
+
 ## Requirement REQUIREMENT_LANG-02 — the sync facade is frozen and deterministic
 
 WHEN `buildGraph()` (sync) runs THEN tree-sitter SHALL NOT load — regex fallbacks serve py/java,

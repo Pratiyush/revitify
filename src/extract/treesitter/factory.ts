@@ -251,7 +251,10 @@ function collectImport(
     const stack: Node[] = [node];
     while (stack.length) {
       const current = stack.pop();
-      if (!current || current === moduleNode) continue;
+      // Compare by node identity, not wrapper-object reference: web-tree-sitter returns a fresh
+      // wrapper for the same node via childForFieldName vs namedChildren, so `===` never matches
+      // and the module path's tail segment would leak as a phantom reference.
+      if (!current || (moduleNode !== undefined && current.id === moduleNode.id)) continue;
       if (rule.nameTypes.includes(current.type) && current !== node) {
         // Prefer the name field (aliased_import "y as z" → "y"); last path segment otherwise.
         const text = current.childForFieldName("name")?.text ?? current.text;

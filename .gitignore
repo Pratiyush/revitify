@@ -9,3 +9,5 @@ coverage/
 .rivet/cache/
 .rivet/tmp/
 Revitify.zip
+.revitify/
+.claude/
