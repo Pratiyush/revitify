@@ -15,7 +15,7 @@
 | REQUIREMENT_INTEL-04 | structural communities, deterministic | 2 | 🟢🟢 | done | — |
 | REQUIREMENT_MOD-01 | registry dispatch, not switches | 1 | 🟢 | done | — |
 | REQUIREMENT_MOD-02 | the lazy boundary | 2 | 🟢🟢 | done | — |
-| REQUIREMENT_LANG-01 | deep member extraction per language | 1 | 🟢 | done | — |
+| REQUIREMENT_LANG-01 | deep member extraction per language | 2 | 🟢🟢 | done | — |
 | REQUIREMENT_LANG-02 | the sync facade is frozen and deterministic | 2 | 🟢🟢 | done | — |
 | REQUIREMENT_CACHE-01 | per-file cache with honest invalidation | 1 | 🟢 | done | — |
 | REQUIREMENT_PAR-01 | parallel extraction changes nothing but wall-clock | 1 | 🟢 | done | — |

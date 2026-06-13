@@ -372,6 +372,19 @@
       }
     },
     {
+      "id": "REQUIREMENT_LANG-01-AC2",
+      "kind": "acceptanceCriterion",
+      "label": "IF a Python `from a.b import c` is extracted THEN the system SHALL reference only the imported names — never the module-path tail (the `current === moduleNode` wrapper-identity bug fabricated a `name:b` reference)."
+    },
+    {
+      "id": "test:test/multilang.test.ts::'from pkg.helpers import slugify' references slugify only — never a phantom 'helpers'",
+      "kind": "test",
+      "label": "test/multilang.test.ts::'from pkg.helpers import slugify' references slugify only — never a phantom 'helpers'",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
       "id": "REQUIREMENT_LANG-02",
       "kind": "requirement",
       "label": "the sync facade is frozen and deterministic"
@@ -961,9 +974,9 @@
       "lastCheck": {
         "ref": "test/cli.test.ts::help lists every verb; unknown verb exits 1",
         "passed": true,
-        "at": "2026-06-13T05:49:52.459Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:43:49.562Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -985,9 +998,9 @@
       "lastCheck": {
         "ref": "test/cli.test.ts::build → query → path → affected → communities → export → validate, end to end",
         "passed": true,
-        "at": "2026-06-13T05:45:51.369Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:43:51.411Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1009,9 +1022,9 @@
       "lastCheck": {
         "ref": "test/cli.test.ts::rebuilds on change (initial build, then incremental)",
         "passed": true,
-        "at": "2026-06-13T05:45:52.320Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:43:52.360Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1026,9 +1039,9 @@
       "lastCheck": {
         "ref": "test/cli.test.ts::global merges repos with repo: prefixes",
         "passed": true,
-        "at": "2026-06-13T05:45:53.402Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:43:53.453Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1043,9 +1056,9 @@
       "lastCheck": {
         "ref": "test/cli.test.ts::prs reports diff impact in a git repo",
         "passed": true,
-        "at": "2026-06-13T05:45:54.689Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:43:54.751Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1067,9 +1080,9 @@
       "lastCheck": {
         "ref": "test/revitify.test.ts::emits graph.json + self-contained graph.html + GRAPH_REPORT.md (default: revitify-out/)",
         "passed": true,
-        "at": "2026-06-13T05:45:55.853Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:43:55.935Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1091,9 +1104,9 @@
       "lastCheck": {
         "ref": "test/revitify.test.ts::keeps Rivet's call shape working: revitify(dir, 'graphify-out')",
         "passed": true,
-        "at": "2026-06-13T05:45:57.020Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:43:57.118Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1115,9 +1128,9 @@
       "lastCheck": {
         "ref": "test/revitify.test.ts::builds containment, import, and reference edges with source_file + community on nodes",
         "passed": true,
-        "at": "2026-06-13T05:45:58.197Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:43:58.296Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1132,9 +1145,9 @@
       "lastCheck": {
         "ref": "test/contract.test.ts::a canonical symbol node carries exactly the contract fields",
         "passed": true,
-        "at": "2026-06-13T05:45:59.359Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:43:59.472Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1156,9 +1169,9 @@
       "lastCheck": {
         "ref": "test/contract.test.ts::contract drift fails loudly, naming index and field (negative floor)",
         "passed": true,
-        "at": "2026-06-13T05:46:00.525Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:00.662Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1180,9 +1193,9 @@
       "lastCheck": {
         "ref": "test/contract.test.ts::graph.json is byte-identical to the committed expectation (refactor pin)",
         "passed": true,
-        "at": "2026-06-13T05:46:01.687Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:01.837Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1197,9 +1210,9 @@
       "lastCheck": {
         "ref": "test/contract.test-d.ts::RevitifyGraph stays assignable to the shape Rivet's loadCodeGraph reads",
         "passed": true,
-        "at": "2026-06-13T05:46:02.791Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:02.949Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1221,9 +1234,9 @@
       "lastCheck": {
         "ref": "test/intelligence.test.ts::symbol→symbol calls edges, confidence-tagged",
         "passed": true,
-        "at": "2026-06-13T05:46:03.961Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:04.126Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1238,9 +1251,9 @@
       "lastCheck": {
         "ref": "test/intelligence.test.ts::unresolvable callees (built-ins) leave no edge",
         "passed": true,
-        "at": "2026-06-13T05:46:05.138Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:05.303Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1262,9 +1275,9 @@
       "lastCheck": {
         "ref": "test/intelligence.test.ts::same-file beats same-dir beats global; unique-in-tier is INFERRED",
         "passed": true,
-        "at": "2026-06-13T05:46:06.305Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:06.476Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1279,9 +1292,9 @@
       "lastCheck": {
         "ref": "test/intelligence.test.ts::ties within the winning tier are AMBIGUOUS with lexicographic pick",
         "passed": true,
-        "at": "2026-06-13T05:46:07.472Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:07.651Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1303,9 +1316,9 @@
       "lastCheck": {
         "ref": "test/intelligence.test.ts::merges near-duplicate headings, rewrites links, never touches code symbols",
         "passed": true,
-        "at": "2026-06-13T05:46:08.644Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:08.829Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1320,9 +1333,9 @@
       "lastCheck": {
         "ref": "test/algorithms.test.ts::no docs / single doc: nothing merges, exact duplicate links still drop",
         "passed": true,
-        "at": "2026-06-13T05:46:09.597Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:09.792Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1344,9 +1357,9 @@
       "lastCheck": {
         "ref": "test/intelligence.test.ts::separates the two clusters; deterministic across runs",
         "passed": true,
-        "at": "2026-06-13T05:46:10.779Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:10.966Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1361,9 +1374,9 @@
       "lastCheck": {
         "ref": "test/intelligence.test.ts::isolated nodes get their own communities",
         "passed": true,
-        "at": "2026-06-13T05:46:11.944Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:12.146Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1378,9 +1391,9 @@
       "lastCheck": {
         "ref": "test/algorithms.test.ts::an oversized clique triggers the re-split pass and survives unsplit (no substructure)",
         "passed": true,
-        "at": "2026-06-13T05:46:13.876Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:14.069Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1402,9 +1415,9 @@
       "lastCheck": {
         "ref": "test/algorithms.test.ts::an oversized clique triggers the re-split pass and survives unsplit (no substructure)",
         "passed": true,
-        "at": "2026-06-13T05:46:13.876Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:14.069Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1426,9 +1439,9 @@
       "lastCheck": {
         "ref": "test/layers.test.ts::dispatches by detect/extensions and rejects .d.ts and unknown files",
         "passed": true,
-        "at": "2026-06-13T05:46:15.002Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:15.209Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1450,9 +1463,9 @@
       "lastCheck": {
         "ref": "test/layers.test.ts::resolves lazily (async), memoizes, and resolveSync returns undefined without loadSync",
         "passed": true,
-        "at": "2026-06-13T05:46:16.126Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:16.348Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1474,9 +1487,9 @@
       "lastCheck": {
         "ref": "test/boundaries.test.ts::a forbidden src/model → src/export import fails depcruise, naming the violated rule",
         "passed": true,
-        "at": "2026-06-13T05:46:17.237Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:17.502Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1498,9 +1511,9 @@
       "lastCheck": {
         "ref": "test/multilang.test.ts::java: constructors, methods, fields, nested types — full member depth",
         "passed": true,
-        "at": "2026-06-13T05:46:18.425Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:18.707Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1515,9 +1528,9 @@
       "lastCheck": {
         "ref": "test/multilang.test.ts::python: classes, nested methods, functions, file-resolved imports",
         "passed": true,
-        "at": "2026-06-13T05:46:19.619Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:19.900Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1532,9 +1545,9 @@
       "lastCheck": {
         "ref": "test/multilang.test.ts::go and rust symbols, and the whole graph passes the contract",
         "passed": true,
-        "at": "2026-06-13T05:46:20.808Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:21.099Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1542,23 +1555,23 @@
     },
     {
       "id": "e46",
-      "from": "REQUIREMENT_LANG-02-AC1",
-      "to": "REQUIREMENT_LANG-02",
+      "from": "REQUIREMENT_LANG-01-AC2",
+      "to": "REQUIREMENT_LANG-01",
       "kind": "derivedFrom",
       "proof": "unproven"
     },
     {
       "id": "e47",
-      "from": "test:test/multilang.test.ts::falls back to regex (shallow py/java, no go/rust) — never loads tree-sitter",
-      "to": "REQUIREMENT_LANG-02-AC1",
+      "from": "test:test/multilang.test.ts::'from pkg.helpers import slugify' references slugify only — never a phantom 'helpers'",
+      "to": "REQUIREMENT_LANG-01-AC2",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/multilang.test.ts::falls back to regex (shallow py/java, no go/rust) — never loads tree-sitter",
+        "ref": "test/multilang.test.ts::'from pkg.helpers import slugify' references slugify only — never a phantom 'helpers'",
         "passed": true,
-        "at": "2026-06-13T05:46:21.996Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:22.292Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1566,6 +1579,30 @@
     },
     {
       "id": "e48",
+      "from": "REQUIREMENT_LANG-02-AC1",
+      "to": "REQUIREMENT_LANG-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e49",
+      "from": "test:test/multilang.test.ts::falls back to regex (shallow py/java, no go/rust) — never loads tree-sitter",
+      "to": "REQUIREMENT_LANG-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multilang.test.ts::falls back to regex (shallow py/java, no go/rust) — never loads tree-sitter",
+        "passed": true,
+        "at": "2026-06-13T06:44:23.489Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e50",
       "from": "test:test/lazy-boundary.test.ts::sync revitify never resolves web-tree-sitter or grammar packages",
       "to": "REQUIREMENT_LANG-02-AC1",
       "kind": "validates",
@@ -1573,33 +1610,9 @@
       "lastCheck": {
         "ref": "test/lazy-boundary.test.ts::sync revitify never resolves web-tree-sitter or grammar packages",
         "passed": true,
-        "at": "2026-06-13T05:46:23.138Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
-        "dirty": false,
-        "stack": "node-vitest",
-        "kind": "unit"
-      }
-    },
-    {
-      "id": "e49",
-      "from": "REQUIREMENT_LANG-02-AC2",
-      "to": "REQUIREMENT_LANG-02",
-      "kind": "derivedFrom",
-      "proof": "unproven"
-    },
-    {
-      "id": "e50",
-      "from": "test:test/lazy-boundary.test.ts::positive control: the async path DOES resolve web-tree-sitter through the same hook",
-      "to": "REQUIREMENT_LANG-02-AC2",
-      "kind": "validates",
-      "proof": "green",
-      "lastCheck": {
-        "ref": "test/lazy-boundary.test.ts::positive control: the async path DOES resolve web-tree-sitter through the same hook",
-        "passed": true,
-        "at": "2026-06-13T05:46:24.286Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:24.634Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1607,23 +1620,23 @@
     },
     {
       "id": "e51",
-      "from": "REQUIREMENT_CACHE-01-AC1",
-      "to": "REQUIREMENT_CACHE-01",
+      "from": "REQUIREMENT_LANG-02-AC2",
+      "to": "REQUIREMENT_LANG-02",
       "kind": "derivedFrom",
       "proof": "unproven"
     },
     {
       "id": "e52",
-      "from": "test:test/cache.test.ts::second run is all hits; edits invalidate exactly one file; output identical",
-      "to": "REQUIREMENT_CACHE-01-AC1",
+      "from": "test:test/lazy-boundary.test.ts::positive control: the async path DOES resolve web-tree-sitter through the same hook",
+      "to": "REQUIREMENT_LANG-02-AC2",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/cache.test.ts::second run is all hits; edits invalidate exactly one file; output identical",
+        "ref": "test/lazy-boundary.test.ts::positive control: the async path DOES resolve web-tree-sitter through the same hook",
         "passed": true,
-        "at": "2026-06-13T05:46:25.465Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:25.784Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1631,33 +1644,23 @@
     },
     {
       "id": "e53",
-      "from": "test:test/cache.test.ts::adding a file invalidates the set (import resolution depends on the walked set)",
-      "to": "REQUIREMENT_CACHE-01-AC1",
-      "kind": "validates",
-      "proof": "green",
-      "lastCheck": {
-        "ref": "test/cache.test.ts::adding a file invalidates the set (import resolution depends on the walked set)",
-        "passed": true,
-        "at": "2026-06-13T05:46:26.640Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
-        "dirty": false,
-        "stack": "node-vitest",
-        "kind": "unit"
-      }
+      "from": "REQUIREMENT_CACHE-01-AC1",
+      "to": "REQUIREMENT_CACHE-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
     },
     {
       "id": "e54",
-      "from": "test:test/cache.test.ts::recovers from a corrupt stat-index and from evicted fragment files",
+      "from": "test:test/cache.test.ts::second run is all hits; edits invalidate exactly one file; output identical",
       "to": "REQUIREMENT_CACHE-01-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/cache.test.ts::recovers from a corrupt stat-index and from evicted fragment files",
+        "ref": "test/cache.test.ts::second run is all hits; edits invalidate exactly one file; output identical",
         "passed": true,
-        "at": "2026-06-13T05:46:27.812Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:26.975Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1665,23 +1668,33 @@
     },
     {
       "id": "e55",
-      "from": "REQUIREMENT_PAR-01-AC1",
-      "to": "REQUIREMENT_PAR-01",
-      "kind": "derivedFrom",
-      "proof": "unproven"
-    },
-    {
-      "id": "e56",
-      "from": "test:test/lazy-boundary.test.ts::worker-pool output matches sequential output exactly",
-      "to": "REQUIREMENT_PAR-01-AC1",
+      "from": "test:test/cache.test.ts::adding a file invalidates the set (import resolution depends on the walked set)",
+      "to": "REQUIREMENT_CACHE-01-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/lazy-boundary.test.ts::worker-pool output matches sequential output exactly",
+        "ref": "test/cache.test.ts::adding a file invalidates the set (import resolution depends on the walked set)",
         "passed": true,
-        "at": "2026-06-13T05:46:29.045Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:28.155Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e56",
+      "from": "test:test/cache.test.ts::recovers from a corrupt stat-index and from evicted fragment files",
+      "to": "REQUIREMENT_CACHE-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/cache.test.ts::recovers from a corrupt stat-index and from evicted fragment files",
+        "passed": true,
+        "at": "2026-06-13T06:44:29.336Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1689,23 +1702,23 @@
     },
     {
       "id": "e57",
-      "from": "REQUIREMENT_MM-01-AC1",
-      "to": "REQUIREMENT_MM-01",
+      "from": "REQUIREMENT_PAR-01-AC1",
+      "to": "REQUIREMENT_PAR-01",
       "kind": "derivedFrom",
       "proof": "unproven"
     },
     {
       "id": "e58",
-      "from": "test:test/multimodal.test.ts::GATE: without keys the run never touches the network and equals the code-only graph",
-      "to": "REQUIREMENT_MM-01-AC1",
+      "from": "test:test/lazy-boundary.test.ts::worker-pool output matches sequential output exactly",
+      "to": "REQUIREMENT_PAR-01-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/multimodal.test.ts::GATE: without keys the run never touches the network and equals the code-only graph",
+        "ref": "test/lazy-boundary.test.ts::worker-pool output matches sequential output exactly",
         "passed": true,
-        "at": "2026-06-13T05:46:30.226Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:30.581Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1713,23 +1726,23 @@
     },
     {
       "id": "e59",
-      "from": "REQUIREMENT_MM-02-AC1",
-      "to": "REQUIREMENT_MM-02",
+      "from": "REQUIREMENT_MM-01-AC1",
+      "to": "REQUIREMENT_MM-01",
       "kind": "derivedFrom",
       "proof": "unproven"
     },
     {
       "id": "e60",
-      "from": "test:test/multimodal.test.ts::anthropic → gemini → openai → ollama → none",
-      "to": "REQUIREMENT_MM-02-AC1",
+      "from": "test:test/multimodal.test.ts::GATE: without keys the run never touches the network and equals the code-only graph",
+      "to": "REQUIREMENT_MM-01-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/multimodal.test.ts::anthropic → gemini → openai → ollama → none",
+        "ref": "test/multimodal.test.ts::GATE: without keys the run never touches the network and equals the code-only graph",
         "passed": true,
-        "at": "2026-06-13T05:46:31.396Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:31.772Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1737,33 +1750,23 @@
     },
     {
       "id": "e61",
-      "from": "test:test/multimodal.test.ts::gemini, openai, ollama parse their shapes; anthropic errors loudly on non-ok",
-      "to": "REQUIREMENT_MM-02-AC1",
-      "kind": "validates",
-      "proof": "green",
-      "lastCheck": {
-        "ref": "test/multimodal.test.ts::gemini, openai, ollama parse their shapes; anthropic errors loudly on non-ok",
-        "passed": true,
-        "at": "2026-06-13T05:46:32.581Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
-        "dirty": false,
-        "stack": "node-vitest",
-        "kind": "unit"
-      }
+      "from": "REQUIREMENT_MM-02-AC1",
+      "to": "REQUIREMENT_MM-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
     },
     {
       "id": "e62",
-      "from": "test:test/multimodal.test.ts::with a key + mocked backend, PDFs contribute concept nodes",
+      "from": "test:test/multimodal.test.ts::anthropic → gemini → openai → ollama → none",
       "to": "REQUIREMENT_MM-02-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/multimodal.test.ts::with a key + mocked backend, PDFs contribute concept nodes",
+        "ref": "test/multimodal.test.ts::anthropic → gemini → openai → ollama → none",
         "passed": true,
-        "at": "2026-06-13T05:46:33.761Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:32.970Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1771,23 +1774,33 @@
     },
     {
       "id": "e63",
-      "from": "REQUIREMENT_MM-03-AC1",
-      "to": "REQUIREMENT_MM-03",
-      "kind": "derivedFrom",
-      "proof": "unproven"
-    },
-    {
-      "id": "e64",
-      "from": "test:test/multimodal.test.ts::tables, columns, and REFERENCES edges from DDL",
-      "to": "REQUIREMENT_MM-03-AC1",
+      "from": "test:test/multimodal.test.ts::gemini, openai, ollama parse their shapes; anthropic errors loudly on non-ok",
+      "to": "REQUIREMENT_MM-02-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/multimodal.test.ts::tables, columns, and REFERENCES edges from DDL",
+        "ref": "test/multimodal.test.ts::gemini, openai, ollama parse their shapes; anthropic errors loudly on non-ok",
         "passed": true,
-        "at": "2026-06-13T05:46:34.944Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:34.161Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e64",
+      "from": "test:test/multimodal.test.ts::with a key + mocked backend, PDFs contribute concept nodes",
+      "to": "REQUIREMENT_MM-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multimodal.test.ts::with a key + mocked backend, PDFs contribute concept nodes",
+        "passed": true,
+        "at": "2026-06-13T06:44:35.349Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1795,6 +1808,30 @@
     },
     {
       "id": "e65",
+      "from": "REQUIREMENT_MM-03-AC1",
+      "to": "REQUIREMENT_MM-03",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e66",
+      "from": "test:test/multimodal.test.ts::tables, columns, and REFERENCES edges from DDL",
+      "to": "REQUIREMENT_MM-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multimodal.test.ts::tables, columns, and REFERENCES edges from DDL",
+        "passed": true,
+        "at": "2026-06-13T06:44:36.536Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e67",
       "from": "test:test/multimodal.test.ts::crate + dependency edges from Cargo.toml",
       "to": "REQUIREMENT_MM-03-AC1",
       "kind": "validates",
@@ -1802,33 +1839,9 @@
       "lastCheck": {
         "ref": "test/multimodal.test.ts::crate + dependency edges from Cargo.toml",
         "passed": true,
-        "at": "2026-06-13T05:46:36.119Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
-        "dirty": false,
-        "stack": "node-vitest",
-        "kind": "unit"
-      }
-    },
-    {
-      "id": "e66",
-      "from": "REQUIREMENT_MM-04-AC1",
-      "to": "REQUIREMENT_MM-04",
-      "kind": "derivedFrom",
-      "proof": "unproven"
-    },
-    {
-      "id": "e67",
-      "from": "test:test/multimodal.test.ts::whisper + scip spawn, parse, and survive failures",
-      "to": "REQUIREMENT_MM-04-AC1",
-      "kind": "validates",
-      "proof": "green",
-      "lastCheck": {
-        "ref": "test/multimodal.test.ts::whisper + scip spawn, parse, and survive failures",
-        "passed": true,
-        "at": "2026-06-13T05:46:37.305Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:37.721Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1836,6 +1849,30 @@
     },
     {
       "id": "e68",
+      "from": "REQUIREMENT_MM-04-AC1",
+      "to": "REQUIREMENT_MM-04",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e69",
+      "from": "test:test/multimodal.test.ts::whisper + scip spawn, parse, and survive failures",
+      "to": "REQUIREMENT_MM-04-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multimodal.test.ts::whisper + scip spawn, parse, and survive failures",
+        "passed": true,
+        "at": "2026-06-13T06:44:38.912Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e70",
       "from": "test:test/multimodal.test.ts::detect + available are honest",
       "to": "REQUIREMENT_MM-04-AC1",
       "kind": "validates",
@@ -1843,33 +1880,9 @@
       "lastCheck": {
         "ref": "test/multimodal.test.ts::detect + available are honest",
         "passed": true,
-        "at": "2026-06-13T05:46:38.497Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
-        "dirty": false,
-        "stack": "node-vitest",
-        "kind": "unit"
-      }
-    },
-    {
-      "id": "e69",
-      "from": "REQUIREMENT_QUERY-01-AC1",
-      "to": "REQUIREMENT_QUERY-01",
-      "kind": "derivedFrom",
-      "proof": "unproven"
-    },
-    {
-      "id": "e70",
-      "from": "test:test/query.test.ts::finds the shortest path between symbols across files",
-      "to": "REQUIREMENT_QUERY-01-AC1",
-      "kind": "validates",
-      "proof": "green",
-      "lastCheck": {
-        "ref": "test/query.test.ts::finds the shortest path between symbols across files",
-        "passed": true,
-        "at": "2026-06-13T05:46:39.701Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:40.103Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1877,6 +1890,30 @@
     },
     {
       "id": "e71",
+      "from": "REQUIREMENT_QUERY-01-AC1",
+      "to": "REQUIREMENT_QUERY-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e72",
+      "from": "test:test/query.test.ts::finds the shortest path between symbols across files",
+      "to": "REQUIREMENT_QUERY-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/query.test.ts::finds the shortest path between symbols across files",
+        "passed": true,
+        "at": "2026-06-13T06:44:41.320Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e73",
       "from": "test:test/query.test.ts::walks reverse dependencies transitively",
       "to": "REQUIREMENT_QUERY-01-AC1",
       "kind": "validates",
@@ -1884,33 +1921,9 @@
       "lastCheck": {
         "ref": "test/query.test.ts::walks reverse dependencies transitively",
         "passed": true,
-        "at": "2026-06-13T05:46:40.911Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
-        "dirty": false,
-        "stack": "node-vitest",
-        "kind": "unit"
-      }
-    },
-    {
-      "id": "e72",
-      "from": "REQUIREMENT_QUERY-02-AC1",
-      "to": "REQUIREMENT_QUERY-02",
-      "kind": "derivedFrom",
-      "proof": "unproven"
-    },
-    {
-      "id": "e73",
-      "from": "test:test/query.test.ts::idf-ranks matches and explains with neighbors",
-      "to": "REQUIREMENT_QUERY-02-AC1",
-      "kind": "validates",
-      "proof": "green",
-      "lastCheck": {
-        "ref": "test/query.test.ts::idf-ranks matches and explains with neighbors",
-        "passed": true,
-        "at": "2026-06-13T05:46:42.115Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:42.528Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1918,33 +1931,23 @@
     },
     {
       "id": "e74",
-      "from": "test:test/query.test.ts::lists communities with size and cohesion in [0,1]",
-      "to": "REQUIREMENT_QUERY-02-AC1",
-      "kind": "validates",
-      "proof": "green",
-      "lastCheck": {
-        "ref": "test/query.test.ts::lists communities with size and cohesion in [0,1]",
-        "passed": true,
-        "at": "2026-06-13T05:46:43.323Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
-        "dirty": false,
-        "stack": "node-vitest",
-        "kind": "unit"
-      }
+      "from": "REQUIREMENT_QUERY-02-AC1",
+      "to": "REQUIREMENT_QUERY-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
     },
     {
       "id": "e75",
-      "from": "test:test/query.test.ts::appends JSONL entries",
+      "from": "test:test/query.test.ts::idf-ranks matches and explains with neighbors",
       "to": "REQUIREMENT_QUERY-02-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/query.test.ts::appends JSONL entries",
+        "ref": "test/query.test.ts::idf-ranks matches and explains with neighbors",
         "passed": true,
-        "at": "2026-06-13T05:46:44.540Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:43.745Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1952,23 +1955,33 @@
     },
     {
       "id": "e76",
-      "from": "REQUIREMENT_EXPORT-01-AC1",
-      "to": "REQUIREMENT_EXPORT-01",
-      "kind": "derivedFrom",
-      "proof": "unproven"
-    },
-    {
-      "id": "e77",
-      "from": "test:test/query.test.ts::callflow keeps only calls; tree nests files; wiki sections communities; mermaid caps",
-      "to": "REQUIREMENT_EXPORT-01-AC1",
+      "from": "test:test/query.test.ts::lists communities with size and cohesion in [0,1]",
+      "to": "REQUIREMENT_QUERY-02-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/query.test.ts::callflow keeps only calls; tree nests files; wiki sections communities; mermaid caps",
+        "ref": "test/query.test.ts::lists communities with size and cohesion in [0,1]",
         "passed": true,
-        "at": "2026-06-13T05:46:45.742Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:44.955Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e77",
+      "from": "test:test/query.test.ts::appends JSONL entries",
+      "to": "REQUIREMENT_QUERY-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/query.test.ts::appends JSONL entries",
+        "passed": true,
+        "at": "2026-06-13T06:44:46.178Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -1976,6 +1989,30 @@
     },
     {
       "id": "e78",
+      "from": "REQUIREMENT_EXPORT-01-AC1",
+      "to": "REQUIREMENT_EXPORT-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e79",
+      "from": "test:test/query.test.ts::callflow keeps only calls; tree nests files; wiki sections communities; mermaid caps",
+      "to": "REQUIREMENT_EXPORT-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/query.test.ts::callflow keeps only calls; tree nests files; wiki sections communities; mermaid caps",
+        "passed": true,
+        "at": "2026-06-13T06:44:47.390Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e80",
       "from": "test:test/query.test.ts::exporters survive an empty graph",
       "to": "REQUIREMENT_EXPORT-01-AC1",
       "kind": "validates",
@@ -1983,33 +2020,9 @@
       "lastCheck": {
         "ref": "test/query.test.ts::exporters survive an empty graph",
         "passed": true,
-        "at": "2026-06-13T05:46:46.951Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
-        "dirty": false,
-        "stack": "node-vitest",
-        "kind": "unit"
-      }
-    },
-    {
-      "id": "e79",
-      "from": "REQUIREMENT_REPORT-01-AC1",
-      "to": "REQUIREMENT_REPORT-01",
-      "kind": "derivedFrom",
-      "proof": "unproven"
-    },
-    {
-      "id": "e80",
-      "from": "test:test/report.test.ts::typescript: NOTE/WHY/HACK comments become nodes explained by the next symbol",
-      "to": "REQUIREMENT_REPORT-01-AC1",
-      "kind": "validates",
-      "proof": "green",
-      "lastCheck": {
-        "ref": "test/report.test.ts::typescript: NOTE/WHY/HACK comments become nodes explained by the next symbol",
-        "passed": true,
-        "at": "2026-06-13T05:46:48.119Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:48.610Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2017,6 +2030,30 @@
     },
     {
       "id": "e81",
+      "from": "REQUIREMENT_REPORT-01-AC1",
+      "to": "REQUIREMENT_REPORT-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e82",
+      "from": "test:test/report.test.ts::typescript: NOTE/WHY/HACK comments become nodes explained by the next symbol",
+      "to": "REQUIREMENT_REPORT-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/report.test.ts::typescript: NOTE/WHY/HACK comments become nodes explained by the next symbol",
+        "passed": true,
+        "at": "2026-06-13T06:44:49.805Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e83",
       "from": "test:test/report.test.ts::python: docstrings and HACK comments via tree-sitter",
       "to": "REQUIREMENT_REPORT-01-AC1",
       "kind": "validates",
@@ -2024,33 +2061,9 @@
       "lastCheck": {
         "ref": "test/report.test.ts::python: docstrings and HACK comments via tree-sitter",
         "passed": true,
-        "at": "2026-06-13T05:46:49.298Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
-        "dirty": false,
-        "stack": "node-vitest",
-        "kind": "unit"
-      }
-    },
-    {
-      "id": "e82",
-      "from": "REQUIREMENT_REPORT-02-AC1",
-      "to": "REQUIREMENT_REPORT-02",
-      "kind": "derivedFrom",
-      "proof": "unproven"
-    },
-    {
-      "id": "e83",
-      "from": "test:test/report.test.ts::ranks symbols only — file/doc/why nodes are excluded",
-      "to": "REQUIREMENT_REPORT-02-AC1",
-      "kind": "validates",
-      "proof": "green",
-      "lastCheck": {
-        "ref": "test/report.test.ts::ranks symbols only — file/doc/why nodes are excluded",
-        "passed": true,
-        "at": "2026-06-13T05:46:50.461Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:50.995Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2058,23 +2071,23 @@
     },
     {
       "id": "e84",
-      "from": "REQUIREMENT_REPORT-03-AC1",
-      "to": "REQUIREMENT_REPORT-03",
+      "from": "REQUIREMENT_REPORT-02-AC1",
+      "to": "REQUIREMENT_REPORT-02",
       "kind": "derivedFrom",
       "proof": "unproven"
     },
     {
       "id": "e85",
-      "from": "test:test/report.test.ts::carries god nodes, surprises, confidence, why-nodes, and ≥4 questions",
-      "to": "REQUIREMENT_REPORT-03-AC1",
+      "from": "test:test/report.test.ts::ranks symbols only — file/doc/why nodes are excluded",
+      "to": "REQUIREMENT_REPORT-02-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/report.test.ts::carries god nodes, surprises, confidence, why-nodes, and ≥4 questions",
+        "ref": "test/report.test.ts::ranks symbols only — file/doc/why nodes are excluded",
         "passed": true,
-        "at": "2026-06-13T05:46:51.631Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:52.165Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2082,6 +2095,30 @@
     },
     {
       "id": "e86",
+      "from": "REQUIREMENT_REPORT-03-AC1",
+      "to": "REQUIREMENT_REPORT-03",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e87",
+      "from": "test:test/report.test.ts::carries god nodes, surprises, confidence, why-nodes, and ≥4 questions",
+      "to": "REQUIREMENT_REPORT-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/report.test.ts::carries god nodes, surprises, confidence, why-nodes, and ≥4 questions",
+        "passed": true,
+        "at": "2026-06-13T06:44:53.355Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e88",
       "from": "test:test/report.test.ts::suggestedQuestions seeds from brokers and ambiguity",
       "to": "REQUIREMENT_REPORT-03-AC1",
       "kind": "validates",
@@ -2089,33 +2126,9 @@
       "lastCheck": {
         "ref": "test/report.test.ts::suggestedQuestions seeds from brokers and ambiguity",
         "passed": true,
-        "at": "2026-06-13T05:46:52.803Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
-        "dirty": false,
-        "stack": "node-vitest",
-        "kind": "unit"
-      }
-    },
-    {
-      "id": "e87",
-      "from": "REQUIREMENT_RESOLVE-01-AC1",
-      "to": "REQUIREMENT_RESOLVE-01",
-      "kind": "derivedFrom",
-      "proof": "unproven"
-    },
-    {
-      "id": "e88",
-      "from": "test:test/resolution.test.ts::structural contains/imports edges are EXTRACTED",
-      "to": "REQUIREMENT_RESOLVE-01-AC1",
-      "kind": "validates",
-      "proof": "green",
-      "lastCheck": {
-        "ref": "test/resolution.test.ts::structural contains/imports edges are EXTRACTED",
-        "passed": true,
-        "at": "2026-06-13T05:46:53.987Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:54.537Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2123,6 +2136,30 @@
     },
     {
       "id": "e89",
+      "from": "REQUIREMENT_RESOLVE-01-AC1",
+      "to": "REQUIREMENT_RESOLVE-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e90",
+      "from": "test:test/resolution.test.ts::structural contains/imports edges are EXTRACTED",
+      "to": "REQUIREMENT_RESOLVE-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/resolution.test.ts::structural contains/imports edges are EXTRACTED",
+        "passed": true,
+        "at": "2026-06-13T06:44:55.720Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e91",
       "from": "test:test/resolution.test.ts::a uniquely-resolved reference is INFERRED",
       "to": "REQUIREMENT_RESOLVE-01-AC1",
       "kind": "validates",
@@ -2130,33 +2167,9 @@
       "lastCheck": {
         "ref": "test/resolution.test.ts::a uniquely-resolved reference is INFERRED",
         "passed": true,
-        "at": "2026-06-13T05:46:55.154Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
-        "dirty": false,
-        "stack": "node-vitest",
-        "kind": "unit"
-      }
-    },
-    {
-      "id": "e90",
-      "from": "REQUIREMENT_RESOLVE-02-AC1",
-      "to": "REQUIREMENT_RESOLVE-02",
-      "kind": "derivedFrom",
-      "proof": "unproven"
-    },
-    {
-      "id": "e91",
-      "from": "test:test/resolution.test.ts::same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)",
-      "to": "REQUIREMENT_RESOLVE-02-AC1",
-      "kind": "validates",
-      "proof": "green",
-      "lastCheck": {
-        "ref": "test/resolution.test.ts::same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)",
-        "passed": true,
-        "at": "2026-06-13T05:46:56.329Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:56.889Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2164,33 +2177,23 @@
     },
     {
       "id": "e92",
-      "from": "test:test/resolution.test.ts::falls back to lexicographic id order, still AMBIGUOUS",
-      "to": "REQUIREMENT_RESOLVE-02-AC1",
-      "kind": "validates",
-      "proof": "green",
-      "lastCheck": {
-        "ref": "test/resolution.test.ts::falls back to lexicographic id order, still AMBIGUOUS",
-        "passed": true,
-        "at": "2026-06-13T05:46:57.494Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
-        "dirty": false,
-        "stack": "node-vitest",
-        "kind": "unit"
-      }
+      "from": "REQUIREMENT_RESOLVE-02-AC1",
+      "to": "REQUIREMENT_RESOLVE-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
     },
     {
       "id": "e93",
-      "from": "test:test/resolution.test.ts::the pick is stable across runs",
+      "from": "test:test/resolution.test.ts::same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)",
       "to": "REQUIREMENT_RESOLVE-02-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/resolution.test.ts::the pick is stable across runs",
+        "ref": "test/resolution.test.ts::same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)",
         "passed": true,
-        "at": "2026-06-13T05:46:58.667Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:58.070Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2198,23 +2201,33 @@
     },
     {
       "id": "e94",
-      "from": "REQUIREMENT_RESOLVE-03-AC1",
-      "to": "REQUIREMENT_RESOLVE-03",
-      "kind": "derivedFrom",
-      "proof": "unproven"
-    },
-    {
-      "id": "e95",
-      "from": "test:test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets",
-      "to": "REQUIREMENT_RESOLVE-03-AC1",
+      "from": "test:test/resolution.test.ts::falls back to lexicographic id order, still AMBIGUOUS",
+      "to": "REQUIREMENT_RESOLVE-02-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets",
+        "ref": "test/resolution.test.ts::falls back to lexicographic id order, still AMBIGUOUS",
         "passed": true,
-        "at": "2026-06-13T05:47:00.996Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:44:59.247Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e95",
+      "from": "test:test/resolution.test.ts::the pick is stable across runs",
+      "to": "REQUIREMENT_RESOLVE-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/resolution.test.ts::the pick is stable across runs",
+        "passed": true,
+        "at": "2026-06-13T06:45:00.425Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2222,7 +2235,7 @@
     },
     {
       "id": "e96",
-      "from": "REQUIREMENT_RESOLVE-03-AC2",
+      "from": "REQUIREMENT_RESOLVE-03-AC1",
       "to": "REQUIREMENT_RESOLVE-03",
       "kind": "derivedFrom",
       "proof": "unproven"
@@ -2230,15 +2243,15 @@
     {
       "id": "e97",
       "from": "test:test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets",
-      "to": "REQUIREMENT_RESOLVE-03-AC2",
+      "to": "REQUIREMENT_RESOLVE-03-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
         "ref": "test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets",
         "passed": true,
-        "at": "2026-06-13T05:47:00.996Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:45:02.786Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2246,23 +2259,23 @@
     },
     {
       "id": "e98",
-      "from": "REQUIREMENT_RESOLVE-04-AC1",
-      "to": "REQUIREMENT_RESOLVE-04",
+      "from": "REQUIREMENT_RESOLVE-03-AC2",
+      "to": "REQUIREMENT_RESOLVE-03",
       "kind": "derivedFrom",
       "proof": "unproven"
     },
     {
       "id": "e99",
-      "from": "test:test/resolution.test.ts::a previous revitify-out/ run is never ingested back into the graph",
-      "to": "REQUIREMENT_RESOLVE-04-AC1",
+      "from": "test:test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets",
+      "to": "REQUIREMENT_RESOLVE-03-AC2",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/resolution.test.ts::a previous revitify-out/ run is never ingested back into the graph",
+        "ref": "test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets",
         "passed": true,
-        "at": "2026-06-13T05:47:02.166Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:45:02.786Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2270,23 +2283,23 @@
     },
     {
       "id": "e100",
-      "from": "REQUIREMENT_SERVE-01-AC1",
-      "to": "REQUIREMENT_SERVE-01",
+      "from": "REQUIREMENT_RESOLVE-04-AC1",
+      "to": "REQUIREMENT_RESOLVE-04",
       "kind": "derivedFrom",
       "proof": "unproven"
     },
     {
       "id": "e101",
-      "from": "test:test/serve.test.ts::serves the viewer and the allowlisted artifacts; blocks traversal",
-      "to": "REQUIREMENT_SERVE-01-AC1",
+      "from": "test:test/resolution.test.ts::a previous revitify-out/ run is never ingested back into the graph",
+      "to": "REQUIREMENT_RESOLVE-04-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/serve.test.ts::serves the viewer and the allowlisted artifacts; blocks traversal",
+        "ref": "test/resolution.test.ts::a previous revitify-out/ run is never ingested back into the graph",
         "passed": true,
-        "at": "2026-06-13T05:47:03.405Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:45:03.970Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2294,33 +2307,23 @@
     },
     {
       "id": "e102",
-      "from": "test:test/serve.test.ts::answers the API routes",
-      "to": "REQUIREMENT_SERVE-01-AC1",
-      "kind": "validates",
-      "proof": "green",
-      "lastCheck": {
-        "ref": "test/serve.test.ts::answers the API routes",
-        "passed": true,
-        "at": "2026-06-13T05:47:04.647Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
-        "dirty": false,
-        "stack": "node-vitest",
-        "kind": "unit"
-      }
+      "from": "REQUIREMENT_SERVE-01-AC1",
+      "to": "REQUIREMENT_SERVE-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
     },
     {
       "id": "e103",
-      "from": "test:test/serve.test.ts::reloads when graph.json changes on disk (watch-next-door pattern)",
+      "from": "test:test/serve.test.ts::serves the viewer and the allowlisted artifacts; blocks traversal",
       "to": "REQUIREMENT_SERVE-01-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/serve.test.ts::reloads when graph.json changes on disk (watch-next-door pattern)",
+        "ref": "test/serve.test.ts::serves the viewer and the allowlisted artifacts; blocks traversal",
         "passed": true,
-        "at": "2026-06-13T05:47:05.875Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:45:05.219Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2328,23 +2331,33 @@
     },
     {
       "id": "e104",
-      "from": "REQUIREMENT_SERVE-02-AC1",
-      "to": "REQUIREMENT_SERVE-02",
-      "kind": "derivedFrom",
-      "proof": "unproven"
-    },
-    {
-      "id": "e105",
-      "from": "test:test/serve.test.ts::lists the 7 graphify tools and answers query_graph + shortest_path",
-      "to": "REQUIREMENT_SERVE-02-AC1",
+      "from": "test:test/serve.test.ts::answers the API routes",
+      "to": "REQUIREMENT_SERVE-01-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/serve.test.ts::lists the 7 graphify tools and answers query_graph + shortest_path",
+        "ref": "test/serve.test.ts::answers the API routes",
         "passed": true,
-        "at": "2026-06-13T05:47:07.104Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:45:06.476Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e105",
+      "from": "test:test/serve.test.ts::reloads when graph.json changes on disk (watch-next-door pattern)",
+      "to": "REQUIREMENT_SERVE-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/serve.test.ts::reloads when graph.json changes on disk (watch-next-door pattern)",
+        "passed": true,
+        "at": "2026-06-13T06:45:07.717Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2352,23 +2365,23 @@
     },
     {
       "id": "e106",
-      "from": "REQUIREMENT_SERVE-03-AC1",
-      "to": "REQUIREMENT_SERVE-03",
+      "from": "REQUIREMENT_SERVE-02-AC1",
+      "to": "REQUIREMENT_SERVE-02",
       "kind": "derivedFrom",
       "proof": "unproven"
     },
     {
       "id": "e107",
-      "from": "test:test/serve.test.ts::install drops the skill; diagnose reports grammars",
-      "to": "REQUIREMENT_SERVE-03-AC1",
+      "from": "test:test/serve.test.ts::lists the 7 graphify tools and answers query_graph + shortest_path",
+      "to": "REQUIREMENT_SERVE-02-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/serve.test.ts::install drops the skill; diagnose reports grammars",
+        "ref": "test/serve.test.ts::lists the 7 graphify tools and answers query_graph + shortest_path",
         "passed": true,
-        "at": "2026-06-13T05:47:08.448Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:45:08.959Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2376,23 +2389,23 @@
     },
     {
       "id": "e108",
-      "from": "REQUIREMENT_VIEWER-01-AC1",
-      "to": "REQUIREMENT_VIEWER-01",
+      "from": "REQUIREMENT_SERVE-03-AC1",
+      "to": "REQUIREMENT_SERVE-03",
       "kind": "derivedFrom",
       "proof": "unproven"
     },
     {
       "id": "e109",
-      "from": "test:test/viewer.test.ts::is fully offline: four libraries inlined, zero external sources",
-      "to": "REQUIREMENT_VIEWER-01-AC1",
+      "from": "test:test/serve.test.ts::install drops the skill; diagnose reports grammars",
+      "to": "REQUIREMENT_SERVE-03-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/viewer.test.ts::is fully offline: four libraries inlined, zero external sources",
+        "ref": "test/serve.test.ts::install drops the skill; diagnose reports grammars",
         "passed": true,
-        "at": "2026-06-13T05:47:09.624Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:45:10.312Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2400,33 +2413,23 @@
     },
     {
       "id": "e110",
-      "from": "test:test/viewer.test.ts::injects the graph at the DATA INJECTION POINT and keeps contract probes",
-      "to": "REQUIREMENT_VIEWER-01-AC1",
-      "kind": "validates",
-      "proof": "green",
-      "lastCheck": {
-        "ref": "test/viewer.test.ts::injects the graph at the DATA INJECTION POINT and keeps contract probes",
-        "passed": true,
-        "at": "2026-06-13T05:47:10.818Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
-        "dirty": false,
-        "stack": "node-vitest",
-        "kind": "unit"
-      }
+      "from": "REQUIREMENT_VIEWER-01-AC1",
+      "to": "REQUIREMENT_VIEWER-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
     },
     {
       "id": "e111",
-      "from": "test:test/viewer.test.ts::escapes </script> sequences in data",
+      "from": "test:test/viewer.test.ts::is fully offline: four libraries inlined, zero external sources",
       "to": "REQUIREMENT_VIEWER-01-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/viewer.test.ts::escapes </script> sequences in data",
+        "ref": "test/viewer.test.ts::is fully offline: four libraries inlined, zero external sources",
         "passed": true,
-        "at": "2026-06-13T05:47:11.992Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:45:11.489Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2434,16 +2437,16 @@
     },
     {
       "id": "e112",
-      "from": "test:test/viewer.test.ts::still renders the zero-dependency canvas viewer via extraExporters",
+      "from": "test:test/viewer.test.ts::injects the graph at the DATA INJECTION POINT and keeps contract probes",
       "to": "REQUIREMENT_VIEWER-01-AC1",
       "kind": "validates",
       "proof": "green",
       "lastCheck": {
-        "ref": "test/viewer.test.ts::still renders the zero-dependency canvas viewer via extraExporters",
+        "ref": "test/viewer.test.ts::injects the graph at the DATA INJECTION POINT and keeps contract probes",
         "passed": true,
-        "at": "2026-06-13T05:47:13.159Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:45:12.666Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
@@ -2451,6 +2454,40 @@
     },
     {
       "id": "e113",
+      "from": "test:test/viewer.test.ts::escapes </script> sequences in data",
+      "to": "REQUIREMENT_VIEWER-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/viewer.test.ts::escapes </script> sequences in data",
+        "passed": true,
+        "at": "2026-06-13T06:45:13.849Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e114",
+      "from": "test:test/viewer.test.ts::still renders the zero-dependency canvas viewer via extraExporters",
+      "to": "REQUIREMENT_VIEWER-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/viewer.test.ts::still renders the zero-dependency canvas viewer via extraExporters",
+        "passed": true,
+        "at": "2026-06-13T06:45:15.030Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e115",
       "from": "test:test/viewer.test.ts::docstrings surface as summary on their symbol (and stay as nodes)",
       "to": "REQUIREMENT_VIEWER-01-AC1",
       "kind": "validates",
@@ -2458,9 +2495,9 @@
       "lastCheck": {
         "ref": "test/viewer.test.ts::docstrings surface as summary on their symbol (and stay as nodes)",
         "passed": true,
-        "at": "2026-06-13T05:47:14.326Z",
-        "sha": "56e5c4991c7052b8ef0bd70f7274ad5d5dfd036f",
-        "tree": "3a6023f01e0f9e7003a5e1e1eb18946242a263c3",
+        "at": "2026-06-13T06:45:16.211Z",
+        "sha": "5c132394622708449c222d875f9b1e65d0189f40",
+        "tree": "aa10ea281a85cc2a7482c1398ba1c2ad19e2edb2",
         "dirty": false,
         "stack": "node-vitest",
         "kind": "unit"
