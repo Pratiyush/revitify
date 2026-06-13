@@ -3,5 +3,6 @@
   "entry": ["test/**/*.test.ts", "test/**/*.test-d.ts", "scripts/*.mjs"],
   "project": ["src/**/*.ts", "test/**/*.ts", "!test/fixtures/**", "scripts/*.mjs"],
   "ignoreExportsUsedInFile": true,
-  "ignoreBinaries": ["which", "scip", "whisper-cli", "whisper-cpp"]
+  "ignoreBinaries": ["which", "scip", "whisper-cli", "whisper-cpp"],
+  "ignoreDependencies": ["depcruise"]
 }

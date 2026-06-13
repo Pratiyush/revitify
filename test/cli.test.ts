@@ -27,7 +27,7 @@ const cli = (cwd: string, ...args: string[]) =>
   spawnSync(process.execPath, [CLI, ...args], { cwd, encoding: "utf8" });
 
 describe.skipIf(!existsSync(CLI))("revitify CLI", () => {
-  it("--help lists verbs; unknown verb exits 1", () => {
+  it("help lists every verb; unknown verb exits 1", () => {
     const help = cli(tmpdir(), "--help");
     expect(help.status).toBe(0);
     for (const verb of ["build", "query", "affected", "watch", "global", "prs", "validate"]) {

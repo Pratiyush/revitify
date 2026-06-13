@@ -26,3 +26,5 @@ Scenario: a forbidden cross-layer import fails CI, not code review (negative flo
   When `pnpm depcruise` runs (the layer matrix in .dependency-cruiser.cjs)
   Then the build fails naming the violating edge
   And the same gate forbids circular imports, orphans, and node:* inside src/model/
+
+@check kind=unit ref=test/boundaries.test.ts::a forbidden src/model → src/export import fails depcruise, naming the violated rule

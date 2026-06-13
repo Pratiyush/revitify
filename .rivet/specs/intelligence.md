@@ -47,3 +47,5 @@ Scenario: a structureless giant cannot be force-split (negative floor)
   Given a 12-node clique holding >25% of the graph
   When the oversized re-split runs Louvain on its subgraph
   Then the clique stays one community — re-splitting requires real substructure, never fiat
+
+@check kind=unit ref=test/algorithms.test.ts::an oversized clique triggers the re-split pass and survives unsplit (no substructure)

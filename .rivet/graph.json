@@ -1,0 +1,2471 @@
+{
+  "nodes": [
+    {
+      "id": "REQUIREMENT_CLI-01",
+      "kind": "requirement",
+      "label": "the verb surface"
+    },
+    {
+      "id": "REQUIREMENT_CLI-01-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN `revitify --help` runs THEN it SHALL list build/query/explain/path/affected/communities/ export/watch/global/prs/validate; IF an unknown verb is given THEN exit code SHALL be 1."
+    },
+    {
+      "id": "test:test/cli.test.ts::--help lists verbs; unknown verb exits 1",
+      "kind": "test",
+      "label": "test/cli.test.ts::--help lists verbs; unknown verb exits 1",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_CLI-02",
+      "kind": "requirement",
+      "label": "verbs work end to end on a real project"
+    },
+    {
+      "id": "REQUIREMENT_CLI-02-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN build/query/path/affected/communities/export/validate run in sequence THEN each SHALL exit 0 with its artifact/output, and the JSONL query log SHALL record the session."
+    },
+    {
+      "id": "test:test/cli.test.ts::build → query → path → affected → communities → export → validate, end to end",
+      "kind": "test",
+      "label": "test/cli.test.ts::build → query → path → affected → communities → export → validate, end to end",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_CLI-03",
+      "kind": "requirement",
+      "label": "watch, global, prs"
+    },
+    {
+      "id": "REQUIREMENT_CLI-03-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN watch runs THEN it SHALL rebuild incrementally on change (cache-backed); WHEN global runs over N repos THEN ids SHALL prefix `repo:` (collision-proof); WHEN prs runs in a git repo THEN changed files SHALL map to their transitive blast radius."
+    },
+    {
+      "id": "test:test/cli.test.ts::rebuilds on change (initial build, then incremental)",
+      "kind": "test",
+      "label": "test/cli.test.ts::rebuilds on change (initial build, then incremental)",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/cli.test.ts::global merges repos with repo: prefixes",
+      "kind": "test",
+      "label": "test/cli.test.ts::global merges repos with repo: prefixes",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/cli.test.ts::prs reports diff impact in a git repo",
+      "kind": "test",
+      "label": "test/cli.test.ts::prs reports diff impact in a git repo",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_CONTRACT-01",
+      "kind": "requirement",
+      "label": "the three artifacts, default revitify-out/"
+    },
+    {
+      "id": "REQUIREMENT_CONTRACT-01-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN `revitify(rootDir)` runs on any project THEN the system SHALL write `graph.json`, `graph.html` (self-contained, no remote scripts), and `GRAPH_REPORT.md` into `<rootDir>/revitify-out/`."
+    },
+    {
+      "id": "test:test/revitify.test.ts::emits graph.json + self-contained graph.html + GRAPH_REPORT.md (default: revitify-out/)",
+      "kind": "test",
+      "label": "test/revitify.test.ts::emits graph.json + self-contained graph.html + GRAPH_REPORT.md (default: revitify-out/)",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_CONTRACT-02",
+      "kind": "requirement",
+      "label": "Rivet's call shape stays supported forever"
+    },
+    {
+      "id": "REQUIREMENT_CONTRACT-02-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN `revitify(rootDir, \"graphify-out\")` runs (the exact call Rivet's `refreshCodeGraphVia` makes) THEN the system SHALL write the same three artifacts into `<rootDir>/graphify-out/` and every symbol node SHALL carry exactly `id, name, label, kind, source_file, source_location, community`."
+    },
+    {
+      "id": "test:test/revitify.test.ts::keeps Rivet's call shape working: revitify(dir, 'graphify-out')",
+      "kind": "test",
+      "label": "test/revitify.test.ts::keeps Rivet's call shape working: revitify(dir, 'graphify-out')",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_CONTRACT-03",
+      "kind": "requirement",
+      "label": "graph fields are additive-only"
+    },
+    {
+      "id": "REQUIREMENT_CONTRACT-03-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN the graph is built THEN nodes SHALL carry `id`, `label`, `source_file`, `community` and links SHALL carry `source`, `target`, `relation`, and the graph SHALL carry `built_at_commit` when the project is a git checkout; new fields MAY be added but these SHALL never be renamed or removed."
+    },
+    {
+      "id": "test:test/revitify.test.ts::builds containment, import, and reference edges with source_file + community on nodes",
+      "kind": "test",
+      "label": "test/revitify.test.ts::builds containment, import, and reference edges with source_file + community on nodes",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/contract.test.ts::a canonical symbol node carries exactly the contract fields",
+      "kind": "test",
+      "label": "test/contract.test.ts::a canonical symbol node carries exactly the contract fields",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_CONTRACT-03-AC2",
+      "kind": "acceptanceCriterion",
+      "label": "Scenario: a contract-breaking shape fails loudly, not silently (negative floor) — Given a graph.json whose nodes lost the `source_file` field When the `assertGraphContract` validator (src/model/contract.ts) checks it Then validation throws naming the offending node index and field"
+    },
+    {
+      "id": "test:test/contract.test.ts::contract drift fails loudly, naming index and field (negative floor)",
+      "kind": "test",
+      "label": "test/contract.test.ts::contract drift fails loudly, naming index and field (negative floor)",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_CONTRACT-04",
+      "kind": "requirement",
+      "label": "refactors never change output bytes"
+    },
+    {
+      "id": "REQUIREMENT_CONTRACT-04-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN the engine is restructured without intended behavior change (Phase 1a modularization) THEN graph.json on the committed fixture SHALL be byte-identical to the committed expectation, and the type-level pin against Rivet's reader SHALL keep compiling."
+    },
+    {
+      "id": "test:test/contract.test.ts::graph.json is byte-identical to the committed expectation (refactor pin)",
+      "kind": "test",
+      "label": "test/contract.test.ts::graph.json is byte-identical to the committed expectation (refactor pin)",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/contract.test-d.ts::RevitifyGraph stays assignable to the shape Rivet's loadCodeGraph reads",
+      "kind": "test",
+      "label": "test/contract.test-d.ts::RevitifyGraph stays assignable to the shape Rivet's loadCodeGraph reads",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_INTEL-01",
+      "kind": "requirement",
+      "label": "symbol→symbol call edges"
+    },
+    {
+      "id": "REQUIREMENT_INTEL-01-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN a callable's body calls another in-project symbol THEN a `calls` edge SHALL connect the two symbols (not their files), confidence-tagged by resolution; built-ins and externals SHALL leave no edge."
+    },
+    {
+      "id": "test:test/intelligence.test.ts::symbol→symbol calls edges, confidence-tagged",
+      "kind": "test",
+      "label": "test/intelligence.test.ts::symbol→symbol calls edges, confidence-tagged",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/intelligence.test.ts::unresolvable callees (built-ins) leave no edge",
+      "kind": "test",
+      "label": "test/intelligence.test.ts::unresolvable callees (built-ins) leave no edge",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_INTEL-02",
+      "kind": "requirement",
+      "label": "tiered resolution precedence"
+    },
+    {
+      "id": "REQUIREMENT_INTEL-02-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN a name has multiple candidate definitions THEN resolution SHALL prefer same-file, then same-directory, then global; a unique candidate in the winning tier is INFERRED, ties within it are AMBIGUOUS with a lexicographic pick."
+    },
+    {
+      "id": "test:test/intelligence.test.ts::same-file beats same-dir beats global; unique-in-tier is INFERRED",
+      "kind": "test",
+      "label": "test/intelligence.test.ts::same-file beats same-dir beats global; unique-in-tier is INFERRED",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/intelligence.test.ts::ties within the winning tier are AMBIGUOUS with lexicographic pick",
+      "kind": "test",
+      "label": "test/intelligence.test.ts::ties within the winning tier are AMBIGUOUS with lexicographic pick",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_INTEL-03",
+      "kind": "requirement",
+      "label": "near-duplicate doc nodes merge; code never does"
+    },
+    {
+      "id": "REQUIREMENT_INTEL-03-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN two doc nodes' normalized labels are minhash-near (≥0.7) AND Jaro-Winkler-confirmed (≥0.92) THEN they SHALL merge into the first-seen node with links rewritten and exact (source, target, relation) duplicates dropped; identical CODE labels SHALL never merge."
+    },
+    {
+      "id": "test:test/intelligence.test.ts::merges near-duplicate headings, rewrites links, never touches code symbols",
+      "kind": "test",
+      "label": "test/intelligence.test.ts::merges near-duplicate headings, rewrites links, never touches code symbols",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/algorithms.test.ts::no docs / single doc: nothing merges, exact duplicate links still drop",
+      "kind": "test",
+      "label": "test/algorithms.test.ts::no docs / single doc: nothing merges, exact duplicate links still drop",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_INTEL-04",
+      "kind": "requirement",
+      "label": "structural communities, deterministic"
+    },
+    {
+      "id": "REQUIREMENT_INTEL-04-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN the graph clusters THEN dense subgraphs SHALL separate at their bridges (Louvain + connectivity refinement), isolated nodes SHALL keep singleton communities, oversized communities (>25%, ≥10) SHALL re-split, and two runs SHALL produce identical assignments."
+    },
+    {
+      "id": "test:test/intelligence.test.ts::separates the two clusters; deterministic across runs",
+      "kind": "test",
+      "label": "test/intelligence.test.ts::separates the two clusters; deterministic across runs",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/intelligence.test.ts::isolated nodes get their own communities",
+      "kind": "test",
+      "label": "test/intelligence.test.ts::isolated nodes get their own communities",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/algorithms.test.ts::an oversized clique triggers the re-split pass and survives unsplit (no substructure)",
+      "kind": "test",
+      "label": "test/algorithms.test.ts::an oversized clique triggers the re-split pass and survives unsplit (no substructure)",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_INTEL-04-AC2",
+      "kind": "acceptanceCriterion",
+      "label": "Scenario: a structureless giant cannot be force-split (negative floor) — Given a 12-node clique holding >25% of the graph When the oversized re-split runs Louvain on its subgraph Then the clique stays one community — re-splitting requires real substructure, never fiat"
+    },
+    {
+      "id": "REQUIREMENT_MOD-01",
+      "kind": "requirement",
+      "label": "registry dispatch, not switches"
+    },
+    {
+      "id": "REQUIREMENT_MOD-01-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN a file is ingested THEN the system SHALL pick its extractor via the ordered registration array (extension pre-filter, then detect()), and WHEN no registration matches (e.g. `.d.ts`, unknown extensions) THEN the system SHALL skip the file rather than fail."
+    },
+    {
+      "id": "test:test/layers.test.ts::dispatches by detect/extensions and rejects .d.ts and unknown files",
+      "kind": "test",
+      "label": "test/layers.test.ts::dispatches by detect/extensions and rejects .d.ts and unknown files",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_MOD-02",
+      "kind": "requirement",
+      "label": "the lazy boundary"
+    },
+    {
+      "id": "REQUIREMENT_MOD-02-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN a registration provides only `load()` (a heavy/lazy module) THEN `resolveSync` SHALL return undefined (sync facade skips it) and `resolve()` SHALL load it once and memoize."
+    },
+    {
+      "id": "test:test/layers.test.ts::resolves lazily (async), memoizes, and resolveSync returns undefined without loadSync",
+      "kind": "test",
+      "label": "test/layers.test.ts::resolves lazily (async), memoizes, and resolveSync returns undefined without loadSync",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_MOD-02-AC2",
+      "kind": "acceptanceCriterion",
+      "label": "Scenario: a forbidden cross-layer import fails CI, not code review (negative floor) — Given a source file in src/model/ importing from src/export/ When `pnpm depcruise` runs (the layer matrix in .dependency-cruiser.cjs) Then the build fails naming the violating edge And the same gate forbids circular imports, orphans, and node:* inside src/model/"
+    },
+    {
+      "id": "test:test/boundaries.test.ts::a forbidden src/model → src/export import fails depcruise, naming the violated rule",
+      "kind": "test",
+      "label": "test/boundaries.test.ts::a forbidden src/model → src/export import fails depcruise, naming the violated rule",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_LANG-01",
+      "kind": "requirement",
+      "label": "deep member extraction per language"
+    },
+    {
+      "id": "REQUIREMENT_LANG-01-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN a Java file is extracted via tree-sitter THEN classes, interfaces, enums, records, methods, **constructors, and fields** SHALL each become symbols (members as `sym:<rel>#<Type>.<member>`), and WHEN Python/Go/Rust files are extracted THEN classes/functions/methods, funcs/methods/types, and fns/structs/enums/traits/impl-methods SHALL respectively become symbols."
+    },
+    {
+      "id": "test:test/multilang.test.ts::java: constructors, methods, fields, nested types — full member depth",
+      "kind": "test",
+      "label": "test/multilang.test.ts::java: constructors, methods, fields, nested types — full member depth",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/multilang.test.ts::python: classes, nested methods, functions, file-resolved imports",
+      "kind": "test",
+      "label": "test/multilang.test.ts::python: classes, nested methods, functions, file-resolved imports",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/multilang.test.ts::go and rust symbols, and the whole graph passes the contract",
+      "kind": "test",
+      "label": "test/multilang.test.ts::go and rust symbols, and the whole graph passes the contract",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_LANG-02",
+      "kind": "requirement",
+      "label": "the sync facade is frozen and deterministic"
+    },
+    {
+      "id": "REQUIREMENT_LANG-02-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN `buildGraph()` (sync) runs THEN tree-sitter SHALL NOT load — regex fallbacks serve py/java, go/rust are skipped — and an earlier `buildGraphAsync` in the same process SHALL NOT change the sync output (no cache-leak upgrades)."
+    },
+    {
+      "id": "test:test/multilang.test.ts::falls back to regex (shallow py/java, no go/rust) — never loads tree-sitter",
+      "kind": "test",
+      "label": "test/multilang.test.ts::falls back to regex (shallow py/java, no go/rust) — never loads tree-sitter",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/lazy-boundary.test.ts::sync revitify never resolves web-tree-sitter or grammar packages",
+      "kind": "test",
+      "label": "test/lazy-boundary.test.ts::sync revitify never resolves web-tree-sitter or grammar packages",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_LANG-02-AC2",
+      "kind": "acceptanceCriterion",
+      "label": "Scenario: the lazy-boundary proof cannot silently rot (negative floor) — Given the module-resolution recorder hook in a child process When the async path runs on a Python file Then the log DOES contain web-tree-sitter — proving the hook records before we trust its silence"
+    },
+    {
+      "id": "test:test/lazy-boundary.test.ts::positive control: the async path DOES resolve web-tree-sitter through the same hook",
+      "kind": "test",
+      "label": "test/lazy-boundary.test.ts::positive control: the async path DOES resolve web-tree-sitter through the same hook",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_CACHE-01",
+      "kind": "requirement",
+      "label": "per-file cache with honest invalidation"
+    },
+    {
+      "id": "REQUIREMENT_CACHE-01-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN a build re-runs unchanged THEN every file SHALL be a cache hit (stat fastpath, no re-read); WHEN one file changes THEN exactly that file SHALL re-extract; WHEN the file SET changes THEN the whole cache SHALL invalidate (fragments embed import resolution against the walked set); IF the index corrupts or fragments are evicted THEN the build SHALL recover, never crash."
+    },
+    {
+      "id": "test:test/cache.test.ts::second run is all hits; edits invalidate exactly one file; output identical",
+      "kind": "test",
+      "label": "test/cache.test.ts::second run is all hits; edits invalidate exactly one file; output identical",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/cache.test.ts::adding a file invalidates the set (import resolution depends on the walked set)",
+      "kind": "test",
+      "label": "test/cache.test.ts::adding a file invalidates the set (import resolution depends on the walked set)",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/cache.test.ts::recovers from a corrupt stat-index and from evicted fragment files",
+      "kind": "test",
+      "label": "test/cache.test.ts::recovers from a corrupt stat-index and from evicted fragment files",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_PAR-01",
+      "kind": "requirement",
+      "label": "parallel extraction changes nothing but wall-clock"
+    },
+    {
+      "id": "REQUIREMENT_PAR-01-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN worker-pool extraction runs THEN the graph SHALL be byte-identical to the sequential run (fragments reassemble in walk order)."
+    },
+    {
+      "id": "test:test/lazy-boundary.test.ts::worker-pool output matches sequential output exactly",
+      "kind": "test",
+      "label": "test/lazy-boundary.test.ts::worker-pool output matches sequential output exactly",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_MM-01",
+      "kind": "requirement",
+      "label": "the offline gate is absolute"
+    },
+    {
+      "id": "REQUIREMENT_MM-01-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN no API key and no local tool is present THEN a build over code+PDF+audio SHALL produce a graph identical to the code-only build, make ZERO network calls, and print one skip notice per gated ingestor."
+    },
+    {
+      "id": "test:test/multimodal.test.ts::GATE: without keys the run never touches the network and equals the code-only graph",
+      "kind": "test",
+      "label": "test/multimodal.test.ts::GATE: without keys the run never touches the network and equals the code-only graph",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_MM-02",
+      "kind": "requirement",
+      "label": "backend autodetection mirrors llm.py"
+    },
+    {
+      "id": "REQUIREMENT_MM-02-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN keys are present THEN detection SHALL order Anthropic → Gemini → OpenAI → Ollama, each backend speaking its provider's response shape over fetch, erroring loudly on non-OK."
+    },
+    {
+      "id": "test:test/multimodal.test.ts::anthropic → gemini → openai → ollama → none",
+      "kind": "test",
+      "label": "test/multimodal.test.ts::anthropic → gemini → openai → ollama → none",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/multimodal.test.ts::gemini, openai, ollama parse their shapes; anthropic errors loudly on non-ok",
+      "kind": "test",
+      "label": "test/multimodal.test.ts::gemini, openai, ollama parse their shapes; anthropic errors loudly on non-ok",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/multimodal.test.ts::with a key + mocked backend, PDFs contribute concept nodes",
+      "kind": "test",
+      "label": "test/multimodal.test.ts::with a key + mocked backend, PDFs contribute concept nodes",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_MM-03",
+      "kind": "requirement",
+      "label": "offline schema/deps ingestion"
+    },
+    {
+      "id": "REQUIREMENT_MM-03-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN .sql DDL or Cargo.toml is walked THEN tables/columns/REFERENCES and crate/dependency edges SHALL extract fully offline (both pipelines — these ingestors are sync-capable)."
+    },
+    {
+      "id": "test:test/multimodal.test.ts::tables, columns, and REFERENCES edges from DDL",
+      "kind": "test",
+      "label": "test/multimodal.test.ts::tables, columns, and REFERENCES edges from DDL",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/multimodal.test.ts::crate + dependency edges from Cargo.toml",
+      "kind": "test",
+      "label": "test/multimodal.test.ts::crate + dependency edges from Cargo.toml",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_MM-04",
+      "kind": "requirement",
+      "label": "local tools never become hard dependencies"
+    },
+    {
+      "id": "REQUIREMENT_MM-04-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN whisper-cli/scip exist on PATH THEN AV/SCIP files SHALL ingest through them; IF the binary is absent or fails THEN the ingestor SHALL report unavailable / return empty — never throw, never install anything."
+    },
+    {
+      "id": "test:test/multimodal.test.ts::whisper + scip spawn, parse, and survive failures",
+      "kind": "test",
+      "label": "test/multimodal.test.ts::whisper + scip spawn, parse, and survive failures",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/multimodal.test.ts::detect + available are honest",
+      "kind": "test",
+      "label": "test/multimodal.test.ts::detect + available are honest",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_QUERY-01",
+      "kind": "requirement",
+      "label": "path, neighborhood, affected"
+    },
+    {
+      "id": "REQUIREMENT_QUERY-01-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN two symbols connect THEN `shortestPath` SHALL return the BFS path; WHEN a symbol changes THEN `affected` SHALL return its transitive reverse dependents (imports/calls/references, hopping containers); IF endpoints are missing THEN path SHALL be undefined, never a throw."
+    },
+    {
+      "id": "test:test/query.test.ts::finds the shortest path between symbols across files",
+      "kind": "test",
+      "label": "test/query.test.ts::finds the shortest path between symbols across files",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/query.test.ts::walks reverse dependencies transitively",
+      "kind": "test",
+      "label": "test/query.test.ts::walks reverse dependencies transitively",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_QUERY-02",
+      "kind": "requirement",
+      "label": "search, explain, communities, log"
+    },
+    {
+      "id": "REQUIREMENT_QUERY-02-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN a question is asked THEN nodes SHALL rank by idf-weighted term match and `explain` SHALL narrate seeds with neighbors; communities SHALL report cohesion in [0,1]; every query SHALL append a JSONL log entry that never breaks the query on failure."
+    },
+    {
+      "id": "test:test/query.test.ts::idf-ranks matches and explains with neighbors",
+      "kind": "test",
+      "label": "test/query.test.ts::idf-ranks matches and explains with neighbors",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/query.test.ts::lists communities with size and cohesion in [0,1]",
+      "kind": "test",
+      "label": "test/query.test.ts::lists communities with size and cohesion in [0,1]",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/query.test.ts::appends JSONL entries",
+      "kind": "test",
+      "label": "test/query.test.ts::appends JSONL entries",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_EXPORT-01",
+      "kind": "requirement",
+      "label": "the graphify export family"
+    },
+    {
+      "id": "REQUIREMENT_EXPORT-01-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN extra exports run THEN callflow.html SHALL hold only `calls` edges, tree.html SHALL nest directories/files/symbols, WIKI.md SHALL section per community, graph.mmd SHALL cap at the top symbols; IF the graph is empty THEN every exporter SHALL render without throwing."
+    },
+    {
+      "id": "test:test/query.test.ts::callflow keeps only calls; tree nests files; wiki sections communities; mermaid caps",
+      "kind": "test",
+      "label": "test/query.test.ts::callflow keeps only calls; tree nests files; wiki sections communities; mermaid caps",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/query.test.ts::exporters survive an empty graph",
+      "kind": "test",
+      "label": "test/query.test.ts::exporters survive an empty graph",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_REPORT-01",
+      "kind": "requirement",
+      "label": "why-nodes"
+    },
+    {
+      "id": "REQUIREMENT_REPORT-01-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN a comment carries NOTE:/WHY:/HACK: THEN it SHALL become a why node linked (`explains`) from the symbol declared just under it (file fallback), and WHEN a Python definition opens with a docstring THEN a docstring node SHALL hang off that symbol (`documents`)."
+    },
+    {
+      "id": "test:test/report.test.ts::typescript: NOTE/WHY/HACK comments become nodes explained by the next symbol",
+      "kind": "test",
+      "label": "test/report.test.ts::typescript: NOTE/WHY/HACK comments become nodes explained by the next symbol",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/report.test.ts::python: docstrings and HACK comments via tree-sitter",
+      "kind": "test",
+      "label": "test/report.test.ts::python: docstrings and HACK comments via tree-sitter",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_REPORT-02",
+      "kind": "requirement",
+      "label": "god nodes are symbols, not containers"
+    },
+    {
+      "id": "REQUIREMENT_REPORT-02-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN god nodes rank THEN file/doc/why/docstring nodes SHALL be excluded."
+    },
+    {
+      "id": "test:test/report.test.ts::ranks symbols only — file/doc/why nodes are excluded",
+      "kind": "test",
+      "label": "test/report.test.ts::ranks symbols only — file/doc/why nodes are excluded",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_REPORT-03",
+      "kind": "requirement",
+      "label": "the report carries its intelligence"
+    },
+    {
+      "id": "REQUIREMENT_REPORT-03-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN GRAPH_REPORT.md renders THEN it SHALL include god nodes, surprising connections with reasons, a confidence summary, why-nodes when present, and at least 4 suggested questions."
+    },
+    {
+      "id": "test:test/report.test.ts::carries god nodes, surprises, confidence, why-nodes, and ≥4 questions",
+      "kind": "test",
+      "label": "test/report.test.ts::carries god nodes, surprises, confidence, why-nodes, and ≥4 questions",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/report.test.ts::suggestedQuestions seeds from brokers and ambiguity",
+      "kind": "test",
+      "label": "test/report.test.ts::suggestedQuestions seeds from brokers and ambiguity",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_RESOLVE-01",
+      "kind": "requirement",
+      "label": "every edge carries its confidence"
+    },
+    {
+      "id": "REQUIREMENT_RESOLVE-01-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN the graph is built THEN structural contains/imports edges SHALL carry `confidence: \"EXTRACTED\"`, and WHEN a `name:` reference resolves to exactly one symbol THEN the edge SHALL carry `confidence: \"INFERRED\"`."
+    },
+    {
+      "id": "test:test/resolution.test.ts::structural contains/imports edges are EXTRACTED",
+      "kind": "test",
+      "label": "test/resolution.test.ts::structural contains/imports edges are EXTRACTED",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/resolution.test.ts::a uniquely-resolved reference is INFERRED",
+      "kind": "test",
+      "label": "test/resolution.test.ts::a uniquely-resolved reference is INFERRED",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_RESOLVE-02",
+      "kind": "requirement",
+      "label": "ambiguity is tagged, never hidden"
+    },
+    {
+      "id": "REQUIREMENT_RESOLVE-02-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN a reference has multiple candidate definitions THEN the system SHALL resolve through tiers (same-file, then same-directory, then global); a candidate that is UNIQUE in the winning tier is tagged `confidence: \"INFERRED\"`, while ties WITHIN a tier SHALL be picked deterministically (lexicographic id, never insertion order) and tagged `confidence: \"AMBIGUOUS\"`."
+    },
+    {
+      "id": "test:test/resolution.test.ts::same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)",
+      "kind": "test",
+      "label": "test/resolution.test.ts::same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/resolution.test.ts::falls back to lexicographic id order, still AMBIGUOUS",
+      "kind": "test",
+      "label": "test/resolution.test.ts::falls back to lexicographic id order, still AMBIGUOUS",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/resolution.test.ts::the pick is stable across runs",
+      "kind": "test",
+      "label": "test/resolution.test.ts::the pick is stable across runs",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_RESOLVE-03",
+      "kind": "requirement",
+      "label": "imports resolve against reality"
+    },
+    {
+      "id": "REQUIREMENT_RESOLVE-03-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN a relative import spec is extracted THEN the system SHALL resolve it against the walked-file set (as-written, then runtime-extension swaps, then extensionless completion, then /index.*)."
+    },
+    {
+      "id": "test:test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets",
+      "kind": "test",
+      "label": "test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_RESOLVE-03-AC2",
+      "kind": "acceptanceCriterion",
+      "label": "IF a relative import resolves to nothing on disk THEN the system SHALL emit NO edge for it."
+    },
+    {
+      "id": "REQUIREMENT_RESOLVE-04",
+      "kind": "requirement",
+      "label": "never ingest your own output"
+    },
+    {
+      "id": "REQUIREMENT_RESOLVE-04-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "IF a project contains a previous `revitify-out/` (or `graphify-out/`) run THEN the walker SHALL exclude it, so the graph never ingests its own report."
+    },
+    {
+      "id": "test:test/resolution.test.ts::a previous revitify-out/ run is never ingested back into the graph",
+      "kind": "test",
+      "label": "test/resolution.test.ts::a previous revitify-out/ run is never ingested back into the graph",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_SERVE-01",
+      "kind": "requirement",
+      "label": "HTTP viewer + API, traversal-proof"
+    },
+    {
+      "id": "REQUIREMENT_SERVE-01-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN the server runs THEN / SHALL serve graph.html and /api/{query,explain,node,neighbors, path,communities,stats} SHALL answer from the live index; static files SHALL be allowlisted to the three artifacts (traversal requests get 404 by construction); WHEN graph.json's mtime moves THEN the index SHALL reload."
+    },
+    {
+      "id": "test:test/serve.test.ts::serves the viewer and the allowlisted artifacts; blocks traversal",
+      "kind": "test",
+      "label": "test/serve.test.ts::serves the viewer and the allowlisted artifacts; blocks traversal",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/serve.test.ts::answers the API routes",
+      "kind": "test",
+      "label": "test/serve.test.ts::answers the API routes",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/serve.test.ts::reloads when graph.json changes on disk (watch-next-door pattern)",
+      "kind": "test",
+      "label": "test/serve.test.ts::reloads when graph.json changes on disk (watch-next-door pattern)",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_SERVE-02",
+      "kind": "requirement",
+      "label": "the 7 MCP tools"
+    },
+    {
+      "id": "REQUIREMENT_SERVE-02-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN an MCP client connects THEN tools/list SHALL expose query_graph, get_node, get_neighbors, get_community, god_nodes, graph_stats, shortest_path — every call JSONL-logged; IF a node is missing THEN tools SHALL answer with an error payload, never crash."
+    },
+    {
+      "id": "test:test/serve.test.ts::lists the 7 graphify tools and answers query_graph + shortest_path",
+      "kind": "test",
+      "label": "test/serve.test.ts::lists the 7 graphify tools and answers query_graph + shortest_path",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_SERVE-03",
+      "kind": "requirement",
+      "label": "skill + self-checks"
+    },
+    {
+      "id": "REQUIREMENT_SERVE-03-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN `revitify install` runs THEN the /revitify skill SHALL land in .claude/skills/; WHEN `revitify diagnose` runs THEN grammar loadability, cache, and graph presence SHALL report."
+    },
+    {
+      "id": "test:test/serve.test.ts::install drops the skill; diagnose reports grammars",
+      "kind": "test",
+      "label": "test/serve.test.ts::install drops the skill; diagnose reports grammars",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "REQUIREMENT_VIEWER-01",
+      "kind": "requirement",
+      "label": "the redesigned graph.html stays offline"
+    },
+    {
+      "id": "REQUIREMENT_VIEWER-01-AC1",
+      "kind": "acceptanceCriterion",
+      "label": "WHEN graph.html renders THEN the design-handoff template SHALL carry all four libraries (cytoscape, layout-base, cose-base, fcose) INLINED with zero external sources, the graph injected at the DATA INJECTION POINT (function-form replacement — minified libs contain $' substitution hazards), and `</script>` escaped in data; the original canvas viewer SHALL stay available as graph-lite.html; docstrings SHALL surface as the additive `summary` node field."
+    },
+    {
+      "id": "test:test/viewer.test.ts::is fully offline: four libraries inlined, zero external sources",
+      "kind": "test",
+      "label": "test/viewer.test.ts::is fully offline: four libraries inlined, zero external sources",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/viewer.test.ts::injects the graph at the DATA INJECTION POINT and keeps contract probes",
+      "kind": "test",
+      "label": "test/viewer.test.ts::injects the graph at the DATA INJECTION POINT and keeps contract probes",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/viewer.test.ts::escapes </script> sequences in data",
+      "kind": "test",
+      "label": "test/viewer.test.ts::escapes </script> sequences in data",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/viewer.test.ts::still renders the zero-dependency canvas viewer via extraExporters",
+      "kind": "test",
+      "label": "test/viewer.test.ts::still renders the zero-dependency canvas viewer via extraExporters",
+      "meta": {
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "test:test/viewer.test.ts::docstrings surface as summary on their symbol (and stay as nodes)",
+      "kind": "test",
+      "label": "test/viewer.test.ts::docstrings surface as summary on their symbol (and stay as nodes)",
+      "meta": {
+        "kind": "unit"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "from": "REQUIREMENT_CLI-01-AC1",
+      "to": "REQUIREMENT_CLI-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e2",
+      "from": "test:test/cli.test.ts::--help lists verbs; unknown verb exits 1",
+      "to": "REQUIREMENT_CLI-01-AC1",
+      "kind": "validates",
+      "proof": "red",
+      "lastCheck": {
+        "ref": "test/cli.test.ts::--help lists verbs; unknown verb exits 1",
+        "passed": false,
+        "at": "2026-06-13T05:42:09.901Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "tail": "ers/pratiyush/Github/revitify/.claude/worktrees/rivet-realign/\u001b[39mnode_modules/\u001b[4m.pnpm\u001b[24m/vitest@4.1.8_@types+node@22.19.21_@vitest+coverage-v8@4.1.8_vite@8.0.16_@types+node@22.19.21_jiti@2.7.0_yaml@2.9.0_/node_modules/\u001b[4mvitest\u001b[24m/dist/chunks/cac.C9xsMMkH.js:406:17\u001b[90m)\u001b[39m\n    at CAC.runMatchedCommand \u001b[90m(file:///Users/pratiyush/Github/revitify/.claude/worktrees/rivet-realign/\u001b[39mnode_modules/\u001b[4m.pnpm\u001b[24m/vitest@4.1.8_@types+node@22.19.21_@vitest+coverage-v8@4.1.8_vite@8.0.16_@types+node@22.19.21_jiti@2.7.0_yaml@2.9.0_/node_modules/\u001b[4mvitest\u001b[24m/dist/chunks/cac.C9xsMMkH.js:606:13\u001b[90m)\u001b[39m\n    at CAC.parse \u001b[90m(file:///Users/pratiyush/Github/revitify/.claude/worktrees/rivet-realign/\u001b[39mnode_modules/\u001b[4m.pnpm\u001b[24m/vitest@4.1.8_@types+node@22.19.21_@vitest+coverage-v8@4.1.8_vite@8.0.16_@types+node@22.19.21_jiti@2.7.0_yaml@2.9.0_/node_modules/\u001b[4mvitest\u001b[24m/dist/chunks/cac.C9xsMMkH.js:547:12\u001b[90m)\u001b[39m\n    at \u001b[90mfile:///Users/pratiyush/Github/revitify/.claude/worktrees/rivet-realign/\u001b[39mnode_modules/\u001b[4m.pnpm\u001b[24m/vitest@4.1.8_@types+node@22.19.21_@vitest+coverage-v8@4.1.8_vite@8.0.16_@types+node@22.19.21_jiti@2.7.0_yaml@2.9.0_/node_modules/\u001b[4mvitest\u001b[24m/dist/cli.js:11:13\n\u001b[90m    at ModuleJob.run (node:internal/modules/esm/module_job:437:25)\u001b[39m\n\u001b[90m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:642:26)\u001b[39m\n\u001b[90m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\u001b[39m\n\nNode.js v26.0.0",
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e3",
+      "from": "REQUIREMENT_CLI-02-AC1",
+      "to": "REQUIREMENT_CLI-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e4",
+      "from": "test:test/cli.test.ts::build → query → path → affected → communities → export → validate, end to end",
+      "to": "REQUIREMENT_CLI-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/cli.test.ts::build → query → path → affected → communities → export → validate, end to end",
+        "passed": true,
+        "at": "2026-06-13T05:42:11.750Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e5",
+      "from": "REQUIREMENT_CLI-03-AC1",
+      "to": "REQUIREMENT_CLI-03",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e6",
+      "from": "test:test/cli.test.ts::rebuilds on change (initial build, then incremental)",
+      "to": "REQUIREMENT_CLI-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/cli.test.ts::rebuilds on change (initial build, then incremental)",
+        "passed": true,
+        "at": "2026-06-13T05:42:12.683Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e7",
+      "from": "test:test/cli.test.ts::global merges repos with repo: prefixes",
+      "to": "REQUIREMENT_CLI-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/cli.test.ts::global merges repos with repo: prefixes",
+        "passed": true,
+        "at": "2026-06-13T05:42:13.765Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e8",
+      "from": "test:test/cli.test.ts::prs reports diff impact in a git repo",
+      "to": "REQUIREMENT_CLI-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/cli.test.ts::prs reports diff impact in a git repo",
+        "passed": true,
+        "at": "2026-06-13T05:42:15.053Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e9",
+      "from": "REQUIREMENT_CONTRACT-01-AC1",
+      "to": "REQUIREMENT_CONTRACT-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e10",
+      "from": "test:test/revitify.test.ts::emits graph.json + self-contained graph.html + GRAPH_REPORT.md (default: revitify-out/)",
+      "to": "REQUIREMENT_CONTRACT-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/revitify.test.ts::emits graph.json + self-contained graph.html + GRAPH_REPORT.md (default: revitify-out/)",
+        "passed": true,
+        "at": "2026-06-13T05:42:16.225Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e11",
+      "from": "REQUIREMENT_CONTRACT-02-AC1",
+      "to": "REQUIREMENT_CONTRACT-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e12",
+      "from": "test:test/revitify.test.ts::keeps Rivet's call shape working: revitify(dir, 'graphify-out')",
+      "to": "REQUIREMENT_CONTRACT-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/revitify.test.ts::keeps Rivet's call shape working: revitify(dir, 'graphify-out')",
+        "passed": true,
+        "at": "2026-06-13T05:42:17.392Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e13",
+      "from": "REQUIREMENT_CONTRACT-03-AC1",
+      "to": "REQUIREMENT_CONTRACT-03",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e14",
+      "from": "test:test/revitify.test.ts::builds containment, import, and reference edges with source_file + community on nodes",
+      "to": "REQUIREMENT_CONTRACT-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/revitify.test.ts::builds containment, import, and reference edges with source_file + community on nodes",
+        "passed": true,
+        "at": "2026-06-13T05:42:18.565Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e15",
+      "from": "test:test/contract.test.ts::a canonical symbol node carries exactly the contract fields",
+      "to": "REQUIREMENT_CONTRACT-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/contract.test.ts::a canonical symbol node carries exactly the contract fields",
+        "passed": true,
+        "at": "2026-06-13T05:42:19.729Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e16",
+      "from": "REQUIREMENT_CONTRACT-03-AC2",
+      "to": "REQUIREMENT_CONTRACT-03",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e17",
+      "from": "test:test/contract.test.ts::contract drift fails loudly, naming index and field (negative floor)",
+      "to": "REQUIREMENT_CONTRACT-03-AC2",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/contract.test.ts::contract drift fails loudly, naming index and field (negative floor)",
+        "passed": true,
+        "at": "2026-06-13T05:42:20.899Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e18",
+      "from": "REQUIREMENT_CONTRACT-04-AC1",
+      "to": "REQUIREMENT_CONTRACT-04",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e19",
+      "from": "test:test/contract.test.ts::graph.json is byte-identical to the committed expectation (refactor pin)",
+      "to": "REQUIREMENT_CONTRACT-04-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/contract.test.ts::graph.json is byte-identical to the committed expectation (refactor pin)",
+        "passed": true,
+        "at": "2026-06-13T05:42:22.072Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e20",
+      "from": "test:test/contract.test-d.ts::RevitifyGraph stays assignable to the shape Rivet's loadCodeGraph reads",
+      "to": "REQUIREMENT_CONTRACT-04-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/contract.test-d.ts::RevitifyGraph stays assignable to the shape Rivet's loadCodeGraph reads",
+        "passed": true,
+        "at": "2026-06-13T05:42:23.169Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e21",
+      "from": "REQUIREMENT_INTEL-01-AC1",
+      "to": "REQUIREMENT_INTEL-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e22",
+      "from": "test:test/intelligence.test.ts::symbol→symbol calls edges, confidence-tagged",
+      "to": "REQUIREMENT_INTEL-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/intelligence.test.ts::symbol→symbol calls edges, confidence-tagged",
+        "passed": true,
+        "at": "2026-06-13T05:42:24.337Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e23",
+      "from": "test:test/intelligence.test.ts::unresolvable callees (built-ins) leave no edge",
+      "to": "REQUIREMENT_INTEL-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/intelligence.test.ts::unresolvable callees (built-ins) leave no edge",
+        "passed": true,
+        "at": "2026-06-13T05:42:25.508Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e24",
+      "from": "REQUIREMENT_INTEL-02-AC1",
+      "to": "REQUIREMENT_INTEL-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e25",
+      "from": "test:test/intelligence.test.ts::same-file beats same-dir beats global; unique-in-tier is INFERRED",
+      "to": "REQUIREMENT_INTEL-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/intelligence.test.ts::same-file beats same-dir beats global; unique-in-tier is INFERRED",
+        "passed": true,
+        "at": "2026-06-13T05:42:26.686Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e26",
+      "from": "test:test/intelligence.test.ts::ties within the winning tier are AMBIGUOUS with lexicographic pick",
+      "to": "REQUIREMENT_INTEL-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/intelligence.test.ts::ties within the winning tier are AMBIGUOUS with lexicographic pick",
+        "passed": true,
+        "at": "2026-06-13T05:42:27.850Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e27",
+      "from": "REQUIREMENT_INTEL-03-AC1",
+      "to": "REQUIREMENT_INTEL-03",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e28",
+      "from": "test:test/intelligence.test.ts::merges near-duplicate headings, rewrites links, never touches code symbols",
+      "to": "REQUIREMENT_INTEL-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/intelligence.test.ts::merges near-duplicate headings, rewrites links, never touches code symbols",
+        "passed": true,
+        "at": "2026-06-13T05:42:29.019Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e29",
+      "from": "test:test/algorithms.test.ts::no docs / single doc: nothing merges, exact duplicate links still drop",
+      "to": "REQUIREMENT_INTEL-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/algorithms.test.ts::no docs / single doc: nothing merges, exact duplicate links still drop",
+        "passed": true,
+        "at": "2026-06-13T05:42:29.974Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e30",
+      "from": "REQUIREMENT_INTEL-04-AC1",
+      "to": "REQUIREMENT_INTEL-04",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e31",
+      "from": "test:test/intelligence.test.ts::separates the two clusters; deterministic across runs",
+      "to": "REQUIREMENT_INTEL-04-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/intelligence.test.ts::separates the two clusters; deterministic across runs",
+        "passed": true,
+        "at": "2026-06-13T05:42:31.132Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e32",
+      "from": "test:test/intelligence.test.ts::isolated nodes get their own communities",
+      "to": "REQUIREMENT_INTEL-04-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/intelligence.test.ts::isolated nodes get their own communities",
+        "passed": true,
+        "at": "2026-06-13T05:42:32.299Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e33",
+      "from": "test:test/algorithms.test.ts::an oversized clique triggers the re-split pass and survives unsplit (no substructure)",
+      "to": "REQUIREMENT_INTEL-04-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/algorithms.test.ts::an oversized clique triggers the re-split pass and survives unsplit (no substructure)",
+        "passed": true,
+        "at": "2026-06-13T05:42:34.208Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e34",
+      "from": "REQUIREMENT_INTEL-04-AC2",
+      "to": "REQUIREMENT_INTEL-04",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e35",
+      "from": "test:test/algorithms.test.ts::an oversized clique triggers the re-split pass and survives unsplit (no substructure)",
+      "to": "REQUIREMENT_INTEL-04-AC2",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/algorithms.test.ts::an oversized clique triggers the re-split pass and survives unsplit (no substructure)",
+        "passed": true,
+        "at": "2026-06-13T05:42:34.208Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e36",
+      "from": "REQUIREMENT_MOD-01-AC1",
+      "to": "REQUIREMENT_MOD-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e37",
+      "from": "test:test/layers.test.ts::dispatches by detect/extensions and rejects .d.ts and unknown files",
+      "to": "REQUIREMENT_MOD-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/layers.test.ts::dispatches by detect/extensions and rejects .d.ts and unknown files",
+        "passed": true,
+        "at": "2026-06-13T05:42:35.339Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e38",
+      "from": "REQUIREMENT_MOD-02-AC1",
+      "to": "REQUIREMENT_MOD-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e39",
+      "from": "test:test/layers.test.ts::resolves lazily (async), memoizes, and resolveSync returns undefined without loadSync",
+      "to": "REQUIREMENT_MOD-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/layers.test.ts::resolves lazily (async), memoizes, and resolveSync returns undefined without loadSync",
+        "passed": true,
+        "at": "2026-06-13T05:42:36.478Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e40",
+      "from": "REQUIREMENT_MOD-02-AC2",
+      "to": "REQUIREMENT_MOD-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e41",
+      "from": "test:test/boundaries.test.ts::a forbidden src/model → src/export import fails depcruise, naming the violated rule",
+      "to": "REQUIREMENT_MOD-02-AC2",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/boundaries.test.ts::a forbidden src/model → src/export import fails depcruise, naming the violated rule",
+        "passed": true,
+        "at": "2026-06-13T05:42:37.600Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e42",
+      "from": "REQUIREMENT_LANG-01-AC1",
+      "to": "REQUIREMENT_LANG-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e43",
+      "from": "test:test/multilang.test.ts::java: constructors, methods, fields, nested types — full member depth",
+      "to": "REQUIREMENT_LANG-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multilang.test.ts::java: constructors, methods, fields, nested types — full member depth",
+        "passed": true,
+        "at": "2026-06-13T05:42:38.787Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e44",
+      "from": "test:test/multilang.test.ts::python: classes, nested methods, functions, file-resolved imports",
+      "to": "REQUIREMENT_LANG-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multilang.test.ts::python: classes, nested methods, functions, file-resolved imports",
+        "passed": true,
+        "at": "2026-06-13T05:42:39.986Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e45",
+      "from": "test:test/multilang.test.ts::go and rust symbols, and the whole graph passes the contract",
+      "to": "REQUIREMENT_LANG-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multilang.test.ts::go and rust symbols, and the whole graph passes the contract",
+        "passed": true,
+        "at": "2026-06-13T05:42:41.178Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e46",
+      "from": "REQUIREMENT_LANG-02-AC1",
+      "to": "REQUIREMENT_LANG-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e47",
+      "from": "test:test/multilang.test.ts::falls back to regex (shallow py/java, no go/rust) — never loads tree-sitter",
+      "to": "REQUIREMENT_LANG-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multilang.test.ts::falls back to regex (shallow py/java, no go/rust) — never loads tree-sitter",
+        "passed": true,
+        "at": "2026-06-13T05:42:42.362Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e48",
+      "from": "test:test/lazy-boundary.test.ts::sync revitify never resolves web-tree-sitter or grammar packages",
+      "to": "REQUIREMENT_LANG-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/lazy-boundary.test.ts::sync revitify never resolves web-tree-sitter or grammar packages",
+        "passed": true,
+        "at": "2026-06-13T05:42:43.499Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e49",
+      "from": "REQUIREMENT_LANG-02-AC2",
+      "to": "REQUIREMENT_LANG-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e50",
+      "from": "test:test/lazy-boundary.test.ts::positive control: the async path DOES resolve web-tree-sitter through the same hook",
+      "to": "REQUIREMENT_LANG-02-AC2",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/lazy-boundary.test.ts::positive control: the async path DOES resolve web-tree-sitter through the same hook",
+        "passed": true,
+        "at": "2026-06-13T05:42:44.639Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e51",
+      "from": "REQUIREMENT_CACHE-01-AC1",
+      "to": "REQUIREMENT_CACHE-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e52",
+      "from": "test:test/cache.test.ts::second run is all hits; edits invalidate exactly one file; output identical",
+      "to": "REQUIREMENT_CACHE-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/cache.test.ts::second run is all hits; edits invalidate exactly one file; output identical",
+        "passed": true,
+        "at": "2026-06-13T05:42:45.817Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e53",
+      "from": "test:test/cache.test.ts::adding a file invalidates the set (import resolution depends on the walked set)",
+      "to": "REQUIREMENT_CACHE-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/cache.test.ts::adding a file invalidates the set (import resolution depends on the walked set)",
+        "passed": true,
+        "at": "2026-06-13T05:42:46.984Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e54",
+      "from": "test:test/cache.test.ts::recovers from a corrupt stat-index and from evicted fragment files",
+      "to": "REQUIREMENT_CACHE-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/cache.test.ts::recovers from a corrupt stat-index and from evicted fragment files",
+        "passed": true,
+        "at": "2026-06-13T05:42:48.160Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e55",
+      "from": "REQUIREMENT_PAR-01-AC1",
+      "to": "REQUIREMENT_PAR-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e56",
+      "from": "test:test/lazy-boundary.test.ts::worker-pool output matches sequential output exactly",
+      "to": "REQUIREMENT_PAR-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/lazy-boundary.test.ts::worker-pool output matches sequential output exactly",
+        "passed": true,
+        "at": "2026-06-13T05:42:49.391Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e57",
+      "from": "REQUIREMENT_MM-01-AC1",
+      "to": "REQUIREMENT_MM-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e58",
+      "from": "test:test/multimodal.test.ts::GATE: without keys the run never touches the network and equals the code-only graph",
+      "to": "REQUIREMENT_MM-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multimodal.test.ts::GATE: without keys the run never touches the network and equals the code-only graph",
+        "passed": true,
+        "at": "2026-06-13T05:42:50.567Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e59",
+      "from": "REQUIREMENT_MM-02-AC1",
+      "to": "REQUIREMENT_MM-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e60",
+      "from": "test:test/multimodal.test.ts::anthropic → gemini → openai → ollama → none",
+      "to": "REQUIREMENT_MM-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multimodal.test.ts::anthropic → gemini → openai → ollama → none",
+        "passed": true,
+        "at": "2026-06-13T05:42:51.748Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e61",
+      "from": "test:test/multimodal.test.ts::gemini, openai, ollama parse their shapes; anthropic errors loudly on non-ok",
+      "to": "REQUIREMENT_MM-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multimodal.test.ts::gemini, openai, ollama parse their shapes; anthropic errors loudly on non-ok",
+        "passed": true,
+        "at": "2026-06-13T05:42:52.919Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e62",
+      "from": "test:test/multimodal.test.ts::with a key + mocked backend, PDFs contribute concept nodes",
+      "to": "REQUIREMENT_MM-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multimodal.test.ts::with a key + mocked backend, PDFs contribute concept nodes",
+        "passed": true,
+        "at": "2026-06-13T05:42:54.100Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e63",
+      "from": "REQUIREMENT_MM-03-AC1",
+      "to": "REQUIREMENT_MM-03",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e64",
+      "from": "test:test/multimodal.test.ts::tables, columns, and REFERENCES edges from DDL",
+      "to": "REQUIREMENT_MM-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multimodal.test.ts::tables, columns, and REFERENCES edges from DDL",
+        "passed": true,
+        "at": "2026-06-13T05:42:55.277Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e65",
+      "from": "test:test/multimodal.test.ts::crate + dependency edges from Cargo.toml",
+      "to": "REQUIREMENT_MM-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multimodal.test.ts::crate + dependency edges from Cargo.toml",
+        "passed": true,
+        "at": "2026-06-13T05:42:56.460Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e66",
+      "from": "REQUIREMENT_MM-04-AC1",
+      "to": "REQUIREMENT_MM-04",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e67",
+      "from": "test:test/multimodal.test.ts::whisper + scip spawn, parse, and survive failures",
+      "to": "REQUIREMENT_MM-04-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multimodal.test.ts::whisper + scip spawn, parse, and survive failures",
+        "passed": true,
+        "at": "2026-06-13T05:42:57.645Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e68",
+      "from": "test:test/multimodal.test.ts::detect + available are honest",
+      "to": "REQUIREMENT_MM-04-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/multimodal.test.ts::detect + available are honest",
+        "passed": true,
+        "at": "2026-06-13T05:42:58.830Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e69",
+      "from": "REQUIREMENT_QUERY-01-AC1",
+      "to": "REQUIREMENT_QUERY-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e70",
+      "from": "test:test/query.test.ts::finds the shortest path between symbols across files",
+      "to": "REQUIREMENT_QUERY-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/query.test.ts::finds the shortest path between symbols across files",
+        "passed": true,
+        "at": "2026-06-13T05:43:00.030Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e71",
+      "from": "test:test/query.test.ts::walks reverse dependencies transitively",
+      "to": "REQUIREMENT_QUERY-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/query.test.ts::walks reverse dependencies transitively",
+        "passed": true,
+        "at": "2026-06-13T05:43:01.234Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e72",
+      "from": "REQUIREMENT_QUERY-02-AC1",
+      "to": "REQUIREMENT_QUERY-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e73",
+      "from": "test:test/query.test.ts::idf-ranks matches and explains with neighbors",
+      "to": "REQUIREMENT_QUERY-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/query.test.ts::idf-ranks matches and explains with neighbors",
+        "passed": true,
+        "at": "2026-06-13T05:43:02.443Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e74",
+      "from": "test:test/query.test.ts::lists communities with size and cohesion in [0,1]",
+      "to": "REQUIREMENT_QUERY-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/query.test.ts::lists communities with size and cohesion in [0,1]",
+        "passed": true,
+        "at": "2026-06-13T05:43:03.644Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e75",
+      "from": "test:test/query.test.ts::appends JSONL entries",
+      "to": "REQUIREMENT_QUERY-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/query.test.ts::appends JSONL entries",
+        "passed": true,
+        "at": "2026-06-13T05:43:04.884Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e76",
+      "from": "REQUIREMENT_EXPORT-01-AC1",
+      "to": "REQUIREMENT_EXPORT-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e77",
+      "from": "test:test/query.test.ts::callflow keeps only calls; tree nests files; wiki sections communities; mermaid caps",
+      "to": "REQUIREMENT_EXPORT-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/query.test.ts::callflow keeps only calls; tree nests files; wiki sections communities; mermaid caps",
+        "passed": true,
+        "at": "2026-06-13T05:43:06.090Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e78",
+      "from": "test:test/query.test.ts::exporters survive an empty graph",
+      "to": "REQUIREMENT_EXPORT-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/query.test.ts::exporters survive an empty graph",
+        "passed": true,
+        "at": "2026-06-13T05:43:07.293Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e79",
+      "from": "REQUIREMENT_REPORT-01-AC1",
+      "to": "REQUIREMENT_REPORT-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e80",
+      "from": "test:test/report.test.ts::typescript: NOTE/WHY/HACK comments become nodes explained by the next symbol",
+      "to": "REQUIREMENT_REPORT-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/report.test.ts::typescript: NOTE/WHY/HACK comments become nodes explained by the next symbol",
+        "passed": true,
+        "at": "2026-06-13T05:43:08.452Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e81",
+      "from": "test:test/report.test.ts::python: docstrings and HACK comments via tree-sitter",
+      "to": "REQUIREMENT_REPORT-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/report.test.ts::python: docstrings and HACK comments via tree-sitter",
+        "passed": true,
+        "at": "2026-06-13T05:43:09.630Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e82",
+      "from": "REQUIREMENT_REPORT-02-AC1",
+      "to": "REQUIREMENT_REPORT-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e83",
+      "from": "test:test/report.test.ts::ranks symbols only — file/doc/why nodes are excluded",
+      "to": "REQUIREMENT_REPORT-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/report.test.ts::ranks symbols only — file/doc/why nodes are excluded",
+        "passed": true,
+        "at": "2026-06-13T05:43:10.808Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e84",
+      "from": "REQUIREMENT_REPORT-03-AC1",
+      "to": "REQUIREMENT_REPORT-03",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e85",
+      "from": "test:test/report.test.ts::carries god nodes, surprises, confidence, why-nodes, and ≥4 questions",
+      "to": "REQUIREMENT_REPORT-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/report.test.ts::carries god nodes, surprises, confidence, why-nodes, and ≥4 questions",
+        "passed": true,
+        "at": "2026-06-13T05:43:11.977Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e86",
+      "from": "test:test/report.test.ts::suggestedQuestions seeds from brokers and ambiguity",
+      "to": "REQUIREMENT_REPORT-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/report.test.ts::suggestedQuestions seeds from brokers and ambiguity",
+        "passed": true,
+        "at": "2026-06-13T05:43:13.149Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e87",
+      "from": "REQUIREMENT_RESOLVE-01-AC1",
+      "to": "REQUIREMENT_RESOLVE-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e88",
+      "from": "test:test/resolution.test.ts::structural contains/imports edges are EXTRACTED",
+      "to": "REQUIREMENT_RESOLVE-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/resolution.test.ts::structural contains/imports edges are EXTRACTED",
+        "passed": true,
+        "at": "2026-06-13T05:43:14.314Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e89",
+      "from": "test:test/resolution.test.ts::a uniquely-resolved reference is INFERRED",
+      "to": "REQUIREMENT_RESOLVE-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/resolution.test.ts::a uniquely-resolved reference is INFERRED",
+        "passed": true,
+        "at": "2026-06-13T05:43:15.487Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e90",
+      "from": "REQUIREMENT_RESOLVE-02-AC1",
+      "to": "REQUIREMENT_RESOLVE-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e91",
+      "from": "test:test/resolution.test.ts::same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)",
+      "to": "REQUIREMENT_RESOLVE-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/resolution.test.ts::same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)",
+        "passed": true,
+        "at": "2026-06-13T05:43:16.658Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e92",
+      "from": "test:test/resolution.test.ts::falls back to lexicographic id order, still AMBIGUOUS",
+      "to": "REQUIREMENT_RESOLVE-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/resolution.test.ts::falls back to lexicographic id order, still AMBIGUOUS",
+        "passed": true,
+        "at": "2026-06-13T05:43:17.827Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e93",
+      "from": "test:test/resolution.test.ts::the pick is stable across runs",
+      "to": "REQUIREMENT_RESOLVE-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/resolution.test.ts::the pick is stable across runs",
+        "passed": true,
+        "at": "2026-06-13T05:43:18.991Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e94",
+      "from": "REQUIREMENT_RESOLVE-03-AC1",
+      "to": "REQUIREMENT_RESOLVE-03",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e95",
+      "from": "test:test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets",
+      "to": "REQUIREMENT_RESOLVE-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets",
+        "passed": true,
+        "at": "2026-06-13T05:43:21.316Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e96",
+      "from": "REQUIREMENT_RESOLVE-03-AC2",
+      "to": "REQUIREMENT_RESOLVE-03",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e97",
+      "from": "test:test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets",
+      "to": "REQUIREMENT_RESOLVE-03-AC2",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets",
+        "passed": true,
+        "at": "2026-06-13T05:43:21.316Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e98",
+      "from": "REQUIREMENT_RESOLVE-04-AC1",
+      "to": "REQUIREMENT_RESOLVE-04",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e99",
+      "from": "test:test/resolution.test.ts::a previous revitify-out/ run is never ingested back into the graph",
+      "to": "REQUIREMENT_RESOLVE-04-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/resolution.test.ts::a previous revitify-out/ run is never ingested back into the graph",
+        "passed": true,
+        "at": "2026-06-13T05:43:22.472Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e100",
+      "from": "REQUIREMENT_SERVE-01-AC1",
+      "to": "REQUIREMENT_SERVE-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e101",
+      "from": "test:test/serve.test.ts::serves the viewer and the allowlisted artifacts; blocks traversal",
+      "to": "REQUIREMENT_SERVE-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/serve.test.ts::serves the viewer and the allowlisted artifacts; blocks traversal",
+        "passed": true,
+        "at": "2026-06-13T05:43:23.711Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e102",
+      "from": "test:test/serve.test.ts::answers the API routes",
+      "to": "REQUIREMENT_SERVE-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/serve.test.ts::answers the API routes",
+        "passed": true,
+        "at": "2026-06-13T05:43:24.953Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e103",
+      "from": "test:test/serve.test.ts::reloads when graph.json changes on disk (watch-next-door pattern)",
+      "to": "REQUIREMENT_SERVE-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/serve.test.ts::reloads when graph.json changes on disk (watch-next-door pattern)",
+        "passed": true,
+        "at": "2026-06-13T05:43:26.189Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e104",
+      "from": "REQUIREMENT_SERVE-02-AC1",
+      "to": "REQUIREMENT_SERVE-02",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e105",
+      "from": "test:test/serve.test.ts::lists the 7 graphify tools and answers query_graph + shortest_path",
+      "to": "REQUIREMENT_SERVE-02-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/serve.test.ts::lists the 7 graphify tools and answers query_graph + shortest_path",
+        "passed": true,
+        "at": "2026-06-13T05:43:27.413Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e106",
+      "from": "REQUIREMENT_SERVE-03-AC1",
+      "to": "REQUIREMENT_SERVE-03",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e107",
+      "from": "test:test/serve.test.ts::install drops the skill; diagnose reports grammars",
+      "to": "REQUIREMENT_SERVE-03-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/serve.test.ts::install drops the skill; diagnose reports grammars",
+        "passed": true,
+        "at": "2026-06-13T05:43:28.756Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e108",
+      "from": "REQUIREMENT_VIEWER-01-AC1",
+      "to": "REQUIREMENT_VIEWER-01",
+      "kind": "derivedFrom",
+      "proof": "unproven"
+    },
+    {
+      "id": "e109",
+      "from": "test:test/viewer.test.ts::is fully offline: four libraries inlined, zero external sources",
+      "to": "REQUIREMENT_VIEWER-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/viewer.test.ts::is fully offline: four libraries inlined, zero external sources",
+        "passed": true,
+        "at": "2026-06-13T05:43:29.930Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e110",
+      "from": "test:test/viewer.test.ts::injects the graph at the DATA INJECTION POINT and keeps contract probes",
+      "to": "REQUIREMENT_VIEWER-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/viewer.test.ts::injects the graph at the DATA INJECTION POINT and keeps contract probes",
+        "passed": true,
+        "at": "2026-06-13T05:43:31.100Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e111",
+      "from": "test:test/viewer.test.ts::escapes </script> sequences in data",
+      "to": "REQUIREMENT_VIEWER-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/viewer.test.ts::escapes </script> sequences in data",
+        "passed": true,
+        "at": "2026-06-13T05:43:32.259Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e112",
+      "from": "test:test/viewer.test.ts::still renders the zero-dependency canvas viewer via extraExporters",
+      "to": "REQUIREMENT_VIEWER-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/viewer.test.ts::still renders the zero-dependency canvas viewer via extraExporters",
+        "passed": true,
+        "at": "2026-06-13T05:43:33.429Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    },
+    {
+      "id": "e113",
+      "from": "test:test/viewer.test.ts::docstrings surface as summary on their symbol (and stay as nodes)",
+      "to": "REQUIREMENT_VIEWER-01-AC1",
+      "kind": "validates",
+      "proof": "green",
+      "lastCheck": {
+        "ref": "test/viewer.test.ts::docstrings surface as summary on their symbol (and stay as nodes)",
+        "passed": true,
+        "at": "2026-06-13T05:43:34.594Z",
+        "sha": "1bb0fe13162c46c3d99f83428c7700ba46d6ee74",
+        "tree": "9c81a72bd0e5bc4fcddd91da7138912839cc7318",
+        "dirty": false,
+        "stack": "node-vitest",
+        "kind": "unit"
+      }
+    }
+  ]
+}

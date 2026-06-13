@@ -8,7 +8,7 @@
 WHEN `revitify --help` runs THEN it SHALL list build/query/explain/path/affected/communities/
 export/watch/global/prs/validate; IF an unknown verb is given THEN exit code SHALL be 1.
 
-@check kind=unit ref=test/cli.test.ts::--help lists verbs; unknown verb exits 1
+@check kind=unit ref=test/cli.test.ts::help lists every verb; unknown verb exits 1
 
 ## Requirement REQUIREMENT_CLI-02 — verbs work end to end on a real project
 

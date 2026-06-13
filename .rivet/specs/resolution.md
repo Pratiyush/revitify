@@ -17,17 +17,21 @@ edge SHALL carry `confidence: "INFERRED"`.
 
 ## Requirement REQUIREMENT_RESOLVE-02 — ambiguity is tagged, never hidden
 
-WHEN a reference has multiple candidate definitions THEN the system SHALL pick deterministically
-(same-directory candidates first, then lexicographic id — never insertion order) AND tag the edge
-`confidence: "AMBIGUOUS"`.
+WHEN a reference has multiple candidate definitions THEN the system SHALL resolve through tiers
+(same-file, then same-directory, then global); a candidate that is UNIQUE in the winning tier is
+tagged `confidence: "INFERRED"`, while ties WITHIN a tier SHALL be picked deterministically
+(lexicographic id, never insertion order) and tagged `confidence: "AMBIGUOUS"`.
 
-@check kind=unit ref=test/resolution.test.ts::multiple candidates → AMBIGUOUS, picked deterministically with same-dir preference
+@check kind=unit ref=test/resolution.test.ts::same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)
+@check kind=unit ref=test/resolution.test.ts::falls back to lexicographic id order, still AMBIGUOUS
 @check kind=unit ref=test/resolution.test.ts::the pick is stable across runs
 
 ## Requirement REQUIREMENT_RESOLVE-03 — imports resolve against reality
 
 WHEN a relative import spec is extracted THEN the system SHALL resolve it against the walked-file
 set (as-written, then runtime-extension swaps, then extensionless completion, then /index.*).
+
+@check kind=unit ref=test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets
 
 IF a relative import resolves to nothing on disk THEN the system SHALL emit NO edge for it.
 
