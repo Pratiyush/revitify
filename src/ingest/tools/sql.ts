@@ -1,6 +1,7 @@
 import { addNode, createBuilder, fileNode } from "../../extract/fragment-builder.js";
 import { Confidence } from "../../model/confidence.js";
 import type { GraphFragment, SourceFile } from "../../model/fragment.js";
+import { nameRef, symId } from "../../model/ids.js";
 import type { Ingestor } from "../ingestor.js";
 
 /**
@@ -18,7 +19,7 @@ function ingestSync(file: SourceFile): GraphFragment {
   const fileId = fileNode(b, rel);
   for (const stmt of file.content.matchAll(CREATE_TABLE)) {
     const table = stmt[1] as string;
-    const tableId = `sym:${rel}#${table}`;
+    const tableId = symId(rel, table);
     const line = file.content.slice(0, stmt.index).split("\n").length;
     addNode(b, tableId, table, "table", rel, line);
     b.links.push({
@@ -31,7 +32,7 @@ function ingestSync(file: SourceFile): GraphFragment {
       const column = columnLine.trim().match(/^["'`]?(\w+)["'`]?\s+\w+/);
       if (!column || /^(primary|foreign|constraint|unique|check|index)$/i.test(column[1] as string))
         continue;
-      const columnId = `sym:${rel}#${table}.${column[1]}`;
+      const columnId = symId(rel, `${table}.${column[1]}`);
       addNode(b, columnId, column[1] as string, "column", rel, line);
       b.links.push({
         source: tableId,
@@ -43,7 +44,7 @@ function ingestSync(file: SourceFile): GraphFragment {
       if (ref) {
         b.links.push({
           source: tableId,
-          target: `name:${ref[1]}`,
+          target: nameRef(ref[1] as string),
           relation: "references",
         });
       }

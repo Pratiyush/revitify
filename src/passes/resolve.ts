@@ -1,5 +1,6 @@
 import { Confidence } from "../model/confidence.js";
 import type { RevitifyLink, RevitifyNode } from "../model/graph.js";
+import { dirOf, isFile, isNameRef, isSym, nameRefTarget, relOf } from "../model/ids.js";
 
 /**
  * Pass 2 — reference & call resolution (port of graphify symbol_resolution.py).
@@ -16,14 +17,14 @@ export function resolveReferences(
 ): RevitifyLink[] {
   const byName = new Map<string, string[]>();
   for (const n of nodes.values()) {
-    if (!n.id.startsWith("sym:")) continue;
+    if (!isSym(n.id)) continue;
     (byName.get(n.label) ?? byName.set(n.label, []).get(n.label)!).push(n.id);
   }
   return links
     .map((l) => {
-      if (!String(l.target).startsWith("name:")) return l;
+      if (!isNameRef(String(l.target))) return l;
       const source = String(l.source);
-      const candidates = (byName.get(String(l.target).slice(5)) ?? []).filter(
+      const candidates = (byName.get(nameRefTarget(String(l.target))) ?? []).filter(
         (id) => id !== source,
       );
       if (!candidates.length) return null;
@@ -31,8 +32,8 @@ export function resolveReferences(
       return { ...l, target: picked.target, confidence: picked.confidence };
     })
     .filter((l): l is RevitifyLink => l !== null)
-    .filter((l) => nodes.has(String(l.source)) || String(l.source).startsWith("file:"))
-    .filter((l) => nodes.has(String(l.target)) || String(l.target).startsWith("file:"));
+    .filter((l) => nodes.has(String(l.source)) || isFile(String(l.source)))
+    .filter((l) => nodes.has(String(l.target)) || isFile(String(l.target)));
 }
 
 function pick(
@@ -57,12 +58,3 @@ function pick(
   // Unreachable (global tier matches everything), kept for type narrowing.
   return { target: candidates[0] as string, confidence: Confidence.AMBIGUOUS };
 }
-
-/** "sym:a/b.ts#X" → "a/b.ts" · "file:a/b.ts" → "a/b.ts". */
-const relOf = (id: string): string => {
-  if (id.startsWith("sym:")) return id.slice(4, id.indexOf("#"));
-  if (id.startsWith("file:")) return id.slice(5);
-  return id;
-};
-const dirOf = (rel: string): string =>
-  rel.includes("/") ? rel.slice(0, rel.lastIndexOf("/")) : "";

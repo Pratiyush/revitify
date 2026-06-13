@@ -1,6 +1,7 @@
 import { Confidence } from "../model/confidence.js";
 import type { GraphFragment } from "../model/fragment.js";
 import type { RevitifyNode } from "../model/graph.js";
+import { fileId, whyId } from "../model/ids.js";
 
 /**
  * Per-file fragment builder — preserves the exact node/link shapes and insertion order the
@@ -37,8 +38,9 @@ export function addNode(
 }
 
 export function fileNode(b: FragmentBuilder, rel: string): string {
-  addNode(b, `file:${rel}`, rel, "file", rel);
-  return `file:${rel}`;
+  const id = fileId(rel);
+  addNode(b, id, rel, "file", rel);
+  return id;
 }
 
 /** Shared why-node emitter — also used by the TypeScript compiler extractor. */
@@ -57,7 +59,7 @@ export function addWhyNode(
     0,
     160,
   );
-  const id = `why:${rel}#L${line}`;
+  const id = whyId(rel, line);
   addNode(b, id, label, "why", rel, line);
   b.links.push({
     source: enclosingId,

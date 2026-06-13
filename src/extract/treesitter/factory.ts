@@ -1,6 +1,7 @@
 import type { Node, Parser } from "web-tree-sitter";
 import { Confidence } from "../../model/confidence.js";
 import type { SourceFile } from "../../model/fragment.js";
+import { docstringId, fileId, nameRef, symId } from "../../model/ids.js";
 import type { ExtractContext, Extractor } from "../extractor.js";
 import {
   addNode,
@@ -84,7 +85,7 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
     extract(file: SourceFile, ctx: ExtractContext) {
       const b = createBuilder();
       const rel = file.relPath;
-      const fileId = fileNode(b, rel);
+      const selfId = fileNode(b, rel);
       const tree = parser.parse(file.content);
       if (!tree) return { nodes: b.nodes, links: b.links };
       const referenced: string[] = [];
@@ -106,7 +107,7 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
           }
           const importRule = importRules.get(child.type);
           if (importRule) {
-            collectImport(b, child, importRule, fileId, rel, ctx, referenced);
+            collectImport(b, child, importRule, selfId, rel, ctx, referenced);
             continue;
           }
           const callRule = callRules.get(child.type);
@@ -131,13 +132,13 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
             continue;
           }
           const symbolName = containerName ? `${containerName}.${name}` : name;
-          const id = `sym:${rel}#${symbolName}`;
+          const id = symId(rel, symbolName);
           addNode(b, id, name, rule.kind, rel, child.startPosition.row + 1);
           b.links.push({
             source: containerId,
             target: id,
             relation:
-              containerId !== fileId && ["method", "constructor", "function"].includes(rule.kind)
+              containerId !== selfId && ["method", "constructor", "function"].includes(rule.kind)
                 ? "method"
                 : "contains",
             confidence: Confidence.EXTRACTED,
@@ -145,11 +146,11 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
           if (config.docstrings) {
             const doc = pythonDocstring(child);
             if (doc) {
-              const docId = `docstring:${rel}#${symbolName}`;
-              addNode(b, docId, doc, "docstring", rel, child.startPosition.row + 1);
+              const docstringNodeId = docstringId(rel, symbolName);
+              addNode(b, docstringNodeId, doc, "docstring", rel, child.startPosition.row + 1);
               b.links.push({
                 source: id,
-                target: docId,
+                target: docstringNodeId,
                 relation: "documents",
                 confidence: Confidence.EXTRACTED,
               });
@@ -167,15 +168,15 @@ export async function createTreeSitterExtractor(config: LanguageConfig): Promise
           );
         }
       };
-      visit(tree.rootNode, fileId, undefined, fileId);
+      visit(tree.rootNode, selfId, undefined, selfId);
       for (const [from, callees] of calls) {
         for (const callee of callees) {
-          b.links.push({ source: from, target: `name:${callee}`, relation: "calls" });
+          b.links.push({ source: from, target: nameRef(callee), relation: "calls" });
         }
       }
 
       for (const name of referenced) {
-        b.links.push({ source: fileId, target: `name:${name}`, relation: "imports_from" });
+        b.links.push({ source: selfId, target: nameRef(name), relation: "imports_from" });
       }
       return { nodes: b.nodes, links: b.links };
     },
@@ -225,7 +226,7 @@ function collectImport(
   b: FragmentBuilder,
   node: Node,
   rule: ImportRule,
-  fileId: string,
+  selfId: string,
   _rel: string,
   ctx: ExtractContext,
   referenced: string[],
@@ -240,8 +241,8 @@ function collectImport(
       .find((candidate) => ctx.knownFiles.has(candidate));
     if (target) {
       b.links.push({
-        source: fileId,
-        target: `file:${target}`,
+        source: selfId,
+        target: fileId(target),
         relation: "imports",
         confidence: Confidence.EXTRACTED,
       });

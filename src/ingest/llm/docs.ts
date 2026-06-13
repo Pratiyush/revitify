@@ -1,6 +1,7 @@
 import { addNode, createBuilder, fileNode } from "../../extract/fragment-builder.js";
 import { Confidence } from "../../model/confidence.js";
 import type { GraphFragment, SourceFile } from "../../model/fragment.js";
+import { conceptId } from "../../model/ids.js";
 import type { Ingestor } from "../ingestor.js";
 import { detectBackend } from "./backends.js";
 
@@ -32,7 +33,7 @@ export const llmDocsIngestor: Ingestor = {
         : `List up to 8 key concepts in the document at path "${rel}" as a JSON array of short strings. Answer with JSON only.`,
     );
     for (const concept of parseConcepts(raw)) {
-      const id = `concept:${rel}#${concept}`;
+      const id = conceptId(rel, concept);
       addNode(b, id, concept, "concept", rel);
       b.links.push({
         source: fileId,

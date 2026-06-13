@@ -1,4 +1,5 @@
 import { spawnSync } from "node:child_process";
+import { fileId } from "../../model/ids.js";
 import { affected } from "../../query/affected.js";
 import { appendQueryLog } from "../../query/querylog.js";
 import { loadOrBuild } from "../load.js";
@@ -26,12 +27,12 @@ export async function run(args: string[]): Promise<number> {
   const lines = [`# PR impact vs ${base}`, "", `${changed.length} changed file(s):`, ""];
   const blastTotal = new Set<string>();
   for (const file of changed) {
-    const fileId = `file:${file}`;
-    if (!index.byId.has(fileId)) {
+    const fileNodeId = fileId(file);
+    if (!index.byId.has(fileNodeId)) {
       lines.push(`- \`${file}\` — not in graph (new, deleted, or unindexed type)`);
       continue;
     }
-    const blast = affected(index, fileId);
+    const blast = affected(index, fileNodeId);
     for (const id of blast) blastTotal.add(id);
     lines.push(`- \`${file}\` → ${blast.length} dependent(s)`);
     for (const id of blast.slice(0, 6)) {

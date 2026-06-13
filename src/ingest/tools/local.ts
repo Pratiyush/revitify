@@ -2,6 +2,7 @@ import { spawnSync } from "node:child_process";
 import { addNode, createBuilder, fileNode } from "../../extract/fragment-builder.js";
 import { Confidence } from "../../model/confidence.js";
 import type { GraphFragment, SourceFile } from "../../model/fragment.js";
+import { scipId, transcriptId } from "../../model/ids.js";
 import type { Ingestor } from "../ingestor.js";
 
 /**
@@ -40,7 +41,7 @@ export function transcriptFragment(rel: string, transcript: string): GraphFragme
     .filter((s) => s.length > 8)
     .slice(0, 50);
   segments.forEach((segment, i) => {
-    const id = `transcript:${rel}#${i}`;
+    const id = transcriptId(rel, i);
     addNode(b, id, segment.slice(0, 160), "transcript", rel);
     b.links.push({
       source: fileId,
@@ -79,7 +80,7 @@ export function scipFragment(rel: string, json: string): GraphFragment {
       for (const sym of doc.symbols ?? []) {
         if (!sym.symbol) continue;
         const label = sym.symbol.split("/").pop() ?? sym.symbol;
-        const id = `scip:${rel}#${sym.symbol}`;
+        const id = scipId(rel, sym.symbol);
         addNode(b, id, label.slice(0, 120), "scip-symbol", doc.relative_path ?? rel);
         b.links.push({
           source: fileId,

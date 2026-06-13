@@ -1,6 +1,7 @@
 import ts from "typescript";
 import { Confidence } from "../model/confidence.js";
 import type { SourceFile } from "../model/fragment.js";
+import { fileId, nameRef, symId } from "../model/ids.js";
 import type { ExtractContext, Extractor } from "./extractor.js";
 import { addNode, addWhyNode, createBuilder, fileNode } from "./fragment-builder.js";
 
@@ -15,15 +16,15 @@ export const typescriptExtractor: Extractor = {
   extract(file: SourceFile, ctx: ExtractContext) {
     const b = createBuilder();
     const rel = file.relPath;
-    const fileId = fileNode(b, rel);
+    const selfId = fileNode(b, rel);
     const sf = ts.createSourceFile(rel, file.content, ts.ScriptTarget.Latest, true);
     const line = (node: ts.Node) => sf.getLineAndCharacterOfPosition(node.getStart(sf)).line + 1;
 
     const symbol = (name: string, node: ts.Node, kind: string) => {
-      const id = `sym:${rel}#${name}`;
+      const id = symId(rel, name);
       addNode(b, id, name, kind, rel, line(node));
       b.links.push({
-        source: fileId,
+        source: selfId,
         target: id,
         relation: "contains",
         confidence: Confidence.EXTRACTED,
@@ -45,7 +46,7 @@ export const typescriptExtractor: Extractor = {
       };
       ts.forEachChild(root, walk);
       for (const callee of callees) {
-        b.links.push({ source: fromId, target: `name:${callee}`, relation: "calls" });
+        b.links.push({ source: fromId, target: nameRef(callee), relation: "calls" });
       }
     };
 
@@ -61,8 +62,8 @@ export const typescriptExtractor: Extractor = {
           const targetRel = resolveImport(rel, spec, ctx.knownFiles);
           if (targetRel !== undefined) {
             b.links.push({
-              source: fileId,
-              target: `file:${targetRel}`,
+              source: selfId,
+              target: fileId(targetRel),
               relation: "re_exports",
               confidence: Confidence.EXTRACTED,
             });
@@ -78,8 +79,8 @@ export const typescriptExtractor: Extractor = {
           const targetRel = resolveImport(rel, spec, ctx.knownFiles);
           if (targetRel !== undefined) {
             b.links.push({
-              source: fileId,
-              target: `file:${targetRel}`,
+              source: selfId,
+              target: fileId(targetRel),
               relation: "imports",
               confidence: Confidence.EXTRACTED,
             });
@@ -103,7 +104,7 @@ export const typescriptExtractor: Extractor = {
             member.name &&
             ts.isIdentifier(member.name)
           ) {
-            const mId = `sym:${rel}#${stmt.name.text}.${member.name.text}`;
+            const mId = symId(rel, `${stmt.name.text}.${member.name.text}`);
             addNode(b, mId, member.name.text, "method", rel, line(member));
             b.links.push({
               source: classId,
@@ -137,7 +138,7 @@ export const typescriptExtractor: Extractor = {
     // Reference edges: this file uses the names it imported (target symbol may live anywhere).
     // Untagged here — passes/resolve assigns INFERRED or AMBIGUOUS when it resolves `name:`.
     for (const name of importedNames) {
-      b.links.push({ source: fileId, target: `name:${name}`, relation: "imports_from" });
+      b.links.push({ source: selfId, target: nameRef(name), relation: "imports_from" });
     }
     // Why-nodes: NOTE:/WHY:/HACK: comments, attached to the symbol declared on the next line
     // (falling back to the file). One scan over comment ranges via the scanner-less regex walk.
@@ -154,7 +155,7 @@ export const typescriptExtractor: Extractor = {
       let line = lineStarts.findIndex((s) => s > start);
       line = line === -1 ? lineStarts.length : line; // 1-based line of the comment start
       const commentLines = (m[0].match(/\n/g)?.length ?? 0) + 1;
-      const anchor = symbolByLine.get(line + commentLines) ?? symbolByLine.get(line) ?? fileId;
+      const anchor = symbolByLine.get(line + commentLines) ?? symbolByLine.get(line) ?? selfId;
       addWhyNode(b, rel, m[0], line, anchor);
     }
     return { nodes: b.nodes, links: b.links };

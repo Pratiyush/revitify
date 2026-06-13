@@ -1,6 +1,7 @@
 import { addNode, createBuilder, fileNode } from "../extract/fragment-builder.js";
 import { Confidence } from "../model/confidence.js";
 import type { GraphFragment, SourceFile } from "../model/fragment.js";
+import { jsonKeyId } from "../model/ids.js";
 import type { Ingestor } from "./ingestor.js";
 
 /**
@@ -17,7 +18,7 @@ function ingestSync(file: SourceFile): GraphFragment {
     const parsed: unknown = JSON.parse(file.content);
     if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
       for (const key of Object.keys(parsed).slice(0, MAX_KEYS)) {
-        const id = `jsonkey:${rel}#${key}`;
+        const id = jsonKeyId(rel, key);
         addNode(b, id, key, "json-key", rel);
         b.links.push({
           source: fileId,

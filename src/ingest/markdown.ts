@@ -1,6 +1,7 @@
 import { addNode, createBuilder, fileNode } from "../extract/fragment-builder.js";
 import { Confidence } from "../model/confidence.js";
 import type { GraphFragment, SourceFile } from "../model/fragment.js";
+import { docId } from "../model/ids.js";
 import type { Ingestor } from "./ingestor.js";
 
 const MD_HEADING = /^(#{1,2})\s+(.+)$/;
@@ -15,7 +16,7 @@ function ingestSync(file: SourceFile): GraphFragment {
     if (inFence) return;
     const m = lineText.match(MD_HEADING);
     if (!m) return;
-    const id = `doc:${rel}#${m[2]!.trim()}`;
+    const id = docId(rel, m[2]!.trim());
     addNode(b, id, m[2]!.trim(), "doc", rel, i + 1);
     b.links.push({
       source: fileId,

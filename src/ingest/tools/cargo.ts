@@ -1,6 +1,7 @@
 import { addNode, createBuilder, fileNode } from "../../extract/fragment-builder.js";
 import { Confidence } from "../../model/confidence.js";
 import type { GraphFragment, SourceFile } from "../../model/fragment.js";
+import { depId, symId } from "../../model/ids.js";
 import type { Ingestor } from "../ingestor.js";
 
 /**
@@ -25,7 +26,7 @@ function ingestSync(file: SourceFile): GraphFragment {
     if (!kv) continue;
     if (section === "package" && kv[1] === "name") {
       crate = (kv[2] as string).replace(/["']/g, "");
-      const crateId = `sym:${rel}#${crate}`;
+      const crateId = symId(rel, crate);
       addNode(b, crateId, crate, "crate", rel);
       b.links.push({
         source: fileId,
@@ -36,18 +37,18 @@ function ingestSync(file: SourceFile): GraphFragment {
     }
     if (section === "dependencies" || section === "dev-dependencies") {
       const dep = kv[1] as string;
-      const depId = `dep:${rel}#${dep}`;
-      addNode(b, depId, dep, "dependency", rel);
+      const depNodeId = depId(rel, dep);
+      addNode(b, depNodeId, dep, "dependency", rel);
       b.links.push({
-        source: `sym:${rel}#${crate}`,
-        target: depId,
+        source: symId(rel, crate),
+        target: depNodeId,
         relation: "depends_on",
         confidence: Confidence.EXTRACTED,
       });
     }
   }
   // A Cargo.toml without [package] (workspace root): hang deps off the file node instead.
-  const crateId = `sym:${rel}#${crate}`;
+  const crateId = symId(rel, crate);
   if (!b.seen.has(crateId)) {
     for (const l of b.links) {
       if (String(l.source) === crateId) l.source = fileId;

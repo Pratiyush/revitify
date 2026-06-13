@@ -64,8 +64,8 @@ fixed in this branch.
 
 ## Depth-needed roadmap (recommended order)
 
-1. **Quick hardening pass (½ day, all S):** P1·err, P1·api, the P2 perf trio (index reuse, explain, signature cap), HTTP method/error hardening, querylog breadcrumb, `cli/args.ts`. High value, low risk, no behavior change.
-2. **D2 — `model/ids.ts` (1 day, mechanical L):** erases the magic offsets and makes the id scheme discoverable. Unlocks safer changes everywhere.
-3. **D1 — `finalizeGraph` + shared `extractOne` (M):** removes the verbatim pipeline dup and the worker-rot risk; also shrinks the dual-API duplication.
+1. ✅ **DONE.** **Quick hardening pass (½ day, all S):** P1·err, P1·api, the P2 perf trio (index reuse, explain, signature cap), HTTP method/error hardening, querylog breadcrumb, `cli/args.ts`. High value, low risk, no behavior change.
+2. ✅ **DONE.** **D2 — `model/ids.ts` (mechanical L):** all 11 prefixes now have builders + parsers in one module; the magic offsets (`id.slice(4,…)`) are gone, replaced by `relOf`/`isSym`/`nameRefTarget`. Migrated all 12 construction/parse sites; output stayed byte-identical (contract test green). The id scheme is now discoverable in one place.
+3. ← **NEXT. D1 — `finalizeGraph` + shared `extractOne` (M):** removes the verbatim pipeline dup and the worker-rot risk; also shrinks the dual-API duplication.
 4. **P1·perf — `GraphIndex.adj` (M):** the one real scale fix; subsumes part of the explain/communities work.
 5. **Decisions, not code:** S1 (sync/async contract wording), P2-6 (whole-graph-in-memory is the scale ceiling — name it; streaming output only if someone hits OOM), the incohesive-cluster branch + a large-graph fixture (the `COHESION_MIN=50` path is currently untested).
