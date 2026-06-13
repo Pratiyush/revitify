@@ -974,10 +974,10 @@
       "lastCheck": {
         "ref": "test/cli.test.ts::help lists every verb; unknown verb exits 1",
         "passed": true,
-        "at": "2026-06-13T07:40:14.648Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:07.842Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -998,10 +998,10 @@
       "lastCheck": {
         "ref": "test/cli.test.ts::build → query → path → affected → communities → export → validate, end to end",
         "passed": true,
-        "at": "2026-06-13T07:40:16.537Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:09.727Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1022,10 +1022,10 @@
       "lastCheck": {
         "ref": "test/cli.test.ts::rebuilds on change (initial build, then incremental)",
         "passed": true,
-        "at": "2026-06-13T07:40:17.506Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:10.696Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1039,10 +1039,10 @@
       "lastCheck": {
         "ref": "test/cli.test.ts::global merges repos with repo: prefixes",
         "passed": true,
-        "at": "2026-06-13T07:40:18.616Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:11.822Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1056,10 +1056,10 @@
       "lastCheck": {
         "ref": "test/cli.test.ts::prs reports diff impact in a git repo",
         "passed": true,
-        "at": "2026-06-13T07:40:19.930Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:13.179Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1080,10 +1080,10 @@
       "lastCheck": {
         "ref": "test/revitify.test.ts::emits graph.json + self-contained graph.html + GRAPH_REPORT.md (default: revitify-out/)",
         "passed": true,
-        "at": "2026-06-13T07:40:21.117Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:14.423Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1104,10 +1104,10 @@
       "lastCheck": {
         "ref": "test/revitify.test.ts::keeps Rivet's call shape working: revitify(dir, 'graphify-out')",
         "passed": true,
-        "at": "2026-06-13T07:40:22.299Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:15.647Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1128,10 +1128,10 @@
       "lastCheck": {
         "ref": "test/revitify.test.ts::builds containment, import, and reference edges with source_file + community on nodes",
         "passed": true,
-        "at": "2026-06-13T07:40:23.481Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:16.880Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1145,10 +1145,10 @@
       "lastCheck": {
         "ref": "test/contract.test.ts::a canonical symbol node carries exactly the contract fields",
         "passed": true,
-        "at": "2026-06-13T07:40:24.659Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:18.103Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1169,10 +1169,10 @@
       "lastCheck": {
         "ref": "test/contract.test.ts::contract drift fails loudly, naming index and field (negative floor)",
         "passed": true,
-        "at": "2026-06-13T07:40:25.853Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:19.336Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1193,10 +1193,10 @@
       "lastCheck": {
         "ref": "test/contract.test.ts::graph.json is byte-identical to the committed expectation (refactor pin)",
         "passed": true,
-        "at": "2026-06-13T07:40:27.057Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:20.578Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1210,10 +1210,10 @@
       "lastCheck": {
         "ref": "test/contract.test-d.ts::RevitifyGraph stays assignable to the shape Rivet's loadCodeGraph reads",
         "passed": true,
-        "at": "2026-06-13T07:40:28.184Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:21.749Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1234,10 +1234,10 @@
       "lastCheck": {
         "ref": "test/intelligence.test.ts::symbol→symbol calls edges, confidence-tagged",
         "passed": true,
-        "at": "2026-06-13T07:40:29.368Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:22.977Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1251,10 +1251,10 @@
       "lastCheck": {
         "ref": "test/intelligence.test.ts::unresolvable callees (built-ins) leave no edge",
         "passed": true,
-        "at": "2026-06-13T07:40:30.560Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:24.216Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1275,10 +1275,10 @@
       "lastCheck": {
         "ref": "test/intelligence.test.ts::same-file beats same-dir beats global; unique-in-tier is INFERRED",
         "passed": true,
-        "at": "2026-06-13T07:40:31.753Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:25.437Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1292,10 +1292,10 @@
       "lastCheck": {
         "ref": "test/intelligence.test.ts::ties within the winning tier are AMBIGUOUS with lexicographic pick",
         "passed": true,
-        "at": "2026-06-13T07:40:32.927Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:26.678Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1316,10 +1316,10 @@
       "lastCheck": {
         "ref": "test/intelligence.test.ts::merges near-duplicate headings, rewrites links, never touches code symbols",
         "passed": true,
-        "at": "2026-06-13T07:40:34.113Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:27.916Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1333,10 +1333,10 @@
       "lastCheck": {
         "ref": "test/algorithms.test.ts::no docs / single doc: nothing merges, exact duplicate links still drop",
         "passed": true,
-        "at": "2026-06-13T07:40:35.087Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:28.913Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1357,10 +1357,10 @@
       "lastCheck": {
         "ref": "test/intelligence.test.ts::separates the two clusters; deterministic across runs",
         "passed": true,
-        "at": "2026-06-13T07:40:36.282Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:30.130Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1374,10 +1374,10 @@
       "lastCheck": {
         "ref": "test/intelligence.test.ts::isolated nodes get their own communities",
         "passed": true,
-        "at": "2026-06-13T07:40:37.470Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:31.366Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1391,10 +1391,10 @@
       "lastCheck": {
         "ref": "test/algorithms.test.ts::an oversized clique triggers the re-split pass and survives unsplit (no substructure)",
         "passed": true,
-        "at": "2026-06-13T07:40:39.410Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:33.368Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1415,10 +1415,10 @@
       "lastCheck": {
         "ref": "test/algorithms.test.ts::an oversized clique triggers the re-split pass and survives unsplit (no substructure)",
         "passed": true,
-        "at": "2026-06-13T07:40:39.410Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:33.368Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1439,10 +1439,10 @@
       "lastCheck": {
         "ref": "test/layers.test.ts::dispatches by detect/extensions and rejects .d.ts and unknown files",
         "passed": true,
-        "at": "2026-06-13T07:40:40.563Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:34.555Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1463,10 +1463,10 @@
       "lastCheck": {
         "ref": "test/layers.test.ts::resolves lazily (async), memoizes, and resolveSync returns undefined without loadSync",
         "passed": true,
-        "at": "2026-06-13T07:40:41.723Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:35.735Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1487,10 +1487,10 @@
       "lastCheck": {
         "ref": "test/boundaries.test.ts::a forbidden src/model → src/export import fails depcruise, naming the violated rule",
         "passed": true,
-        "at": "2026-06-13T07:40:42.880Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:36.926Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1511,10 +1511,10 @@
       "lastCheck": {
         "ref": "test/multilang.test.ts::java: constructors, methods, fields, nested types — full member depth",
         "passed": true,
-        "at": "2026-06-13T07:40:44.108Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:38.186Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1528,10 +1528,10 @@
       "lastCheck": {
         "ref": "test/multilang.test.ts::python: classes, nested methods, functions, file-resolved imports",
         "passed": true,
-        "at": "2026-06-13T07:40:45.315Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:39.431Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1545,10 +1545,10 @@
       "lastCheck": {
         "ref": "test/multilang.test.ts::go and rust symbols, and the whole graph passes the contract",
         "passed": true,
-        "at": "2026-06-13T07:40:46.517Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:40.689Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1569,10 +1569,10 @@
       "lastCheck": {
         "ref": "test/multilang.test.ts::'from pkg.helpers import slugify' references slugify only — never a phantom 'helpers'",
         "passed": true,
-        "at": "2026-06-13T07:40:47.736Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:41.930Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1593,10 +1593,10 @@
       "lastCheck": {
         "ref": "test/multilang.test.ts::falls back to regex (shallow py/java, no go/rust) — never loads tree-sitter",
         "passed": true,
-        "at": "2026-06-13T07:40:48.952Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:43.198Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1610,10 +1610,10 @@
       "lastCheck": {
         "ref": "test/lazy-boundary.test.ts::sync revitify never resolves web-tree-sitter or grammar packages",
         "passed": true,
-        "at": "2026-06-13T07:40:50.107Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:44.397Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1634,10 +1634,10 @@
       "lastCheck": {
         "ref": "test/lazy-boundary.test.ts::positive control: the async path DOES resolve web-tree-sitter through the same hook",
         "passed": true,
-        "at": "2026-06-13T07:40:51.261Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:45.597Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1658,10 +1658,10 @@
       "lastCheck": {
         "ref": "test/cache.test.ts::second run is all hits; edits invalidate exactly one file; output identical",
         "passed": true,
-        "at": "2026-06-13T07:40:52.455Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:46.836Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1675,10 +1675,10 @@
       "lastCheck": {
         "ref": "test/cache.test.ts::adding a file invalidates the set (import resolution depends on the walked set)",
         "passed": true,
-        "at": "2026-06-13T07:40:53.637Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:48.069Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1692,10 +1692,10 @@
       "lastCheck": {
         "ref": "test/cache.test.ts::recovers from a corrupt stat-index and from evicted fragment files",
         "passed": true,
-        "at": "2026-06-13T07:40:54.840Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:49.345Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1716,10 +1716,10 @@
       "lastCheck": {
         "ref": "test/lazy-boundary.test.ts::worker-pool output matches sequential output exactly",
         "passed": true,
-        "at": "2026-06-13T07:40:56.101Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:50.675Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1740,10 +1740,10 @@
       "lastCheck": {
         "ref": "test/multimodal.test.ts::GATE: without keys the run never touches the network and equals the code-only graph",
         "passed": true,
-        "at": "2026-06-13T07:40:57.306Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:51.926Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1764,10 +1764,10 @@
       "lastCheck": {
         "ref": "test/multimodal.test.ts::anthropic → gemini → openai → ollama → none",
         "passed": true,
-        "at": "2026-06-13T07:40:58.503Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:53.162Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1781,10 +1781,10 @@
       "lastCheck": {
         "ref": "test/multimodal.test.ts::gemini, openai, ollama parse their shapes; anthropic errors loudly on non-ok",
         "passed": true,
-        "at": "2026-06-13T07:40:59.695Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:54.430Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1798,10 +1798,10 @@
       "lastCheck": {
         "ref": "test/multimodal.test.ts::with a key + mocked backend, PDFs contribute concept nodes",
         "passed": true,
-        "at": "2026-06-13T07:41:00.903Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:55.672Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1822,10 +1822,10 @@
       "lastCheck": {
         "ref": "test/multimodal.test.ts::tables, columns, and REFERENCES edges from DDL",
         "passed": true,
-        "at": "2026-06-13T07:41:02.104Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:56.905Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1839,10 +1839,10 @@
       "lastCheck": {
         "ref": "test/multimodal.test.ts::crate + dependency edges from Cargo.toml",
         "passed": true,
-        "at": "2026-06-13T07:41:03.301Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:58.148Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1863,10 +1863,10 @@
       "lastCheck": {
         "ref": "test/multimodal.test.ts::whisper + scip spawn, parse, and survive failures",
         "passed": true,
-        "at": "2026-06-13T07:41:04.506Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:02:59.389Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1880,10 +1880,10 @@
       "lastCheck": {
         "ref": "test/multimodal.test.ts::detect + available are honest",
         "passed": true,
-        "at": "2026-06-13T07:41:05.706Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:00.643Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1904,10 +1904,10 @@
       "lastCheck": {
         "ref": "test/query.test.ts::finds the shortest path between symbols across files",
         "passed": true,
-        "at": "2026-06-13T07:41:06.932Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:01.919Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1921,10 +1921,10 @@
       "lastCheck": {
         "ref": "test/query.test.ts::walks reverse dependencies transitively",
         "passed": true,
-        "at": "2026-06-13T07:41:08.168Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:03.201Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1945,10 +1945,10 @@
       "lastCheck": {
         "ref": "test/query.test.ts::idf-ranks matches and explains with neighbors",
         "passed": true,
-        "at": "2026-06-13T07:41:09.398Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:04.487Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1962,10 +1962,10 @@
       "lastCheck": {
         "ref": "test/query.test.ts::lists communities with size and cohesion in [0,1]",
         "passed": true,
-        "at": "2026-06-13T07:41:10.625Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:05.739Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -1979,10 +1979,10 @@
       "lastCheck": {
         "ref": "test/query.test.ts::appends JSONL entries",
         "passed": true,
-        "at": "2026-06-13T07:41:11.872Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:07.007Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2003,10 +2003,10 @@
       "lastCheck": {
         "ref": "test/query.test.ts::callflow keeps only calls; tree nests files; wiki sections communities; mermaid caps",
         "passed": true,
-        "at": "2026-06-13T07:41:13.116Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:08.298Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2020,10 +2020,10 @@
       "lastCheck": {
         "ref": "test/query.test.ts::exporters survive an empty graph",
         "passed": true,
-        "at": "2026-06-13T07:41:14.347Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:09.573Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2044,10 +2044,10 @@
       "lastCheck": {
         "ref": "test/report.test.ts::typescript: NOTE/WHY/HACK comments become nodes explained by the next symbol",
         "passed": true,
-        "at": "2026-06-13T07:41:15.531Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:10.824Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2061,10 +2061,10 @@
       "lastCheck": {
         "ref": "test/report.test.ts::python: docstrings and HACK comments via tree-sitter",
         "passed": true,
-        "at": "2026-06-13T07:41:16.748Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:12.084Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2085,10 +2085,10 @@
       "lastCheck": {
         "ref": "test/report.test.ts::ranks symbols only — file/doc/why nodes are excluded",
         "passed": true,
-        "at": "2026-06-13T07:41:17.966Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:13.307Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2109,10 +2109,10 @@
       "lastCheck": {
         "ref": "test/report.test.ts::carries god nodes, surprises, confidence, why-nodes, and ≥4 questions",
         "passed": true,
-        "at": "2026-06-13T07:41:19.165Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:14.521Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2126,10 +2126,10 @@
       "lastCheck": {
         "ref": "test/report.test.ts::suggestedQuestions seeds from brokers and ambiguity",
         "passed": true,
-        "at": "2026-06-13T07:41:20.395Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:15.755Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2150,10 +2150,10 @@
       "lastCheck": {
         "ref": "test/resolution.test.ts::structural contains/imports edges are EXTRACTED",
         "passed": true,
-        "at": "2026-06-13T07:41:21.653Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:16.980Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2167,10 +2167,10 @@
       "lastCheck": {
         "ref": "test/resolution.test.ts::a uniquely-resolved reference is INFERRED",
         "passed": true,
-        "at": "2026-06-13T07:41:22.861Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:18.210Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2191,10 +2191,10 @@
       "lastCheck": {
         "ref": "test/resolution.test.ts::same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)",
         "passed": true,
-        "at": "2026-06-13T07:41:24.064Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:19.448Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2208,10 +2208,10 @@
       "lastCheck": {
         "ref": "test/resolution.test.ts::falls back to lexicographic id order, still AMBIGUOUS",
         "passed": true,
-        "at": "2026-06-13T07:41:25.261Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:20.666Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2225,10 +2225,10 @@
       "lastCheck": {
         "ref": "test/resolution.test.ts::the pick is stable across runs",
         "passed": true,
-        "at": "2026-06-13T07:41:26.465Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:21.897Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2249,10 +2249,10 @@
       "lastCheck": {
         "ref": "test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets",
         "passed": true,
-        "at": "2026-06-13T07:41:28.871Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:24.386Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2273,10 +2273,10 @@
       "lastCheck": {
         "ref": "test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets",
         "passed": true,
-        "at": "2026-06-13T07:41:28.871Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:24.386Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2297,10 +2297,10 @@
       "lastCheck": {
         "ref": "test/resolution.test.ts::a previous revitify-out/ run is never ingested back into the graph",
         "passed": true,
-        "at": "2026-06-13T07:41:30.073Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:25.610Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2321,10 +2321,10 @@
       "lastCheck": {
         "ref": "test/serve.test.ts::serves the viewer and the allowlisted artifacts; blocks traversal",
         "passed": true,
-        "at": "2026-06-13T07:41:31.349Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:26.917Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2338,10 +2338,10 @@
       "lastCheck": {
         "ref": "test/serve.test.ts::answers the API routes",
         "passed": true,
-        "at": "2026-06-13T07:41:32.678Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:28.255Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2355,10 +2355,10 @@
       "lastCheck": {
         "ref": "test/serve.test.ts::reloads when graph.json changes on disk (watch-next-door pattern)",
         "passed": true,
-        "at": "2026-06-13T07:41:33.984Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:29.552Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2379,10 +2379,10 @@
       "lastCheck": {
         "ref": "test/serve.test.ts::lists the 7 graphify tools and answers query_graph + shortest_path",
         "passed": true,
-        "at": "2026-06-13T07:41:35.267Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:30.875Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2403,10 +2403,10 @@
       "lastCheck": {
         "ref": "test/serve.test.ts::install drops the skill; diagnose reports grammars",
         "passed": true,
-        "at": "2026-06-13T07:41:36.651Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:32.313Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2427,10 +2427,10 @@
       "lastCheck": {
         "ref": "test/viewer.test.ts::is fully offline: four libraries inlined, zero external sources",
         "passed": true,
-        "at": "2026-06-13T07:41:37.860Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:33.556Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2444,10 +2444,10 @@
       "lastCheck": {
         "ref": "test/viewer.test.ts::injects the graph at the DATA INJECTION POINT and keeps contract probes",
         "passed": true,
-        "at": "2026-06-13T07:41:39.051Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:34.789Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2461,10 +2461,10 @@
       "lastCheck": {
         "ref": "test/viewer.test.ts::escapes </script> sequences in data",
         "passed": true,
-        "at": "2026-06-13T07:41:40.267Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:36.028Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2478,10 +2478,10 @@
       "lastCheck": {
         "ref": "test/viewer.test.ts::still renders the zero-dependency canvas viewer via extraExporters",
         "passed": true,
-        "at": "2026-06-13T07:41:41.473Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:37.270Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
@@ -2495,10 +2495,10 @@
       "lastCheck": {
         "ref": "test/viewer.test.ts::docstrings surface as summary on their symbol (and stay as nodes)",
         "passed": true,
-        "at": "2026-06-13T07:41:42.684Z",
-        "sha": "19540ece8186a69e7709dace966d52bcc278cde5",
-        "tree": "98ee241bdf7fc52440b96cea21eecedb08cc97e1",
-        "dirty": false,
+        "at": "2026-06-13T08:03:38.529Z",
+        "sha": "71dfa47f996d0eb92f938571c51e23ec54ae9d63",
+        "tree": "ff84a2804eccc0d91940fa6b9749bebff84426d3",
+        "dirty": true,
         "stack": "node-vitest",
         "kind": "unit"
       }
