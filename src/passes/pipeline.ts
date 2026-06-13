@@ -1,26 +1,22 @@
 import { readFileSync } from "node:fs";
 import { defaultIngestors } from "../ingest/index.js";
 import { walkFileRefs } from "../ingest/walk.js";
-import type { RevitifyGraph, RevitifyLink, RevitifyNode } from "../model/graph.js";
-import { assignCommunities } from "./cluster.js";
-import { dedupNodes } from "./dedup/index.js";
-import { gitHead } from "./git.js";
-import { resolveReferences } from "./resolve.js";
-import { attachSummaries } from "./summarize.js";
+import type { GraphFragment } from "../model/fragment.js";
+import type { RevitifyGraph } from "../model/graph.js";
+import { finalizeGraph } from "./finalize.js";
 
 /**
  * The three-pass pipeline (synchronous facade path):
  *   1. extract — walk files, first matching offline ingestor contributes a fragment
- *   2. infer   — resolve name: references, drop dangling links
- *   3. cluster — assign communities
- * Fragment merge keeps first-seen nodes and per-file link order — the byte-stable ordering the
- * contract test pins. buildGraphAsync (Phase 2) adds lazy/parallel extraction on the same shape.
+ *   2. infer   — resolve name: references, drop dangling links  ┐ shared finalizeGraph
+ *   3. cluster — assign communities                             ┘ (identical to the async path)
+ * Uses ingestSync only — today's zero-heavy-dep capability, frozen for Rivet. buildGraphAsync
+ * adds lazy/parallel/cached extraction over the same fragments → finalizeGraph shape.
  */
 export function buildGraphFromRoot(rootDir: string): RevitifyGraph {
   const refs = walkFileRefs(rootDir);
   const knownFiles: ReadonlySet<string> = new Set(refs.map((r) => r.relPath));
-  const nodes = new Map<string, RevitifyNode>();
-  const links: RevitifyLink[] = [];
+  const fragments = new Map<string, GraphFragment>();
   for (const ref of refs) {
     const ingestor = defaultIngestors.find((i) => i.ingestSync && i.detect(ref));
     if (!ingestor?.available(process.env)) continue;
@@ -30,20 +26,7 @@ export function buildGraphFromRoot(rootDir: string): RevitifyGraph {
     } catch {
       continue; // unreadable/binary — never fatal
     }
-    const fragment = ingestor.ingestSync!({ ...ref, content }, { rootDir, knownFiles });
-    for (const node of fragment.nodes) {
-      if (!nodes.has(node.id)) nodes.set(node.id, node);
-    }
-    links.push(...fragment.links);
+    fragments.set(ref.relPath, ingestor.ingestSync!({ ...ref, content }, { rootDir, knownFiles }));
   }
-  const resolved = resolveReferences(nodes, links);
-  const deduped = dedupNodes([...nodes.values()], resolved);
-  attachSummaries(deduped.nodes, deduped.links);
-  assignCommunities(deduped.nodes, deduped.links);
-  const head = gitHead(rootDir);
-  return {
-    nodes: deduped.nodes,
-    links: deduped.links,
-    ...(head ? { built_at_commit: head } : {}),
-  };
+  return finalizeGraph(rootDir, refs, fragments);
 }

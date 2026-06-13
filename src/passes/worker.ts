@@ -1,7 +1,6 @@
-import { readFileSync } from "node:fs";
 import type { MessagePort } from "node:worker_threads";
-import { defaultIngestors } from "../ingest/index.js";
 import type { FileRef, GraphFragment } from "../model/fragment.js";
+import { extractOne } from "./extract.js";
 
 /**
  * Worker-thread extraction body (parallel path of buildGraphAsync). Each worker owns its own
@@ -26,19 +25,10 @@ export async function workerMain(input: WorkerInput, port: MessagePort): Promise
     const knownFiles: ReadonlySet<string> = new Set(input.knownFiles);
     const fragments: WorkerOutput["fragments"] = [];
     for (const ref of input.files) {
-      const ingestor = defaultIngestors.find((i) => i.detect(ref));
-      if (!ingestor?.available(process.env)) continue;
-      let content: string;
-      try {
-        content = readFileSync(ref.path, "utf8");
-      } catch {
-        continue;
-      }
-      const fragment = await ingestor.ingest(
-        { ...ref, content },
-        { rootDir: input.rootDir, knownFiles },
-      );
-      fragments.push({ relPath: ref.relPath, fragment });
+      // No cache in the worker — the pool caches on the main thread after reassembly, where the
+      // AstCache lives. The same extractOne the sequential path uses, so behavior is identical.
+      const fragment = await extractOne(input.rootDir, ref, knownFiles, undefined);
+      if (fragment) fragments.push({ relPath: ref.relPath, fragment });
     }
     port.postMessage({ fragments } satisfies WorkerOutput);
   } catch (err) {
