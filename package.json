@@ -1,7 +1,7 @@
 {
   "name": "revitify",
   "version": "0.1.0",
-  "description": "Revitify \u2014 Rivet's native TypeScript code-knowledge-graph engine. Same output contract as graphify (graph.json \u00b7 graph.html \u00b7 GRAPH_REPORT.md), zero Python required. Concepts adapted from graphify (MIT, github.com/safishamsi/graphify); original implementation.",
+  "description": "Revitify — Rivet's native TypeScript code-knowledge-graph engine. Same output contract as graphify (graph.json · graph.html · GRAPH_REPORT.md), zero Python required. Concepts adapted from graphify (MIT, github.com/safishamsi/graphify); original implementation.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./src/index.ts",
@@ -25,7 +25,10 @@
     "format": "biome check --write .",
     "knip": "knip",
     "depcruise": "depcruise src --config .dependency-cruiser.cjs",
-    "check": "pnpm run build && pnpm run lint && pnpm run knip && pnpm run depcruise && pnpm run test:coverage"
+    "check": "pnpm run build && pnpm run lint && pnpm run knip && pnpm run depcruise && pnpm run test:coverage",
+    "docs:dev": "vitepress dev website",
+    "docs:build": "vitepress build website",
+    "docs:preview": "vitepress preview website"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
@@ -57,6 +60,7 @@
     "dependency-cruiser": "^17.4.3",
     "knip": "^6.16.1",
     "vite": "^8.0.16",
+    "vitepress": "^1.6.4",
     "vitest": "^4.1.8"
   },
   "exports": {

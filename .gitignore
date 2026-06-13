@@ -11,3 +11,5 @@ coverage/
 Revitify.zip
 .revitify/
 .claude/
+website/.vitepress/dist/
+website/.vitepress/cache/
