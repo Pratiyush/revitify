@@ -16,7 +16,7 @@ const OVERSIZED_MIN = 10;
 const COHESION_THRESHOLD = 0.05;
 const COHESION_MIN = 50;
 
-type Adjacency = Map<string, Map<string, number>>;
+export type Adjacency = Map<string, Map<string, number>>;
 
 export function assignCommunities(nodes: RevitifyNode[], links: readonly RevitifyLink[]): void {
   const ids = nodes.map((n) => n.id);
@@ -176,8 +176,16 @@ function splitDisconnected(
   return out;
 }
 
-/** graphify's post-passes: oversized (>25%, ≥10) and incohesive (<0.05, ≥50) re-split. */
-function resplitOversizedAndIncohesive(
+/**
+ * graphify's post-passes: oversized (>25%, ≥10) and incohesive (<0.05, ≥50) re-split. Exported
+ * (with cohesion) for direct testing: the incohesive branch is a faithful defensive port, but our
+ * deterministic Louvain never yields a sub-0.05-cohesion community on its own output — a community
+ * whose external edges dwarf its internal ones is modularity-negative, so every member would have
+ * already defected. It is therefore exercised by feeding a crafted assignment, not an organic graph
+ * (it would matter if external community labels were ever imported). The oversized branch IS
+ * reachable and covered through assignCommunities.
+ */
+export function resplitOversizedAndIncohesive(
   ids: readonly string[],
   adj: Adjacency,
   community: Map<string, number>,
@@ -216,7 +224,7 @@ function resplitOversizedAndIncohesive(
   return community;
 }
 
-function cohesion(
+export function cohesion(
   members: readonly string[],
   adj: Adjacency,
   community: Map<string, number>,

@@ -26,6 +26,14 @@ export type { BuildOptions } from "./passes/pipeline-async.js";
  * enforced boundaries.
  */
 
+/**
+ * Sync build — frozen signature, forever. Zero heavy deps: TS/JS get full compiler-API depth, but
+ * every OTHER language gets only the shallow regex fallback (top-level symbols) or a bare file node
+ * — NOT tree-sitter. For all-language depth, use buildGraphAsync (the CLI always does). Both are
+ * public API and both return the same contract shape, but for a non-TS/JS repo they can legitimately
+ * differ in DETAIL — that is the deliberate sync/async contract, not a bug. The whole graph is held
+ * in memory: the deliberate scale ceiling (see docs/guide/architecture.md → Scale ceiling).
+ */
 export function buildGraph(rootDir: string): RevitifyGraph {
   return buildGraphFromRoot(rootDir);
 }

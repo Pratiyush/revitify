@@ -127,6 +127,22 @@ The graph shape — `nodes[].{id,name,label,kind,source_file,source_location,com
   (sized to your cores), reassembling fragments in walk order so output stays byte-identical to the
   sequential path — verified by a test.
 
+## Scale ceiling
+
+The whole graph — every node and link — is held in memory for the duration of a build (and a serve).
+This is a deliberate ceiling, not an oversight: it keeps the passes (resolve, dedup, cluster,
+centrality) simple, deterministic, and fast for the repositories revitify targets — comfortably into
+the low hundreds of thousands of nodes. Two consequences are named rather than hidden:
+
+- **Betweenness** (the report's suggested questions) samples at most 500 BFS sources, reusing a
+  once-built adjacency index, and is **skipped entirely above ~20k nodes** — the report stays inside
+  its time budget; the "what brokers the most paths" question simply drops out.
+- **Output is materialized, not streamed** — `graph.json` is built whole and written once.
+
+If a graph ever outgrows memory, the fix is streaming/segmented output — but that costs real
+determinism and complicates the byte-stable contract, so it's deferred until someone actually hits
+OOM rather than paid for speculatively.
+
 ## Opt-in, key-gated multimodal
 
 Beyond code, revitify can ingest docs/PDFs/images (concepts via an LLM backend), audio/video (via a
