@@ -1,12 +1,8 @@
 # RESUME — state-only handoff (generated from the journal; do not edit)
 
-Board: 0/35 task(s) done.
+Board: 35/35 task(s) done.
 
-## THE ONE OPEN ACTION
-
-→ **REQUIREMENT_CLI-01** — the verb surface (pending)
-  ○ unproven: `test/cli.test.ts::--help lists verbs; unknown verb exits 1`
-
+✅ all task(s) done — nothing open. Next: `rivet graph build` → `rivet pr`.
 ## Rebuild truth
 
 `rivet status` · `rivet graph build` · `rivet log -n 10`
