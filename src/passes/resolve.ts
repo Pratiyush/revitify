@@ -56,5 +56,6 @@ function pick(
     }
   }
   // Unreachable (global tier matches everything), kept for type narrowing.
+  /* v8 ignore next -- the global tier (() => true) matches every candidate; the loop always returns */
   return { target: candidates[0] as string, confidence: Confidence.AMBIGUOUS };
 }

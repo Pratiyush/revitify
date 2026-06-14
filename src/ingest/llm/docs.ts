@@ -52,6 +52,7 @@ export function parseConcepts(raw: string): string[] {
   if (!match) return [];
   try {
     const parsed: unknown = JSON.parse(match[0]);
+    /* v8 ignore next -- a regex-captured "[...]" that JSON.parses is always an array */
     if (!Array.isArray(parsed)) return [];
     return parsed
       .filter((c): c is string => typeof c === "string")

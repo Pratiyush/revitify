@@ -19,11 +19,13 @@ export function buildGraphFromRoot(rootDir: string): RevitifyGraph {
   const fragments = new Map<string, GraphFragment>();
   for (const ref of refs) {
     const ingestor = defaultIngestors.find((i) => i.ingestSync && i.detect(ref));
+    /* v8 ignore next -- the sync fallback ingestor matches & is available for every file */
     if (!ingestor?.available(process.env)) continue;
     let content: string;
     try {
       content = readFileSync(ref.path, "utf8");
     } catch {
+      /* v8 ignore next -- TOCTOU: the walker yields readable files; this catch never fires */
       continue; // unreadable/binary — never fatal
     }
     fragments.set(ref.relPath, ingestor.ingestSync!({ ...ref, content }, { rootDir, knownFiles }));

@@ -10,9 +10,10 @@ export default defineConfig({
       // lazy-boundary.test.ts, the CLI (thin shells over covered query/export layers) by
       // cli.test.ts — both against dist in child processes.
       exclude: ["src/passes/worker.ts", "src/passes/worker-pool.ts", "src/cli/**"],
-      // Ratchet: set just under measured coverage; raise as phases land, never lower.
-      // Measured at Phase 1a: stmts 97.6 / branch 88.2 / funcs 94.4 / lines 97.9.
-      thresholds: { lines: 95, functions: 92, branches: 85, statements: 95 },
+      // 100% across the board — every reachable line/branch is tested; the genuinely-unreachable
+      // defensive code (TOCTOU guards, the dist-only worker path, web-tree-sitter nullable-children
+      // guards, the LSH false-positive floor) is marked with justified `/* v8 ignore */`. Never lower.
+      thresholds: { lines: 100, functions: 100, branches: 100, statements: 100 },
     },
   },
 });

@@ -51,6 +51,7 @@ function ingestSync(file: SourceFile): GraphFragment {
   const crateId = symId(rel, crate);
   if (!b.seen.has(crateId)) {
     for (const l of b.links) {
+      /* v8 ignore next -- every dep link's source is crateId here; a non-matching source is unconstructable */
       if (String(l.source) === crateId) l.source = fileId;
     }
   }

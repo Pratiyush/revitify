@@ -32,6 +32,7 @@ export async function extractOne(
     }
   }
   ingestor ??= defaultIngestors.find((i) => i.detect(ref));
+  /* v8 ignore next -- the fallback file ingestor matches & is available for every file */
   if (!ingestor?.available(process.env)) return undefined;
   let content: string;
   try {

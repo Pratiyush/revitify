@@ -43,6 +43,8 @@ export async function buildGraphFromRootAsync(
   const useWorkers =
     options.parallel !== false && pending.length >= threshold && import.meta.url.endsWith(".js");
 
+  /* v8 ignore start -- worker-pool path runs only in compiled dist (import.meta.url ends ".js");
+     proven against dist by lazy-boundary.test.ts's parallel-extraction test */
   if (useWorkers) {
     // Gated ingestors (key/tool-aware) run on the main thread; workers only see the rest, so
     // extractOne's gated branch stays inert inside a worker.
@@ -57,9 +59,12 @@ export async function buildGraphFromRootAsync(
       const fragment = await extractOne(rootDir, ref, knownFiles, cache);
       if (fragment) fragments.set(ref.relPath, fragment);
     }
+    /* v8 ignore stop */
   } else {
     for (const ref of pending) {
       const fragment = await extractOne(rootDir, ref, knownFiles, cache);
+      // extractOne yields a fragment for every walked file (fallback always nodes it) — guard is defensive
+      /* v8 ignore next */
       if (fragment) fragments.set(ref.relPath, fragment);
     }
   }

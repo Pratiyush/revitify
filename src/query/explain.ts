@@ -1,4 +1,4 @@
-import type { RevitifyNode } from "../model/graph.js";
+import type { RevitifyLink, RevitifyNode } from "../model/graph.js";
 import type { GraphIndex } from "./graph.js";
 import { neighborhood } from "./traverse.js";
 
@@ -34,7 +34,7 @@ export function searchNodes(index: GraphIndex, query: string, limit = 10): Score
   for (let i = 0; i < nodes.length; i++) {
     let score = 0;
     for (const term of terms) {
-      if (docs[i]?.has(term)) score += idf.get(term) ?? 0;
+      if ((docs[i] as Set<string>).has(term)) score += idf.get(term) as number;
     }
     if (score > 0) scored.push({ node: nodes[i] as RevitifyNode, score });
   }
@@ -60,7 +60,8 @@ export function explain(index: GraphIndex, query: string, seeds = 3): string {
       // O(degree), not O(E): the connecting edge is in this node's own out/in adjacency.
       const edge =
         (index.out.get(node.id) ?? []).find((l) => String(l.target) === r.id) ??
-        (index.in.get(node.id) ?? []).find((l) => String(l.source) === r.id);
+        // reached only when the out-edge missed, so r links IN to node → in.get(node.id) is defined
+        (index.in.get(node.id) as RevitifyLink[]).find((l) => String(l.source) === r.id);
       lines.push(`- ${edge?.relation ?? "linked to"} **${r.label}** (\`${r.source_file}\`)`);
     }
     lines.push("");

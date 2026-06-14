@@ -151,7 +151,7 @@ export const typescriptExtractor: Extractor = {
       }
     }
     for (const m of file.content.matchAll(commentRe)) {
-      const start = m.index ?? 0;
+      const start = m.index as number; // matchAll always sets a numeric .index
       let line = lineStarts.findIndex((s) => s > start);
       line = line === -1 ? lineStarts.length : line; // 1-based line of the comment start
       const commentLines = (m[0].match(/\n/g)?.length ?? 0) + 1;

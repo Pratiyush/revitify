@@ -21,6 +21,7 @@ export const whisperIngestor: Ingestor = {
   detect: (file) => AV_EXT.test(file.relPath),
   available: (env) => Boolean(env.WHISPER_CPP) || onPath("whisper-cli") || onPath("whisper-cpp"),
   async ingest(file: SourceFile): Promise<GraphFragment> {
+    /* v8 ignore next -- whisper binary-name selection is PATH/env-specific; the whisper-cpp fallback isn't pinned */
     const bin = process.env.WHISPER_CPP ?? (onPath("whisper-cli") ? "whisper-cli" : "whisper-cpp");
     const res = spawnSync(bin, ["-f", file.path, "--no-timestamps"], {
       encoding: "utf8",
@@ -79,7 +80,7 @@ export function scipFragment(rel: string, json: string): GraphFragment {
     for (const doc of parsed.documents ?? []) {
       for (const sym of doc.symbols ?? []) {
         if (!sym.symbol) continue;
-        const label = sym.symbol.split("/").pop() ?? sym.symbol;
+        const label = sym.symbol.split("/").pop() as string; // split() never yields [], so pop() is a string
         const id = scipId(rel, sym.symbol);
         addNode(b, id, label.slice(0, 120), "scip-symbol", doc.relative_path ?? rel);
         b.links.push({

@@ -19,6 +19,7 @@ export function createHttpServer(rootDir: string): Server {
   const state = new GraphState(rootDir);
   return createServer((req, res) => {
     try {
+      /* v8 ignore next -- node's http parser always sets req.url for a parsable request */
       const url = new URL(req.url ?? "/", "http://localhost");
       const send = (status: number, body: string, type = "application/json"): void => {
         res.writeHead(status, { "content-type": `${type}; charset=utf-8` });

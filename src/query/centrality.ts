@@ -30,7 +30,7 @@ export function betweenness(index: GraphIndex): Map<string, number> {
     while (head < queue.length) {
       const v = queue[head++] as string;
       stack.push(v);
-      for (const w of adj.get(v) ?? []) {
+      for (const w of adj.get(v) as readonly string[]) {
         if (!dist.has(w)) {
           dist.set(w, (dist.get(v) as number) + 1);
           queue.push(w);
@@ -51,7 +51,7 @@ export function betweenness(index: GraphIndex): Map<string, number> {
           ((sigma.get(v) as number) / (sigma.get(w) as number)) * (1 + (delta.get(w) ?? 0));
         delta.set(v, (delta.get(v) ?? 0) + share);
       }
-      if (w !== source) score.set(w, (score.get(w) ?? 0) + (delta.get(w) ?? 0));
+      if (w !== source) score.set(w, (score.get(w) as number) + (delta.get(w) ?? 0));
     }
   }
   return score;

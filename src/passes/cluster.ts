@@ -115,18 +115,21 @@ function localMoving(ids: readonly string[], adj: Adjacency, labels: Map<string,
         const c = labels.get(nb) as number;
         weightTo.set(c, (weightTo.get(c) ?? 0) + w);
       }
-      communityDegree.set(current, (communityDegree.get(current) ?? 0) - k);
+      // communityDegree is seeded for every label (above) and only ever updated, never deleted —
+      // so every .get here is defined; the casts state that (vs a `?? 0` for an impossible miss).
+      communityDegree.set(current, (communityDegree.get(current) as number) - k);
       let best = current;
-      let bestGain = (weightTo.get(current) ?? 0) - ((communityDegree.get(current) ?? 0) * k) / m2;
+      let bestGain =
+        (weightTo.get(current) ?? 0) - ((communityDegree.get(current) as number) * k) / m2;
       for (const [c, w] of [...weightTo.entries()].sort((a, b) => a[0] - b[0])) {
         if (c === current) continue;
-        const gain = w - ((communityDegree.get(c) ?? 0) * k) / m2;
+        const gain = w - ((communityDegree.get(c) as number) * k) / m2;
         if (gain > bestGain + 1e-12) {
           bestGain = gain;
           best = c;
         }
       }
-      communityDegree.set(best, (communityDegree.get(best) ?? 0) + k);
+      communityDegree.set(best, (communityDegree.get(best) as number) + k);
       if (best !== current) {
         labels.set(id, best);
         movedThisSweep = true;
