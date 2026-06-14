@@ -3,7 +3,7 @@ window.RIVET = {
     "project": "rivet",
     "tagline": "evidence-bound delivery",
     "configPath": ".rivet/config.json",
-    "generatedAt": "2026-06-14T08:16:44.598Z",
+    "generatedAt": "2026-06-14T09:09:35.038Z",
     "serverMode": false,
     "refreshSeconds": 15,
     "inFlightTasks": []
@@ -81,7 +81,7 @@ window.RIVET = {
           },
           "test/cli.test.ts::help lists every verb; unknown verb exits 1": {
             "passed": true,
-            "at": "2026-06-14T08:14:35.053Z",
+            "at": "2026-06-14T09:07:40.881Z",
             "kind": "unit"
           }
         }
@@ -96,7 +96,7 @@ window.RIVET = {
         "results": {
           "test/cli.test.ts::build → query → path → affected → communities → export → validate, end to end": {
             "passed": true,
-            "at": "2026-06-14T08:14:37.226Z",
+            "at": "2026-06-14T09:07:42.800Z",
             "kind": "unit"
           }
         }
@@ -113,17 +113,17 @@ window.RIVET = {
         "results": {
           "test/cli.test.ts::rebuilds on change (initial build, then incremental)": {
             "passed": true,
-            "at": "2026-06-14T08:14:38.475Z",
+            "at": "2026-06-14T09:07:43.805Z",
             "kind": "unit"
           },
           "test/cli.test.ts::global merges repos with repo: prefixes": {
             "passed": true,
-            "at": "2026-06-14T08:14:40.760Z",
+            "at": "2026-06-14T09:07:44.933Z",
             "kind": "unit"
           },
           "test/cli.test.ts::prs reports diff impact in a git repo": {
             "passed": true,
-            "at": "2026-06-14T08:14:43.119Z",
+            "at": "2026-06-14T09:07:46.284Z",
             "kind": "unit"
           }
         }
@@ -138,7 +138,7 @@ window.RIVET = {
         "results": {
           "test/revitify.test.ts::emits graph.json + self-contained graph.html + GRAPH_REPORT.md (default: revitify-out/)": {
             "passed": true,
-            "at": "2026-06-14T08:14:44.783Z",
+            "at": "2026-06-14T09:07:47.569Z",
             "kind": "unit"
           }
         }
@@ -153,7 +153,7 @@ window.RIVET = {
         "results": {
           "test/revitify.test.ts::keeps Rivet's call shape working: revitify(dir, 'graphify-out')": {
             "passed": true,
-            "at": "2026-06-14T08:14:46.267Z",
+            "at": "2026-06-14T09:07:48.891Z",
             "kind": "unit"
           }
         }
@@ -170,17 +170,17 @@ window.RIVET = {
         "results": {
           "test/revitify.test.ts::builds containment, import, and reference edges with source_file + community on nodes": {
             "passed": true,
-            "at": "2026-06-14T08:14:47.821Z",
+            "at": "2026-06-14T09:07:50.227Z",
             "kind": "unit"
           },
           "test/contract.test.ts::a canonical symbol node carries exactly the contract fields": {
             "passed": true,
-            "at": "2026-06-14T08:14:49.349Z",
+            "at": "2026-06-14T09:07:51.552Z",
             "kind": "unit"
           },
           "test/contract.test.ts::contract drift fails loudly, naming index and field (negative floor)": {
             "passed": true,
-            "at": "2026-06-14T08:14:50.815Z",
+            "at": "2026-06-14T09:07:52.837Z",
             "kind": "unit"
           }
         }
@@ -196,12 +196,12 @@ window.RIVET = {
         "results": {
           "test/contract.test.ts::graph.json is byte-identical to the committed expectation (refactor pin)": {
             "passed": true,
-            "at": "2026-06-14T08:14:52.347Z",
+            "at": "2026-06-14T09:07:54.072Z",
             "kind": "unit"
           },
           "test/contract.test-d.ts::RevitifyGraph stays assignable to the shape Rivet's loadCodeGraph reads": {
             "passed": true,
-            "at": "2026-06-14T08:14:53.798Z",
+            "at": "2026-06-14T09:07:55.218Z",
             "kind": "unit"
           }
         }
@@ -217,12 +217,12 @@ window.RIVET = {
         "results": {
           "test/intelligence.test.ts::symbol→symbol calls edges, confidence-tagged": {
             "passed": true,
-            "at": "2026-06-14T08:14:55.332Z",
+            "at": "2026-06-14T09:07:56.458Z",
             "kind": "unit"
           },
           "test/intelligence.test.ts::unresolvable callees (built-ins) leave no edge": {
             "passed": true,
-            "at": "2026-06-14T08:14:56.900Z",
+            "at": "2026-06-14T09:07:57.780Z",
             "kind": "unit"
           }
         }
@@ -238,12 +238,12 @@ window.RIVET = {
         "results": {
           "test/intelligence.test.ts::same-file beats same-dir beats global; unique-in-tier is INFERRED": {
             "passed": true,
-            "at": "2026-06-14T08:14:58.707Z",
+            "at": "2026-06-14T09:07:59.098Z",
             "kind": "unit"
           },
           "test/intelligence.test.ts::ties within the winning tier are AMBIGUOUS with lexicographic pick": {
             "passed": true,
-            "at": "2026-06-14T08:15:00.401Z",
+            "at": "2026-06-14T09:08:00.435Z",
             "kind": "unit"
           }
         }
@@ -259,12 +259,12 @@ window.RIVET = {
         "results": {
           "test/intelligence.test.ts::merges near-duplicate headings, rewrites links, never touches code symbols": {
             "passed": true,
-            "at": "2026-06-14T08:15:02.131Z",
+            "at": "2026-06-14T09:08:01.760Z",
             "kind": "unit"
           },
           "test/algorithms.test.ts::no docs / single doc: nothing merges, exact duplicate links still drop": {
             "passed": true,
-            "at": "2026-06-14T08:15:03.546Z",
+            "at": "2026-06-14T09:08:02.777Z",
             "kind": "unit"
           }
         }
@@ -281,17 +281,17 @@ window.RIVET = {
         "results": {
           "test/intelligence.test.ts::separates the two clusters; deterministic across runs": {
             "passed": true,
-            "at": "2026-06-14T08:15:05.378Z",
+            "at": "2026-06-14T09:08:04.011Z",
             "kind": "unit"
           },
           "test/intelligence.test.ts::isolated nodes get their own communities": {
             "passed": true,
-            "at": "2026-06-14T08:15:07.258Z",
+            "at": "2026-06-14T09:08:05.234Z",
             "kind": "unit"
           },
           "test/algorithms.test.ts::an oversized clique triggers the re-split pass and survives unsplit (no substructure)": {
             "passed": true,
-            "at": "2026-06-14T08:15:09.727Z",
+            "at": "2026-06-14T09:08:07.262Z",
             "kind": "unit"
           }
         }
@@ -306,7 +306,7 @@ window.RIVET = {
         "results": {
           "test/layers.test.ts::dispatches by detect/extensions and rejects .d.ts and unknown files": {
             "passed": true,
-            "at": "2026-06-14T08:15:11.027Z",
+            "at": "2026-06-14T09:08:08.452Z",
             "kind": "unit"
           }
         }
@@ -322,12 +322,12 @@ window.RIVET = {
         "results": {
           "test/layers.test.ts::resolves lazily (async), memoizes, and resolveSync returns undefined without loadSync": {
             "passed": true,
-            "at": "2026-06-14T08:15:12.316Z",
+            "at": "2026-06-14T09:08:09.639Z",
             "kind": "unit"
           },
           "test/boundaries.test.ts::a forbidden src/model → src/export import fails depcruise, naming the violated rule": {
             "passed": true,
-            "at": "2026-06-14T08:15:13.642Z",
+            "at": "2026-06-14T09:08:10.858Z",
             "kind": "unit"
           }
         }
@@ -345,22 +345,22 @@ window.RIVET = {
         "results": {
           "test/multilang.test.ts::java: constructors, methods, fields, nested types — full member depth": {
             "passed": true,
-            "at": "2026-06-14T08:15:15.079Z",
+            "at": "2026-06-14T09:08:12.108Z",
             "kind": "unit"
           },
           "test/multilang.test.ts::python: classes, nested methods, functions, file-resolved imports": {
             "passed": true,
-            "at": "2026-06-14T08:15:16.445Z",
+            "at": "2026-06-14T09:08:13.369Z",
             "kind": "unit"
           },
           "test/multilang.test.ts::go and rust symbols, and the whole graph passes the contract": {
             "passed": true,
-            "at": "2026-06-14T08:15:17.809Z",
+            "at": "2026-06-14T09:08:14.617Z",
             "kind": "unit"
           },
           "test/multilang.test.ts::'from pkg.helpers import slugify' references slugify only — never a phantom 'helpers'": {
             "passed": true,
-            "at": "2026-06-14T08:15:19.162Z",
+            "at": "2026-06-14T09:08:15.882Z",
             "kind": "unit"
           }
         }
@@ -377,17 +377,17 @@ window.RIVET = {
         "results": {
           "test/multilang.test.ts::falls back to regex (shallow py/java, no go/rust) — never loads tree-sitter": {
             "passed": true,
-            "at": "2026-06-14T08:15:20.553Z",
+            "at": "2026-06-14T09:08:17.139Z",
             "kind": "unit"
           },
           "test/lazy-boundary.test.ts::sync revitify never resolves web-tree-sitter or grammar packages": {
             "passed": true,
-            "at": "2026-06-14T08:15:21.859Z",
+            "at": "2026-06-14T09:08:18.350Z",
             "kind": "unit"
           },
           "test/lazy-boundary.test.ts::positive control: the async path DOES resolve web-tree-sitter through the same hook": {
             "passed": true,
-            "at": "2026-06-14T08:15:23.202Z",
+            "at": "2026-06-14T09:08:19.563Z",
             "kind": "unit"
           }
         }
@@ -404,17 +404,17 @@ window.RIVET = {
         "results": {
           "test/cache.test.ts::second run is all hits; edits invalidate exactly one file; output identical": {
             "passed": true,
-            "at": "2026-06-14T08:15:24.596Z",
+            "at": "2026-06-14T09:08:20.823Z",
             "kind": "unit"
           },
           "test/cache.test.ts::adding a file invalidates the set (import resolution depends on the walked set)": {
             "passed": true,
-            "at": "2026-06-14T08:15:26.478Z",
+            "at": "2026-06-14T09:08:22.059Z",
             "kind": "unit"
           },
           "test/cache.test.ts::recovers from a corrupt stat-index and from evicted fragment files": {
             "passed": true,
-            "at": "2026-06-14T08:15:28.719Z",
+            "at": "2026-06-14T09:08:23.299Z",
             "kind": "unit"
           }
         }
@@ -429,7 +429,7 @@ window.RIVET = {
         "results": {
           "test/lazy-boundary.test.ts::worker-pool output matches sequential output exactly": {
             "passed": true,
-            "at": "2026-06-14T08:15:30.265Z",
+            "at": "2026-06-14T09:08:24.594Z",
             "kind": "unit"
           }
         }
@@ -444,7 +444,7 @@ window.RIVET = {
         "results": {
           "test/multimodal.test.ts::GATE: without keys the run never touches the network and equals the code-only graph": {
             "passed": true,
-            "at": "2026-06-14T08:15:31.634Z",
+            "at": "2026-06-14T09:08:25.833Z",
             "kind": "unit"
           }
         }
@@ -461,17 +461,17 @@ window.RIVET = {
         "results": {
           "test/multimodal.test.ts::anthropic → gemini → openai → ollama → none": {
             "passed": true,
-            "at": "2026-06-14T08:15:33.113Z",
+            "at": "2026-06-14T09:08:27.068Z",
             "kind": "unit"
           },
           "test/multimodal.test.ts::gemini, openai, ollama parse their shapes; anthropic errors loudly on non-ok": {
             "passed": true,
-            "at": "2026-06-14T08:15:34.515Z",
+            "at": "2026-06-14T09:08:28.308Z",
             "kind": "unit"
           },
           "test/multimodal.test.ts::with a key + mocked backend, PDFs contribute concept nodes": {
             "passed": true,
-            "at": "2026-06-14T08:15:35.978Z",
+            "at": "2026-06-14T09:08:29.546Z",
             "kind": "unit"
           }
         }
@@ -487,12 +487,12 @@ window.RIVET = {
         "results": {
           "test/multimodal.test.ts::tables, columns, and REFERENCES edges from DDL": {
             "passed": true,
-            "at": "2026-06-14T08:15:37.324Z",
+            "at": "2026-06-14T09:08:30.776Z",
             "kind": "unit"
           },
           "test/multimodal.test.ts::crate + dependency edges from Cargo.toml": {
             "passed": true,
-            "at": "2026-06-14T08:15:38.685Z",
+            "at": "2026-06-14T09:08:32.022Z",
             "kind": "unit"
           }
         }
@@ -508,12 +508,12 @@ window.RIVET = {
         "results": {
           "test/multimodal.test.ts::whisper + scip spawn, parse, and survive failures": {
             "passed": true,
-            "at": "2026-06-14T08:15:40.103Z",
+            "at": "2026-06-14T09:08:33.274Z",
             "kind": "unit"
           },
           "test/multimodal.test.ts::detect + available are honest": {
             "passed": true,
-            "at": "2026-06-14T08:15:41.496Z",
+            "at": "2026-06-14T09:08:34.527Z",
             "kind": "unit"
           }
         }
@@ -529,12 +529,12 @@ window.RIVET = {
         "results": {
           "test/query.test.ts::finds the shortest path between symbols across files": {
             "passed": true,
-            "at": "2026-06-14T08:15:42.893Z",
+            "at": "2026-06-14T09:08:35.802Z",
             "kind": "unit"
           },
           "test/query.test.ts::walks reverse dependencies transitively": {
             "passed": true,
-            "at": "2026-06-14T08:15:44.283Z",
+            "at": "2026-06-14T09:08:37.065Z",
             "kind": "unit"
           }
         }
@@ -551,17 +551,17 @@ window.RIVET = {
         "results": {
           "test/query.test.ts::idf-ranks matches and explains with neighbors": {
             "passed": true,
-            "at": "2026-06-14T08:15:45.667Z",
+            "at": "2026-06-14T09:08:38.336Z",
             "kind": "unit"
           },
           "test/query.test.ts::lists communities with size and cohesion in [0,1]": {
             "passed": true,
-            "at": "2026-06-14T08:15:47.103Z",
+            "at": "2026-06-14T09:08:39.613Z",
             "kind": "unit"
           },
           "test/query.test.ts::appends JSONL entries": {
             "passed": true,
-            "at": "2026-06-14T08:15:48.586Z",
+            "at": "2026-06-14T09:08:40.903Z",
             "kind": "unit"
           }
         }
@@ -577,12 +577,12 @@ window.RIVET = {
         "results": {
           "test/query.test.ts::callflow keeps only calls; tree nests files; wiki sections communities; mermaid caps": {
             "passed": true,
-            "at": "2026-06-14T08:15:49.986Z",
+            "at": "2026-06-14T09:08:42.319Z",
             "kind": "unit"
           },
           "test/query.test.ts::exporters survive an empty graph": {
             "passed": true,
-            "at": "2026-06-14T08:15:51.414Z",
+            "at": "2026-06-14T09:08:43.609Z",
             "kind": "unit"
           }
         }
@@ -598,12 +598,12 @@ window.RIVET = {
         "results": {
           "test/report.test.ts::typescript: NOTE/WHY/HACK comments become nodes explained by the next symbol": {
             "passed": true,
-            "at": "2026-06-14T08:15:52.809Z",
+            "at": "2026-06-14T09:08:44.849Z",
             "kind": "unit"
           },
           "test/report.test.ts::python: docstrings and HACK comments via tree-sitter": {
             "passed": true,
-            "at": "2026-06-14T08:15:54.185Z",
+            "at": "2026-06-14T09:08:46.098Z",
             "kind": "unit"
           }
         }
@@ -618,7 +618,7 @@ window.RIVET = {
         "results": {
           "test/report.test.ts::ranks symbols only — file/doc/why nodes are excluded": {
             "passed": true,
-            "at": "2026-06-14T08:15:55.568Z",
+            "at": "2026-06-14T09:08:47.339Z",
             "kind": "unit"
           }
         }
@@ -634,12 +634,12 @@ window.RIVET = {
         "results": {
           "test/report.test.ts::carries god nodes, surprises, confidence, why-nodes, and ≥4 questions": {
             "passed": true,
-            "at": "2026-06-14T08:15:56.965Z",
+            "at": "2026-06-14T09:08:48.575Z",
             "kind": "unit"
           },
           "test/report.test.ts::suggestedQuestions seeds from brokers and ambiguity": {
             "passed": true,
-            "at": "2026-06-14T08:15:58.396Z",
+            "at": "2026-06-14T09:08:49.827Z",
             "kind": "unit"
           }
         }
@@ -655,12 +655,12 @@ window.RIVET = {
         "results": {
           "test/resolution.test.ts::structural contains/imports edges are EXTRACTED": {
             "passed": true,
-            "at": "2026-06-14T08:15:59.868Z",
+            "at": "2026-06-14T09:08:51.061Z",
             "kind": "unit"
           },
           "test/resolution.test.ts::a uniquely-resolved reference is INFERRED": {
             "passed": true,
-            "at": "2026-06-14T08:16:01.383Z",
+            "at": "2026-06-14T09:08:52.311Z",
             "kind": "unit"
           }
         }
@@ -677,17 +677,17 @@ window.RIVET = {
         "results": {
           "test/resolution.test.ts::same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)": {
             "passed": true,
-            "at": "2026-06-14T08:16:02.888Z",
+            "at": "2026-06-14T09:08:53.560Z",
             "kind": "unit"
           },
           "test/resolution.test.ts::falls back to lexicographic id order, still AMBIGUOUS": {
             "passed": true,
-            "at": "2026-06-14T08:16:04.223Z",
+            "at": "2026-06-14T09:08:55.663Z",
             "kind": "unit"
           },
           "test/resolution.test.ts::the pick is stable across runs": {
             "passed": true,
-            "at": "2026-06-14T08:16:05.543Z",
+            "at": "2026-06-14T09:08:57.482Z",
             "kind": "unit"
           }
         }
@@ -702,7 +702,7 @@ window.RIVET = {
         "results": {
           "test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets": {
             "passed": true,
-            "at": "2026-06-14T08:16:08.231Z",
+            "at": "2026-06-14T09:09:00.080Z",
             "kind": "unit"
           }
         }
@@ -717,7 +717,7 @@ window.RIVET = {
         "results": {
           "test/resolution.test.ts::a previous revitify-out/ run is never ingested back into the graph": {
             "passed": true,
-            "at": "2026-06-14T08:16:09.527Z",
+            "at": "2026-06-14T09:09:01.321Z",
             "kind": "unit"
           }
         }
@@ -734,17 +734,17 @@ window.RIVET = {
         "results": {
           "test/serve.test.ts::serves the viewer and the allowlisted artifacts; blocks traversal": {
             "passed": true,
-            "at": "2026-06-14T08:16:10.934Z",
+            "at": "2026-06-14T09:09:02.657Z",
             "kind": "unit"
           },
           "test/serve.test.ts::answers the API routes": {
             "passed": true,
-            "at": "2026-06-14T08:16:12.302Z",
+            "at": "2026-06-14T09:09:03.984Z",
             "kind": "unit"
           },
           "test/serve.test.ts::reloads when graph.json changes on disk (watch-next-door pattern)": {
             "passed": true,
-            "at": "2026-06-14T08:16:13.664Z",
+            "at": "2026-06-14T09:09:05.296Z",
             "kind": "unit"
           }
         }
@@ -759,7 +759,7 @@ window.RIVET = {
         "results": {
           "test/serve.test.ts::lists the 7 graphify tools and answers query_graph + shortest_path": {
             "passed": true,
-            "at": "2026-06-14T08:16:15.019Z",
+            "at": "2026-06-14T09:09:06.611Z",
             "kind": "unit"
           }
         }
@@ -774,7 +774,7 @@ window.RIVET = {
         "results": {
           "test/serve.test.ts::install drops the skill; diagnose reports grammars": {
             "passed": true,
-            "at": "2026-06-14T08:16:16.523Z",
+            "at": "2026-06-14T09:09:08.046Z",
             "kind": "unit"
           }
         }
@@ -793,27 +793,27 @@ window.RIVET = {
         "results": {
           "test/viewer.test.ts::is fully offline: four libraries inlined, zero external sources": {
             "passed": true,
-            "at": "2026-06-14T08:16:17.811Z",
+            "at": "2026-06-14T09:09:09.286Z",
             "kind": "unit"
           },
           "test/viewer.test.ts::injects the graph at the DATA INJECTION POINT and keeps contract probes": {
             "passed": true,
-            "at": "2026-06-14T08:16:19.097Z",
+            "at": "2026-06-14T09:09:10.534Z",
             "kind": "unit"
           },
           "test/viewer.test.ts::escapes \u003c/script> sequences in data": {
             "passed": true,
-            "at": "2026-06-14T08:16:20.409Z",
+            "at": "2026-06-14T09:09:11.777Z",
             "kind": "unit"
           },
           "test/viewer.test.ts::still renders the zero-dependency canvas viewer via extraExporters": {
             "passed": true,
-            "at": "2026-06-14T08:16:21.713Z",
+            "at": "2026-06-14T09:09:13.031Z",
             "kind": "unit"
           },
           "test/viewer.test.ts::docstrings surface as summary on their symbol (and stay as nodes)": {
             "passed": true,
-            "at": "2026-06-14T08:16:23.011Z",
+            "at": "2026-06-14T09:09:14.291Z",
             "kind": "unit"
           }
         }
@@ -1234,166 +1234,166 @@ window.RIVET = {
     "governance": [],
     "activity": [
       {
-        "at": "2026-06-14T08:16:44.267Z",
+        "at": "2026-06-14T09:09:34.731Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_VIEWER-01 → done"
       },
       {
-        "at": "2026-06-14T08:16:44.200Z",
+        "at": "2026-06-14T09:09:34.665Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_VIEWER-01",
         "meta": "Pratiyush Kumar Singh"
       },
       {
-        "at": "2026-06-14T08:16:43.666Z",
+        "at": "2026-06-14T09:09:34.152Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_SERVE-03 → done"
       },
       {
-        "at": "2026-06-14T08:16:43.599Z",
+        "at": "2026-06-14T09:09:34.085Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_SERVE-03",
         "meta": "Pratiyush Kumar Singh"
       },
       {
-        "at": "2026-06-14T08:16:43.044Z",
+        "at": "2026-06-14T09:09:33.576Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_SERVE-02 → done"
       },
       {
-        "at": "2026-06-14T08:16:42.973Z",
+        "at": "2026-06-14T09:09:33.511Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_SERVE-02",
         "meta": "Pratiyush Kumar Singh"
       },
       {
-        "at": "2026-06-14T08:16:42.429Z",
+        "at": "2026-06-14T09:09:32.997Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_SERVE-01 → done"
       },
       {
-        "at": "2026-06-14T08:16:42.356Z",
+        "at": "2026-06-14T09:09:32.932Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_SERVE-01",
         "meta": "Pratiyush Kumar Singh"
       },
       {
-        "at": "2026-06-14T08:16:41.832Z",
+        "at": "2026-06-14T09:09:32.422Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_RESOLVE-04 → done"
       },
       {
-        "at": "2026-06-14T08:16:41.764Z",
+        "at": "2026-06-14T09:09:32.357Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_RESOLVE-04",
         "meta": "Pratiyush Kumar Singh"
       },
       {
-        "at": "2026-06-14T08:16:41.221Z",
+        "at": "2026-06-14T09:09:31.848Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_RESOLVE-03 → done"
       },
       {
-        "at": "2026-06-14T08:16:41.149Z",
+        "at": "2026-06-14T09:09:31.782Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_RESOLVE-03",
         "meta": "Pratiyush Kumar Singh"
       },
       {
-        "at": "2026-06-14T08:16:40.598Z",
+        "at": "2026-06-14T09:09:31.264Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_RESOLVE-02 → done"
       },
       {
-        "at": "2026-06-14T08:16:40.534Z",
+        "at": "2026-06-14T09:09:31.197Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_RESOLVE-02",
         "meta": "Pratiyush Kumar Singh"
       },
       {
-        "at": "2026-06-14T08:16:39.995Z",
+        "at": "2026-06-14T09:09:30.690Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_RESOLVE-01 → done"
       },
       {
-        "at": "2026-06-14T08:16:39.927Z",
+        "at": "2026-06-14T09:09:30.625Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_RESOLVE-01",
         "meta": "Pratiyush Kumar Singh"
       },
       {
-        "at": "2026-06-14T08:16:39.353Z",
+        "at": "2026-06-14T09:09:30.107Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_REPORT-03 → done"
       },
       {
-        "at": "2026-06-14T08:16:39.284Z",
+        "at": "2026-06-14T09:09:30.041Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_REPORT-03",
         "meta": "Pratiyush Kumar Singh"
       },
       {
-        "at": "2026-06-14T08:16:38.736Z",
+        "at": "2026-06-14T09:09:29.530Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_REPORT-02 → done"
       },
       {
-        "at": "2026-06-14T08:16:38.663Z",
+        "at": "2026-06-14T09:09:29.464Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_REPORT-02",
         "meta": "Pratiyush Kumar Singh"
       },
       {
-        "at": "2026-06-14T08:16:38.121Z",
+        "at": "2026-06-14T09:09:28.952Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_REPORT-01 → done"
       },
       {
-        "at": "2026-06-14T08:16:38.052Z",
+        "at": "2026-06-14T09:09:28.888Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_REPORT-01",
         "meta": "Pratiyush Kumar Singh"
       },
       {
-        "at": "2026-06-14T08:16:37.517Z",
+        "at": "2026-06-14T09:09:28.379Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_EXPORT-01 → done"
       },
       {
-        "at": "2026-06-14T08:16:37.450Z",
+        "at": "2026-06-14T09:09:28.313Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_EXPORT-01",
         "meta": "Pratiyush Kumar Singh"
       },
       {
-        "at": "2026-06-14T08:16:36.927Z",
+        "at": "2026-06-14T09:09:27.799Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_QUERY-02 → done"
       },
       {
-        "at": "2026-06-14T08:16:36.860Z",
+        "at": "2026-06-14T09:09:27.735Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_QUERY-02",
         "meta": "Pratiyush Kumar Singh"
       },
       {
-        "at": "2026-06-14T08:16:36.348Z",
+        "at": "2026-06-14T09:09:27.220Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_QUERY-01 → done"
       },
       {
-        "at": "2026-06-14T08:16:36.281Z",
+        "at": "2026-06-14T09:09:27.152Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_QUERY-01",
         "meta": "Pratiyush Kumar Singh"
       },
       {
-        "at": "2026-06-14T08:16:35.746Z",
+        "at": "2026-06-14T09:09:26.639Z",
         "icon": "🏁",
         "text": "task REQUIREMENT_MM-04 → done"
       },
       {
-        "at": "2026-06-14T08:16:35.681Z",
+        "at": "2026-06-14T09:09:26.574Z",
         "icon": "🧾",
         "text": "task done REQUIREMENT_MM-04",
         "meta": "Pratiyush Kumar Singh"
@@ -1454,7 +1454,7 @@ window.RIVET = {
       },
       {
         "name": "LEDGER.md",
-        "content": "# LEDGER — generated from the journal; do not edit\n\n> Legend: ✅ done · 🔨 in progress · 🚧 blocked · ⬜ pending — proofs: 🟢 green · 🔴 red · 🟣 stale · ⚪ unproven\n\n## Progress board\n\n**35/35 done (100%)**\n\n- ✅ **REQUIREMENT_CLI-01** the verb surface 🟢\n  📋 Evidence — REQUIREMENT_CLI-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/cli.test.ts::help lists every verb; unknown verb exits 1` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:35.053Z |\n\n- ✅ **REQUIREMENT_CLI-02** verbs work end to end on a real project 🟢\n  📋 Evidence — REQUIREMENT_CLI-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/cli.test.ts::build → query → path → affected → communities → export → validate, end to end` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:37.226Z |\n\n- ✅ **REQUIREMENT_CLI-03** watch, global, prs 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_CLI-03\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/cli.test.ts::rebuilds on change (initial build, then incremental)` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:38.475Z |\n  | `test/cli.test.ts::global merges repos with repo: prefixes` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:40.760Z |\n  | `test/cli.test.ts::prs reports diff impact in a git repo` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:43.119Z |\n\n- ✅ **REQUIREMENT_CONTRACT-01** the three artifacts, default revitify-out/ 🟢\n  📋 Evidence — REQUIREMENT_CONTRACT-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/revitify.test.ts::emits graph.json + self-contained graph.html + GRAPH_REPORT.md (default: revitify-out/)` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:44.783Z |\n\n- ✅ **REQUIREMENT_CONTRACT-02** Rivet's call shape stays supported forever 🟢\n  📋 Evidence — REQUIREMENT_CONTRACT-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/revitify.test.ts::keeps Rivet's call shape working: revitify(dir, 'graphify-out')` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:46.267Z |\n\n- ✅ **REQUIREMENT_CONTRACT-03** graph fields are additive-only 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_CONTRACT-03\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/revitify.test.ts::builds containment, import, and reference edges with source_file + community on nodes` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:47.821Z |\n  | `test/contract.test.ts::a canonical symbol node carries exactly the contract fields` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:49.349Z |\n  | `test/contract.test.ts::contract drift fails loudly, naming index and field (negative floor)` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:50.815Z |\n\n- ✅ **REQUIREMENT_CONTRACT-04** refactors never change output bytes 🟢🟢\n  📋 Evidence — REQUIREMENT_CONTRACT-04\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/contract.test.ts::graph.json is byte-identical to the committed expectation (refactor pin)` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:52.347Z |\n  | `test/contract.test-d.ts::RevitifyGraph stays assignable to the shape Rivet's loadCodeGraph reads` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:53.798Z |\n\n- ✅ **REQUIREMENT_INTEL-01** symbol→symbol call edges 🟢🟢\n  📋 Evidence — REQUIREMENT_INTEL-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/intelligence.test.ts::symbol→symbol calls edges, confidence-tagged` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:55.332Z |\n  | `test/intelligence.test.ts::unresolvable callees (built-ins) leave no edge` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:56.900Z |\n\n- ✅ **REQUIREMENT_INTEL-02** tiered resolution precedence 🟢🟢\n  📋 Evidence — REQUIREMENT_INTEL-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/intelligence.test.ts::same-file beats same-dir beats global; unique-in-tier is INFERRED` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:14:58.707Z |\n  | `test/intelligence.test.ts::ties within the winning tier are AMBIGUOUS with lexicographic pick` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:00.401Z |\n\n- ✅ **REQUIREMENT_INTEL-03** near-duplicate doc nodes merge; code never does 🟢🟢\n  📋 Evidence — REQUIREMENT_INTEL-03\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/intelligence.test.ts::merges near-duplicate headings, rewrites links, never touches code symbols` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:02.131Z |\n  | `test/algorithms.test.ts::no docs / single doc: nothing merges, exact duplicate links still drop` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:03.546Z |\n\n- ✅ **REQUIREMENT_INTEL-04** structural communities, deterministic 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_INTEL-04\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/intelligence.test.ts::separates the two clusters; deterministic across runs` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:05.378Z |\n  | `test/intelligence.test.ts::isolated nodes get their own communities` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:07.258Z |\n  | `test/algorithms.test.ts::an oversized clique triggers the re-split pass and survives unsplit (no substructure)` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:09.727Z |\n\n- ✅ **REQUIREMENT_MOD-01** registry dispatch, not switches 🟢\n  📋 Evidence — REQUIREMENT_MOD-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/layers.test.ts::dispatches by detect/extensions and rejects .d.ts and unknown files` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:11.027Z |\n\n- ✅ **REQUIREMENT_MOD-02** the lazy boundary 🟢🟢\n  📋 Evidence — REQUIREMENT_MOD-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/layers.test.ts::resolves lazily (async), memoizes, and resolveSync returns undefined without loadSync` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:12.316Z |\n  | `test/boundaries.test.ts::a forbidden src/model → src/export import fails depcruise, naming the violated rule` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:13.642Z |\n\n- ✅ **REQUIREMENT_LANG-01** deep member extraction per language 🟢🟢🟢🟢\n  📋 Evidence — REQUIREMENT_LANG-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/multilang.test.ts::java: constructors, methods, fields, nested types — full member depth` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:15.079Z |\n  | `test/multilang.test.ts::python: classes, nested methods, functions, file-resolved imports` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:16.445Z |\n  | `test/multilang.test.ts::go and rust symbols, and the whole graph passes the contract` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:17.809Z |\n  | `test/multilang.test.ts::'from pkg.helpers import slugify' references slugify only — never a phantom 'helpers'` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:19.162Z |\n\n- ✅ **REQUIREMENT_LANG-02** the sync facade is frozen and deterministic 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_LANG-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/multilang.test.ts::falls back to regex (shallow py/java, no go/rust) — never loads tree-sitter` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:20.553Z |\n  | `test/lazy-boundary.test.ts::sync revitify never resolves web-tree-sitter or grammar packages` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:21.859Z |\n  | `test/lazy-boundary.test.ts::positive control: the async path DOES resolve web-tree-sitter through the same hook` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:23.202Z |\n\n- ✅ **REQUIREMENT_CACHE-01** per-file cache with honest invalidation 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_CACHE-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/cache.test.ts::second run is all hits; edits invalidate exactly one file; output identical` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:24.596Z |\n  | `test/cache.test.ts::adding a file invalidates the set (import resolution depends on the walked set)` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:26.478Z |\n  | `test/cache.test.ts::recovers from a corrupt stat-index and from evicted fragment files` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:28.719Z |\n\n- ✅ **REQUIREMENT_PAR-01** parallel extraction changes nothing but wall-clock 🟢\n  📋 Evidence — REQUIREMENT_PAR-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/lazy-boundary.test.ts::worker-pool output matches sequential output exactly` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:30.265Z |\n\n- ✅ **REQUIREMENT_MM-01** the offline gate is absolute 🟢\n  📋 Evidence — REQUIREMENT_MM-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/multimodal.test.ts::GATE: without keys the run never touches the network and equals the code-only graph` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:31.634Z |\n\n- ✅ **REQUIREMENT_MM-02** backend autodetection mirrors llm.py 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_MM-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/multimodal.test.ts::anthropic → gemini → openai → ollama → none` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:33.113Z |\n  | `test/multimodal.test.ts::gemini, openai, ollama parse their shapes; anthropic errors loudly on non-ok` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:34.515Z |\n  | `test/multimodal.test.ts::with a key + mocked backend, PDFs contribute concept nodes` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:35.978Z |\n\n- ✅ **REQUIREMENT_MM-03** offline schema/deps ingestion 🟢🟢\n  📋 Evidence — REQUIREMENT_MM-03\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/multimodal.test.ts::tables, columns, and REFERENCES edges from DDL` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:37.324Z |\n  | `test/multimodal.test.ts::crate + dependency edges from Cargo.toml` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:38.685Z |\n\n- ✅ **REQUIREMENT_MM-04** local tools never become hard dependencies 🟢🟢\n  📋 Evidence — REQUIREMENT_MM-04\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/multimodal.test.ts::whisper + scip spawn, parse, and survive failures` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:40.103Z |\n  | `test/multimodal.test.ts::detect + available are honest` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:41.496Z |\n\n- ✅ **REQUIREMENT_QUERY-01** path, neighborhood, affected 🟢🟢\n  📋 Evidence — REQUIREMENT_QUERY-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/query.test.ts::finds the shortest path between symbols across files` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:42.893Z |\n  | `test/query.test.ts::walks reverse dependencies transitively` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:44.283Z |\n\n- ✅ **REQUIREMENT_QUERY-02** search, explain, communities, log 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_QUERY-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/query.test.ts::idf-ranks matches and explains with neighbors` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:45.667Z |\n  | `test/query.test.ts::lists communities with size and cohesion in [0,1]` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:47.103Z |\n  | `test/query.test.ts::appends JSONL entries` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:48.586Z |\n\n- ✅ **REQUIREMENT_EXPORT-01** the graphify export family 🟢🟢\n  📋 Evidence — REQUIREMENT_EXPORT-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/query.test.ts::callflow keeps only calls; tree nests files; wiki sections communities; mermaid caps` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:49.986Z |\n  | `test/query.test.ts::exporters survive an empty graph` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:51.414Z |\n\n- ✅ **REQUIREMENT_REPORT-01** why-nodes 🟢🟢\n  📋 Evidence — REQUIREMENT_REPORT-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/report.test.ts::typescript: NOTE/WHY/HACK comments become nodes explained by the next symbol` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:52.809Z |\n  | `test/report.test.ts::python: docstrings and HACK comments via tree-sitter` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:54.185Z |\n\n- ✅ **REQUIREMENT_REPORT-02** god nodes are symbols, not containers 🟢\n  📋 Evidence — REQUIREMENT_REPORT-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/report.test.ts::ranks symbols only — file/doc/why nodes are excluded` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:55.568Z |\n\n- ✅ **REQUIREMENT_REPORT-03** the report carries its intelligence 🟢🟢\n  📋 Evidence — REQUIREMENT_REPORT-03\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/report.test.ts::carries god nodes, surprises, confidence, why-nodes, and ≥4 questions` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:56.965Z |\n  | `test/report.test.ts::suggestedQuestions seeds from brokers and ambiguity` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:58.396Z |\n\n- ✅ **REQUIREMENT_RESOLVE-01** every edge carries its confidence 🟢🟢\n  📋 Evidence — REQUIREMENT_RESOLVE-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/resolution.test.ts::structural contains/imports edges are EXTRACTED` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:15:59.868Z |\n  | `test/resolution.test.ts::a uniquely-resolved reference is INFERRED` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:01.383Z |\n\n- ✅ **REQUIREMENT_RESOLVE-02** ambiguity is tagged, never hidden 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_RESOLVE-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/resolution.test.ts::same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:02.888Z |\n  | `test/resolution.test.ts::falls back to lexicographic id order, still AMBIGUOUS` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:04.223Z |\n  | `test/resolution.test.ts::the pick is stable across runs` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:05.543Z |\n\n- ✅ **REQUIREMENT_RESOLVE-03** imports resolve against reality 🟢\n  📋 Evidence — REQUIREMENT_RESOLVE-03\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:08.231Z |\n\n- ✅ **REQUIREMENT_RESOLVE-04** never ingest your own output 🟢\n  📋 Evidence — REQUIREMENT_RESOLVE-04\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/resolution.test.ts::a previous revitify-out/ run is never ingested back into the graph` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:09.527Z |\n\n- ✅ **REQUIREMENT_SERVE-01** HTTP viewer + API, traversal-proof 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_SERVE-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/serve.test.ts::serves the viewer and the allowlisted artifacts; blocks traversal` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:10.934Z |\n  | `test/serve.test.ts::answers the API routes` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:12.302Z |\n  | `test/serve.test.ts::reloads when graph.json changes on disk (watch-next-door pattern)` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:13.664Z |\n\n- ✅ **REQUIREMENT_SERVE-02** the 7 MCP tools 🟢\n  📋 Evidence — REQUIREMENT_SERVE-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/serve.test.ts::lists the 7 graphify tools and answers query_graph + shortest_path` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:15.019Z |\n\n- ✅ **REQUIREMENT_SERVE-03** skill + self-checks 🟢\n  📋 Evidence — REQUIREMENT_SERVE-03\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/serve.test.ts::install drops the skill; diagnose reports grammars` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:16.523Z |\n\n- ✅ **REQUIREMENT_VIEWER-01** the redesigned graph.html stays offline 🟢🟢🟢🟢🟢\n  📋 Evidence — REQUIREMENT_VIEWER-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/viewer.test.ts::is fully offline: four libraries inlined, zero external sources` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:17.811Z |\n  | `test/viewer.test.ts::injects the graph at the DATA INJECTION POINT and keeps contract probes` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:19.097Z |\n  | `test/viewer.test.ts::escapes \u003c/script> sequences in data` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:20.409Z |\n  | `test/viewer.test.ts::still renders the zero-dependency canvas viewer via extraExporters` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:21.713Z |\n  | `test/viewer.test.ts::docstrings surface as summary on their symbol (and stay as nodes)` | unit | ✅ green | tree 8ef25631 | 2026-06-14T08:16:23.011Z |\n\n\n## Approvals & governance\n\n- _none recorded yet_\n\n## Recent activity\n\n- \u001b[2m2026-06-14 08:16:41\u001b[22m  🧾 task done REQUIREMENT_RESOLVE-04  [Pratiyush Kumar Singh]\n- \u001b[2m2026-06-14 08:16:41\u001b[22m  🏁 task REQUIREMENT_RESOLVE-04 → done\n- \u001b[2m2026-06-14 08:16:42\u001b[22m  🧾 task done REQUIREMENT_SERVE-01  [Pratiyush Kumar Singh]\n- \u001b[2m2026-06-14 08:16:42\u001b[22m  🏁 task REQUIREMENT_SERVE-01 → done\n- \u001b[2m2026-06-14 08:16:42\u001b[22m  🧾 task done REQUIREMENT_SERVE-02  [Pratiyush Kumar Singh]\n- \u001b[2m2026-06-14 08:16:43\u001b[22m  🏁 task REQUIREMENT_SERVE-02 → done\n- \u001b[2m2026-06-14 08:16:43\u001b[22m  🧾 task done REQUIREMENT_SERVE-03  [Pratiyush Kumar Singh]\n- \u001b[2m2026-06-14 08:16:43\u001b[22m  🏁 task REQUIREMENT_SERVE-03 → done\n- \u001b[2m2026-06-14 08:16:44\u001b[22m  🧾 task done REQUIREMENT_VIEWER-01  [Pratiyush Kumar Singh]\n- \u001b[2m2026-06-14 08:16:44\u001b[22m  🏁 task REQUIREMENT_VIEWER-01 → done\n"
+        "content": "# LEDGER — generated from the journal; do not edit\n\n> Legend: ✅ done · 🔨 in progress · 🚧 blocked · ⬜ pending — proofs: 🟢 green · 🔴 red · 🟣 stale · ⚪ unproven\n\n## Progress board\n\n**35/35 done (100%)**\n\n- ✅ **REQUIREMENT_CLI-01** the verb surface 🟢\n  📋 Evidence — REQUIREMENT_CLI-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/cli.test.ts::help lists every verb; unknown verb exits 1` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:40.881Z |\n\n- ✅ **REQUIREMENT_CLI-02** verbs work end to end on a real project 🟢\n  📋 Evidence — REQUIREMENT_CLI-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/cli.test.ts::build → query → path → affected → communities → export → validate, end to end` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:42.800Z |\n\n- ✅ **REQUIREMENT_CLI-03** watch, global, prs 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_CLI-03\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/cli.test.ts::rebuilds on change (initial build, then incremental)` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:43.805Z |\n  | `test/cli.test.ts::global merges repos with repo: prefixes` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:44.933Z |\n  | `test/cli.test.ts::prs reports diff impact in a git repo` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:46.284Z |\n\n- ✅ **REQUIREMENT_CONTRACT-01** the three artifacts, default revitify-out/ 🟢\n  📋 Evidence — REQUIREMENT_CONTRACT-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/revitify.test.ts::emits graph.json + self-contained graph.html + GRAPH_REPORT.md (default: revitify-out/)` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:47.569Z |\n\n- ✅ **REQUIREMENT_CONTRACT-02** Rivet's call shape stays supported forever 🟢\n  📋 Evidence — REQUIREMENT_CONTRACT-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/revitify.test.ts::keeps Rivet's call shape working: revitify(dir, 'graphify-out')` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:48.891Z |\n\n- ✅ **REQUIREMENT_CONTRACT-03** graph fields are additive-only 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_CONTRACT-03\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/revitify.test.ts::builds containment, import, and reference edges with source_file + community on nodes` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:50.227Z |\n  | `test/contract.test.ts::a canonical symbol node carries exactly the contract fields` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:51.552Z |\n  | `test/contract.test.ts::contract drift fails loudly, naming index and field (negative floor)` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:52.837Z |\n\n- ✅ **REQUIREMENT_CONTRACT-04** refactors never change output bytes 🟢🟢\n  📋 Evidence — REQUIREMENT_CONTRACT-04\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/contract.test.ts::graph.json is byte-identical to the committed expectation (refactor pin)` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:54.072Z |\n  | `test/contract.test-d.ts::RevitifyGraph stays assignable to the shape Rivet's loadCodeGraph reads` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:55.218Z |\n\n- ✅ **REQUIREMENT_INTEL-01** symbol→symbol call edges 🟢🟢\n  📋 Evidence — REQUIREMENT_INTEL-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/intelligence.test.ts::symbol→symbol calls edges, confidence-tagged` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:56.458Z |\n  | `test/intelligence.test.ts::unresolvable callees (built-ins) leave no edge` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:57.780Z |\n\n- ✅ **REQUIREMENT_INTEL-02** tiered resolution precedence 🟢🟢\n  📋 Evidence — REQUIREMENT_INTEL-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/intelligence.test.ts::same-file beats same-dir beats global; unique-in-tier is INFERRED` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:07:59.098Z |\n  | `test/intelligence.test.ts::ties within the winning tier are AMBIGUOUS with lexicographic pick` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:00.435Z |\n\n- ✅ **REQUIREMENT_INTEL-03** near-duplicate doc nodes merge; code never does 🟢🟢\n  📋 Evidence — REQUIREMENT_INTEL-03\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/intelligence.test.ts::merges near-duplicate headings, rewrites links, never touches code symbols` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:01.760Z |\n  | `test/algorithms.test.ts::no docs / single doc: nothing merges, exact duplicate links still drop` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:02.777Z |\n\n- ✅ **REQUIREMENT_INTEL-04** structural communities, deterministic 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_INTEL-04\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/intelligence.test.ts::separates the two clusters; deterministic across runs` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:04.011Z |\n  | `test/intelligence.test.ts::isolated nodes get their own communities` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:05.234Z |\n  | `test/algorithms.test.ts::an oversized clique triggers the re-split pass and survives unsplit (no substructure)` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:07.262Z |\n\n- ✅ **REQUIREMENT_MOD-01** registry dispatch, not switches 🟢\n  📋 Evidence — REQUIREMENT_MOD-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/layers.test.ts::dispatches by detect/extensions and rejects .d.ts and unknown files` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:08.452Z |\n\n- ✅ **REQUIREMENT_MOD-02** the lazy boundary 🟢🟢\n  📋 Evidence — REQUIREMENT_MOD-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/layers.test.ts::resolves lazily (async), memoizes, and resolveSync returns undefined without loadSync` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:09.639Z |\n  | `test/boundaries.test.ts::a forbidden src/model → src/export import fails depcruise, naming the violated rule` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:10.858Z |\n\n- ✅ **REQUIREMENT_LANG-01** deep member extraction per language 🟢🟢🟢🟢\n  📋 Evidence — REQUIREMENT_LANG-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/multilang.test.ts::java: constructors, methods, fields, nested types — full member depth` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:12.108Z |\n  | `test/multilang.test.ts::python: classes, nested methods, functions, file-resolved imports` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:13.369Z |\n  | `test/multilang.test.ts::go and rust symbols, and the whole graph passes the contract` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:14.617Z |\n  | `test/multilang.test.ts::'from pkg.helpers import slugify' references slugify only — never a phantom 'helpers'` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:15.882Z |\n\n- ✅ **REQUIREMENT_LANG-02** the sync facade is frozen and deterministic 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_LANG-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/multilang.test.ts::falls back to regex (shallow py/java, no go/rust) — never loads tree-sitter` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:17.139Z |\n  | `test/lazy-boundary.test.ts::sync revitify never resolves web-tree-sitter or grammar packages` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:18.350Z |\n  | `test/lazy-boundary.test.ts::positive control: the async path DOES resolve web-tree-sitter through the same hook` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:19.563Z |\n\n- ✅ **REQUIREMENT_CACHE-01** per-file cache with honest invalidation 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_CACHE-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/cache.test.ts::second run is all hits; edits invalidate exactly one file; output identical` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:20.823Z |\n  | `test/cache.test.ts::adding a file invalidates the set (import resolution depends on the walked set)` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:22.059Z |\n  | `test/cache.test.ts::recovers from a corrupt stat-index and from evicted fragment files` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:23.299Z |\n\n- ✅ **REQUIREMENT_PAR-01** parallel extraction changes nothing but wall-clock 🟢\n  📋 Evidence — REQUIREMENT_PAR-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/lazy-boundary.test.ts::worker-pool output matches sequential output exactly` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:24.594Z |\n\n- ✅ **REQUIREMENT_MM-01** the offline gate is absolute 🟢\n  📋 Evidence — REQUIREMENT_MM-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/multimodal.test.ts::GATE: without keys the run never touches the network and equals the code-only graph` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:25.833Z |\n\n- ✅ **REQUIREMENT_MM-02** backend autodetection mirrors llm.py 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_MM-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/multimodal.test.ts::anthropic → gemini → openai → ollama → none` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:27.068Z |\n  | `test/multimodal.test.ts::gemini, openai, ollama parse their shapes; anthropic errors loudly on non-ok` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:28.308Z |\n  | `test/multimodal.test.ts::with a key + mocked backend, PDFs contribute concept nodes` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:29.546Z |\n\n- ✅ **REQUIREMENT_MM-03** offline schema/deps ingestion 🟢🟢\n  📋 Evidence — REQUIREMENT_MM-03\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/multimodal.test.ts::tables, columns, and REFERENCES edges from DDL` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:30.776Z |\n  | `test/multimodal.test.ts::crate + dependency edges from Cargo.toml` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:32.022Z |\n\n- ✅ **REQUIREMENT_MM-04** local tools never become hard dependencies 🟢🟢\n  📋 Evidence — REQUIREMENT_MM-04\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/multimodal.test.ts::whisper + scip spawn, parse, and survive failures` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:33.274Z |\n  | `test/multimodal.test.ts::detect + available are honest` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:34.527Z |\n\n- ✅ **REQUIREMENT_QUERY-01** path, neighborhood, affected 🟢🟢\n  📋 Evidence — REQUIREMENT_QUERY-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/query.test.ts::finds the shortest path between symbols across files` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:35.802Z |\n  | `test/query.test.ts::walks reverse dependencies transitively` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:37.065Z |\n\n- ✅ **REQUIREMENT_QUERY-02** search, explain, communities, log 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_QUERY-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/query.test.ts::idf-ranks matches and explains with neighbors` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:38.336Z |\n  | `test/query.test.ts::lists communities with size and cohesion in [0,1]` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:39.613Z |\n  | `test/query.test.ts::appends JSONL entries` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:40.903Z |\n\n- ✅ **REQUIREMENT_EXPORT-01** the graphify export family 🟢🟢\n  📋 Evidence — REQUIREMENT_EXPORT-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/query.test.ts::callflow keeps only calls; tree nests files; wiki sections communities; mermaid caps` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:42.319Z |\n  | `test/query.test.ts::exporters survive an empty graph` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:43.609Z |\n\n- ✅ **REQUIREMENT_REPORT-01** why-nodes 🟢🟢\n  📋 Evidence — REQUIREMENT_REPORT-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/report.test.ts::typescript: NOTE/WHY/HACK comments become nodes explained by the next symbol` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:44.849Z |\n  | `test/report.test.ts::python: docstrings and HACK comments via tree-sitter` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:46.098Z |\n\n- ✅ **REQUIREMENT_REPORT-02** god nodes are symbols, not containers 🟢\n  📋 Evidence — REQUIREMENT_REPORT-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/report.test.ts::ranks symbols only — file/doc/why nodes are excluded` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:47.339Z |\n\n- ✅ **REQUIREMENT_REPORT-03** the report carries its intelligence 🟢🟢\n  📋 Evidence — REQUIREMENT_REPORT-03\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/report.test.ts::carries god nodes, surprises, confidence, why-nodes, and ≥4 questions` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:48.575Z |\n  | `test/report.test.ts::suggestedQuestions seeds from brokers and ambiguity` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:49.827Z |\n\n- ✅ **REQUIREMENT_RESOLVE-01** every edge carries its confidence 🟢🟢\n  📋 Evidence — REQUIREMENT_RESOLVE-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/resolution.test.ts::structural contains/imports edges are EXTRACTED` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:51.061Z |\n  | `test/resolution.test.ts::a uniquely-resolved reference is INFERRED` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:52.311Z |\n\n- ✅ **REQUIREMENT_RESOLVE-02** ambiguity is tagged, never hidden 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_RESOLVE-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/resolution.test.ts::same-dir tier disambiguates: unique-in-tier resolves INFERRED (Phase 3 precedence)` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:53.560Z |\n  | `test/resolution.test.ts::falls back to lexicographic id order, still AMBIGUOUS` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:55.663Z |\n  | `test/resolution.test.ts::the pick is stable across runs` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:08:57.482Z |\n\n- ✅ **REQUIREMENT_RESOLVE-03** imports resolve against reality 🟢\n  📋 Evidence — REQUIREMENT_RESOLVE-03\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/resolution.test.ts::drops imports of files that do not exist; keeps ext-swapped, as-written, and index targets` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:09:00.080Z |\n\n- ✅ **REQUIREMENT_RESOLVE-04** never ingest your own output 🟢\n  📋 Evidence — REQUIREMENT_RESOLVE-04\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/resolution.test.ts::a previous revitify-out/ run is never ingested back into the graph` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:09:01.321Z |\n\n- ✅ **REQUIREMENT_SERVE-01** HTTP viewer + API, traversal-proof 🟢🟢🟢\n  📋 Evidence — REQUIREMENT_SERVE-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/serve.test.ts::serves the viewer and the allowlisted artifacts; blocks traversal` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:09:02.657Z |\n  | `test/serve.test.ts::answers the API routes` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:09:03.984Z |\n  | `test/serve.test.ts::reloads when graph.json changes on disk (watch-next-door pattern)` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:09:05.296Z |\n\n- ✅ **REQUIREMENT_SERVE-02** the 7 MCP tools 🟢\n  📋 Evidence — REQUIREMENT_SERVE-02\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/serve.test.ts::lists the 7 graphify tools and answers query_graph + shortest_path` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:09:06.611Z |\n\n- ✅ **REQUIREMENT_SERVE-03** skill + self-checks 🟢\n  📋 Evidence — REQUIREMENT_SERVE-03\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/serve.test.ts::install drops the skill; diagnose reports grammars` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:09:08.046Z |\n\n- ✅ **REQUIREMENT_VIEWER-01** the redesigned graph.html stays offline 🟢🟢🟢🟢🟢\n  📋 Evidence — REQUIREMENT_VIEWER-01\n  | Check | Kind | State | Proof | Proven at |\n  |---|---|---|---|---|\n  | `test/viewer.test.ts::is fully offline: four libraries inlined, zero external sources` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:09:09.286Z |\n  | `test/viewer.test.ts::injects the graph at the DATA INJECTION POINT and keeps contract probes` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:09:10.534Z |\n  | `test/viewer.test.ts::escapes \u003c/script> sequences in data` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:09:11.777Z |\n  | `test/viewer.test.ts::still renders the zero-dependency canvas viewer via extraExporters` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:09:13.031Z |\n  | `test/viewer.test.ts::docstrings surface as summary on their symbol (and stay as nodes)` | unit | ✅ green | tree 49f202ff* | 2026-06-14T09:09:14.291Z |\n\n\n## Approvals & governance\n\n- _none recorded yet_\n\n## Recent activity\n\n- \u001b[2m2026-06-14 09:09:32\u001b[22m  🧾 task done REQUIREMENT_RESOLVE-04  [Pratiyush Kumar Singh]\n- \u001b[2m2026-06-14 09:09:32\u001b[22m  🏁 task REQUIREMENT_RESOLVE-04 → done\n- \u001b[2m2026-06-14 09:09:32\u001b[22m  🧾 task done REQUIREMENT_SERVE-01  [Pratiyush Kumar Singh]\n- \u001b[2m2026-06-14 09:09:32\u001b[22m  🏁 task REQUIREMENT_SERVE-01 → done\n- \u001b[2m2026-06-14 09:09:33\u001b[22m  🧾 task done REQUIREMENT_SERVE-02  [Pratiyush Kumar Singh]\n- \u001b[2m2026-06-14 09:09:33\u001b[22m  🏁 task REQUIREMENT_SERVE-02 → done\n- \u001b[2m2026-06-14 09:09:34\u001b[22m  🧾 task done REQUIREMENT_SERVE-03  [Pratiyush Kumar Singh]\n- \u001b[2m2026-06-14 09:09:34\u001b[22m  🏁 task REQUIREMENT_SERVE-03 → done\n- \u001b[2m2026-06-14 09:09:34\u001b[22m  🧾 task done REQUIREMENT_VIEWER-01  [Pratiyush Kumar Singh]\n- \u001b[2m2026-06-14 09:09:34\u001b[22m  🏁 task REQUIREMENT_VIEWER-01 → done\n"
       },
       {
         "name": "TRACKING.md",
