@@ -12,7 +12,7 @@
 
 | # | Item | Pri | Effort | Where | Fix |
 |---|---|---|---|---|---|
-| **P1·dup** | HTTP & MCP reimplement the same 7-op query surface twice and have **drifted** — `god_nodes` returns **5** via HTTP vs **10** via MCP; search limit **8** vs **10**. The one latent inconsistency bug. | P1 | M | `serve/http.ts`, `serve/mcp.ts` | Extract `serve/handlers.ts` (protocol-agnostic, returns plain data); HTTP→JSON, MCP→`text()`; centralize the limits. |
+| ~~**P1·dup**~~ ✅ **DONE 2026-06-20** | HTTP & MCP reimplement the same 7-op query surface twice and had **drifted** — `god_nodes` **5** (HTTP) vs **10** (MCP); search limit **10** (HTTP) vs **8** (MCP — backlog had the direction reversed); `graph_stats` counted communities two different ways. | P1 | M | `serve/handlers.ts` (new), `serve/http.ts`, `serve/mcp.ts` | ✅ Extracted `serve/handlers.ts` — protocol-agnostic surface owning `QUERY_LIMITS={search:10,godNodes:10}` + one community-count; the two servers are now thin adapters (can't re-drift by construction). |
 | **P2·cluster** | Louvain re-split is the only **uncapped** algorithm — quadratic corner on one giant weakly-connected community. | P2 | M | `passes/cluster.ts` | Cap rounds or memoize `cohesion()`. |
 | **P2·html-esc** | Three inline HTML-escape strategies across exporters + the `<!doctype>`/dark-theme boilerplate duplicated twice. | P2 | S | `export/*` | One shared escape helper + one shell. |
 | **P2·html-guard** | `html.ts` asset injection is unguarded → a missing viewer dep kills the **contract artifact** `graph.html`. | P2 | S | `export/html.ts` | Wrap in try/catch → emit a minimal stub. |
@@ -20,7 +20,7 @@
 | **P2·log-leak** | Gemini key rides the URL querystring (latent log-leak; an upstream API constraint). | P2 | S | `ingest/llm/backends.ts` | Audit that no code logs request URLs. |
 | **P2·minhash** | Permutation coefficients drawn via `rand()*2^61` — above `MAX_SAFE_INTEGER`, so 127/128 lose their low ~9 bits → noisier Jaccard estimate on borderline pairs (LSH still correct; identical inputs still collide). | P2 | S | `passes/dedup/minhash.ts` | Draw 61-bit BigInt coefficients directly. |
 | **P2·ts-calls** | `collectCalls` misses element-access calls (`obj["x"]()`) and tagged templates → widens the sync/async gap (S1). | P2 | S | `extract/typescript.ts` | Handle `ElementAccessExpression` + `TaggedTemplateExpression` callees. |
-| **P2·docs** | Help text says "9 exporters" (it's 8); `graph-lite` missing from `export` help; the hidden multi-verb dispatch (query/serve own 5+2 verbs) lacks header comments. | P2 | S | `cli/*` | Cosmetic. |
+| **P2·docs** (partly ✅) | ✅ `graph-lite` now in `export` help / README / SKILL + "all five" fixed (2026-06-20). The "9 exporters" string was already gone (stale backlog claim). **Remaining:** the hidden multi-verb dispatch (query/serve own 5+2 verbs) lacks header comments. | P2 | S | `cli/verbs/{query,serve}.ts` | Add header comments. |
 
 ## 2. Human-gated (needs you — I can't do these)
 
