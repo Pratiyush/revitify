@@ -27,7 +27,7 @@
 | # | Item | Status | Notes |
 |---|---|---|---|
 | **HG-1** | GitHub push | Blocked | Permission policy: an agent-created remote needs explicit user action — `gh repo create revitify --private --source . --push`. |
-| **HG-2** | npm publish | Prep ✅, publish pending | LICENSE, files allowlist, exports map, and `pack` dry-run are all green. Publishing is your call. |
+| **HG-2** | npm publish | Prep ✅, publish pending | LICENSE, files allowlist, exports map, and `pack` dry-run are all green. **Name `revitify` confirmed free (2026-06-19) on npm + GitHub + .ai/.dev/.io** — publish as-is. Publishing is your call. |
 
 ## 3. Deferred by decision / by design (rationale recorded — not bugs)
 
