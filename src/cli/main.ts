@@ -18,7 +18,7 @@ const VERBS: Record<string, { load: () => Promise<Verb>; help: string }> = {
   communities: { load: () => import("./verbs/query.js"), help: "communities — roster + cohesion" },
   export: {
     load: () => import("./verbs/export.js"),
-    help: "export [ids…] — callflow/tree/wiki/mermaid",
+    help: "export [ids…] — callflow/graph-lite/tree/wiki/mermaid",
   },
   watch: { load: () => import("./verbs/watch.js"), help: "watch [path] — incremental re-index" },
   global: { load: () => import("./verbs/global.js"), help: "global <paths…> — multi-repo graph" },

@@ -1,22 +1,21 @@
 import { readFileSync } from "node:fs";
 import { createServer, type Server } from "node:http";
 import { join, normalize } from "node:path";
-import { godNodes } from "../enrich/god-nodes.js";
-import { communities } from "../query/communities.js";
-import { explain, searchNodes } from "../query/explain.js";
 import { appendQueryLog } from "../query/querylog.js";
-import { shortestPath } from "../query/traverse.js";
+import { queryHandlers } from "./handlers.js";
 import { GraphState } from "./state.js";
 
 /**
  * Local HTTP server (port of graphify serve.py): the interactive viewer at /, a JSON API under
  * /api/*. Static serving is allowlisted to the three artifacts — the path-traversal guard from
- * upstream security.py, by construction rather than sanitization.
+ * upstream security.py, by construction rather than sanitization. The query surface itself lives in
+ * serve/handlers.ts (shared with the MCP server, so the two cannot drift).
  */
 const ARTIFACTS = new Set(["graph.html", "graph.json", "GRAPH_REPORT.md"]);
 
 export function createHttpServer(rootDir: string): Server {
   const state = new GraphState(rootDir);
+  const q = queryHandlers(state);
   return createServer((req, res) => {
     try {
       /* v8 ignore next -- node's http parser always sets req.url for a parsable request */
@@ -31,7 +30,6 @@ export function createHttpServer(rootDir: string): Server {
       }
       // Cap query params so a giant value can't turn a linear scan into a local CPU-spin.
       const param = (name: string): string => (url.searchParams.get(name) ?? "").slice(0, 512);
-      const index = state.get();
 
       if (url.pathname === "/" || url.pathname === "/graph.html") {
         return send(
@@ -49,47 +47,38 @@ export function createHttpServer(rootDir: string): Server {
         );
       }
       if (url.pathname === "/api/query") {
-        const q = param("q");
-        const hits = searchNodes(index, q).map((h) => ({ score: h.score, ...h.node }));
-        appendQueryLog(rootDir, "http_query", q, hits.length);
+        const term = param("q");
+        const hits = q.search(term);
+        appendQueryLog(rootDir, "http_query", term, hits.length);
         return send(200, JSON.stringify(hits));
       }
       if (url.pathname === "/api/explain") {
-        const q = param("q");
-        appendQueryLog(rootDir, "http_explain", q, 1);
-        return send(200, JSON.stringify({ text: explain(index, q) }));
+        const term = param("q");
+        appendQueryLog(rootDir, "http_explain", term, 1);
+        return send(200, JSON.stringify({ text: q.explain(term) }));
       }
       if (url.pathname === "/api/node") {
-        const node = index.byId.get(param("id"));
+        const node = q.node(param("id"));
         return node ? send(200, JSON.stringify(node)) : send(404, `{"error":"not found"}`);
       }
       if (url.pathname === "/api/neighbors") {
-        const id = param("id");
-        if (!index.byId.has(id)) return send(404, `{"error":"not found"}`);
-        return send(200, JSON.stringify(index.neighbors(id).map((n) => index.byId.get(n))));
+        const ns = q.neighbors(param("id"));
+        return ns === undefined
+          ? send(404, `{"error":"not found"}`)
+          : send(200, JSON.stringify(ns));
       }
       if (url.pathname === "/api/path") {
-        const path = shortestPath(index, param("from"), param("to"));
-        return send(200, JSON.stringify({ path: path ?? null }));
+        return send(200, JSON.stringify({ path: q.path(param("from"), param("to")) }));
       }
       if (url.pathname === "/api/communities") {
-        return send(
-          200,
-          JSON.stringify(
-            communities(index).map((c) => ({ id: c.id, size: c.size, cohesion: c.cohesion })),
-          ),
-        );
+        return send(200, JSON.stringify(q.communities()));
       }
       if (url.pathname === "/api/stats") {
-        const g = index.graph;
         return send(
           200,
           JSON.stringify({
-            nodes: g.nodes.length,
-            links: g.links.length,
-            communities: new Set(g.nodes.map((n) => n.community)).size,
-            god_nodes: godNodes(g, 5).map((x) => ({ label: x.node.label, degree: x.degree })),
-            built_at_commit: g.built_at_commit ?? null,
+            ...q.stats(),
+            god_nodes: q.godNodes().map((x) => ({ label: x.node.label, degree: x.degree })),
           }),
         );
       }

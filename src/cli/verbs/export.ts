@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { extraExporters } from "../../export/index.js";
 import { loadOrBuild } from "../load.js";
 
-/** export [ids…] — render the opt-in exporters (all four when no ids given). */
+/** export [ids…] — render the opt-in exporters (all five when no ids given). */
 export async function run(args: string[]): Promise<number> {
   const wanted = args.slice(1).filter((a) => !a.startsWith("-"));
   const { root, index } = await loadOrBuild(undefined);

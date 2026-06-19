@@ -17,7 +17,7 @@ Build or refresh it with `npx revitify build` (or `node node_modules/revitify/di
 - **How do A and B connect?** → `revitify path <from> <to>`.
 - **What are the modules really?** → `revitify communities` (size + cohesion), and read the
   god-nodes + surprising-connections sections of `revitify-out/GRAPH_REPORT.md`.
-- **Visuals** → `revitify export` writes callflow.html, tree.html, WIKI.md, graph.mmd; open
+- **Visuals** → `revitify export` writes callflow.html, graph-lite.html, tree.html, WIKI.md, graph.mmd; open
   `revitify-out/graph.html` for the interactive map.
 
 ## Live serving

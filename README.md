@@ -27,7 +27,7 @@ explicitly — both call shapes are contract-tested.
 - **Report** — god nodes (symbols only), surprise-scored cross-cutting connections, confidence
   summary, betweenness-seeded questions.
 - **Queries** — `query/explain/path/affected/communities` (+ JSONL query log), `export`
-  (callflow.html, tree.html, WIKI.md, graph.mmd), `watch`, `global`, `prs`, `validate`, `diagnose`.
+  (callflow.html, graph-lite.html, tree.html, WIKI.md, graph.mmd), `watch`, `global`, `prs`, `validate`, `diagnose`.
 - **Serve** — HTTP viewer + JSON API; **MCP server** (`revitify mcp`) with query_graph, get_node,
   get_neighbors, get_community, god_nodes, graph_stats, shortest_path. `revitify install` drops
   the `/revitify` skill into `.claude/skills/`.
