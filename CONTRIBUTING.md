@@ -59,15 +59,16 @@ are in [`website/contributing.md`](website/contributing.md) and the
 
 ## Releases
 
-Releases are automated. On every push to `main`, the `release` workflow computes the next version
-from [Conventional Commits](https://www.conventionalcommits.org/) and creates a git tag + GitHub
-Release:
+Releases are automated via **[release-please](https://github.com/googleapis/release-please)**. On every
+push to `main` it maintains a "release PR" that bumps `package.json` + `CHANGELOG.md` from
+[Conventional Commits](https://www.conventionalcommits.org/); **merging that PR** creates the git tag +
+GitHub Release:
 
 - `feat:` → **minor** · `fix:` → **patch** · `feat!:` / `BREAKING CHANGE:` → **major**
-- `chore:` / `docs:` / `refactor:` / `test:` / `ci:` alone → **no release**
+- `chore:` / `docs:` / `refactor:` / `test:` / `ci:` alone → no version bump
 
-Don't create tags by hand — the workflow owns versioning. Because the squash-merge title becomes the
-commit on `main`, **the PR title is what the release reads**, so make it a clean Conventional Commit.
+Don't bump the version or create tags by hand — release-please owns both. Because we squash-merge,
+**the PR title is what release-please reads**, so make it a clean Conventional Commit.
 
 For security issues see [SECURITY.md](SECURITY.md) — do not open a public issue. By contributing you
 agree your contributions are licensed under the [MIT License](LICENSE).
