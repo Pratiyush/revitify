@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/Pratiyush/revitify/tree/main/website
+    about: The guide — getting started, concepts, languages, the library API, troubleshooting.
+  - name: Question / discussion
+    url: https://github.com/Pratiyush/revitify/discussions
+    about: Ask a question or propose an idea before filing an issue.

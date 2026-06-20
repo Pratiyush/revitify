@@ -10,12 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [20, 22]
+        # pnpm 11 (needed for pnpm-workspace.yaml `allowBuilds:`) requires Node >= 22.13.
+        node: [22]
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
         with:
-          version: 9
+          # Match the pnpm that the repo's pnpm-workspace.yaml (`allowBuilds:`) needs — a v11 feature.
+          version: 11
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
