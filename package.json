@@ -1,6 +1,6 @@
 {
   "name": "revitify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Revitify — dev-spec-kit's native TypeScript code-knowledge-graph engine. Same output contract as graphify (graph.json · graph.html · GRAPH_REPORT.md), zero Python required. Concepts adapted from graphify (MIT, github.com/safishamsi/graphify); original implementation.",
   "type": "module",
   "main": "./dist/index.js",

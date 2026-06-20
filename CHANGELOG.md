@@ -4,6 +4,19 @@ All notable changes to revitify are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project aims to adhere to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1](https://github.com/Pratiyush/revitify/compare/revitify-v0.1.0...revitify-v0.1.1) (2026-06-20)
+
+
+### Bug Fixes
+
+* collectCalls element-access/tagged-template callees + OLLAMA_HOST scheme guard ([a326d68](https://github.com/Pratiyush/revitify/commit/a326d688a2d9158bd67c0964764ee3c4a18e7619))
+* **serve:** kill HTTP↔MCP query drift via a shared handlers.ts; fix graph-lite docs ([becfeee](https://github.com/Pratiyush/revitify/commit/becfeee2e473d795c86c9c3c00e8b085ec44af99))
+
+
+### Performance Improvements
+
+* **query:** precompute GraphIndex.adj once; head-cursor Brandes + size guard ([ef24cd3](https://github.com/Pratiyush/revitify/commit/ef24cd34488d3d46f402bbbf724e9517936824dc))
+
 ## [Unreleased]
 
 ### Added
