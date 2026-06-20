@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [20, 22]
+        # pnpm 11 (needed for pnpm-workspace.yaml `allowBuilds:`) requires Node >= 22.13.
+        node: [22]
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
