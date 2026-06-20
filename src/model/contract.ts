@@ -2,7 +2,7 @@ import { Confidence } from "./confidence.js";
 import type { RevitifyGraph } from "./graph.js";
 
 /**
- * The output contract, runtime-checkable. These are the exact fields Rivet's loadCodeGraph reads
+ * The output contract, runtime-checkable. These are the exact fields dev-spec-kit's loadCodeGraph reads
  * (llm-dev-kit src/engine/graphify/index.ts) — renaming or removing any of them breaks the
  * consumer. Additive fields are fine. This validator backs the contract test today and the
  * `validate` CLI verb later (Phase 7).

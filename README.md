@@ -11,7 +11,7 @@ revitify-out/
 ```
 
 `revitify-out/` is the default so a Python-graphify run (`graphify-out/`) can sit alongside it for
-direct comparison (see `PARITY.md` + `FEATURE-COVERAGE.md`). Rivet passes `outDir: "graphify-out"`
+direct comparison (see `PARITY.md` + `FEATURE-COVERAGE.md`). dev-spec-kit passes `outDir: "graphify-out"`
 explicitly — both call shapes are contract-tested.
 
 ## What ships (verified, per-feature tests; honesty map in FEATURE-COVERAGE.md)
@@ -39,7 +39,7 @@ explicitly — both call shapes are contract-tested.
 
 ```ts
 import { revitify, buildGraphAsync } from "revitify";
-revitify(process.cwd());                  // sync classic — what Rivet calls (frozen forever)
+revitify(process.cwd());                  // sync classic — what dev-spec-kit calls (frozen forever)
 await buildGraphAsync(process.cwd());     // full engine: tree-sitter, cache, workers
 ```
 
@@ -51,6 +51,6 @@ revitify query auth    # then: explain · path · affected · communities · exp
 - Zero Python; core runtime dep is `typescript` only — heavy pieces load lazily and
   `import { revitify }` provably never touches them (child-process hook test).
 - Quality gates: Biome, knip, dependency-cruiser **enforced layer matrix**, strict tsc, coverage
-  ratchet, 105 tests incl. byte-stability and contract pins. Consumed by Rivet as the default
+  ratchet, 105 tests incl. byte-stability and contract pins. Consumed by dev-spec-kit as the default
   `graphify.provider`.
 - Concepts adapted from graphify (MIT, YC S26); original implementation. Upstream pin: `.track`.

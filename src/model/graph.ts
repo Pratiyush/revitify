@@ -1,7 +1,7 @@
 import type { Confidence } from "./confidence.js";
 
 /**
- * Revitify's graph shape IS graphify's output contract (the shape Rivet's loadCodeGraph was
+ * Revitify's graph shape IS graphify's output contract (the shape dev-spec-kit's loadCodeGraph was
  * verified against): nodes carry id/name/label/source_file/source_location/community; links carry
  * source/target/relation; built_at_commit stamps freshness. Changing this shape breaks every
  * downstream consumer — don't.

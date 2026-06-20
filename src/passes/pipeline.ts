@@ -10,7 +10,7 @@ import { finalizeGraph } from "./finalize.js";
  *   1. extract — walk files, first matching offline ingestor contributes a fragment
  *   2. infer   — resolve name: references, drop dangling links  ┐ shared finalizeGraph
  *   3. cluster — assign communities                             ┘ (identical to the async path)
- * Uses ingestSync only — today's zero-heavy-dep capability, frozen for Rivet. buildGraphAsync
+ * Uses ingestSync only — today's zero-heavy-dep capability, frozen for dev-spec-kit. buildGraphAsync
  * adds lazy/parallel/cached extraction over the same fragments → finalizeGraph shape.
  */
 export function buildGraphFromRoot(rootDir: string): RevitifyGraph {

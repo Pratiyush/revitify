@@ -13,12 +13,12 @@ export type { RevitifyGraph, RevitifyLink, RevitifyNode } from "./model/graph.js
 export type { BuildOptions } from "./passes/pipeline-async.js";
 
 /**
- * Revitify — Rivet's native TypeScript counterpart to graphify (concepts adapted from
+ * Revitify — dev-spec-kit's native TypeScript counterpart to graphify (concepts adapted from
  * github.com/safishamsi/graphify, MIT; original implementation). Turns a folder of code + docs
  * into a queryable knowledge graph with graphify's exact output contract:
  *   revitify-out/graph.json · graph.html · GRAPH_REPORT.md
  * Default outDir is revitify-out/ so a Python-graphify run (graphify-out/) can sit alongside for
- * comparison; Rivet passes outDir="graphify-out" explicitly — that call shape stays supported.
+ * comparison; dev-spec-kit passes outDir="graphify-out" explicitly — that call shape stays supported.
  *
  * This file is the frozen facade: `buildGraph` and `revitify` keep their signatures forever.
  * The engine lives in the layers (model → extract → ingest → passes → enrich → export), each

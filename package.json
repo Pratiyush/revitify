@@ -1,7 +1,7 @@
 {
   "name": "revitify",
   "version": "0.1.0",
-  "description": "Revitify — Rivet's native TypeScript code-knowledge-graph engine. Same output contract as graphify (graph.json · graph.html · GRAPH_REPORT.md), zero Python required. Concepts adapted from graphify (MIT, github.com/safishamsi/graphify); original implementation.",
+  "description": "Revitify — dev-spec-kit's native TypeScript code-knowledge-graph engine. Same output contract as graphify (graph.json · graph.html · GRAPH_REPORT.md), zero Python required. Concepts adapted from graphify (MIT, github.com/safishamsi/graphify); original implementation.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./src/index.ts",

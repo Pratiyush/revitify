@@ -9,7 +9,7 @@ import type { Exporter } from "./exporter.js";
  * Cytoscape + fcose, legend-as-filter, four views, focus mode, movement physics, themes,
  * URL-hash state, PNG/JSON export. The committed template is byte-identical to the design
  * handoff; at render time its four CDN <script> tags are replaced with the same libraries
- * INLINED (offline invariant — Rivet embeds this file in an iframe with no network), and the
+ * INLINED (offline invariant — dev-spec-kit embeds this file in an iframe with no network), and the
  * single DATA INJECTION line receives the graph.
  */
 
