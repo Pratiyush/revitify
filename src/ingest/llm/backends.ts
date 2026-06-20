@@ -93,6 +93,11 @@ function openai(env: NodeJS.ProcessEnv): LlmBackend {
 
 function ollama(env: NodeJS.ProcessEnv): LlmBackend {
   const host = env.OLLAMA_HOST ?? "http://127.0.0.1:11434";
+  // OLLAMA_HOST is operator-set; require an http(s) URL so a stray value can't redirect the POST to an
+  // arbitrary scheme/host (SSRF-shaped). Fail loud rather than fetch something unexpected.
+  if (!/^https?:\/\//i.test(host)) {
+    throw new Error(`OLLAMA_HOST must be an http(s) URL — got '${host}'`);
+  }
   return {
     id: "ollama",
     complete: (prompt) =>

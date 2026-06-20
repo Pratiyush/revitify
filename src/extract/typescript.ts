@@ -36,11 +36,22 @@ export const typescriptExtractor: Extractor = {
     // passes/resolve; unresolvable callees (built-ins, externals) drop out there.
     const collectCalls = (root: ts.Node, fromId: string) => {
       const callees = new Set<string>();
+      const calleeName = (expr: ts.Expression): string | undefined => {
+        if (ts.isIdentifier(expr)) return expr.text;
+        if (ts.isPropertyAccessExpression(expr)) return expr.name.text;
+        // obj["method"]() — element access keyed by a string literal
+        if (ts.isElementAccessExpression(expr) && ts.isStringLiteral(expr.argumentExpression))
+          return expr.argumentExpression.text;
+        return undefined;
+      };
       const walk = (node: ts.Node): void => {
-        if (ts.isCallExpression(node) || ts.isNewExpression(node)) {
-          const expr = node.expression;
-          if (ts.isIdentifier(expr)) callees.add(expr.text);
-          else if (ts.isPropertyAccessExpression(expr)) callees.add(expr.name.text);
+        // A call/new is `expr(...)`; a tagged template `tag`...`` counts as a call on its tag.
+        let calleeExpr: ts.Expression | undefined;
+        if (ts.isCallExpression(node) || ts.isNewExpression(node)) calleeExpr = node.expression;
+        else if (ts.isTaggedTemplateExpression(node)) calleeExpr = node.tag;
+        if (calleeExpr) {
+          const callee = calleeName(calleeExpr);
+          if (callee) callees.add(callee);
         }
         ts.forEachChild(node, walk);
       };

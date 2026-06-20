@@ -124,6 +124,10 @@ describe("mcp server (in-memory transport)", async () => {
       await client.callTool({ name: "get_neighbors", arguments: { id: "sym:src/core.ts#engine" } }),
     );
     expect(neighbors.length).toBeGreaterThan(0);
+    const noNeighbors = unwrap(
+      await client.callTool({ name: "get_neighbors", arguments: { id: "nope" } }),
+    );
+    expect(noNeighbors).toEqual([]); // unknown id → empty list, not an error
     const community = unwrap(
       await client.callTool({ name: "get_community", arguments: { community: node.community } }),
     );

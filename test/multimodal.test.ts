@@ -40,6 +40,10 @@ describe("backend autodetection (llm.py order)", () => {
     expect(detectBackend({ OLLAMA_HOST: "http://x" })?.id).toBe("ollama");
     expect(detectBackend({})).toBeUndefined();
   });
+
+  it("rejects an OLLAMA_HOST that isn't an http(s) URL (SSRF-shaped guard)", () => {
+    expect(() => detectBackend({ OLLAMA_HOST: "ftp://evil/x" })).toThrow(/http\(s\) URL/);
+  });
 });
 
 describe("concept parsing", () => {

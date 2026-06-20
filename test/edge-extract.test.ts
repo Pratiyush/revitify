@@ -30,7 +30,7 @@ describe("extract/typescript (direct, sync compiler path)", () => {
       "export abstract class A { abstract run(): void; }", // method without a body
       "export const { a, b } = obj;", // binding pattern → not captured
       "export const plain = 1;", // non-function initializer
-      "export const fn = () => { a.b.c(); o['x'](); };", // arrow → collectCalls; property + element access
+      "export const fn = () => { a.b.c(); o['x'](); gql`q`; arr[i](); };", // property + element-access(string) + tagged-template; arr[i]() = dynamic, unnamed
     ].join("\n");
     const frag = typescriptExtractor.extract(src("a.ts", code), ctx());
     const ids = new Set(frag.nodes.map((n) => n.id));
@@ -42,7 +42,9 @@ describe("extract/typescript (direct, sync compiler path)", () => {
     const callTargets = frag.links
       .filter((l) => l.relation === "calls")
       .map((l) => String(l.target));
-    expect(callTargets).toContain("name:c"); // property-access callee captured; element-access not
+    expect(callTargets).toContain("name:c"); // property-access callee
+    expect(callTargets).toContain("name:x"); // element-access callee — o['x']()
+    expect(callTargets).toContain("name:gql"); // tagged-template callee — gql`q`
   });
 
   it("resolves a relative import from a root-level file (no '/' in the path)", () => {
