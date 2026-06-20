@@ -29,7 +29,10 @@ pnpm run docs:build     # build the VitePress site (fails on dead links)
 - **Offline by default.** A code-only build needs no network and no API keys; heavy pieces
   (tree-sitter grammars, MCP SDK, LLM backends) load lazily. `import { revitify }` must never pull
   them in.
-- **`main` is protected** — branch, open a PR, let CI (`pnpm check`) go green, then **squash-merge**.
+- **Issue-first + protected `main`** — open a GitHub issue before working (reference it with
+  `Closes #NN`), branch, open a PR, let CI (`pnpm check`) go green, then **squash-merge**. Use
+  **Conventional Commit** titles: the `release` workflow tags + releases on push to `main` from them
+  (`feat:` minor, `fix:` patch, `feat!:` major). Never hand-create tags.
 
 ## Provenance
 
