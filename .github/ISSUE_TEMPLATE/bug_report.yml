@@ -1,0 +1,37 @@
+name: Bug report
+description: Something in revitify didn't work as expected
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for the report. Please run `revitify diagnose` and paste the output — it captures the grammars, cache, and environment that explain most issues.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+      placeholder: "`revitify build .` produced 0 nodes for my Go files…"
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: The exact commands, in order. A small sample repo or file helps a lot.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: diagnose
+    attributes:
+      label: "`revitify diagnose` output"
+      render: shell
+    validations:
+      required: false
+  - type: input
+    id: env
+    attributes:
+      label: Node version, OS, and revitify version
+      placeholder: "Node 22.4 · macOS 14 · revitify 0.1.0"
+    validations:
+      required: false
