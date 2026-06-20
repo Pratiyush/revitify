@@ -50,9 +50,24 @@ are in [`website/contributing.md`](website/contributing.md) and the
 
 ## Pull requests
 
+- **Open an issue first.** Describe the change in a GitHub issue before you start; reference it from
+  the PR (`Closes #NN`). This keeps work traceable.
 - Branch from `main` (protected — PR + green CI required). Keep PRs scoped. Fill in the template.
 - CI must be green; we **squash-merge** to keep history linear.
 - New behavior needs a test that asserts behavior (rule → test → proof), not just executes lines.
+- **Conventional Commit titles are required** — they drive the automated release (see below).
+
+## Releases
+
+Releases are automated. On every push to `main`, the `release` workflow computes the next version
+from [Conventional Commits](https://www.conventionalcommits.org/) and creates a git tag + GitHub
+Release:
+
+- `feat:` → **minor** · `fix:` → **patch** · `feat!:` / `BREAKING CHANGE:` → **major**
+- `chore:` / `docs:` / `refactor:` / `test:` / `ci:` alone → **no release**
+
+Don't create tags by hand — the workflow owns versioning. Because the squash-merge title becomes the
+commit on `main`, **the PR title is what the release reads**, so make it a clean Conventional Commit.
 
 For security issues see [SECURITY.md](SECURITY.md) — do not open a public issue. By contributing you
 agree your contributions are licensed under the [MIT License](LICENSE).
