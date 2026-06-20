@@ -31,8 +31,9 @@ pnpm run docs:build     # build the VitePress site (fails on dead links)
   them in.
 - **Issue-first + protected `main`** — open a GitHub issue before working (reference it with
   `Closes #NN`), branch, open a PR, let CI (`pnpm check`) go green, then **squash-merge**. Use
-  **Conventional Commit** titles: the `release` workflow tags + releases on push to `main` from them
-  (`feat:` minor, `fix:` patch, `feat!:` major). Never hand-create tags.
+  **Conventional Commit** titles: **release-please** maintains a release PR from them (`feat:` minor,
+  `fix:` patch, `feat!:` major) that bumps package.json + CHANGELOG and, on merge, tags + releases.
+  Never hand-bump versions or create tags.
 
 ## Provenance
 
