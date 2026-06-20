@@ -24,6 +24,7 @@ export default defineConfig({
       { text: "Guide", link: "/guide/getting-started", activeMatch: "/guide/" },
       { text: "Concepts", link: "/guide/concepts" },
       { text: "Languages", link: "/guide/languages" },
+      { text: "Library", link: "/guide/library" },
       { text: "Design", link: "/guide/architecture" },
       { text: "Contribute", link: "/contributing" },
     ],
@@ -44,11 +45,18 @@ export default defineConfig({
             { text: "Architecture & design", link: "/guide/architecture" },
           ],
         },
+        {
+          text: "Build with it",
+          items: [
+            { text: "Use as a library", link: "/guide/library" },
+            { text: "Troubleshooting", link: "/guide/troubleshooting" },
+          ],
+        },
       ],
     },
     search: { provider: "local" },
     outline: "deep",
-    socialLinks: [{ icon: "github", link: "https://github.com/pratiyushkumar/revitify" }],
+    socialLinks: [{ icon: "github", link: "https://github.com/Pratiyush/revitify" }],
     footer: {
       message:
         "MIT-licensed. Concepts adapted from graphify (MIT); original TypeScript implementation.",
