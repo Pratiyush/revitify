@@ -134,12 +134,14 @@ for (const node of graph.nodes) {
 ```
 
 `import { revitify }` never pulls in tree-sitter, the MCP SDK, or any LLM backend — those load only
-when you reach for them. See [Architecture](./architecture) for why that matters and how it's
-enforced.
+when you reach for them. The full API — every entry point, the graph types, the contract, and how to
+walk the graph — is in [Use as a library](./library).
 
 ## Next
 
+- [Use as a library](./library) — the full programmatic API and the graph types.
 - [How nodes work](./concepts) — the node/link/confidence model in full.
 - [Languages](./languages) — Java and the other eleven, what each extracts.
 - [CLI & queries](./cli) — every verb and flag.
 - [Architecture](./architecture) — the design under the hood.
+- [Troubleshooting](./troubleshooting) — missing symbols, grammar fallback, the cache.
