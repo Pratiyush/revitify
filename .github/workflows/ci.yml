@@ -13,7 +13,7 @@ jobs:
         # pnpm 11 (needed for pnpm-workspace.yaml `allowBuilds:`) requires Node >= 22.13.
         node: [22]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v4
         with:
           # Match the pnpm that the repo's pnpm-workspace.yaml (`allowBuilds:`) needs — a v11 feature.
