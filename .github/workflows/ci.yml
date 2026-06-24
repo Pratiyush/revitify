@@ -18,7 +18,7 @@ jobs:
         with:
           # Match the pnpm that the repo's pnpm-workspace.yaml (`allowBuilds:`) needs — a v11 feature.
           version: 11
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
           cache: pnpm
